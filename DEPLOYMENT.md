@@ -138,10 +138,12 @@ record stay on the dashboard). A repeat sign-up from the same address is stored
 but not emailed again.
 
 1. **Verify the domain.** Resend → **Domains → Add domain** → `solddirect.co.za`,
-   region **Ireland (eu-west-1)** (closest to Cape Town). Resend lists a few DNS
-   records — a DKIM `TXT` on `resend._domainkey`, and an `MX` + SPF `TXT` on the
-   `send` subdomain. Add them exactly as shown at whoever hosts the
-   `solddirect.co.za` DNS, then click **Verify**. They sit on subdomains, so
+   region **Ireland (eu-west-1)** (closest to Cape Town). Resend lists the DNS
+   records to add — at the time of writing a DKIM `TXT` on `resend._domainkey`,
+   an `MX` and an SPF `TXT` on `send`, and a `CNAME` on `rsend`. Add every one
+   exactly as shown where the `solddirect.co.za` DNS is hosted (**Cloudflare**),
+   then click **Verify**. On Cloudflare set the `CNAME` to **DNS only** (grey
+   cloud) — a proxied record fails verification. They all sit on subdomains, so
    they do not touch the existing mailboxes (e.g. `johannes@solddirect.co.za`).
 2. **Create an API key.** Resend → **API Keys → Create** → permission
    **Sending access**, restricted to `solddirect.co.za`. Copy it once — it is
