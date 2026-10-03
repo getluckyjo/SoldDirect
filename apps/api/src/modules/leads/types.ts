@@ -26,3 +26,26 @@ export interface LeadInput {
    */
   consentFormVersion?: string;
 }
+
+/** A stored lead as the internal dashboard sees it (no consent wording). */
+export interface LeadRow {
+  id: string;
+  kind: LeadKind;
+  name: string | null;
+  email: string;
+  phone: string | null;
+  role: LeadRole | null;
+  source: string | null;
+  consentAt: Date;
+  whatsappConsentAt: Date | null;
+  createdAt: Date;
+}
+
+export interface CreatedLead {
+  id: string;
+  /**
+   * This address was already on the list for this kind (case-insensitive).
+   * A repeat sign-up is still stored, but gets no second round of emails.
+   */
+  duplicate: boolean;
+}

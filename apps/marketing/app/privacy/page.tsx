@@ -69,10 +69,10 @@ export default function Privacy() {
           <p className="mt-2 text-sm">
             Your details are stored securely on our systems and are accessible
             only to the Sold Direct team. They are not shared with third parties
-            except service providers who host our infrastructure, under
-            appropriate safeguards. When you later transact through Sold Direct,
-            any sharing with partners (such as a bond originator or conveyancer)
-            happens only after separate, explicit consent.
+            except service providers who host our infrastructure or deliver our
+            email, under appropriate safeguards. When you later transact through
+            Sold Direct, any sharing with partners (such as a bond originator or
+            conveyancer) happens only after separate, explicit consent.
           </p>
         </section>
 

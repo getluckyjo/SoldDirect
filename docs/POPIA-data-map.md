@@ -63,6 +63,31 @@ file in the same PR whenever a personal field is added, removed, or repurposed.
 - **Logging:** the Prisma client logs only `warn`/`error` (never queries) outside
   development; sensitive values are never logged regardless.
 
+## Waitlist emails (Resend)
+
+- **What is sent:** on a *new* waitlist sign-up (first time we see that address,
+  case-insensitive) — a confirmation to the person, and an alert to the team
+  inboxes in `WAITLIST_NOTIFY_TO`.
+- **Lawful basis:** the processing consent on the form ("I agree to be contacted
+  about Sold Direct…"). The confirmation is the first contact it permits.
+- **Minimised:** the confirmation uses the name only to greet. The team alert
+  carries name, email, role, WhatsApp opt-in yes/no and source — enough to reply.
+  The **phone number and consent record are deliberately left out**; they stay
+  on the token-guarded dashboard.
+- **Opt-out (POPIA s69):** every confirmation says how to stop ("reply
+  unsubscribe") and carries a `List-Unsubscribe` header pointing at
+  `EMAIL_REPLY_TO`. Unsubscribes are handled by hand: delete the lead's rows.
+- **Processor:** **Resend** (resend.com) delivers the mail — a US company,
+  sending from its EU (Ireland) region, so this is a **cross-border transfer**
+  (POPIA s72). Sign Resend's DPA before real sign-ups are emailed. The privacy
+  notice names "service providers who … deliver our email".
+- **Not logged:** send failures log the lead id only; the Resend adapter keeps
+  only the HTTP status and error name, because Resend's error messages can echo
+  the recipient.
+- **Abuse brake:** `/api/leads` is public, so emails are capped per hour
+  (`DEFAULT_HOURLY_CAP` in `leads/emails.ts`) and never repeated for an address
+  — the form cannot be used to flood someone's inbox. Leads are stored either way.
+
 ## Listing street address (`listings.address`)
 
 - **What:** the property's street address, given optionally by the seller at
@@ -81,8 +106,8 @@ file in the same PR whenever a personal field is added, removed, or repurposed.
 
 - Appoint an **Information Officer** and register as required (Phase 0, business).
 - **Data-processing agreements** with each processor before sharing any personal
-  data — including **Supabase** (managed Postgres + Auth + Storage), plus each
-  BSP / originator / conveyancer.
+  data — including **Supabase** (managed Postgres + Auth + Storage), **Resend**
+  (waitlist emails), plus each BSP / originator / conveyancer.
 - **Encrypt sensitive fields at rest** (`FIELD_ENCRYPTION_KEY`) when ID numbers,
   payslips and bank details are introduced (PR 5).
 - Consent capture UX + retention/erasure policy.

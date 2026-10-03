@@ -1,9 +1,11 @@
 import type { PrismaClient } from '@prisma/client';
 import { consentWording } from '@sell-direct/shared';
-import type { LeadInput } from './types';
+import type { CreatedLead, LeadInput, LeadKind, LeadRow } from './types';
 
 export interface LeadRepository {
-  create(input: LeadInput): Promise<{ id: string }>;
+  create(input: LeadInput): Promise<CreatedLead>;
+  /** Newest first. Omit `kind` for every lead. */
+  list(kind?: LeadKind): Promise<LeadRow[]>;
 }
 
 export function createPrismaLeadRepository(
@@ -11,7 +13,13 @@ export function createPrismaLeadRepository(
 ): LeadRepository {
   return {
     async create(input) {
-      return prisma.lead.create({
+      const previous = await prisma.lead.count({
+        where: {
+          kind: input.kind,
+          email: { equals: input.email, mode: 'insensitive' },
+        },
+      });
+      const lead = await prisma.lead.create({
         data: {
           kind: input.kind,
           email: input.email,
@@ -31,6 +39,26 @@ export function createPrismaLeadRepository(
           consentWording: renderProof(input),
         },
         select: { id: true },
+      });
+      return { id: lead.id, duplicate: previous > 0 };
+    },
+
+    async list(kind) {
+      return prisma.lead.findMany({
+        where: kind ? { kind } : undefined,
+        orderBy: { createdAt: 'desc' },
+        select: {
+          id: true,
+          kind: true,
+          name: true,
+          email: true,
+          phone: true,
+          role: true,
+          source: true,
+          consentAt: true,
+          whatsappConsentAt: true,
+          createdAt: true,
+        },
       });
     },
   };

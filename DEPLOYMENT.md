@@ -129,14 +129,46 @@ later.
 > the required Twilio adapter) and the end-to-end journeys. Twilio uses a different
 > payload and signature (`X-Twilio-Signature`), so it needs its own adapter.
 
-## 5. Smoke test
+## 5. Waitlist emails — Resend
 
-- API: `GET /health` is OK.
-- Marketing: open the site, submit the waitlist → a row appears in Supabase
-  `leads` (kind `waitlist`).
+Every waitlist sign-up is stored whether or not this is set up. Once it is, a
+new sign-up also gets a **confirmation email**, and the team gets an **alert**
+with their name, email and what they want to do (the phone number and consent
+record stay on the dashboard). A repeat sign-up from the same address is stored
+but not emailed again.
+
+1. **Verify the domain.** Resend → **Domains → Add domain** → `solddirect.co.za`,
+   region **Ireland (eu-west-1)** (closest to Cape Town). Resend lists a few DNS
+   records — a DKIM `TXT` on `resend._domainkey`, and an `MX` + SPF `TXT` on the
+   `send` subdomain. Add them exactly as shown at whoever hosts the
+   `solddirect.co.za` DNS, then click **Verify**. They sit on subdomains, so
+   they do not touch the existing mailboxes (e.g. `johannes@solddirect.co.za`).
+2. **Create an API key.** Resend → **API Keys → Create** → permission
+   **Sending access**, restricted to `solddirect.co.za`. Copy it once — it is
+   shown only once and must never go in the repo.
+3. **Set the API's variables** (Railway → API service → Variables):
+   - `RESEND_API_KEY` — the key from step 2
+   - `EMAIL_FROM` — `Sold Direct <hello@solddirect.co.za>` (any address on the
+     verified domain; it does not need a mailbox)
+   - `EMAIL_REPLY_TO` — a **monitored** inbox, e.g. `johannes@solddirect.co.za`.
+     Replies and "unsubscribe" requests to the confirmation land here — act on
+     an unsubscribe by deleting that person's row (POPIA).
+   - `WAITLIST_NOTIFY_TO` — who gets the alert, comma-separated
+   - `DASHBOARD_URL` — the dashboard's URL, so the alert links to its Waitlist page
+4. Redeploy, then open `https://<your-api>/health` → `features.waitlistEmails`
+   should be `true`.
+
+Sign-ups are on the dashboard's **Waitlist** page (`/waitlist`), newest first.
+
+## 6. Smoke test
+
+- API: `GET /health` is OK (and `features.waitlistEmails` is `true` once §5 is done).
+- Marketing: open the site, submit the waitlist → a row appears on the
+  dashboard's **Waitlist** page, the address you used gets the confirmation,
+  and `WAITLIST_NOTIFY_TO` gets the alert.
 - Fundraising: submit the data-room request → `leads` (kind `investor`).
-- Dashboard: open it (enter the basic-auth user/password) → Listings and Deals
-  load.
+- Dashboard: open it (enter the basic-auth user/password) → Listings, Deals
+  and Waitlist load.
 
 ## Security checklist
 
@@ -144,5 +176,5 @@ later.
 - Test/sandbox keys only until you're truly in production.
 - `INTERNAL_API_TOKEN` set, so the dashboard API isn't world-readable.
 - `DASHBOARD_BASIC_AUTH` set, so the dashboard is gated.
-- Sign a **DPA** with Supabase (and any BSP / originator) before real personal
-  data flows. See `SECURITY.md` and `docs/POPIA-data-map.md`.
+- Sign a **DPA** with Supabase and Resend (and any BSP / originator) before
+  real personal data flows. See `SECURITY.md` and `docs/POPIA-data-map.md`.
