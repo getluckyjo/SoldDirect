@@ -49,9 +49,7 @@ export function InvestorForm() {
   if (status === 'success') {
     return (
       <div className="rounded-2xl border border-brand-500/30 bg-brand-500/10 p-6 text-center">
-        <p className="text-lg font-semibold text-brand-300">
-          Request received
-        </p>
+        <p className="text-lg font-semibold text-brand-300">Request received</p>
         <p className="mt-1 text-sm text-brand-200/80">
           Thank you. We&apos;ll review and follow up with data-room access under
           NDA.
