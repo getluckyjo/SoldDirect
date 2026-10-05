@@ -89,7 +89,7 @@ See `.env.example` for the full list. Never commit `.env`. Use sandbox/test keys
 **Live:**
 - Marketing site → https://sell-direct-marketing.vercel.app (Vercel, auto-deploys from `main`)
 - API → https://sell-direct-production.up.railway.app (Railway + Postgres; `/health` green)
-- The waitlist works end-to-end: marketing form → API `/api/leads` → Postgres `Lead` table.
+- The waitlist works end-to-end: marketing form → API `/api/leads` → Postgres `Lead` table → dashboard **Waitlist** page. With Resend configured (`DEPLOYMENT.md` §5), each new sign-up also gets a confirmation email and the team an alert.
 
 Remaining: deploy the investor **fundraising** site + internal **dashboard** to Vercel (same `API_INTERNAL_URL` wiring); then WhatsApp/BSP go-live — see `docs/DEPLOYMENT.md`.
 

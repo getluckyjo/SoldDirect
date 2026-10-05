@@ -29,6 +29,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Link href="/deals" className="hover:text-white">
                 Deals
               </Link>
+              <Link href="/waitlist" className="hover:text-white">
+                Waitlist
+              </Link>
             </nav>
           </div>
         </header>

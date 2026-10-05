@@ -20,10 +20,17 @@ import {
   createPrismaPrequalStore,
 } from './modules/conversation';
 import {
+  createLeadEmails,
   createPrismaLeadRepository,
   registerLeadRoutes,
   type LeadRepository,
 } from './modules/leads';
+import {
+  addressList,
+  createEmailSender,
+  emailConfigured,
+  type EmailSender,
+} from './modules/email';
 import {
   createAnthropicIntakeExtractor,
   createNoopExtractor,
@@ -91,6 +98,8 @@ export type ServerDeps = MessagingRouteDeps & {
   storage?: StorageProvider;
   /** Test seam: inject a fake valuation adapter. */
   valuation?: ValuationAdapter;
+  /** Test seam: inject a fake email sender (null = email off). */
+  emailSender?: EmailSender | null;
   internalToken?: string;
 };
 
@@ -168,6 +177,9 @@ export function buildServer(deps?: Partial<ServerDeps>) {
         fieldExtraction:
           !!process.env.ANTHROPIC_API_KEY &&
           process.env.INTAKE_EXTRACTION !== 'false',
+        // Waitlist confirmation + team alert (Resend). Off until the key and
+        // a from-address on a verified domain are both set.
+        waitlistEmails: emailConfigured(),
       },
     };
   });
@@ -323,13 +335,32 @@ export function buildServer(deps?: Partial<ServerDeps>) {
 
   registerWhatsappWebhook(app, { adapter, repository, dispatcher });
 
+  const internalToken = deps?.internalToken ?? process.env.INTERNAL_API_TOKEN;
+
+  // Waitlist sign-ups: stored always; emailed (confirmation to the person,
+  // alert to WAITLIST_NOTIFY_TO) only once Resend is configured.
   const leadRepository =
     deps?.leadRepository ?? createPrismaLeadRepository(prisma);
-  registerLeadRoutes(app, { repository: leadRepository });
+  const emailSender =
+    deps?.emailSender !== undefined ? deps.emailSender : createEmailSender();
+  const leadEmails = emailSender
+    ? createLeadEmails({
+        sender: emailSender,
+        notifyTo: addressList(process.env.WAITLIST_NOTIFY_TO),
+        replyTo: process.env.EMAIL_REPLY_TO || undefined,
+        dashboardUrl: process.env.DASHBOARD_URL || undefined,
+        log: (msg, err) => app.log.error({ err }, msg),
+      })
+    : undefined;
+  registerLeadRoutes(app, {
+    repository: leadRepository,
+    internalToken,
+    onCreated: leadEmails?.onLeadCreated,
+    log: (msg, err) => app.log.error({ err }, msg),
+  });
 
   const listings = listingRepository;
   const deals = deps?.dealRepository ?? createPrismaDealRepository(prisma);
-  const internalToken = deps?.internalToken ?? process.env.INTERNAL_API_TOKEN;
   registerDashboardRoutes(app, { listings, deals, internalToken });
 
   // Shadow-mode review queue: list pending AI drafts, approve (sends) or

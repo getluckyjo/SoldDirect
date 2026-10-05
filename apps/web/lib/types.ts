@@ -52,3 +52,17 @@ export interface DealDetail {
   buyer: { phone: string; name: string | null; bondPrequalified: boolean };
   events: DealEventRow[];
 }
+
+export interface LeadRow {
+  id: string;
+  kind: 'waitlist' | 'investor';
+  name: string | null;
+  email: string;
+  phone: string | null;
+  role: 'seller' | 'buyer' | 'investor' | 'other' | null;
+  source: string | null;
+  consentAt: string;
+  /** Null = no WhatsApp opt-in: never business-initiate a WhatsApp message. */
+  whatsappConsentAt: string | null;
+  createdAt: string;
+}

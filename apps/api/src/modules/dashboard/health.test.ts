@@ -15,6 +15,8 @@ const AI_ENV = [
   'RENDER_GIT_COMMIT',
   'VERCEL_GIT_COMMIT_SHA',
   'GIT_COMMIT_SHA',
+  'RESEND_API_KEY',
+  'EMAIL_FROM',
 ] as const;
 
 afterEach(() => {
@@ -53,6 +55,7 @@ describe('GET /health', () => {
       concierge: false,
       descriptionWriter: false,
       fieldExtraction: false,
+      waitlistEmails: false,
     });
   });
 
@@ -62,6 +65,7 @@ describe('GET /health', () => {
       concierge: false, // still needs AGENT_ENABLED
       descriptionWriter: true,
       fieldExtraction: true,
+      waitlistEmails: false,
     });
   });
 
@@ -78,6 +82,14 @@ describe('GET /health', () => {
     const { features } = await health();
     expect(features.descriptionWriter).toBe(false);
     expect(features.fieldExtraction).toBe(false);
+  });
+
+  it('reports waitlist emails on only with both the Resend key and a from-address', async () => {
+    process.env.RESEND_API_KEY = 're_test';
+    expect((await health()).features.waitlistEmails).toBe(false);
+    process.env.EMAIL_FROM = 'Sold Direct <hello@solddirect.co.za>';
+    expect((await health()).features.waitlistEmails).toBe(true);
+    expect(JSON.stringify(await health())).not.toContain('re_test');
   });
 
   it('never leaks the API key itself', async () => {
