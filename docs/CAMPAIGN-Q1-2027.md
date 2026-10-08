@@ -1,6 +1,6 @@
 # Property24 launch campaign — Q1 2027
 
-_R500,000 media over January to March 2027, on Property24 and around it. Media only: creative, PR, other creators' fees and the R7.50-a-report LOOM cost sit outside; Ask Ash's fee sits inside her R100,000 line. Prepared 08/10/2026 from the Property24 2026 rate card, `docs/LAUNCH-PLAN.md`, `docs/dataroom/00-assumptions.md` §D and the financial model. Branded page: https://claude.ai/artifact/Fc1j6U7F1BVs9zXt5Jbhic_
+_R500,000 launch budget over January to March 2027, on Property24 and around it. Media only: creative, PR, other creators' fees and the R7.50-a-report LOOM cost sit outside; Ask Ash's fee sits inside her R100,000 line. Prepared 08/10/2026 from the Property24 2026 rate card, `docs/LAUNCH-PLAN.md`, `docs/dataroom/00-assumptions.md` §D and the financial model. Branded page: https://claude.ai/artifact/Fc1j6U7F1BVs9zXt5Jbhic_
 
 ---
 
@@ -58,26 +58,25 @@ Estimates, with the benchmarks stated: about R85 per WhatsApp conversation start
 | Property Reports delivered | ~600 |
 | Listings taken on | ~30 (the founding twenty plus ten) |
 | Buyer enquiries a month by March | 150+ |
-| Media cost per Property Report | ~R800 |
-| Media cost per listing | ~R16,000 |
+| Ask Ash's audience reached on top, nationally | 100,000+ |
+| Share of voice in prime Cape Town, on the portal and off it | 12 weeks |
 
-**Return on the thirty.** At the model's year-one revenue per registered deal of R55,700:
+**What the launch returns.** What the thirty listings taken on in the launch quarter are worth against the R500,000 launch budget, at the model's year-one revenue per registered deal of R55,700. The budget also buys what no later quarter has to pay for again: the brand's first twelve weeks in the market and the audience every later quarter sells into.
 
 | | All thirty sell | 70% sell-through |
 |---|---:|---:|
 | Registered sales | 30 | 21 |
 | Revenue at R55,700 per deal | R1,671,000 | R1,169,700 |
-| Media spend | R500,000 | R500,000 |
-| Net after media | R1,171,000 | R669,700 |
-| Revenue per rand of media | R3.34 | R2.34 |
-| Media per registered sale | R16,700 | R23,800 |
+| Launch budget | R500,000 | R500,000 |
+| Net after the launch budget | R1,171,000 | R669,700 |
+| Revenue per rand of launch budget | R3.34 | R2.34 |
 | Same thirty at year-two economics, R70,550 per deal | R2,116,500 (4.2×) | R1,481,550 (3.0×) |
 
-Media only, as the budget is. Creative, Ask Ash's fee (inside her line), the LOOM reports (about R4,500 for 600) and practitioner time sit outside. Revenue lands at registration, about four months after the offer, so the first quarter's listings pay back through the second and third quarters. Bank sponsorship and panel advertising are not attributed to the campaign.
+The launch budget is media only. Creative, Ask Ash's fee (inside her line), the LOOM reports (about R4,500 for 600) and practitioner time sit outside. Revenue lands at registration, about four months after the offer, so the first quarter's listings pay back through the second and third quarters. Bank sponsorship and panel advertising are not attributed to the campaign.
 
-The cost per listing is far above the launch plan's organic target of under R3,000. That is the price of a brand launch, and it still sits inside the model's revenue per deal (R55,700 in year one, R70,550 from year two).
+This is a launch, not a lead-buying exercise, so it is judged on the quarter's return above and on what it leaves behind: the founding listings live and selling, the four pockets knowing the name, the first "sold direct" stories, and a report-to-listing funnel with real conversion numbers for the year ahead. The launch plan's organic cost targets apply from the second quarter, once the brand is doing some of the work.
 
-**Month-one gate (end of January).** If the media cost per Property Report is above R1,200, or fewer than 40% of started conversations complete the Quick Estimate, move the reserve and a fifth of the weakest line to the strongest. If banner slots in the pockets are unavailable or quoted above R60,000 a month, the on-platform envelope moves to Meta and Google.
+**Month-one gate (end of January).** If a Property Report is taking more than R1,200 of media to produce, or fewer than 40% of started conversations complete the Quick Estimate, move the reserve and a fifth of the weakest line to the strongest. If banner slots in the pockets are unavailable or quoted above R60,000 a month, the on-platform envelope moves to Meta and Google.
 
 ## 5. Must be true by 1 January
 
