@@ -12,10 +12,9 @@ So the flows they draw over the next two weeks are built from **today's conversa
 
 1. The product in section 2 understood and accepted as the scope, including the parts the brief does not yet cover.
 2. One agreed end-to-end journey, step by step, with the inputs, outputs and rules for each step (section 4).
-3. Answers to the three open points in section 3, or a named owner and date for each.
+3. Answers to the two open points in section 3, or a named owner and date for each.
 4. The integration list with a route chosen for each one (section 5).
 5. A clear line between the January pilot and the rest of the brief (section 6).
-6. Their questions answered on the commercial side without letting it eat the scoping time (section 8).
 
 ---
 
@@ -45,6 +44,8 @@ Two things the repo does not do yet become required at the listing tier: seller 
 
 **Property24 by direct API.** Syndication goes through Property24's own API as a technology partner, covering create, update, photo order, pause, under offer, sold, withdraw and a reconciliation job. It depends on Property24 granting feed access, a spec and a sandbox. Sync or PropCtrl is the stopgap if that access is slow.
 
+**Built on the existing repo.** The TypeScript, Fastify, Prisma and Next.js code on `main` is the baseline, and the brief's guardrail holds: Postgres stays the system of record, business logic stays in the modular monolith, and every provider sits behind an adapter. Conversation logic does not move into Twilio Studio, a bot builder or the e-sign provider.
+
 **Sized for 70 live listings in year one.** About 17 concurrent listings, and roughly 700 reports a year if one in ten converts. Design so that ten times that needs no re-architecture; staff, price and review capacity for 70.
 
 ---
@@ -62,10 +63,6 @@ Ask them to map the eight weeks to the brief's work packages. If they cannot, th
 ### 3.2 How a Property24 enquiry becomes a WhatsApp conversation
 
 The whole model depends on the buyer landing in WhatsApp with a listing ID. Property24 delivers leads by email and phone and may strip links from descriptions. Ask the devs to design the lead-ingestion path: Property24 lead email or webhook → parse → create the buyer and the enquiry deal → send the buyer a WhatsApp template with the listing. That template needs approval lead time.
-
-### 3.3 The existing repo is the baseline
-
-The brief's guardrail: Postgres stays the system of record, business logic stays in the modular monolith, providers stay behind adapters. Watch for a proposal to rebuild in their stack, or to move conversation logic into Twilio Studio, a bot builder, or the e-sign provider. Ask directly what stack they intend to use and whether the existing TypeScript, Fastify, Prisma and Next.js code is the baseline.
 
 ---
 
@@ -177,26 +174,7 @@ These sit with Sold Direct, not the devs, and each one can stall the build. Agre
 
 ---
 
-## 8. Questions for them
-
-**Delivery**
-- Who is the named technical lead, and who else is on the team? Seniority mix?
-- Which of the brief's work packages fit in the eight weeks? Which are deferred?
-- Have they shipped on the WhatsApp Business Platform before? Ask for a reference you can call.
-- How do they run staging, UAT and release? Who hosts: the current Railway, Vercel and Supabase, or their infrastructure?
-- Which stack? Is the existing repo the baseline or a reference?
-- How do they handle POPIA as an operator: DPA, data residency, access to production data?
-- Support and SLA after the soft launch, and the warranty period.
-
-**Commercial**
-- They want shareholding and to fund development, maintenance and integrations, with an MOU after 19 Oct. Ask how scope changes are priced under a fixed monthly amount, how new integrations are costed, and what happens to the team if the relationship ends.
-- The code and the repo stay Sold Direct's IP, including anything they write. Say it today so it is in the MOU.
-- Ask what BFI is and whether you can speak to them.
-- Keep the equity conversation short today. The number depends on the 19 Oct cost projection they themselves propose to produce.
-
----
-
-## 9. Numbers to have in your head
+## 8. Numbers to have in your head
 
 | Figure | Value | Source |
 |---|---|---|
