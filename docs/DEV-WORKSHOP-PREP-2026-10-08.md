@@ -11,10 +11,10 @@ Their roadmap (appended to the brief) says: 4-hour BA workshop this week → two
 So the flows they draw over the next two weeks are built from **today's conversation**. Walk out with:
 
 1. The product in section 2 understood and accepted as the scope, including the parts the brief does not yet cover.
-2. One agreed end-to-end journey, step by step, with the inputs, outputs and rules for each step (section 4).
+2. One agreed end-to-end journey, step by step, with the inputs, outputs and rules for each step (section 4), and the phone screens that go with it (section 5).
 3. Answers to the two open points in section 3, or a named owner and date for each.
-4. The integration list with a route chosen for each one (section 5).
-5. A clear line between the January pilot and the rest of the brief (section 6).
+4. The integration list with a route chosen for each one (section 6).
+5. A clear line between the January pilot and the rest of the brief (section 7).
 
 ---
 
@@ -58,7 +58,7 @@ Section 12 of the brief sizes the remaining work at seven full-time technical pe
 
 Their roadmap is eight weeks of build in November and December, with December written off. Eight weeks with seven people is about 56 person-weeks, roughly half the benchmark, and section 2 adds work the brief did not price.
 
-Ask them to map the eight weeks to the brief's work packages. If they cannot, the January launch scope needs cutting explicitly (section 6), not quietly.
+Ask them to map the eight weeks to the brief's work packages. If they cannot, the January launch scope needs cutting explicitly (section 7), not quietly.
 
 ### 3.2 How a Property24 enquiry becomes a WhatsApp conversation
 
@@ -89,7 +89,24 @@ Use this as the agenda for the UX part. For each step: goal, what we ask, what g
 
 ---
 
-## 5. Integrations: what to ask about each
+## 5. The journeys on a phone
+
+Illustrative WhatsApp screens, one per journey, mapped to the steps in section 4. They live on the branded page (https://claude.ai/artifact/7GcAdg1hXSffeyPnntMyna#mockups); names, prices and figures are examples.
+
+| Screen | Steps | What it shows |
+|---|---|---|
+| The front door | 0–1 | One menu, two entry points side by side, "Talk to our team" always present |
+| Quick Estimate | 2 | Consent, address, type and size, then the LOOM-based range framed as guidance |
+| Property Report, then nurture | 3–4 | Photos and ownership confirmation, the PDF, the day-3 follow-up with STOP opt-out |
+| List my property | 6–7 | Tier choice, tap-by-tap intake with price guidance inline, the summary card |
+| Verify, sign, review, live | 5, 8–10 | Ownership proof, mandate e-sign, photos, 24h review, live on Property24 |
+| Buyer from Property24 | 11–12 | Portal lead into WhatsApp, consent, BetterBond pre-qual invite, viewing slot |
+| Schedule a callback | any | Slot capture and confirmation; the console callback queue behind it |
+| Tracked to registration | 13 | Bond approved, FICA checklist, deadline countdown, registration message |
+
+---
+
+## 6. Integrations: what to ask about each
 
 ### LOOM Property Insights
 - The repo has an adapter with a guessed endpoint and a response mapper; only those two things change once the real docs arrive.
@@ -133,7 +150,7 @@ Use this as the agenda for the UX part. For each step: goal, what we ask, what g
 
 ---
 
-## 6. A January pilot you can defend
+## 7. A January pilot you can defend
 
 If the eight weeks are real, propose this cut and let them push back:
 
@@ -153,7 +170,7 @@ If the eight weeks are real, propose this cut and let them push back:
 
 ---
 
-## 7. Client-side dependencies with an owner and a date
+## 8. Client-side dependencies with an owner and a date
 
 These sit with Sold Direct, not the devs, and each one can stall the build. Agree a date for every line.
 
@@ -174,7 +191,7 @@ These sit with Sold Direct, not the devs, and each one can stall the build. Agre
 
 ---
 
-## 8. Numbers to have in your head
+## 9. Numbers to have in your head
 
 | Figure | Value | Source |
 |---|---|---|
