@@ -46,7 +46,7 @@ Two things the repo does not do yet become required at the listing tier: seller 
 
 **Built on the existing repo.** The TypeScript, Fastify, Prisma and Next.js code on `main` is the baseline, and the brief's guardrail holds: Postgres stays the system of record, business logic stays in the modular monolith, and every provider sits behind an adapter. Conversation logic does not move into Twilio Studio, a bot builder or the e-sign provider.
 
-**Sized for 70 live listings in year one, built for the year-five plan.** Year one is about 17 concurrent listings and roughly 700 reports if one in ten converts. Staff, price and review capacity for that. Design for the base case below, so nothing is re-architected between now and year five.
+**Sized for 70 live listings in year one, built for the year-five plan.** Year one is about 17 concurrent listings and 1,400 Property Reports converting at 5% to the 70 listings. Staff, price and review capacity for that. Design for the base case below, so nothing is re-architected between now and year five.
 
 **Volume to design for.** The first four rows are the data room base case; the rest are derived with the assumptions stated underneath.
 
@@ -56,14 +56,14 @@ Two things the repo does not do yet become required at the listing tier: seller 
 | Listings taken on (model) | ~70 | ~310 | ~930 | ~2,100 | **~4,100** |
 | Average transacting price (model) | R6.5m | R5.75m | R5.0m | R4.5m | **R4.0m** |
 | Team, half of it AI agents (model) | 8 | 14 | 22 | 50 | **96** |
-| Property Reports (derived) | ~700 | ~3,100 | ~9,300 | ~21,000 | **~41,000** |
+| Property Reports (derived) | ~1,400 | ~6,200 | ~18,600 | ~42,000 | **~82,000** |
 | Listings live at any time (derived) | ~17 | ~80 | ~230 | ~525 | **~1,025** |
 | Buyer enquiries a month (derived) | ~90 | ~390 | ~1,160 | ~2,600 | **~5,100** |
 | Deals in transfer at any time (derived) | ~17 | ~75 | ~215 | ~500 | **~965** |
-| WhatsApp messages a month (rough) | ~3,000 | ~13,000 | ~40,000 | ~90,000 | **~170,000** |
-| Report cost at R7.50 (derived) | ~R5k | ~R23k | ~R70k | ~R158k | **~R308k** |
+| WhatsApp messages a month (rough) | ~4,000 | ~17,000 | ~50,000 | ~115,000 | **~225,000** |
+| Report cost at R7.50 (derived) | ~R10.5k | ~R46.5k | ~R140k | ~R315k | **~R615k** |
 
-Assumptions: ten reports per listing taken on; about three months on the market, so listings live at once is a quarter of the year's intake; five enquiries per live listing a month, the launch-plan target; about four months from offer to registration; messages at roughly 12 per report, 15 per enquiry, 60 per listing, 100 per deal and 3 per nurture sequence. The aggressive scenario is 4,800 sales in year five, about 1.7 times every row.
+Assumptions: twenty Property Reports per listing taken on, a 5% conversion; about three months on the market, so listings live at once is a quarter of the year's intake; five enquiries per live listing a month, the launch-plan target; about four months from offer to registration; messages at roughly 12 per report, 15 per enquiry, 60 per listing, 100 per deal and 3 per nurture sequence. The aggressive scenario is 4,800 sales in year five, about 1.7 times every row.
 
 What that means for the build: the brief's engineering sizing baseline (one million messaging events a month, bursts of 250 concurrent webhooks, 100 concurrent internal users, 100,000 listings and 50,000 deals) covers the year-five base case with headroom and still covers the aggressive case. The shape can stay as it is, but the pieces that let it scale have to exist from the start: the durable outbound queue, per-provider rate limits, idempotent callbacks and the portal reconciliation job. By year three the console is a work queue for a few hundred live listings and a couple of hundred deals in transfer, run by a team of twenty; by year five it is a thousand of each, which is the practitioner-console package the brief describes, not a bigger read-only dashboard. Property24's published tiers climb with lead volume, from R7,153 a month in year one to the top of the rate card by year five, so the wholesale conversation with them matters from year three.
 
@@ -95,7 +95,7 @@ Use this as the agenda for the UX part. For each step: goal, what we ask, what g
 | 1 | Intro + menu | Orient, then one tap | Menu row | Conversation state | "What's my home worth?" and "List my property" side by side; no free-text chatter; always a human exit | Built (5 rows) | Final menu rows; the callback slot step |
 | 2 | Quick Estimate | A range in under a minute | Name, consent, suburb or address, type, beds, baths | Seller, consent timestamp, estimate | Estimate wording only; never show a fabricated range | Partial: at the price step; LOOM endpoint is a placeholder | What the flow does when LOOM returns nothing |
 | 3 | Property Report | Branded report worth converting on | Photos or video, confirm ownership, email for the PDF | Report record, media | Free to the seller; R7.50 cost to us; no payment step | Not built | Format; who renders the PDF; delivery channel |
-| 4 | Nurture to listing | Turn one in ten reports into a listing | Follow-ups at day 3, 14, 30 | Marketing consent, opt-out | Outside 24h needs an approved marketing template; opt-out already built | Partial: opt-out built; re-engagement partly | Cadence and copy |
+| 4 | Nurture to listing | Turn one in twenty reports into a listing | Follow-ups at day 3, 14, 30 | Marketing consent, opt-out | Outside 24h needs an approved marketing template; opt-out already built | Partial: opt-out built; re-engagement partly | Cadence and copy |
 | 5 | Account and verification | Know the seller is the owner | Ownership proof, ID | Private document, review status | Private storage, 24h human review, encrypted at rest | Not built | Manual review for January |
 | 6 | Tier choice and mandate | 0% exclusive vs 1% | Tap a tier; e-sign the mandate | Listing tier, mandate envelope | No mandate before the FFC | Partial: tier stored; no e-sign | E-sign provider; mandate text from attorney |
 | 7 | Listing intake | Clean listing record | Type, suburb, address, price, beds, baths, term | Listing | Address mandatory for the portal; sectional-title fields | Built | Levies and erf fields; pro photography option |
@@ -217,8 +217,8 @@ These sit with Sold Direct, not the devs, and each one can stall the build. Agre
 | Brief benchmark | 100–125 person-weeks, 20–24 weeks, 7 people | Brief §12 |
 | Narrow pilot option | 12–14 weeks, 5–6 people | Brief §12 |
 | Their build | ~8 weeks, Nov–Dec; ~56 person-weeks with 7 people | Their roadmap |
-| Year-one plan | ~70 live listings, 50 registered sales, ~700 reports | Data room |
-| Year-five base case | ~4,100 listings, 2,900 registered sales, ~41,000 reports | Data room |
+| Year-one plan | ~70 live listings, 50 registered sales, ~1,400 reports at 5% | Data room |
+| Year-five base case | ~4,100 listings, 2,900 registered sales, ~82,000 reports | Data room |
 | Year-five aggressive case | 4,800 registered sales, ~1.7× every volume row | Data room |
 | Report cost | R7.50 per report; ~R5,250 a year at 700 | Marketing cost |
 | Property24, 51–150 leads, R6m–R8m | R7,153 per month ex VAT, the 70-listing profile | 2026 rate card |
