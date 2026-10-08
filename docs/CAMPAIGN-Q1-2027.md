@@ -61,6 +61,20 @@ Estimates, with the benchmarks stated: about R85 per WhatsApp conversation start
 | Media cost per Property Report | ~R800 |
 | Media cost per listing | ~R16,000 |
 
+**Return on the thirty.** At the model's year-one revenue per registered deal of R55,700:
+
+| | All thirty sell | 70% sell-through |
+|---|---:|---:|
+| Registered sales | 30 | 21 |
+| Revenue at R55,700 per deal | R1,671,000 | R1,169,700 |
+| Media spend | R500,000 | R500,000 |
+| Net after media | R1,171,000 | R669,700 |
+| Revenue per rand of media | R3.34 | R2.34 |
+| Media per registered sale | R16,700 | R23,800 |
+| Same thirty at year-two economics, R70,550 per deal | R2,116,500 (4.2×) | R1,481,550 (3.0×) |
+
+Media only, as the budget is. Creative, Ask Ash's fee (inside her line), the LOOM reports (about R4,500 for 600) and practitioner time sit outside. Revenue lands at registration, about four months after the offer, so the first quarter's listings pay back through the second and third quarters. Bank sponsorship and panel advertising are not attributed to the campaign.
+
 The cost per listing is far above the launch plan's organic target of under R3,000. That is the price of a brand launch, and it still sits inside the model's revenue per deal (R55,700 in year one, R70,550 from year two).
 
 **Month-one gate (end of January).** If the media cost per Property Report is above R1,200, or fewer than 40% of started conversations complete the Quick Estimate, move the reserve and a fifth of the weakest line to the strongest. If banner slots in the pockets are unavailable or quoted above R60,000 a month, the on-platform envelope moves to Meta and Google.
@@ -82,6 +96,8 @@ The cost per listing is far above the launch plan's organic target of under R3,0
 - "Quick Estimate" and "Property Report". The word "valuation" appears nowhere.
 - "0% commission on the qualifying path", with the 1% path disclosed. "Registered property practitioners" only once the FFC is held.
 - No bidding on Property24 or Private Property brand terms.
+
+**Example pieces.** The branded page carries mockups of the Property24 banner in a results page, the Instagram click-to-WhatsApp ad, an Ask Ash short, the suburb insight post, the Google Search ad and the YouTube bumper storyboard, plus the budget split, the funnel and a twelve-week timeline.
 
 **Example lines**
 
