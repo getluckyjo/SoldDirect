@@ -11,13 +11,13 @@ Property24's audience is national. R500,000 buys dominance of the Cape Town prim
 **What shapes the plan**
 
 - **Property24 is a partner, not a target.** The wholesale agreement, the direct API and Annexure P are still open. Money spent with Property24 is leverage in that negotiation. No bidding on their brand terms and no copy that frames the portal or agents as the problem.
-- **Their media inventory is not on the rate card.** The card prices subscriptions, Branded Listings, Branded Alerts and leaves the Premium, Featured and Boosted bundles and the Wallet blank for negotiation. Banners, newsletter and alert sponsorships come from their media team, so the on-platform line below is an envelope, not a price.
+- **Their media beyond listings is narrow.** Checked on property24.com on 08/10/2026: Estate Agency Banner Advertising on result pages (sticky, on mobile, at most three advertisers per area, priced by area on request); sponsored content in the News section; and the promoted-listing products, Featured at R363–R910 per listing per week, Premium at R180–R728 per week in a shared top slot, Boosted at R364–R911 per 30 days. No homepage takeover or newsletter sponsorship is sold publicly. The on-platform line below stays an envelope until their pricing is in.
 - **The product is the campaign.** One call to action everywhere: a free Property Report on WhatsApp in two minutes. That is the funnel the model runs on (1,400 reports → 70 listings at 5%) and it fits the click-to-WhatsApp ad format exactly.
 - **The launch plan gates big spend behind conversion data.** R500,000 in one quarter is a fifth of the year's marketing budget, so the plan carries a month-one gate and reallocation rules rather than a fixed spend.
 
 ## 2. Five ideas
 
-1. **Launch partner on Property24.** Banners on Cape Town prime search results and sell-side pages, sponsorship of buyer alerts and the newsletter for the four pockets, Branded Listings and Branded Alerts on every listing, Featured or Boosted placement so each founding listing tops its suburb for its first week. Pitched as a launch-partner package tied to the wholesale listing rate. Risk: they may decline sell-side placements next to their own private-listing product; fallback is buyer-side branding and the envelope moves off-platform.
+1. **Launch partner on Property24.** One of the three Estate Agency Banner slots on the sale result pages for each of the four pockets, two sponsored-content pieces in the News section over the quarter, Branded Listings and Branded Alerts on every listing, Featured or Premium placement so each founding listing tops its suburb for its first week. Pitched as a launch-partner package tied to the wholesale listing rate. Risk: banner slots are capped at three advertisers per area and may be taken, Premium slots in contested areas are limited, sponsored content may be reserved for developers; fallback is Featured listings and Branded Alerts, and the envelope moves off-platform.
 2. **Surround sound.** Meta click-to-WhatsApp in the four pockets with lookalikes of waitlist and report takers; Google Search on private-sale and "what is my house worth" intent; Google Display and YouTube on custom segments built from people who browse property24.com and privateproperty.co.za; retargeting for anyone who opened WhatsApp and did not finish. Frequency target: homeowners 35–65 in the pockets see Sold Direct eight to ten times over twelve weeks.
 3. **The Report is the message.** Every placement carries the free Property Report. A monthly "what sold in your suburb" post per pocket from LOOM confirmed sales, in estimate wording, boosted to that suburb.
 4. **Founding twenty, loudly.** Each founding listing gets Featured placement, a boosted "just listed, sold direct" post in its suburb, and a "sold direct" story on registration.
@@ -27,8 +27,8 @@ Property24's audience is national. R500,000 buys dominance of the Cape Town prim
 
 | Line | 3 months | Share | Notes |
 |---|---:|---:|---|
-| Property24 on-platform media | R130,000 | 26% | Banners, newsletter, alert sponsorship. Envelope to negotiate; their media rate card is needed. |
-| Property24 listing presence | R45,000 | 9% | Subscription R7,153 × 3 (51–150 leads, R6m–R8m band); Branded Listings high-interest 11–100 at R1,848 × 3; Branded Alerts R562 × 3; promoted bundles or Wallet ~R15,000. |
+| Property24 on-platform media | R130,000 | 26% | Estate Agency Banner slots on the four pockets' result pages, plus two sponsored-content pieces. Area-priced on request; envelope to negotiate. |
+| Property24 listing presence | R45,000 | 9% | Subscription R7,153 × 3 (51–150 leads, R6m–R8m band); Branded Listings high-interest 11–100 at R1,848 × 3; Branded Alerts R562 × 3; Featured or Premium for the founding twenty in their first week, ~R15,000 at R363–R910 per listing per week. |
 | Meta click-to-WhatsApp and retargeting | R130,000 | 26% | Four pockets, lookalikes, eight-plus frequency. |
 | Google Search | R45,000 | 9% | Private-sale and home-worth intent. No Property24 brand bidding. |
 | Google Display and YouTube | R50,000 | 10% | Custom segments of portal browsers; a 15-second bumper. |
@@ -56,7 +56,7 @@ Estimates, with the benchmarks stated: about R85 per WhatsApp conversation start
 
 The cost per listing is far above the launch plan's organic target of under R3,000. That is the price of a brand launch, and it still sits inside the model's revenue per deal (R55,700 in year one, R70,550 from year two).
 
-**Month-one gate (end of January).** If the media cost per Property Report is above R1,200, or fewer than 40% of started conversations complete the Quick Estimate, move the reserve and a fifth of the weakest line to the strongest. If Property24 declines sell-side placements or quotes more than R60,000 a month, the on-platform envelope moves to Meta and Google.
+**Month-one gate (end of January).** If the media cost per Property Report is above R1,200, or fewer than 40% of started conversations complete the Quick Estimate, move the reserve and a fifth of the weakest line to the strongest. If banner slots in the pockets are unavailable or quoted above R60,000 a month, the on-platform envelope moves to Meta and Google.
 
 ## 5. Must be true by 1 January
 
@@ -92,14 +92,15 @@ The cost per listing is far above the launch plan's organic target of under R3,0
 
 - **Who:** Sold Direct, a registered property practitioner running private sales in prime Cape Town on WhatsApp, syndicating every listing to Property24 as a normal agency-grade feed. Complementary to the private-listing tiers: we serve the run-it-for-me seller as a paying volume customer.
 - **What we are buying:** about R130,000 of media over three months plus the listing subscription, Branded Listings, Branded Alerts and promoted bundles for the founding twenty listings.
-- **Placements requested:** search-results banners for Atlantic Seaboard, City Bowl, Southern Suburbs and Constantia; a presence on sell-side pages if permitted; sponsorship of buyer alerts and the newsletter for those areas; Featured placement for each founding listing in its first week.
+- **Placements requested:** an Estate Agency Banner slot on the sale result pages for Atlantic Seaboard, City Bowl, Southern Suburbs and Constantia; two sponsored-content pieces in the News section over the quarter; Branded Alerts for those areas; Featured or Premium placement for each founding listing in its first week.
 - **The ask:** a launch-partner rate on the media, tied to the wholesale listing agreement already under discussion, with the direct API feed and a single subscription for one Cape Town entity confirmed in the same conversation.
 - **Dates:** live from the second week of January; creative delivered two weeks before.
 
 **Request list for their media team**
 
-- The display and sponsorship rate card, with Cape Town and suburb-level geo-targeting options.
-- Which page types are available to a practitioner: search results, listing pages, sell-side and private-listing pages, alerts, newsletter.
+- Estate Agency Banner pricing for the four areas, slot availability (three advertisers per area) and the booking lead time.
+- Which pages carry the banner for those areas: sale results, on-show, developments.
+- Sponsored content: pricing, editorial rules, and whether a practitioner's piece on what a private sale takes qualifies.
 - Minimum commitments, lead times and whether a three-month launch rate exists.
 - Creative specs and deadlines for each placement.
 - Reporting provided: impressions, clicks, views by placement and area.
