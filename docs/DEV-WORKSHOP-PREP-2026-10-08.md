@@ -1,6 +1,6 @@
 # Dev workshop prep — Sold Direct × tech partner
 
-_8 October 2026. Prepared from the Developer Scoping Brief v1.0 (21 Aug), the hand-drawn journey sketch, and the current repo on `main`. Six of the eleven decisions in section 2 were taken on the morning of 8 October and are marked **Decided**._
+_8 October 2026. Prepared from the Developer Scoping Brief v1.0 (21 Aug), the hand-drawn journey sketch, and the current repo on `main`. Seven of the eleven decisions in section 2 were taken on the morning of 8 October and are marked **Decided**._
 
 ---
 
@@ -11,7 +11,7 @@ Their roadmap (appended to the brief) says: 4-hour BA workshop this week → two
 So the flows they draw over the next two weeks are built from **today's conversation**. Walk out with:
 
 1. One agreed end-to-end journey, step by step, with the inputs, outputs and rules for each step (section 3).
-2. Answers to the five decisions still open in section 2 (six were taken this morning), or a named owner and date for each.
+2. Answers to the four decisions still open in section 2 (seven were taken this morning), or a named owner and date for each.
 3. The integration list with a route chosen for each one (section 4).
 4. A clear line between the January pilot and the rest of the brief (section 5).
 5. Their questions answered on the commercial side without letting it eat the scoping time (section 7).
@@ -22,15 +22,15 @@ So the flows they draw over the next two weeks are built from **today's conversa
 
 These are the places where the sketch, the brief and the repo disagree. If they are not resolved today, the devs will diagram the wrong product.
 
-### 2.1 The sketch has a different front door from the brief
+### 2.1 The sketch has a different front door from the brief — **Decided 08/10**
 
 **The sketch** is valuation-led: Intro + menu → quick estimate or detailed report → KYC/account → property data (location, images, video) → Sold Direct-branded report built on LOOM data, with a payment invoice → 5,000 reports in year one → 500 listings → publish to Property24.
 
 **The brief and the repo** are listing-led: a seller taps LIST, runs the guided intake, sends photos, the listing goes active. A "What's my home worth?" menu row exists and the price step shows a LOOM range, but there is no report product, no account step, no payment, no nurture from report to listing.
 
-The brief (21 Aug) does not mention the report funnel at all. Decide today whether the valuation funnel is the launch front door. If yes, it is a new work package and must be in their 19 Oct presentation. The decision on 2.3 to pay for every report presumes the funnel is in, so confirm it explicitly.
+The brief (21 Aug) does not mention the report funnel at all, so it is a new work package and must be in their 19 Oct presentation.
 
-**Suggested position:** yes, it is the front door. A free estimate is a far lower-friction first ask than "list your home", and 5,000 → 500 gives you a measurable funnel from day one.
+**Decided:** both paths are first-class. The welcome menu offers "What's my home worth?" and "List my property" side by side. A seller who only wants a number gets the Quick Estimate, can opt into the Property Report, and is nurtured towards listing later. A seller who wants to sell now goes straight into intake, with the estimate shown inline at the price step as it is today. Neither path gates the other, and the devs should present them to Property24 and in the 19 Oct deck as two entry points into one funnel.
 
 ### 2.2 The word "valuation" is legally loaded — **Decided 08/10**
 
@@ -118,8 +118,8 @@ Use this as the agenda for the UX part. For each step: goal, what we ask, what g
 
 | # | Step | Goal | Inputs | Record | Rules | Repo status | Settle today |
 |---|---|---|---|---|---|---|---|
-| 0 | Entry | Land in WhatsApp with context | Deep link from site, ads, Property24, or a cold "hi" | Message log | Entry words LIST and PRICE; add a report entry word | Built | Headline CTA: estimate or list? |
-| 1 | Intro + menu | Orient, then one tap | Menu row | Conversation state | No free-text chatter; always a human exit | Built (5 rows) | Final menu rows. Scripted + shadow is decided; add the callback slot step |
+| 0 | Entry | Land in WhatsApp with context | Deep link from site, ads, Property24, or a cold "hi" | Message log | Entry words LIST and PRICE both stay live; every CTA deep-links one of them | Built | Both entry points are decided. Which one the site headline leads with |
+| 1 | Intro + menu | Orient, then one tap | Menu row | Conversation state | "What's my home worth?" and "List my property" side by side; no free-text chatter; always a human exit | Built (5 rows) | Final menu rows. Scripted + shadow is decided; add the callback slot step |
 | 2 | Quick estimate | A range in under a minute | Name, consent, suburb or address, type, beds, baths | Seller, consent timestamp, estimate | Estimate wording, never "valuation"; never show a fabricated range | Built at the price step; LOOM endpoint is a placeholder | Free to the seller (decided). What the flow does when LOOM returns nothing |
 | 3 | Detailed report | Branded report worth converting on | Photos or video, confirm ownership, email for the PDF | Report record, media | Who renders the PDF: us from LOOM data, or LOOM white-label | Not built | Free, R7.50 to us (decided). Format and delivery channel |
 | 4 | Nurture to listing | Turn 10% of reports into listings | Follow-ups at day 3, 14, 30 | Marketing consent, opt-out | Outside 24h needs an approved marketing template; opt-out already built | Opt-out built; re-engagement partly | Cadence and copy |
@@ -187,7 +187,7 @@ Use this as the agenda for the UX part. For each step: goal, what we ask, what g
 If the eight weeks are real, propose this cut and let them push back:
 
 **In:**
-- Valuation funnel: menu → quick estimate → detailed report → nurture templates.
+- Two entry points on one menu: the estimate path (Quick Estimate, Property Report, nurture templates) and the listing path straight into intake.
 - Listing intake as built, plus tier choice, ownership-proof upload with manual review, and the 24h publish queue.
 - Property24 via the direct API, with Sync or PropCtrl as the stopgap; lead ingestion into WhatsApp.
 - Schedule a callback: slot capture in WhatsApp and a callback queue in the console.
