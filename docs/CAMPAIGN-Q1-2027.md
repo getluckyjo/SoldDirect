@@ -1,6 +1,6 @@
 # Property24 launch campaign — Q1 2027
 
-_R500,000 media over January to March 2027, on Property24 and around it. Media only: creative, PR, creator fees and the R7.50-a-report LOOM cost sit outside. Prepared 08/10/2026 from the Property24 2026 rate card, `docs/LAUNCH-PLAN.md`, `docs/dataroom/00-assumptions.md` §D and the financial model. Branded page: https://claude.ai/artifact/Fc1j6U7F1BVs9zXt5Jbhic_
+_R500,000 media over January to March 2027, on Property24 and around it. Media only: creative, PR, other creators' fees and the R7.50-a-report LOOM cost sit outside; Ask Ash's fee sits inside her R100,000 line. Prepared 08/10/2026 from the Property24 2026 rate card, `docs/LAUNCH-PLAN.md`, `docs/dataroom/00-assumptions.md` §D and the financial model. Branded page: https://claude.ai/artifact/Fc1j6U7F1BVs9zXt5Jbhic_
 
 ---
 
@@ -21,19 +21,26 @@ Property24's audience is national. R500,000 buys dominance of the Cape Town prim
 2. **Surround sound.** Meta click-to-WhatsApp in the four pockets with lookalikes of waitlist and report takers; Google Search on private-sale and "what is my house worth" intent; Google Display and YouTube on custom segments built from people who browse property24.com and privateproperty.co.za; retargeting for anyone who opened WhatsApp and did not finish. Frequency target: homeowners 35–65 in the pockets see Sold Direct eight to ten times over twelve weeks.
 3. **The Report is the message.** Every placement carries the free Property Report. A monthly "what sold in your suburb" post per pocket from LOOM confirmed sales, in estimate wording, boosted to that suburb.
 4. **Founding twenty, loudly.** Each founding listing gets Featured placement, a boosted "just listed, sold direct" post in its suburb, and a "sold direct" story on registration.
-5. **Creators and community.** Three or four Cape Town property and lifestyle creators (fees outside the budget; the media line boosts their posts), plus sponsorships of suburb WhatsApp groups and neighbourhood newsletters.
+5. **Ask Ash as the core voice.** Ash Müller's property media house is the campaign's creator and property-media line, carved out at R100,000: a former broker and award-winning journalist with over 100,000 followers across X, LinkedIn, a WhatsApp channel, Instagram, Facebook, TikTok and YouTube, and a byline in Mail & Guardian, Currency and Property Flash. Her WhatsApp channel is the product's own medium. Proposed twelve-week programme, to be negotiated with her:
+   - A "sold direct" series: Ash follows one founding seller from Quick Estimate to registration in four long-form episodes on YouTube and her WhatsApp channel, cut down to Reels, TikTok and Shorts.
+   - "What's it worth?" shorts: Ash runs the Quick Estimate on camera with homeowners in the four pockets, about eight pieces, each ending on the PRICE link.
+   - Suburb stories: one written piece per pocket per month on her channels, built from LOOM confirmed sales in estimate wording.
+   - Two placed articles on what a private sale actually takes, through her publication relationships, where editorial rules allow.
+   - Usage and whitelisting rights so Sold Direct can run her pieces as paid ads on Meta and YouTube in the four pockets during the campaign, with the amplification paid from this line.
+   - Optional: Ash hosts a founding-sellers session in Cape Town in March.
+   Rules in her brief: paid-partnership disclosure on every piece, estimate wording only, never anti-agent, and on-camera homeowners consent in writing. Her reach is national, so her pieces widen the campaign beyond the four pockets at no extra media cost.
 
 ## 3. Budget (media only, ex VAT, three months)
 
 | Line | 3 months | Share | Notes |
 |---|---:|---:|---|
-| Property24 on-platform media | R130,000 | 26% | Estate Agency Banner slots on the four pockets' result pages, plus two sponsored-content pieces. Area-priced on request; envelope to negotiate. |
+| Property24 on-platform media | R110,000 | 22% | Estate Agency Banner slots on the four pockets' result pages, plus two sponsored-content pieces. Area-priced on request; envelope to negotiate. |
 | Property24 listing presence | R45,000 | 9% | Subscription R7,153 × 3 (51–150 leads, R6m–R8m band); Branded Listings high-interest 11–100 at R1,848 × 3; Branded Alerts R562 × 3; Featured or Premium for the founding twenty in their first week, ~R15,000 at R363–R910 per listing per week. |
-| Meta click-to-WhatsApp and retargeting | R130,000 | 26% | Four pockets, lookalikes, eight-plus frequency. |
+| Meta click-to-WhatsApp and retargeting | R110,000 | 22% | Four pockets, lookalikes, eight-plus frequency. |
 | Google Search | R45,000 | 9% | Private-sale and home-worth intent. No Property24 brand bidding. |
-| Google Display and YouTube | R50,000 | 10% | Custom segments of portal browsers; a 15-second bumper. |
-| Boosted content | R55,000 | 11% | Suburb insight posts and founding-listing posts (ideas 3 and 4). |
-| Creators and community | R35,000 | 7% | Whitelisted creator boosts, suburb groups and newsletters (idea 5). Creator fees sit outside. |
+| Google Display and YouTube | R40,000 | 8% | Custom segments of portal browsers; a 15-second bumper. |
+| Boosted content | R40,000 | 8% | Suburb insight posts, founding-listing posts, and sponsorships of suburb WhatsApp groups and neighbourhood newsletters (ideas 3 and 4). |
+| Ask Ash: core creator and property media | R100,000 | 20% | Content fee, features across her platforms, and paid amplification of her pieces (idea 5). Any other creator's fee sits outside. |
 | Reallocation reserve | R10,000 | 2% | Moves to the best-performing line at the month-one gate. |
 | **Total** | **R500,000** | 100% | |
 
@@ -41,7 +48,7 @@ Property24's audience is national. R500,000 buys dominance of the Cape Town prim
 
 ## 4. Targets and the month-one gate
 
-Estimates, with the benchmarks stated: about R85 per WhatsApp conversation started across the R225,000 of performance media, half completing the Quick Estimate, 40% of those taking the Property Report, 5% of reports becoming listings.
+Estimates, with the benchmarks stated: about R85 per WhatsApp conversation started across the R195,000 of performance media, plus the conversations Ask Ash's pieces start, half completing the Quick Estimate, 40% of those taking the Property Report, 5% of reports becoming listings.
 
 | Measure | 3-month target |
 |---|---:|
@@ -84,14 +91,14 @@ The cost per listing is far above the launch plan's organic target of under R3,0
 - *Property24 banner:* Your home on Property24, agency-grade, and the whole sale run for you at 0%. Free Property Report on WhatsApp.
 - *Suburb insight post:* Constantia, February: 14 homes sold, from R5.4m to R9.8m. What's yours worth? Reply PRICE on WhatsApp for a free Property Report.
 - *Founding listing post:* Just listed, sold direct: a three-bedroom home in Vredehoek, R5 950 000. Enquire on WhatsApp and pre-qualify for a bond in the chat.
-- *Creator brief:* Show the Quick Estimate on your own home, on camera, in one take. Say what you'd do with what a full-service sale would have cost. Tag the PRICE link.
+- *Ask Ash brief:* Run the Quick Estimate on a real Cape Town home on camera, in one take, and let the owner say what they would do with what a full-service sale would have cost. Every piece ends on the PRICE link and carries the paid-partnership disclosure.
 
 ## 7. The Property24 ask
 
 **Launch partner, January to March 2027**
 
 - **Who:** Sold Direct, a registered property practitioner running private sales in prime Cape Town on WhatsApp, syndicating every listing to Property24 as a normal agency-grade feed. Complementary to the private-listing tiers: we serve the run-it-for-me seller as a paying volume customer.
-- **What we are buying:** about R130,000 of media over three months plus the listing subscription, Branded Listings, Branded Alerts and promoted bundles for the founding twenty listings.
+- **What we are buying:** about R110,000 of media over three months plus the listing subscription, Branded Listings, Branded Alerts and promoted bundles for the founding twenty listings.
 - **Placements requested:** an Estate Agency Banner slot on the sale result pages for Atlantic Seaboard, City Bowl, Southern Suburbs and Constantia; two sponsored-content pieces in the News section over the quarter; Branded Alerts for those areas; Featured or Premium placement for each founding listing in its first week.
 - **The ask:** a launch-partner rate on the media, tied to the wholesale listing agreement already under discussion, with the direct API feed and a single subscription for one Cape Town entity confirmed in the same conversation.
 - **Dates:** live from the second week of January; creative delivered two weeks before.
