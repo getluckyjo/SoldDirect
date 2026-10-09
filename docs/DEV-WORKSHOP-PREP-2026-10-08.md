@@ -38,7 +38,7 @@ These are requirements, not options. The brief of 21 August does not cover the e
 
 Two things the repo does not do yet become required at the listing tier: seller consent as its own timestamped record, and private storage for documents.
 
-**Menu-driven, with a human exit on every screen.** Flows are scripted for the pilot. The AI concierge runs in shadow mode, drafting replies for a person to approve. **"Schedule a callback" is in scope:** a slot-capture step in WhatsApp and a callback queue in the console, neither of which exists today.
+**Menu-driven, with a human exit on every screen.** Flows are scripted for the pilot. The AI WhatsApp estate agent runs in shadow mode, drafting replies for a person to approve. **"Schedule a callback" is in scope:** a slot-capture step in WhatsApp and a callback queue in the console, neither of which exists today.
 
 **Two commercial paths.** 0% on the qualifying path: an exclusive mandate, the bond through BetterBond, a panel conveyancer. A 1% facilitation fee on cash or third-party-financed deals. Both paths produce a Property24 listing. No mandate is taken before the FFC is in place, so a January launch with mandates needs the FFC by December.
 
@@ -146,7 +146,7 @@ Illustrative WhatsApp screens, one per journey, mapped to the steps in section 4
 - For January: upload a municipal account or title deed, human review. Later: automated checks against deeds data.
 
 ### Photography
-- Capture Media is the listing-media partner. Decide whether a booking step lives in the WhatsApp flow or stays a concierge task.
+- Capture Media is the listing-media partner. Decide whether a booking step lives in the WhatsApp flow or stays a WhatsApp estate agent task.
 
 ---
 

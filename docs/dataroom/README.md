@@ -31,7 +31,7 @@ customer of the portals, not a competitor. The launch plan is built on this serv
 
 **We serve the private-sale segment** — sellers who choose to sell direct and do the work
 themselves — assisted by **registered property practitioners (PPRA/FFC)** and a WhatsApp
-concierge. ⚠ Registration and the FFC are **not yet held** — status, route and timeline in
+WhatsApp estate agent. ⚠ Registration and the FFC are **not yet held** — status, route and timeline in
 `05-regulatory-status.md`. **Complementary to full-service agents, not adversarial** (no anti-agent
 marketing; zero PPRA friction by design). **Land at prime** (Atlantic Seaboard, City Bowl,
 Southern Suburbs, Constantia) and **taper the average transacting price down (R6.5m → R4.0m) as

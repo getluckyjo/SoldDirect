@@ -1,5 +1,5 @@
 /**
- * Knowledge eval for the AI concierge — the REAL model answering ~15 real
+ * Knowledge eval for the AI WhatsApp estate agent — the REAL model answering ~15 real
  * consumer questions against a seeded local Postgres. This is the manual
  * gate before flipping production AGENT_MODE=live (and after any knowledge
  * edit): read the transcript like a customer would, and the hard assertions
@@ -37,7 +37,7 @@ interface EvalCase {
   must?: RegExp[];
   /** No regex may match the reply. */
   mustNot?: RegExp[];
-  /** The turn must escalate to the concierge (unanswered-policy topics). */
+  /** The turn must escalate to the WhatsApp estate agent (unanswered-policy topics). */
   expectEscalation?: boolean;
 }
 
@@ -60,7 +60,7 @@ const CASES: EvalCase[] = [
     question: 'can I use my own transfer attorney instead of your panel?',
     // Acceptable: explain the ecosystem/Flex implication or defer to the team
     // — but never a flat unexplained "no".
-    must: [/flex|1%|concierge|team/i],
+    must: [/flex|1%|estate agent|team/i],
   },
   {
     name: 'timeline',
@@ -245,7 +245,8 @@ async function main() {
     console.log(`\n━━ ${c.name}`);
     console.log(`   Q: ${c.question}`);
     console.log(`   A: ${reply.replace(/\n/g, '\n      ')}`);
-    if (outcome.escalated) console.log('   ⚑ escalated to concierge');
+    if (outcome.escalated)
+      console.log('   ⚑ escalated to WhatsApp estate agent');
 
     for (const re of c.must ?? []) {
       if (!re.test(reply)) failures.push(`${c.name}: reply should match ${re}`);
@@ -255,7 +256,9 @@ async function main() {
         failures.push(`${c.name}: reply must NOT match ${re}`);
     }
     if (c.expectEscalation && !outcome.escalated) {
-      failures.push(`${c.name}: expected an escalation to the concierge`);
+      failures.push(
+        `${c.name}: expected an escalation to the WhatsApp estate agent`,
+      );
     }
   }
 

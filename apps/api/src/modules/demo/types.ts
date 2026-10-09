@@ -1,6 +1,6 @@
 /**
  * WhatsApp demo simulator. The whole production pipeline runs for real —
- * dispatcher, scripted flows, AI concierge, Postgres — only the transport is
+ * dispatcher, scripted flows, AI WhatsApp estate agent, Postgres — only the transport is
  * simulated: inbound arrives via an HTTP endpoint instead of a BSP webhook,
  * and outbound is persisted to the message log instead of hitting Meta/Twilio.
  *

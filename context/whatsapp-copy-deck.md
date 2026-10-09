@@ -23,7 +23,7 @@ change.
   message to mention a keyword the system doesn't know.
 - WhatsApp formatting works: *bold*, _italics_, emoji, line breaks.
 - Keep it short — every message lands on a phone.
-- These are the scripted texts. When the AI concierge is LIVE it words
+- These are the scripted texts. When the AI WhatsApp estate agent is LIVE it words
   things naturally itself; these exact texts are still used in scripted and
   shadow mode, as fallbacks, and for everything deterministic (consent,
   photos, stage updates).
@@ -33,7 +33,7 @@ change.
 ## A. Seller journey
 
 ### A1 — First contact / anything we don't understand
-_When: message matches no flow (and the AI concierge is off or failed)._
+_When: message matches no flow (and the AI WhatsApp estate agent is off or failed)._
 
 ```
 Hi! Reply "list" to put your property on the market with 0% commission.
@@ -253,12 +253,12 @@ No problem — we won't share anything. You can pre-qualify any time by replying
 
 ### C2 — COVER (homeowners insurance)
 ```
-👍 Great — our concierge will WhatsApp you competitive homeowners-insurance quotes shortly. No obligation; your bank just needs cover in place before registration.
+👍 Great — our WhatsApp estate agent will send you competitive homeowners-insurance quotes shortly. No obligation; your bank just needs cover in place before registration.
 ```
 
 ### C3 — MOVE (movers / fibre / home services)
 ```
-👍 Great — our concierge will WhatsApp you trusted quotes for movers, fibre and anything else you need for the big day. No obligation.
+👍 Great — our WhatsApp estate agent will send you trusted quotes for movers, fibre and anything else you need for the big day. No obligation.
 ```
 
 ---

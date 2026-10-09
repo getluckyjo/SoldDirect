@@ -21,7 +21,7 @@
 - Western Cape approval runs **86.2%** — slightly better than national.
 
 **Product action (the single highest-value automation):**
-> On a bank decline, the concierge **automatically triggers multi-bank resubmission** and messages
+> On a bank decline, the WhatsApp estate agent **automatically triggers multi-bank resubmission** and messages
 > both parties: *"Bank X declined — we're already resubmitting to the other banks. Nearly half of
 > first declines are approved elsewhere, so this deal is still alive."*
 > The deal **stays in `bond_application`** (no state change); the message rides the existing
@@ -52,7 +52,7 @@ average, never a guarantee** (the improvement partly reflects general bank compe
 - Out-of-town conveyancers and sellers routinely miss it → late-stage transfer delay.
 
 **Product action:** the water cert appears in the **seller's checklist at listing time**, and the
-moment the OTP is signed the concierge prompts: *"Book a City-accredited plumber now — this
+moment the OTP is signed the WhatsApp estate agent prompts: *"Book a City-accredited plumber now — this
 certificate can't be reused from your last transfer."* (Our `compliance_certs` template already
 covers plumbing generically; the CT-specific instruction rides session text / the checklist,
 avoiding a template re-approval.)
@@ -65,7 +65,7 @@ avoiding a template re-approval.)
 deals, and warns bonded buyers at `bond_granted`: *"your bank may require a beetle certificate
 regardless of the OTP wording"* — killing a classic late surprise.
 
-### 1.6 Certificate costs the concierge can quote upfront 🟨 MEDIUM (2-1 vote — quote as "from")
+### 1.6 Certificate costs the WhatsApp estate agent can quote upfront 🟨 MEDIUM (2-1 vote — quote as "from")
 - Electrical CoC **from R800–R1,200** (repairs from R1,000; large/multi-DB homes can run
   R2,500–R2,750+), gas **from R650–R950**, electric fence **from R600–R800**, water installation
   **from R500–R750**, beetle **from R400–R600**. **Repairs are separate: R1,000–R15,000.**
@@ -89,7 +89,7 @@ never present as caps), plus the nudge to book inspections early rather than at 
 | 7 | Rates clearance | City turnaround, arrears disputes ⚠︎ | Attorney-request tracker + seller arrears check at listing ("any municipal arrears? settle early") | ⛔ + open question |
 | 8 | Transfer duty | SARS processing ⚠︎ | Buyer cost disclosure at OTP (duty ≈ R458k on R6m) + payment-deadline countdown | ⛔ |
 | 9 | Deeds Office | Rejection/re-lodgement, backlogs ⚠︎ | Lodgement status pings (✅ `transfer_status`); expectation-setting ("7–10 working days; rejections are common and fixable") | template ✅ |
-| 10 | Human factors | Silent party, attorney comms gap ⚠︎ | **Escalation triggers:** no reply in 72h → human concierge takes over; every stage change mirrored to *both* parties automatically (✅ built) | stage-mirror ✅, escalation ⛔ |
+| 10 | Human factors | Silent party, attorney comms gap ⚠︎ | **Escalation triggers:** no reply in 72h → human WhatsApp estate agent takes over; every stage change mirrored to *both* parties automatically (✅ built) | stage-mirror ✅, escalation ⛔ |
 
 **Already shipped** (this playbook plugs into it): stage-change notifications to both parties,
 FICA/certs/transfer templates, the transition endpoint, dispatcher + notifier, **the

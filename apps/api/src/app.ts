@@ -168,7 +168,7 @@ export function buildServer(deps?: Partial<ServerDeps>) {
       // Whether the AI layer is actually switched on — the single most
       // common deploy surprise (see DEPLOYMENT.md step 5).
       features: {
-        concierge:
+        estateAgent:
           process.env.AGENT_ENABLED === 'true' &&
           !!process.env.ANTHROPIC_API_KEY,
         descriptionWriter:
@@ -270,16 +270,16 @@ export function buildServer(deps?: Partial<ServerDeps>) {
     log: (msg, err) => app.log.warn({ err }, msg),
   });
 
-  // AI concierge (Claude): drafts replies for messages no scripted flow
+  // AI WhatsApp estate agent (Claude): drafts replies for messages no scripted flow
   // claims. Off unless AGENT_ENABLED=true and an ANTHROPIC_API_KEY is set;
-  // AGENT_MODE=shadow (default — draft only, concierge approves) or live.
+  // AGENT_MODE=shadow (default — draft only, WhatsApp estate agent approves) or live.
   const agentRepository = createPrismaAgentRepository(prisma);
   const agentEnabled =
     process.env.AGENT_ENABLED === 'true' && !!process.env.ANTHROPIC_API_KEY;
   const agentMode: AgentMode =
     process.env.AGENT_MODE === 'live' ? 'live' : 'shadow';
   // The demo simulator is a playground: its agent runs LIVE by default so
-  // visitors talk to the real concierge (DEMO_AGENT_MODE=shadow restores the
+  // visitors talk to the real WhatsApp estate agent (DEMO_AGENT_MODE=shadow restores the
   // approval-card behaviour). Production stays governed by AGENT_MODE.
   const demoAgentMode: AgentMode =
     process.env.DEMO_AGENT_MODE === 'shadow' ? 'shadow' : 'live';

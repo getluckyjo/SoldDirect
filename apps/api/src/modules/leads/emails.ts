@@ -97,7 +97,7 @@ export function createLeadEmails(deps: LeadEmailDeps): LeadEmails {
 const ROLE_LINE: Partial<Record<LeadRole, string>> = {
   seller:
     "When we open, you'll list your home on WhatsApp in a few guided steps — " +
-    'with our concierge and registered practitioners behind you.',
+    'with our WhatsApp estate agent and registered practitioners behind you.',
   buyer:
     "When we open, you'll be able to enquire on homes and get bond " +
     'pre-qualified without leaving WhatsApp.',

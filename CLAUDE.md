@@ -21,7 +21,7 @@ employ registered practitioners ourselves. Every piece of copy must follow these
 1. **For private sellers, by choice** — we serve the segment who *want* to sell direct and do the
    work themselves. Full-service agents remain a great choice for everyone else.
 2. **Technology + WhatsApp does the admin; people help you sell** — our team includes registered
-   property practitioners (PPRA, FFC) and a WhatsApp concierge.
+   property practitioners (PPRA, FFC) and a WhatsApp estate agent.
 3. **PPRA-aligned** — we add value via innovative integration; we do not fight the industry.
 4. **Savings framed neutrally** — "what a full-service sale (5–7% + VAT) would have cost", never
    "resented cost", "obsolete", "the cost we remove", strikethrough comparisons, or "no agents".

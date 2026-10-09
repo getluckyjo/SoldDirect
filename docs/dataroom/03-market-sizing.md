@@ -67,7 +67,7 @@ upper-market** — a far more defensible ask. Sensitivity to the (estimated) poo
 - We **land at prime** (biggest rand savings + bond, lowest-CAC word-of-mouth) and **broaden down**
   to the upper-market as the brand earns trust — so the SOM is a single-digit share of a real,
   large segment, not a fifth of a tiny niche.
-- Still the **category-defining** play: the only 0%-to-consumer, WhatsApp-native, concierge +
+- Still the **category-defining** play: the only 0%-to-consumer, WhatsApp-native, WhatsApp estate agent +
   ecosystem channel.
 - **De-risk:** confirm the upper-market pool count and the ATL→deals conversion with a Cape Town
   pilot before scaling the R50m/yr marketing.

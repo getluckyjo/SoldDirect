@@ -122,7 +122,7 @@ function reminderText(
   return {
     stage: `Reminder — ${label}: ${when}`,
     detail:
-      'Missing this date can cancel the sale. Reply here if you need help and our concierge will step in.',
+      'Missing this date can cancel the sale. Reply here if you need help and our WhatsApp estate agent will step in.',
   };
 }
 

@@ -12,7 +12,7 @@ Meta moved to per-message billing on 1 July 2025 and, from 1 October 2026, charg
 
 | Rule | Effect on Sold Direct |
 |---|---|
-| Every delivered business-to-user message is billed by category and country | Every scripted prompt, every photo acknowledgement and every concierge reply costs money |
+| Every delivered business-to-user message is billed by category and country | Every scripted prompt, every photo acknowledgement and every WhatsApp estate agent reply costs money |
 | Service messages: 1,000 free per business phone number per month, then US$0.0095 each in South Africa | The pilot sits at about 3,400 service messages a month, so roughly two thirds are billable |
 | Utility templates: US$0.0095, charged inside and outside the window since 1 October 2026 | Status updates, reminders and lead invites always cost |
 | Marketing templates: US$0.0379 | The report-nurture messages and the re-engagement nudge are the expensive ones, four times a utility message |
@@ -36,7 +36,7 @@ Per-unit counts were taken from the flows in the repo: the intake prompts, the p
 | Pre-qualification hand-off | 336 | 1 + 2 | service + utility |
 | Viewing | 350 | 3 + 4 | service + utility |
 | Deal, OTP to registration | 60 | 10 + 29 | service + utility |
-| Concierge replies | per contact | 2 / 12 / 3 | service |
+| WhatsApp estate agent replies | per contact | 2 / 12 / 3 | service |
 
 Every scripted service count carries a 15% overhead for re-asks and corrections.
 
@@ -79,4 +79,4 @@ By year five the Twilio surcharge alone is about R450,000 a year. That is the nu
 
 ## Not in this model
 
-LOOM reports (R7.50 each, about R5,250 a year), the Property24 subscription (R7,153 a month ex VAT at the launch profile), AI concierge inference, e-signature envelopes, SMS fallback and Meta ads spend. Those belong in the financial model's own lines.
+LOOM reports (R7.50 each, about R5,250 a year), the Property24 subscription (R7,153 a month ex VAT at the launch profile), AI WhatsApp estate agent inference, e-signature envelopes, SMS fallback and Meta ads spend. Those belong in the financial model's own lines.

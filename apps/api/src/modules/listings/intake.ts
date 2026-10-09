@@ -112,7 +112,7 @@ export interface IntakeState {
   pending?: { region?: string };
   /**
    * Which flow owns this conversation. The scripted tap flow and the AI
-   * concierge share this one store, so without a marker the dispatcher cannot
+   * WhatsApp estate agent share this one store, so without a marker the dispatcher cannot
    * tell an in-progress tap sequence from an agent-led one — and in live mode
    * the agent would claim both, so the taps could never run.
    *
@@ -130,7 +130,7 @@ export interface IntakeState {
    * orchestrator always writes this explicitly rather than letting a stale
    * count ride along.
    *
-   * Past a threshold the seller is escalated to the concierge whatever they
+   * Past a threshold the seller is escalated to the WhatsApp estate agent whatever they
    * typed: if the same step has been missed three times, the step is the
    * problem and a fourth re-ask will not fix it.
    */

@@ -277,7 +277,7 @@ export const ASK_SECTION = {
     'R10m at a R30m pre-money valuation. Bottom-up capital need to self-sustaining is ~R7.5m (base case, incl. buffer) — the raise covers the trough with headroom.',
   useOfFunds: [
     'Cape Town launch + above-the-line brand campaign',
-    'Modern tech + registered practitioners (concierge + PPRA-certified team)',
+    'Modern tech + registered practitioners (WhatsApp estate agent + PPRA-certified team)',
     'In-house origination accreditation (FAIS/FSP + bank aggregation agreements)',
     'Partner and platform integrations (WhatsApp BSP, BetterBond, conveyancers)',
   ],

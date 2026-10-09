@@ -91,7 +91,7 @@ The simulation runs either way, and the difference is worth knowing:
 | Guided intake | fully works | fully works |
 | "sell my 4 bed in Mowbray" | asks each field in turn | fills three fields at once |
 | Description writer | offers to skip | drafts, seller approves |
-| Concierge | canned menu | answers off-script questions |
+| WhatsApp estate agent | canned menu | answers off-script questions |
 
 Running **without** the key tests the deterministic floor — what a seller gets
 when the model is unavailable. That is the more important guarantee, and worth

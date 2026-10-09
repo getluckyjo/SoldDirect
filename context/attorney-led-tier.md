@@ -46,7 +46,7 @@ Chris Fick & Associates co-founded the **Attorney Realtor Hub**
 agency, whose attorney members use its tools to market and sell clients'
 properties, typically at ~2.5% + VAT vs the 5–7% agency norm. Several years
 live. This is the proven "platform + exempt professional" structure; Sold
-Direct's edge over it is the WhatsApp-first funnel and AI concierge.
+Direct's edge over it is the WhatsApp-first funnel and AI WhatsApp estate agent.
 
 ## Can the attorney be in-house? No.
 
@@ -88,7 +88,7 @@ Per ~R2.5m Cape Town sale:
 | Attorney on Sold Direct | ±6–12 hrs (pricing sanity-check 1–2 h; negotiation + OTP 3–6 h — attorney work anyway; admin 2–4 h) | Transfer fee ±R28–35k; bond registration if buyer bonds via their panel ±R30k; bond cancellation ±R6–8k → **R40–70k conveyancing income per deal** |
 
 The platform already does the rest of the agent's list: WhatsApp intake
-builds the listing, photos flow in, the AI concierge answers buyer
+builds the listing, photos flow in, the AI WhatsApp estate agent answers buyer
 questions 24/7, prequal is automated, sellers host viewings (platform
 schedules), the deal tracker runs the transfer admin.
 
@@ -114,7 +114,7 @@ buyer's transfer fees slightly as a platform perk.
 - **The seller's free choice on paper**: the seller signs the sales mandate
   and the conveyancer nomination. The platform recommends; it never forces
   the appointment.
-- **The AI concierge assists, it does not represent.** It stays a tool the
+- **The AI WhatsApp estate agent assists, it does not represent.** It stays a tool the
   seller or attorney uses — never "acting on behalf of the seller for gain"
   (untested territory under the PPA).
 - **Messaging** (consistent with CLAUDE.md): "attorney-led selling,
@@ -206,7 +206,7 @@ override that is void and reportable.
   structure converts most of that gross margin into platform fee income
   while keeping the seller at 0%.
 - Deep integration: one firm running entirely on our stack means the deal
-  tracker, CERTS, photos and AI concierge become the firm's actual practice
+  tracker, CERTS, photos and AI WhatsApp estate agent become the firm's actual practice
   management system — transfer times become a product metric we control.
 - Buyer-side perk: the firm can price transfers keenly (fees are
   negotiable), which no traditional agent-plus-conveyancer pairing can

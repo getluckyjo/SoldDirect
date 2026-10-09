@@ -227,9 +227,9 @@ export function buildAgentTools(
       },
     },
     {
-      name: 'escalate_to_concierge',
+      name: 'escalate_to_estate_agent',
       description:
-        'Flag this thread for the human concierge team. Use for anything ' +
+        'Flag this thread for the human WhatsApp estate agent team. Use for anything ' +
         'contractual (offers, mandates, negotiation, pricing advice), ' +
         'financial/legal advice, sensitive personal information, an upset ' +
         'user, or any request your other tools cannot answer. Still reply to ' +
@@ -240,7 +240,7 @@ export function buildAgentTools(
           reason: {
             type: 'string',
             description:
-              'One line for the concierge: what does this person need?',
+              'One line for the WhatsApp estate agent: what does this person need?',
           },
         },
         required: ['reason'],
@@ -250,7 +250,7 @@ export function buildAgentTools(
         const { reason } = input as { reason: string };
         ctx.escalated = true;
         ctx.escalationReason = reason;
-        return 'Concierge team notified. Tell the user a human will WhatsApp them shortly.';
+        return 'WhatsApp estate agent team notified. Tell the user a human will WhatsApp them shortly.';
       },
     },
   ];
@@ -300,7 +300,7 @@ export function buildAgentTools(
           if (!estimate) {
             return (
               'No estimate available for this property. Do NOT invent a range. ' +
-              'Offer the free pricing consultation with the concierge team instead (they can reply CONSULT).'
+              'Offer the free pricing consultation with the WhatsApp estate agent team instead (they can reply CONSULT).'
             );
           }
           const fmt = (n: number) => `R${n.toLocaleString('en-ZA')}`;

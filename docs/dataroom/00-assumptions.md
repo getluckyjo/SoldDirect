@@ -66,7 +66,7 @@ steering).
 
 > **Segment positioning:** Sold Direct is **complementary to, not competing with, full-service
 > agents** — we serve sellers who choose to sell privately and do the work themselves, assisted by
-> **registered property practitioners (PPRA/FFC)** and a WhatsApp concierge. No anti-agent
+> **registered property practitioners (PPRA/FFC)** and a WhatsApp estate agent. No anti-agent
 > marketing; zero friction with the PPRA by design. ⚠ Registration and the FFC are **not yet
 > held** — see `05-regulatory-status.md`.
 
@@ -146,7 +146,7 @@ fulfilment lift later years.
 | Other / contingency & per-deal SaaS | R600 | R500 | buffer + minor tooling | Low |
 | **COGS per deal** | **~R9,230** | **~R7,820** | + payment processing **~0.7%** of transactional revenue | — |
 
-> **Excludes** the in-house bond-origination consultant cost (its own opex line) and the concierge
+> **Excludes** the in-house bond-origination consultant cost (its own opex line) and the WhatsApp estate agent
 > team (payroll). The two biggest lines — **media/syndication** and **add-on/cert fulfilment** — are
 > the ones to firm up against real supplier quotes (photographer, CoC inspectors, portal rates, BSP).
 
@@ -184,7 +184,7 @@ tiers at agreed lead milestones, and optionally a success-based component on the
 | **Gross margin** | **~88% — DERIVED** from the bottom-up COGS build above (not an input) | Bottom-up | Medium |
 | Fully-loaded cost per **human** FTE (blended) | **~R700k–780k/yr** (eng intermediate ~R48k/mo, senior ~R100k/mo, ops ~R25–35k/mo, +13th cheque/benefits/payroll ≈ ×1.3) | OfferZen 2025 | Medium |
 | **AI-agent run cost** (each, replaces a human worker) | **~R0.15m/yr** (~R12.5k/mo: LLM API + tooling + human oversight) | Assumption | Low |
-| **AI-agent share of headcount** | **50%** (concierge/coordination/ops); ~halves people-cost | Assumption / design choice | Low |
+| **AI-agent share of headcount** | **50%** (WhatsApp estate agent/coordination/ops); ~halves people-cost | Assumption / design choice | Low |
 | CAC | **Assumption with wide bands** — no SA property/mortgage CAC found; WhatsApp free-window + portal syndication + referral pulls effective CAC below paid-search proxies (~$84 B2B CPL global) | HubSpot 2025 (proxy) | Low |
 
 ## E. Valuation & funding context

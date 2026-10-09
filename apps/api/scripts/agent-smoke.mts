@@ -1,5 +1,5 @@
 /**
- * End-to-end smoke test for the AI concierge (no live Anthropic call — the
+ * End-to-end smoke test for the AI WhatsApp estate agent (no live Anthropic call — the
  * model is scripted, everything else is real: Fastify server, webhook,
  * dispatcher, Prisma against a real Postgres, agent tools, draft queue).
  *
@@ -131,7 +131,7 @@ async function main() {
   assert.equal(sent.length, 1, 'user still got the canned help in shadow mode');
   assert.match(sent[0].text, /Reply "list"/);
 
-  // 2. Concierge approves → the draft goes out.
+  // 2. WhatsApp estate agent approves → the draft goes out.
   const approve = await app.inject({
     method: 'POST',
     url: `/api/agent/drafts/${drafts[0].id}/approve`,

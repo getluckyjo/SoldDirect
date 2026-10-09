@@ -54,7 +54,7 @@ function fakeModel(text: string, toolCalls: string[] = []): AgentModel {
 
 function deps(overrides: Partial<AgentServiceDeps>): AgentServiceDeps {
   return {
-    model: fakeModel('Hello from the concierge.'),
+    model: fakeModel('Hello from the WhatsApp estate agent.'),
     repository: fakeRepository(),
     data: emptyData,
     notifier: { send: vi.fn() },
@@ -79,7 +79,7 @@ describe('createAgentHandler', () => {
     expect(repository.drafts[0]).toMatchObject({
       phone: '+27821234567',
       inbound: 'hi',
-      draft: 'Hello from the concierge.',
+      draft: 'Hello from the WhatsApp estate agent.',
       status: 'pending',
       escalated: false,
     });
@@ -97,12 +97,12 @@ describe('createAgentHandler', () => {
     expect(outcome.sent).toBe(true);
     expect(send).toHaveBeenCalledWith(
       '+27821234567',
-      'Hello from the concierge.',
+      'Hello from the WhatsApp estate agent.',
     );
     expect(repository.drafts[0].status).toBe('sent');
   });
 
-  it('an empty model reply becomes an escalated concierge hand-off', async () => {
+  it('an empty model reply becomes an escalated WhatsApp estate agent hand-off', async () => {
     const repository = fakeRepository([{ role: 'user', content: '???' }]);
     const handler = createAgentHandler(
       deps({ repository, model: fakeModel('') }),
@@ -111,7 +111,7 @@ describe('createAgentHandler', () => {
     await handler.handle({ phone: '+27821234567', text: '???' });
 
     expect(repository.drafts[0].escalated).toBe(true);
-    expect(repository.drafts[0].draft).toContain('concierge');
+    expect(repository.drafts[0].draft).toContain('estate agent');
   });
 
   it('appends the inbound text when history is missing it', async () => {
@@ -132,10 +132,10 @@ describe('createAgentHandler', () => {
 });
 
 describe('buildAgentTools', () => {
-  it('escalate_to_concierge flips the turn context flag', async () => {
+  it('escalate_to_estate_agent flips the turn context flag', async () => {
     const ctx = { escalated: false as boolean, escalationReason: undefined };
     const tools = buildAgentTools(emptyData, '+27821234567', ctx);
-    const escalate = tools.find((t) => t.name === 'escalate_to_concierge')!;
+    const escalate = tools.find((t) => t.name === 'escalate_to_estate_agent')!;
 
     await escalate.run({ reason: 'wants pricing advice' });
 

@@ -69,19 +69,19 @@ export interface IntakeReply {
   /**
    * True when the message matched no flow (no active draft, no trigger) and
    * `reply` is only the generic help text — the dispatcher may hand these to
-   * the AI concierge instead.
+   * the AI WhatsApp estate agent instead.
    */
   fallback?: boolean;
   /**
    * Set when a mid-flow message answered nothing AND the script has nothing
    * useful to say to it — the seller asked us something, or told us they are
-   * stuck, frustrated, or want a person. The dispatcher may let the concierge
+   * stuck, frustrated, or want a person. The dispatcher may let the WhatsApp estate agent
    * respond, then send `reply` to re-ask the step they were on.
    *
    * Deliberately NOT set for a fat-fingered answer ("3.5"), where re-asking is
    * exactly the right reply.
    */
-  needsConcierge?: boolean;
+  needsEstateAgent?: boolean;
 }
 
 /**
@@ -134,7 +134,7 @@ export async function handleListingIntakeMessage(
     return {
       reply: WELCOME_REPLY,
       options: welcomeMenu(),
-      // `fallback` still lets the AI concierge claim the turn; when it does,
+      // `fallback` still lets the AI WhatsApp estate agent claim the turn; when it does,
       // its own reply goes out instead of this menu.
       fallback: true,
     };
@@ -195,7 +195,7 @@ export async function handleListingIntakeMessage(
     (looksLikeAQuestion(text) ||
       soundsStuck(text) ||
       rejections >= REPEATED_REJECTION_LIMIT)
-      ? { needsConcierge: true }
+      ? { needsEstateAgent: true }
       : {}),
   };
 }
@@ -203,7 +203,7 @@ export async function handleListingIntakeMessage(
 /**
  * A seller mid-flow who types something we cannot parse has usually either
  * fat-fingered an answer or asked us something. Only the second deserves the
- * concierge, so the test is deliberately narrow: an explicit question mark, or
+ * WhatsApp estate agent, so the test is deliberately narrow: an explicit question mark, or
  * an opening interrogative with enough words to be a real sentence.
  *
  * "3.5" is a botched price. "how much do you charge?" is a question.
@@ -219,7 +219,7 @@ export function looksLikeAQuestion(text: string): boolean {
 }
 
 /**
- * Consecutive misses at one step before the concierge is brought in whatever
+ * Consecutive misses at one step before the WhatsApp estate agent is brought in whatever
  * the seller typed. Three is the point at which the step, not the answer, is
  * the likely problem — and a fourth identical re-ask is how a seller decides
  * the product is broken.
@@ -230,7 +230,7 @@ export const REPEATED_REJECTION_LIMIT = 3;
  * Frustration and hand-over signals. A seller who says "this is confusing" or
  * "speak to a human" has not asked a question, so the test above misses them —
  * and re-asking the step they are already stuck on is the worst possible
- * reply. These go to the concierge instead.
+ * reply. These go to the WhatsApp estate agent instead.
  *
  * Matched on whole words so a legitimate answer is never caught: a suburb
  * called "Helderberg" must not trip the "help" signal.

@@ -12,7 +12,7 @@ export interface AgentRouteDeps {
 
 /**
  * The shadow-mode review queue. The dashboard lists pending drafts; a
- * concierge approves (optionally editing the text — the edit is what sends)
+ * WhatsApp estate agent approves (optionally editing the text — the edit is what sends)
  * or dismisses. These endpoints return PII (phone numbers), so in production
  * they must be guarded by the internal token, same as the dashboard reads.
  */

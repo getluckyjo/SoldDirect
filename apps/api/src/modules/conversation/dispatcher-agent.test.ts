@@ -93,7 +93,7 @@ function makeDeps(agent?: AgentHandler, extra: Partial<DispatcherDeps> = {}) {
   };
 }
 
-describe('dispatcher × AI concierge', () => {
+describe('dispatcher × AI WhatsApp estate agent', () => {
   it('hands unmatched messages to the agent; live mode suppresses the canned help', async () => {
     const agent = fakeAgent('live');
     const d = makeDeps(agent);
@@ -159,7 +159,7 @@ describe('dispatcher × AI concierge', () => {
 
     await d.dispatcher.handle(inbound('how much do you charge?'));
 
-    // The concierge takes the aside...
+    // The WhatsApp estate agent takes the aside...
     expect(agent.handle).toHaveBeenCalledWith({
       phone: PHONE,
       text: 'how much do you charge?',
@@ -210,7 +210,7 @@ describe('dispatcher × AI concierge', () => {
     await d.dispatcher.handle(inbound('list'));
 
     // The advertised opener must render the same menu every time, whether or
-    // not the concierge is up.
+    // not the WhatsApp estate agent is up.
     expect(agent.handle).not.toHaveBeenCalled();
     expect(d.sent[0].text).toMatch(/how it works/i);
     expect(optionIds(d.sent[0].opts)).toContain('START');
@@ -235,7 +235,7 @@ describe('dispatcher × AI concierge', () => {
     const agent = fakeAgent('live');
     const d = makeDeps(agent);
 
-    // The regression this guards: with the concierge live the agent used to
+    // The regression this guards: with the WhatsApp estate agent live the agent used to
     // claim the menu tap, so the seller asked for taps and got an open
     // question instead — the one-click flow could never run.
     await d.dispatcher.handle(tap('START', 'List my property'));

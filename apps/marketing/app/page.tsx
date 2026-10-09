@@ -37,7 +37,7 @@ const TIERS = [
       'Your buyer bonds through our partner and a panel conveyancer handles transfer. The bank pays us — you pay nothing.',
     points: [
       'Full listing, portal syndication & deal tracker',
-      'WhatsApp concierge from mandate to registration',
+      'WhatsApp estate agent from mandate to registration',
       'Exclusive with us for a fixed term',
     ],
     foot: 'Cash buyer? A simple 1%, agreed upfront.',
@@ -50,7 +50,7 @@ const TIERS = [
     mechanic:
       'No exclusivity, no partner requirements — one simple fee, only when you sell.',
     points: [
-      'The same platform, tools and concierge',
+      'The same platform, tools and WhatsApp estate agent',
       'Any buyer, any bank, any conveyancer',
       'Nothing to pay until your home sells',
     ],
@@ -158,9 +158,9 @@ export default function Home() {
             <span className="text-brand-300">Keep your money.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-slate-100">
-            Sell privately, guided end-to-end on WhatsApp — with our concierge
-            and registered practitioners behind you. 0% commission, because the
-            banks pay us — not you.
+            Sell privately, guided end-to-end on WhatsApp — with our WhatsApp
+            estate agent and registered practitioners behind you. 0% commission,
+            because the banks pay us — not you.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -218,7 +218,7 @@ export default function Home() {
                 <span aria-hidden className="font-semibold text-brand-600">
                   ✓
                 </span>
-                A WhatsApp concierge from mandate to registration
+                A WhatsApp estate agent from mandate to registration
               </li>
               <li className="flex gap-3">
                 <span aria-hidden className="font-semibold text-brand-600">

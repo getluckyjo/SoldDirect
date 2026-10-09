@@ -18,7 +18,7 @@ agreements. Figures ZAR; numbers tie to `01-financial-model.md` and `02-capital-
 | Anti-dilution | Broad-based weighted average if a future round prices below the modelled Series A (R250m pre) |
 | Founder commitment | Both founders full-time and exclusive; founder shares reverse-vest over 36 months |
 | Technology partner | Paysoft's 10% vests against preferred development rates plus a free-development allocation to an agreed value — vendor equity is earned, not granted |
-| Use of funds | Cape Town launch + brand campaign · AI-augmented team (concierge + PPRA-registered practitioners) · in-house origination accreditation (FAIS/FSP + bank agreements) · platform integrations |
+| Use of funds | Cape Town launch + brand campaign · AI-augmented team (WhatsApp estate agent + PPRA-registered practitioners) · in-house origination accreditation (FAIS/FSP + bank agreements) · platform integrations |
 | Modelled outcome | ~16.9× on the base case (~R811m EV at 5× Y5 revenue, post-optional-Series-A dilution) — illustrative, model-grade, not a forecast |
 
 ## Cap table at closing

@@ -15,7 +15,7 @@ export interface AgentServiceDeps {
   data: AgentDataSource;
   notifier: Notifier;
   /**
-   * shadow — draft only, nothing is sent (concierge approves from the queue).
+   * shadow — draft only, nothing is sent (WhatsApp estate agent approves from the queue).
    * live — reply is sent immediately; the draft row is kept as the audit record.
    */
   mode: AgentMode;
@@ -48,7 +48,7 @@ export interface AgentHandler {
 
 /**
  * One agentic turn: load the conversation, let the model reply with tools,
- * then either send (live) or park the draft for concierge review (shadow).
+ * then either send (live) or park the draft for WhatsApp estate agent review (shadow).
  * Every turn writes an AgentDraft row — that is the audit trail.
  */
 export function createAgentHandler(deps: AgentServiceDeps): AgentHandler {
@@ -85,7 +85,7 @@ export function createAgentHandler(deps: AgentServiceDeps): AgentHandler {
 
       const text =
         reply.text ||
-        "Thanks — I'm looping in our concierge team so a human can help you properly. They'll WhatsApp you shortly.";
+        "Thanks — I'm looping in our WhatsApp estate agent team so a human can help you properly. They'll WhatsApp you shortly.";
       const escalated = ctx.escalated || !reply.text;
 
       if (deps.mode === 'live') {

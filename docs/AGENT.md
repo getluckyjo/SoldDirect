@@ -1,9 +1,9 @@
-# AI Concierge (modules/agent)
+# AI WhatsApp estate agent (modules/agent)
 
 Claude, plugged directly into the WhatsApp conversation. Messages that no
 scripted flow claims (not intake, not an `ENQUIRE` deep link, not a pre-qual
 consent reply, not an upsell keyword) go to an agentic loop that can look
-things up before answering — a concierge that *knows* the listings, the
+things up before answering — a WhatsApp estate agent that *knows* the listings, the
 person's deals, and the transfer-bottleneck playbook.
 
 ## Design principle: the agent talks, code decides
@@ -20,7 +20,7 @@ never be "interpreted" by the model.
 | `get_my_deals` | The sender's deals + transfer-journey stage, scoped to their phone |
 | `benchmark_deposit` | Compares a deposit to verified oobarometer benchmarks (docs/BOTTLENECKS.md) |
 | `get_price_estimate` | Market price range from the valuation adapter (LOOM when configured; demo mock in the simulator; absent otherwise) — always framed as an estimate with attribution, never a "valuation" |
-| `escalate_to_concierge` | Flags the thread for human takeover (recorded on the draft) |
+| `escalate_to_estate_agent` | Flags the thread for human takeover (recorded on the draft) |
 
 The system prompt (`knowledge.ts`) is composed of named section constants
 (identity, audience, positioning, pricing tiers, journey, viewings, Cape Town
@@ -38,7 +38,7 @@ To change what the agent knows: edit the relevant `PROMPT_*` section in
 `knowledge.ts` — `knowledge.test.ts` locks the load-bearing facts and
 forbidden claims. Policy gaps the founders haven't answered yet live in
 **docs/AGENT-QUESTIONS.md**; until answered, the prompt's open-questions
-section makes the agent say "I'll get our concierge to confirm" and
+section makes the agent say "I'll get our WhatsApp estate agent to confirm" and
 escalate rather than improvise. Each answer folds into its section in a
 small PR and comes off the open-questions list.
 
@@ -68,7 +68,7 @@ deterministic YES/NO in code, always.
 
 | `AGENT_MODE` | Behaviour |
 |---|---|
-| `shadow` (default) | The agent only **drafts**. The user gets the standard help reply; the draft parks in `agent_drafts` for concierge review. |
+| `shadow` (default) | The agent only **drafts**. The user gets the standard help reply; the draft parks in `agent_drafts` for WhatsApp estate agent review. |
 | `live` | The reply sends immediately. Every turn still writes an audit row (`status: sent`). |
 
 Review queue (internal-token guarded, same as the dashboard reads):
@@ -79,7 +79,7 @@ Review queue (internal-token guarded, same as the dashboard reads):
 
 **The demo simulator runs LIVE by default** regardless of `AGENT_MODE` — it
 is a playground on the reserved +2700 number range, so visitors talk to the
-real concierge with no approval cards. Set `DEMO_AGENT_MODE=shadow` to
+real WhatsApp estate agent with no approval cards. Set `DEMO_AGENT_MODE=shadow` to
 restore the draft-approval behaviour in the demo. Production (the real
 WhatsApp number) is always governed by `AGENT_MODE`.
 

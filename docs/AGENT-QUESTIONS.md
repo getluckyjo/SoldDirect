@@ -1,14 +1,14 @@
-# AI concierge — founder questionnaire
+# AI WhatsApp estate agent — founder questionnaire
 
 The agent's knowledge base (`apps/api/src/modules/agent/knowledge.ts`)
 covers everything the repo's research answers. The topics below are
 questions real sellers and buyers WILL ask that no document answered —
 **Johannes answered round 1 on 2026-07-10**, and **re-confirmed every one of
 those answers on 2026-08-06** before they were folded in. Answered items go
-into the prompt; TBC items stay on the agent's honest "I'll get our concierge
+into the prompt; TBC items stay on the agent's honest "I'll get our WhatsApp estate agent
 to confirm" list.
 
-These answers are what the concierge states to real customers as fact —
+These answers are what the WhatsApp estate agent states to real customers as fact —
 several are effectively pricing or coverage policy. Re-read them whenever
 the commercial model moves, and re-date the confirmation above when you do.
 
@@ -43,7 +43,7 @@ logged.
 **Folded into:** PROMPT_AUDIENCE
 
 ### Q5 — How offers get signed today ✅ folded (interim)
-**Answer:** The concierge team prepares and handles offer paperwork with
+**Answer:** The WhatsApp estate agent team prepares and handles offer paperwork with
 both parties; in-WhatsApp e-signing is in build with the tech partner. The
 agent never promises a launch date (timing stays on the open list).
 **Folded into:** PROMPT_JOURNEY
@@ -85,21 +85,21 @@ Agent keeps routing data-rights requests to the team.
 
 ### Q11 — Sectional title / flats ✅ folded (interim)
 **Answer:** Accepted today. The agent mentions levies, body-corporate rules
-and the levy-clearance certificate, and loops in the concierge for scheme
+and the levy-clearance certificate, and loops in the WhatsApp estate agent for scheme
 specifics. Follow-up product work: sectional-title intake fields (extra
 costs & requirements questions).
 **Folded into:** PROMPT_JOURNEY
 
 ### Q12 — Is Flex actually sellable today? ✅ folded
 **Answer:** Yes — a simple agreement that 1% is payable if the home sells
-via the platform. Concierge sets it up (intake still creates Free-tier
+via the platform. WhatsApp estate agent sets it up (intake still creates Free-tier
 listings; Flex is a manual contract for now). Follow-up: Flex agreement
 template (attorney).
 **Folded into:** PROMPT_PRICING
 
 ### Q13 — Add-on pricing ⏳ TBC
 **Answer (2026-07-10):** "Pricing still TBC but will get quotes." → Agent
-keeps deferring add-on prices to the concierge.
+keeps deferring add-on prices to the WhatsApp estate agent.
 **Will fold into:** PROMPT_PRICING
 
 ---

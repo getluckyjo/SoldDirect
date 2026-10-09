@@ -63,7 +63,7 @@ Unlike the rest, this is **product code, not documentation**: it folds founder
 questionnaire answers into `apps/api/src/modules/agent/knowledge.ts`, with
 tests, and rewrites `docs/AGENT-QUESTIONS.md`.
 
-Merging it as archive material would silently change what the AI concierge
+Merging it as archive material would silently change what the AI WhatsApp estate agent
 tells sellers. That is a live behaviour change and deserves a normal pull
 request — read the diff, check the answers are still accurate a month on, run
 the agent evals — rather than being swept in with a documentation tidy-up.

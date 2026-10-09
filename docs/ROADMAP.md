@@ -180,7 +180,7 @@ Price guidance (BOTTLENECKS.md row 1) is built behind
 `modules/valuation/`: at the intake price question sellers see "homes like
 yours recently sold for R…–R… (based on confirmed sales via LOOM Property
 Insights)", framed as an estimate (never "valuation"), with a CONSULT
-keyword for a free human pricing chat; the AI concierge gets a
+keyword for a free human pricing chat; the AI WhatsApp estate agent gets a
 `get_price_estimate` tool with the same framing. Production shows NOTHING
 until `LOOM_API_URL` + `LOOM_API_KEY` are set (no fabricated ranges); the
 demo uses a deterministic mock. Business to-dos: LOOM subscription

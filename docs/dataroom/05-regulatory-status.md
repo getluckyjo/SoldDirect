@@ -48,7 +48,7 @@ individual's registration.
 ### What the public sites say
 
 Until registration completes, the marketing site states plainly that registration is in progress
-and that **no mandate will be accepted until it and a valid FFC are in place**. The AI concierge
+and that **no mandate will be accepted until it and a valid FFC are in place**. The AI WhatsApp estate agent
 is instructed never to claim the company is already registered. A prior claim to hold an FFC was
 removed on 26 Aug 2026.
 

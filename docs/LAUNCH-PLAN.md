@@ -22,7 +22,7 @@
 
 1. **The whole sale, run for you** — "An agency-grade portal listing, and every step to registration handled — not a DIY ad."
 2. **0% commission** — "The banks pay us, not you." (1% disclosed for cash/Flex.)
-3. **Guided & compliant** — WhatsApp concierge + registered practitioners, mandate to registration.
+3. **Guided & compliant** — WhatsApp estate agent + registered practitioners, mandate to registration.
 
 The 0% story is what we *are*; the portal story is why a prime seller acts **today**.
 
@@ -35,7 +35,7 @@ The 0% story is what we *are*; the portal story is why a prime seller acts **tod
 
 **P1 · Founding twenty (weeks 4–10)**
 - 20 founding listings across four prime pockets: Atlantic Seaboard, City Bowl, Southern Suburbs, Constantia.
-- White-glove concierge; promise: *live on Property24 within 48 hours of mandate*.
+- White-glove WhatsApp estate agent; promise: *live on Property24 within 48 hours of mandate*.
 - Every founding listing is a case study in the making (before/after: "DIY ad → agency-grade listing and a run sale, at 0%").
 
 **P2 · Prove the loop (weeks 10–20)**
@@ -61,7 +61,7 @@ The 0% story is what we *are*; the portal story is why a prime seller acts **tod
 | Founding listings | 20 by week 10 | <10 → revisit offer/segment before spending further |
 | Attribution | ≥40% of sellers cite the run-for-you service + agency-grade portal listing | <20% → wedge is weaker than modelled; re-test messaging |
 | Leads per listing | ≥5/month (also sets the P24 tier) | Tier cost >R10k/m before 100 concurrent listings → renegotiate |
-| Sell-through | ≥60% within 6 months | Below → pricing-guidance & concierge intervention |
+| Sell-through | ≥60% within 6 months | Below → pricing-guidance & WhatsApp estate agent intervention |
 | Effective CAC (organic phase) | <R3,000/listing | Above → channels 1–3 not working; do not proceed to ATL |
 
 ## 6. Wedge-specific risks

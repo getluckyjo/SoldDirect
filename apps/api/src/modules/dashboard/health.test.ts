@@ -52,27 +52,27 @@ describe('GET /health', () => {
     // The common deploy surprise: the service is healthy, the AI is not on.
     process.env.AGENT_ENABLED = 'true';
     expect((await health()).features).toEqual({
-      concierge: false,
+      estateAgent: false,
       descriptionWriter: false,
       fieldExtraction: false,
       waitlistEmails: false,
     });
   });
 
-  it('an API key alone enables writing and extraction, but not the concierge', async () => {
+  it('an API key alone enables writing and extraction, but not the WhatsApp estate agent', async () => {
     process.env.ANTHROPIC_API_KEY = 'sk-ant-test';
     expect((await health()).features).toEqual({
-      concierge: false, // still needs AGENT_ENABLED
+      estateAgent: false, // still needs AGENT_ENABLED
       descriptionWriter: true,
       fieldExtraction: true,
       waitlistEmails: false,
     });
   });
 
-  it('reports the concierge on only with both the key and the flag', async () => {
+  it('reports the WhatsApp estate agent on only with both the key and the flag', async () => {
     process.env.ANTHROPIC_API_KEY = 'sk-ant-test';
     process.env.AGENT_ENABLED = 'true';
-    expect((await health()).features.concierge).toBe(true);
+    expect((await health()).features.estateAgent).toBe(true);
   });
 
   it('honours the explicit opt-outs', async () => {

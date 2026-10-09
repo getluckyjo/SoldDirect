@@ -65,9 +65,9 @@ set the **environment variables**.
      copy for the seller to approve) and **field extraction** (so "4 bedroom
      home in Mowbray" fills three fields at once instead of asking three
      questions).
-   - `AGENT_ENABLED=true` — turns on the **concierge**, which answers
+   - `AGENT_ENABLED=true` — turns on the **WhatsApp estate agent**, which answers
      off-script questions in the thread.
-   - `AGENT_MODE` — `shadow` (default: the concierge only drafts, a human
+   - `AGENT_MODE` — `shadow` (default: the WhatsApp estate agent only drafts, a human
      approves) or `live` (it replies directly). Start on `shadow` for real
      traffic.
    - `DEMO_AGENT_MODE` — governs `/demo` only, and defaults to `live` so the

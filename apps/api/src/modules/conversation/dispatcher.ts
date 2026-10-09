@@ -41,7 +41,7 @@ const YES_RE = /^\s*(yes|y|yeah|yep|ok|okay|sure|👍)\b/i;
  * Ecosystem/upsell keywords offered in stage messages (docs/BOTTLENECKS.md,
  * Ancillary Revenue): CERTS = compliance inspections, COVER = homeowners
  * insurance, MOVE = movers/fibre/home services. The inbound is already
- * persisted, so the concierge picks the request up from the message log.
+ * persisted, so the WhatsApp estate agent picks the request up from the message log.
  */
 const UPSELL_REPLIES: Record<string, string> = {
   certs:
@@ -53,11 +53,11 @@ const UPSELL_REPLIES: Record<string, string> = {
     'pricing chat about your home. The asking price is always yours; we bring ' +
     'the recent-sales data.',
   cover:
-    '👍 Great — our concierge will WhatsApp you competitive homeowners-insurance ' +
+    '👍 Great — our WhatsApp estate agent will send you competitive homeowners-insurance ' +
     'quotes shortly. No obligation; your bank just needs cover in place before ' +
     'registration.',
   move:
-    '👍 Great — our concierge will WhatsApp you trusted quotes for movers, fibre ' +
+    '👍 Great — our WhatsApp estate agent will send you trusted quotes for movers, fibre ' +
     'and anything else you need for the big day. No obligation.',
   nothing:
     '👌 No problem — everything above stays one message away whenever you ' +
@@ -85,7 +85,7 @@ export interface DispatcherDeps {
   /** Optional post-publish description step (scripted, verbatim, SKIP-able). */
   description?: DescriptionDeps;
   /**
-   * Optional AI concierge. When present, messages no scripted flow claims
+   * Optional AI WhatsApp estate agent. When present, messages no scripted flow claims
    * (the intake help fallback) go to the agent instead of the canned help
    * reply. In shadow mode the agent only drafts — the canned reply is still
    * sent so the user is never left hanging.
@@ -152,7 +152,7 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
     }
 
     // 0. "How it works" from the welcome menu — a fixed explainer, so the
-    //    menu is answerable with the AI concierge off.
+    //    menu is answerable with the AI WhatsApp estate agent off.
     if (HOW_RE.test(text)) {
       await deps.notifier.send(phone, HOW_REPLY, {
         interactive: {
@@ -194,7 +194,7 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
     }
 
     // 0. Upsell keyword from a stage message (CERTS / COVER / MOVE):
-    //    acknowledge and hand to the concierge — never the "reply list" fallback.
+    //    acknowledge and hand to the WhatsApp estate agent — never the "reply list" fallback.
     const upsell = text.match(UPSELL_RE);
     if (upsell) {
       await deps.notifier.send(phone, UPSELL_REPLIES[upsell[1].toLowerCase()]);
@@ -271,7 +271,7 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
       }
     }
 
-    // 3. Agent-led intake: when the AI concierge is LIVE it can own a listing
+    // 3. Agent-led intake: when the AI WhatsApp estate agent is LIVE it can own a listing
     //    conversation (asks only for missing fields, natural wording). The
     //    scripted flow below remains the fallback if the agent turn fails,
     //    so the user is never stranded. Consent stays deterministic above.
@@ -279,7 +279,7 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
     //    Who gets the conversation is decided once, on the opening message,
     //    and never revisited — both flows write to the same store, so without
     //    this the agent would claim every turn of an in-progress tap sequence
-    //    and the one-click flow could never run with the concierge on.
+    //    and the one-click flow could never run with the WhatsApp estate agent on.
     //
     //      · tapped "List my property" → the seller chose the guided flow
     //      · typed "sell my 4 bed in Mowbray" → natural language, the agent's
@@ -307,12 +307,12 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
 
     // 4b. A seller mid-flow the script cannot serve — they asked us something,
     //     or told us they are stuck, frustrated, or want a person. The
-    //     concierge responds, then the re-ask below carries on from the same
+    //     WhatsApp estate agent responds, then the re-ask below carries on from the same
     //     step — the draft is never handed over, so the taps survive.
     //     Live mode only: in shadow the agent would merely draft, and the
     //     seller would be left with a bare "I didn't catch that" — which is
     //     precisely what they were complaining about.
-    if (result.needsConcierge && deps.agent?.mode === 'live') {
+    if (result.needsEstateAgent && deps.agent?.mode === 'live') {
       try {
         const outcome = await deps.agent.handle({ phone, text });
         if (outcome.sent) {
@@ -324,11 +324,11 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
           return;
         }
       } catch (error) {
-        log('concierge aside failed', error); // fall through to the re-ask
+        log('WhatsApp estate agent aside failed', error); // fall through to the re-ask
       }
     }
 
-    // 5. No scripted flow claimed the message → AI concierge, when enabled.
+    // 5. No scripted flow claimed the message → AI WhatsApp estate agent, when enabled.
     //    (Shadow mode drafts here; the canned reply below still goes out.)
     if (result.fallback && deps.agent) {
       try {

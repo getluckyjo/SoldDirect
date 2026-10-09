@@ -1,5 +1,5 @@
 /**
- * Agent seam. The rest of the app talks to the AI concierge only through
+ * Agent seam. The rest of the app talks to the AI WhatsApp estate agent only through
  * these interfaces, so the model provider (Anthropic today) sits behind an
  * adapter — same pattern as the messaging BSP seam.
  */

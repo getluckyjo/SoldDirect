@@ -77,7 +77,7 @@ down-market. Layered on top, the **origination rate steps up from 0.5% (Y1, Bett
   more defensible in diligence than the earlier ~39%.
 - **COGS is validated bottom-up** on the COGS Build tab (~7 direct per-deal lines + payment
   processing, blended low/high per line) supporting the ~12% / ~88% gross-margin input. Excludes
-  the in-house origination cost (own opex line) and the concierge team (payroll).
+  the in-house origination cost (own opex line) and the WhatsApp estate agent team (payroll).
 
 ## 4. Scenario summary (R'm)
 

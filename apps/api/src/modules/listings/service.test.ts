@@ -358,7 +358,7 @@ describe('listing intake orchestrator', () => {
 });
 
 describe('a message mid-flow the script cannot serve', () => {
-  it('flags a question so the concierge can answer it', async () => {
+  it('flags a question so the WhatsApp estate agent can answer it', async () => {
     const store = createInMemoryConversationStore();
     const deps = { store, createListing: vi.fn() };
     const phone = '27820009999';
@@ -372,7 +372,7 @@ describe('a message mid-flow the script cannot serve', () => {
       text: 'how much do you charge?',
     });
 
-    expect(res.needsConcierge).toBe(true);
+    expect(res.needsEstateAgent).toBe(true);
     // The step is held, so the re-ask puts them back where they were.
     expect((await store.get(phone))?.step).toBe('awaiting_price');
   });
@@ -388,10 +388,10 @@ describe('a message mid-flow the script cannot serve', () => {
 
     const res = await handleListingIntakeMessage(deps, { phone, text: 'abc' });
 
-    expect(res.needsConcierge).toBeUndefined();
+    expect(res.needsEstateAgent).toBeUndefined();
   });
 
-  it('flags frustration so the concierge answers instead of re-asking', async () => {
+  it('flags frustration so the WhatsApp estate agent answers instead of re-asking', async () => {
     const store = createInMemoryConversationStore();
     const deps = { store, createListing: vi.fn() };
     const phone = '27820009996';
@@ -405,7 +405,7 @@ describe('a message mid-flow the script cannot serve', () => {
       text: "I'm angry",
     });
 
-    expect(res.needsConcierge).toBe(true);
+    expect(res.needsEstateAgent).toBe(true);
     // Still held at the same step, so the re-ask lands them where they were.
     expect((await store.get(phone))?.step).toBe('awaiting_price');
   });
@@ -419,7 +419,7 @@ describe('a message mid-flow the script cannot serve', () => {
       phone,
       text: 'house',
     });
-    expect(res.needsConcierge).toBeUndefined();
+    expect(res.needsEstateAgent).toBeUndefined();
   });
 });
 
@@ -455,11 +455,11 @@ describe('repeated rejections at the same step', () => {
       text: 'abc',
     });
 
-    expect(first.needsConcierge).toBeUndefined();
-    expect(second.needsConcierge).toBeUndefined();
-    expect(third.needsConcierge).toBe(true);
+    expect(first.needsEstateAgent).toBeUndefined();
+    expect(second.needsEstateAgent).toBeUndefined();
+    expect(third.needsEstateAgent).toBe(true);
     expect((await store.get(phone))?.rejections).toBe(REPEATED_REJECTION_LIMIT);
-    // Still held at the step, so the concierge picks up in context.
+    // Still held at the step, so the WhatsApp estate agent picks up in context.
     expect((await store.get(phone))?.step).toBe('awaiting_price');
   });
 
@@ -489,7 +489,7 @@ describe('repeated rejections at the same step', () => {
       phone,
       text: 'R2 500 000',
     });
-    expect(answered.needsConcierge).toBeUndefined();
+    expect(answered.needsEstateAgent).toBeUndefined();
     expect((await store.get(phone))?.rejections).toBe(0);
 
     // The next miss therefore starts from one, not three.
@@ -497,7 +497,7 @@ describe('repeated rejections at the same step', () => {
       phone,
       text: 'abc',
     });
-    expect(missed.needsConcierge).toBeUndefined();
+    expect(missed.needsEstateAgent).toBeUndefined();
     expect((await store.get(phone))?.rejections).toBe(1);
   });
 });

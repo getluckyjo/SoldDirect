@@ -118,7 +118,7 @@ export const DEMO_PAGE_HTML = `<!doctype html>
     </div>
     <button id="newchat" title="Start a fresh conversation as a new person">New chat</button>
   </header>
-  <div class="banner">Demo — the real production brain (flows, database, AI concierge). Only the WhatsApp transport is simulated.</div>
+  <div class="banner">Demo — the real production brain (flows, database, AI WhatsApp estate agent). Only the WhatsApp transport is simulated.</div>
   <div id="chat"></div>
   <div class="typing" id="typing">Sold Direct is typing…</div>
   <div class="chips" id="chips"></div>
@@ -260,7 +260,7 @@ export const DEMO_PAGE_HTML = `<!doctype html>
     state.drafts.forEach(function (d) {
       html += '<div class="row them"><div class="draft">'
         + '<span class="tag">🤖 AI draft — awaiting your approval (shadow mode)</span>'
-        + (d.escalated ? '<div class="tools esc">⚑ flagged for concierge takeover</div>' : '')
+        + (d.escalated ? '<div class="tools esc">⚑ flagged for WhatsApp estate agent takeover</div>' : '')
         + '<div class="text">' + esc(d.draft) + '</div>'
         + (d.toolCalls && d.toolCalls.length
             ? '<div class="tools">tools used: ' + esc(d.toolCalls.join(', ')) + '</div>' : '')
