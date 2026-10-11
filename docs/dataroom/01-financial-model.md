@@ -92,8 +92,9 @@ down-market. Layered on top, the **origination rate steps up from 0.5% (Y1, Bett
 | Implied share of upper-market (Y5) | 5.4% | **8.3%** | 13.7% |
 
 **CA-review adjustments baked in:** 27% SA corporate tax on positive EBITDA; headcount doubled to
-a delivery-realistic **96 by Y5** (50% AI); a **cash-runway check** (R10m seed at Y1, Series A at
-Y3) shows a minimum cash position of **+R5.5m** — the seed alone covers the trough.
+a delivery-realistic **96 by Y5** (50% AI); a **cash-runway check** (R5m seed at Y1, Series A at
+Y3) shows a minimum cash position of **+R0.5m** in the base case — the seed covers the trough,
+without a buffer (conservative case in `02-capital-and-valuation.md` §1).
 
 ## 5. Watch-outs (flag before investors do)
 

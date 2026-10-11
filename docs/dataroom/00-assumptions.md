@@ -126,8 +126,9 @@ they already sit in the core model.
 
 **CA-review additions:** SA **corporate tax at 27%** applied to positive EBITDA (no loss
 carry-forward modelled — conservative); **total headcount doubled to 96 by Y5** (50% AI) for
-delivery-realistic capacity; a **cash-runway check** on the Scenarios tab confirms the R10m seed
-covers the trough (minimum cash +R5.5m) with Series A at Y3 optional.
+delivery-realistic capacity; a **cash-runway check** on the Scenarios tab confirms the R5m seed
+covers the base-case trough (minimum cash +R0.5m; see `02-capital-and-valuation.md` §1 for the
+conservative case) with Series A at Y3 optional.
 
 **COGS — bottom-up (validates the ~12%; gross margin now *derived*).** Rather than assume a flat
 margin, COGS is built up from the direct, per-deal cost of delivering a transaction (full table on

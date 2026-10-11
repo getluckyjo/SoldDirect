@@ -18,16 +18,23 @@ The model turns **EBITDA-positive in Y3**; the cumulative after-tax cash low-poi
 | + buffer | R3m | R3m | R3m |
 | **Total capital to breakeven** | **~R8.7m** | **~R7.5m** | **~R5.5m** |
 
-### The raise — R10m seed at inception
+### The raise — R5m seed at inception
 
 | Round | Timing | Amount | Pre-money | Stake | Use of funds |
 |---|---|---:|---:|---:|---|
-| **Seed (Strategic Funder)** | Inception | **R10m (~$0.54m)** | **R30m** | **25%** | CT launch + brand campaign, AI-augmented team, origination accreditation, integrations (see Use of Funds tab) |
+| **Seed (Strategic Funder)** | Inception | **R5m (~$0.27m)** | **R20m** | **20%** | CT launch + brand campaign, practitioners + concierge team, origination accreditation, integrations (see Use of Funds tab) |
 | **Series A** | *Y3, optional* | R50m | R250m | 16.7% | Fuel on a proven engine; national upper-market rollout |
 
-**Runway check (live on the Scenarios tab):** with the R10m seed injected at Y1 and Series A at
-Y3, the minimum cash position across Y1–Y5 is **+R5.5m — the seed alone covers the trough**; the
-Series A is offence, not survival.
+Post-money **R25m**. The round was **cut from R10m at R30m pre-money (25%) to R5m at R20m
+pre-money (20%) in Oct 2026** — a leaner seed that prices the company lower but gives up less
+of it.
+
+**Runway check (live on the Scenarios tab):** with the R5m seed injected at Y1 and Series A at
+Y3, the minimum cash position across Y1–Y5 is **+R0.5m in the base case — the seed covers the
+trough, without the R3m buffer**. The conservative case (low-point ≈ −R5.7m) would need a
+**~R1m top-up or an earlier bridge/Series A**; the aggressive case has headroom. The Series A is
+offence, not survival in the base case. The seed is deployed in two milestone tranches
+(`04-indicative-term-sheet.md`) so the spend tracks the ramp.
 
 ## 2. Valuation
 
@@ -46,15 +53,16 @@ CA-reviewed model pairs high growth with a deliberately conservative **~17% Y5 E
 
 - Base Y5 revenue **R162.3m** → exit enterprise value **~R811m** at the model's 5× base multiple
   (editable input, Assumptions C75).
-- The seed investor's **25% (20.8% post-A)** of a ~R811m outcome ≈ **R169m on R10m invested —
-  ~16.9×** (with dilution). Lead with the revenue line and the ~8% market share, not the multiple.
+- The seed investor's **20% (16.7% post-A)** of a ~R811m outcome ≈ **R135m on R5m invested —
+  ~27×** (with dilution). Lead with the revenue line and the ~8% market share, not the multiple.
 
 ### c) Why the pre-money is well-supported
 
-**R30m pre-money** is grounded by: a live product (WhatsApp loop + tracker + dashboard), the
+**R20m pre-money** is grounded by: a live product (WhatsApp loop + tracker + dashboard), the
 defensible monetisation wedge (owned origination from Y2), a capital-efficient path (breakeven
-inside the seed), a committed technology partner, and conservative CA-reviewed numbers that hold
-up in diligence.
+inside the seed in the base case), a committed technology partner, and conservative CA-reviewed
+numbers that hold up in diligence. It sits below the comps-derived range deliberately: a smaller,
+cheaper first cheque for a lead who comes in at inception.
 
 ## 3. Cap table
 
@@ -65,14 +73,17 @@ to an agreed value:
 
 | Holder | At Seed (inception) | Post-Series A |
 |---|---:|---:|
-| Johannes le Roux — Marketing Director | 30.0% | 25.0% |
-| Dean Kruger — Managing Director | 30.0% | 25.0% |
+| Johannes le Roux — Marketing Director | 32.5% | 27.1% |
+| Dean Kruger — Managing Director | 32.5% | 27.1% |
 | Paysoft — Technology Partner | 10.0% | 8.3% |
 | Option pool (reserved, unissued) | 4.0% | 3.3% |
 | Board seat (reserved — non-executive strategic) | 1.0% | 0.8% |
-| Strategic Funder / Seed Investor (R10m) | **25.0%** | 20.8% |
+| Strategic Funder / Seed Investor (R5m) | **20.0%** | 16.7% |
 | Series A Investor (R50m) | — | 16.7% |
 | **Total** | **100%** | **100%** |
+
+The Oct 2026 cut of the seed stake from 25% to 20% accrues to the founders (30% → 32.5% each);
+Paysoft, the option pool and the board seat are unchanged.
 
 The board allocation was **reduced from 5.0% to 1.0% in Aug 2026**. A seed-stage
 non-executive seat prices at 0.25–1.5% on market terms; the balance moved to an **option
@@ -83,11 +94,11 @@ firm's Fidelity Fund Certificate (see `05-regulatory-status.md`).
 
 | Holder | Invested | Value @ Exit | Multiple |
 |---|---:|---:|---:|
-| Each working founder (×2) | sweat | **~R203m** | — |
+| Each working founder (×2) | sweat | **~R220m** | — |
 | Paysoft | dev delivery (vesting) | ~R68m | — |
 | Option pool (reserved) | team | ~R27m | — |
 | Board seat (reserved) | board | ~R7m | — |
-| Strategic Funder / Seed | R10m | **~R169m** | **~16.9×** |
+| Strategic Funder / Seed | R5m | **~R135m** | **~27×** |
 | Series A | R50m | ~R135m | ~2.7× |
 
 ## 4. The Purplebricks guardrail — and why the taper sidesteps it

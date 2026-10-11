@@ -7,9 +7,9 @@ import './globals.css';
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://investors.solddirect.co.za';
 
-const TITLE = 'Sold Direct — Investor Overview · R10m Seed';
+const TITLE = 'Sold Direct — Investor Overview · R5m Seed';
 const DESCRIPTION =
-  'Sold Direct has built an AI real-estate agent, trained on 50 years of SA property, legal and bond data, powering 0%-commission private sales on WhatsApp (qualifying path). Raising a R10m seed for 25%.';
+  'Sold Direct runs 0%-commission private property sales on WhatsApp (qualifying path), with registered practitioners in the loop and the bank paying us as bond originator. Raising a R5m seed for 20% at a R20m pre-money valuation.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

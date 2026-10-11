@@ -88,8 +88,8 @@ story = [
         'direct with the banks, from Year 2), a 1% facilitation fee, bank '
         'sponsorship and fixed conveyancer panel advertising. Our '
         'CA-reviewed base case runs <b>R6.1m (Y1) → R162.3m (Y5)</b>, '
-        'EBITDA-positive in Year 3, with <b>R10m strategic funding '
-        'secured</b>. And it’s not a slide deck — the core product is '
+        'EBITDA-positive in Year 3, with a <b>R5m strategic seed '
+        'at a R20m pre-money valuation</b>. And it’s not a slide deck — the core product is '
         'live: the WhatsApp transaction loop, the deal tracker, an internal '
         'dashboard and two public sites, typed end-to-end and CI-gated with '
         '95 tests green.', s_p),
@@ -134,9 +134,10 @@ story = [
     Paragraph('The deal we have in mind — tweak it, challenge it', s_h),
     kv_table([
         ('Founding equity', '<b>10% of Sold Direct at inception</b>, '
-                            'alongside Johannes 30% · Dean 30% · a reserved '
-                            'non-executive board seat 5% · strategic funder '
-                            '25% (R10m). In '
+                            'alongside Johannes 32.5% · Dean 32.5% · a '
+                            'reserved option pool 4% · a reserved '
+                            'non-executive board seat 1% · strategic funder '
+                            '20% (R5m). In '
                             'return, Paysoft backs the build: <b>preferred '
                             'development rates</b> for the platform plus a '
                             '<b>free-development allocation up to a value we '

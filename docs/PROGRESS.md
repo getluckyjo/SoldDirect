@@ -18,9 +18,10 @@ building.
   timeline — access-gated.
 - **Public marketing site** — "sell your home, direct — on WhatsApp" positioning
   (streamlined private sales; agent-respectful, PPRA-aligned) + **waitlist capture**.
-- **Investor site** — full public pitch (the AI agent IP, the R10m-for-25% ask,
-  headline model numbers) + **gated data-room request** for the detailed model and
-  partner terms.
+- **Investor site** — concept-first pitch (the idea in three parts, the interactive
+  WhatsApp journey, the R5m-for-20% ask at R20m pre-money) with model, market, team,
+  traction and FAQ folded into collapsibles + **gated data-room request** for the
+  detailed model and partner terms.
 - **The AI agent** — our AI real-estate agent, trained on 50 years of SA property
   transaction, legal and bond data, is built and working; it does the productivity
   heavy-lifting behind the 0% model (registered practitioners assist throughout).

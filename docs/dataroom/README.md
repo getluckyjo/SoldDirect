@@ -9,9 +9,9 @@ model-grade (see sourcing caveats in each document).
 |---|---|
 | [`00-assumptions.md`](./00-assumptions.md) | Sourced assumption base — market size, prices, bond economics, costs, valuation comps — with reliability flags and confirmed data gaps |
 | [`01-financial-model.md`](./01-financial-model.md) | 5-year P&L + cashflow, three scenarios (conservative / base / aggressive), the per-deal revenue engine, volume ramp, and sensitivities |
-| [`02-capital-and-valuation.md`](./02-capital-and-valuation.md) | Bottom-up capital requirement, the R10m seed at R30m pre-money (25%), valuation, **cap table** (2 working founders + technology partner + board + strategic funder at inception) and runway check |
+| [`02-capital-and-valuation.md`](./02-capital-and-valuation.md) | Bottom-up capital requirement, the R5m seed at R20m pre-money (20%), valuation, **cap table** (2 working founders + technology partner + board + strategic funder at inception) and runway check |
 | [`03-market-sizing.md`](./03-market-sizing.md) | TAM/SAM/SOM, the implied upper-market share (stress test + positioning), and consumer commission saved |
-| [`04-indicative-term-sheet.md`](./04-indicative-term-sheet.md) | **Indicative seed terms (one-pager)** — R10m for 25% with investor-friendly structure (tranched against milestones, 1× non-participating preference, lead board seat, founder reverse-vesting), cap table at closing, and the team (founders + Paysoft in the CTO role) |
+| [`04-indicative-term-sheet.md`](./04-indicative-term-sheet.md) | **Indicative seed terms (one-pager)** — R5m for 20% with investor-friendly structure (tranched against milestones, 1× non-participating preference, lead board seat, founder reverse-vesting), cap table at closing, and the team (founders + Paysoft in the CTO role) |
 | [`05-regulatory-status.md`](./05-regulatory-status.md) | **Regulatory status, written for diligence** — property practitioner registration and FFC (not yet held; route, timeline and key-person mitigation), why the 0% model does not avoid the Property Practitioners Act, the Property24 subscription position and open commercial points, and the FAIS/FSP dependency for Y2 origination |
 | [`sold-direct-model.xlsx`](./sold-direct-model.xlsx) | **Live Excel model (CA-reviewed)** — 12 linked tabs (Home · Assumptions · P&L · COGS Build · Scenarios · Market Sizing · Capital & Valuation · Use of Funds · Cap Table · Competitive Landscape · Ancillary Revenue · Notes). Edit the amber input cells and everything recalculates. |
 | [`model.csv`](./model.csv) | Flat snapshot of the numbers (the `.xlsx` is the working model) |
@@ -59,13 +59,15 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
   prime-only) — a defensible ask.
 - **The database:** each customer unlocks **~R50k of ecosystem referral revenue**; modelled optional
   (~R5k/deal captured, default off).
-- **Capital:** need is **~R7.5m** to breakeven; the **R10m seed (at R30m pre-money, 25%)** covers
-  the trough with a minimum cash position of +R5.5m (runway check on the Scenarios tab).
+- **Capital:** the base-case cash trough is **≈ −R4.5m** (~R7.5m to breakeven incl. a R3m
+  buffer); the **R5m seed (at R20m pre-money, 20%)** covers the base-case trough with a minimum
+  cash position of +R0.5m — no buffer, and the conservative case needs a ~R1m top-up (runway
+  check on the Scenarios tab). Deployed in two milestone tranches.
 - **Valuation:** Year-5 enterprise value **~R649–974m** (4–6×); base exit **~R811m** (5×).
-- **Cap table:** **Johannes le Roux 30% · Dean Kruger 30% · Paysoft (technology partner, vesting)
-  10% · option pool (reserved) 4% · board seat (reserved, non-executive) 1% · Strategic Funder
-  25% (R10m)** at inception → post-optional-Series-A: 25 / 25 / 8.3 / 3.3 / 0.8 / 20.8 / 16.7;
-  the **seed models ~16.9×** to the base-case exit.
+- **Cap table:** **Johannes le Roux 32.5% · Dean Kruger 32.5% · Paysoft (technology partner,
+  vesting) 10% · option pool (reserved) 4% · board seat (reserved, non-executive) 1% · Strategic
+  Funder 20% (R5m)** at inception → post-optional-Series-A: 27.1 / 27.1 / 8.3 / 3.3 / 0.8 / 16.7 /
+  16.7; the **seed models ~27×** to the base-case exit.
 - **⚠ Validate** the in-house origination terms (bank agreements + accreditation), the ATL→deals
   conversion, and the upper-market pool count with a pilot.
 - **⚠ Gating:** property practitioner registration + FFC are **not yet in place**; no mandate can
@@ -88,9 +90,11 @@ the model's shape; they sharpen individual lines.
 - Formalise the supplier partnerships in motion: Loom (property valuations) and Capture
   Media (listing video/photography)
 - A signed bank headline-sponsor (the sponsorship line)
-- Refresh `sold-direct-model.xlsx` — the **Cap Table tab is stale**: it still shows the previous
-  3×25% founder split at R40m pre-money, and predates the 1% board seat / 4% option pool and the
-  founder names (Johannes le Roux, Dean Kruger). P&L, COGS, scenario and market tabs are current.
+- Refresh `sold-direct-model.xlsx` — the **Capital & Valuation and Cap Table tabs are stale**:
+  they still carry the R10m-at-R30m seed (and the Cap Table tab the even older 3×25% founder
+  split at R40m pre-money, predating the 1% board seat / 4% option pool and the founder names).
+  Re-key the seed inputs to **R5m at R20m pre-money (20%)** and re-run the runway check on the
+  Scenarios tab. P&L, COGS, scenario and market tabs are current.
 
 *(Market sizing, cap table + use-of-funds and the competitive landscape are in the workbook; the
 operational risk playbook lives in `docs/BOTTLENECKS.md`.)*

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { TEAM_SECTION } from '@/content/pitch';
+import { TEAM_DETAIL } from '@/content/pitch';
 
 /**
  * People cards for the team section: photo (or branded initials until a
@@ -9,7 +9,7 @@ import { TEAM_SECTION } from '@/content/pitch';
 export function TeamGrid() {
   return (
     <div className="mt-10 grid gap-6 sm:grid-cols-2">
-      {TEAM_SECTION.people.map((p) => (
+      {TEAM_DETAIL.people.map((p) => (
         <div
           key={p.name}
           className="flex gap-5 rounded-2xl border border-slate-800 bg-navy p-6"
