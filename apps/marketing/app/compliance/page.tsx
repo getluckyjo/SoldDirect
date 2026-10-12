@@ -115,8 +115,8 @@ export default function Compliance() {
             © {new Date().getFullYear()} Sold Direct. Cape Town, South Africa.
           </span>
           <span>
-            0% commission — the banks pay us, not you · POPIA-compliant ·
-            PPRA-regulated practice.
+            0% commission on the qualifying path; the lender pays us ·
+            POPIA-compliant · PPRA-regulated practice.
           </span>
         </div>
       </footer>

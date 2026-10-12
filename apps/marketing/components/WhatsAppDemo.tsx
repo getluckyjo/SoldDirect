@@ -7,6 +7,7 @@ import {
   SCENES,
   TRACKER,
   type Note,
+  type Options,
   type Scene,
   type Tag,
 } from './journey';
@@ -393,14 +394,51 @@ function Bubble({ scene, isLast }: { scene: Scene; isLast: boolean }) {
   return (
     <div className={`flex ${mine ? 'justify-end' : 'justify-start'}`}>
       <div
-        className={`max-w-[85%] rounded-2xl px-3 py-2 text-[13px] shadow-sm ${
-          mine
-            ? 'rounded-br-sm bg-[#DCF8C6] text-slate-800'
-            : 'rounded-bl-sm bg-white text-slate-800'
-        } ${isLast ? 'animate-[fadein_.3s_ease]' : ''}`}
+        className={`max-w-[85%] ${isLast ? 'animate-[fadein_.3s_ease]' : ''}`}
       >
-        <BubbleBody scene={scene} />
+        <div
+          className={`rounded-2xl px-3 py-2 text-[13px] shadow-sm ${
+            mine
+              ? 'rounded-br-sm bg-[#DCF8C6] text-slate-800'
+              : 'rounded-bl-sm bg-white text-slate-800'
+          }`}
+        >
+          <BubbleBody scene={scene} />
+        </div>
+        {scene.options ? <QuickSelects options={scene.options} /> : null}
       </div>
+    </div>
+  );
+}
+
+/**
+ * Quick selects — WhatsApp's native reply buttons / list rows, as the
+ * production flow sends them. The picked one is filled in, the rest stay
+ * outlined, so the demo shows a tap rather than a typed answer.
+ */
+function QuickSelects({ options }: { options: Options }) {
+  return (
+    <div className="mt-1.5">
+      <div className="flex flex-wrap gap-1.5">
+        {options.items.map((item) => {
+          const picked = item === options.picked;
+          return (
+            <span
+              key={item}
+              className={`rounded-full border px-2.5 py-1 text-[12px] font-medium shadow-sm ${
+                picked
+                  ? 'border-[#075E54] bg-[#075E54] text-white'
+                  : 'border-[#25D366]/60 bg-white text-[#075E54]'
+              }`}
+            >
+              {item}
+            </span>
+          );
+        })}
+      </div>
+      {options.footer ? (
+        <p className="mt-1 text-[11px] text-slate-500">{options.footer}</p>
+      ) : null}
     </div>
   );
 }
@@ -461,6 +499,55 @@ function BubbleBody({ scene }: { scene: Scene }) {
       );
     }
 
+    case 'estimate': {
+      const e = scene.estimate!;
+      return (
+        <div className="w-60 rounded-lg border border-brand-100 bg-brand-50/60 p-3">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-700">
+            💡 Quick Estimate · {e.home}
+          </p>
+          <p className="mt-1 text-lg font-extrabold leading-tight text-brand-800">
+            {e.low} – {e.high}
+          </p>
+          <p className="mt-1.5 text-[12px] text-slate-600">
+            Homes like yours recently sold in this range — {e.comparables}.
+          </p>
+          <p className="mt-1 text-[11px] text-slate-500">
+            Based on confirmed sales via {e.source}. Market guidance, not a
+            formal valuation — the asking price is yours.
+          </p>
+        </div>
+      );
+    }
+
+    case 'report': {
+      const r = scene.report!;
+      return (
+        <div className="w-60 overflow-hidden rounded-lg border border-slate-200 bg-white">
+          <div className="flex items-center gap-2 bg-navy px-3 py-2 text-white">
+            <span aria-hidden className="text-base">
+              📄
+            </span>
+            <div className="leading-tight">
+              <p className="text-[12px] font-bold">{r.title}</p>
+              <p className="text-[11px] text-slate-300">{r.address}</p>
+            </div>
+          </div>
+          <ul className="space-y-1 px-3 py-2 text-[12px] text-slate-600">
+            {r.pages.map((page) => (
+              <li key={page} className="flex gap-1.5">
+                <span className="text-brand-600">▸</span>
+                {page}
+              </li>
+            ))}
+          </ul>
+          <p className="border-t border-slate-100 px-3 py-1.5 text-[11px] text-slate-500">
+            {r.delivery} · free
+          </p>
+        </div>
+      );
+    }
+
     case 'prequal': {
       const p = scene.prequal!;
       return (
@@ -468,7 +555,7 @@ function BubbleBody({ scene }: { scene: Scene }) {
           <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-700">
             Pre-qualified ✅ · via BetterBond
           </p>
-          <p className="mt-1 text-xl font-extrabold text-brand-800">
+          <p className="mt-1 text-xl font-extrabold text-brand-700">
             {p.amount}
           </p>
           <dl className="mt-2 space-y-1 text-[12px] text-slate-600">
