@@ -11,6 +11,7 @@
 
 export type Stat = { label: string; value: string; sub?: string };
 export type Card = { title: string; body: string };
+export type KeyPoint = { label: string; value: string };
 
 // source: docs/dataroom/02-capital-and-valuation.md §1
 export const RIBBON = 'Seed round: R5m for 20% at a R20m pre-money valuation';
@@ -71,23 +72,46 @@ export const CONCEPT_SECTION = {
   heading: 'The proposition.',
   cards: [
     {
-      title: '1 · The gap',
-      body: 'The property portals sell private sellers a flat-fee listing. After the enquiry, the seller handles pricing, viewings, the offer, the bond, FICA and transfer alone. Full-service agents provide all of this for 5–7% plus VAT, which suits most sellers. A segment prefers to sell direct and is not served between those two options.',
+      icon: 'gap',
+      title: 'The gap',
+      lead: 'Private sellers can buy a listing, but not a sale.',
+      points: [
+        'The portals sell a flat-fee listing; after the enquiry the seller handles pricing, viewings, the offer, the bond, FICA and transfer alone.',
+        'Full-service agents provide all of this for 5–7% plus VAT, which suits most sellers.',
+        'A segment prefers to sell direct and is not served between those two options.',
+      ],
     },
     {
-      title: '2 · The product',
-      body: 'Sold Direct takes the seller from listing to registered transfer within WhatsApp. The platform handles the administration; registered property practitioners (PPRA, Fidelity Fund Certificate) and a concierge are involved on every transaction.',
+      icon: 'chat',
+      title: 'The product',
+      lead: 'The whole sale, listing to registered transfer, inside WhatsApp.',
+      points: [
+        'Menu-driven steps: Quick Estimate, Property Report, listing, buyer pre-qualification, offer, transfer tracking.',
+        'The platform handles the administration.',
+        'Registered property practitioners (PPRA, Fidelity Fund Certificate) and a concierge are involved on every transaction.',
+      ],
     },
     {
-      title: '3 · The revenue model',
-      body: 'A South African property purchase financed by a bond carries an origination fee paid by the lender. Sold Direct earns that fee — through BetterBond in Year 1, as an originator in its own right from Year 2 — so the sale costs the seller 0%* on the qualifying path and a disclosed 1% otherwise.',
+      icon: 'bank',
+      title: 'The revenue model',
+      lead: 'The lender pays. The seller pays 0%* on the qualifying path.',
+      points: [
+        'A bonded purchase carries an origination fee paid by the lender; Sold Direct earns it.',
+        'Through BetterBond in Year 1; as an originator in its own right from Year 2, at about three times the rate.',
+        'Cash or non-partner transactions pay a disclosed 1% facilitation fee.',
+      ],
     },
-  ] satisfies Card[],
+  ],
 } as const;
 
 // source: docs/dataroom/README.md; founder-confirmed status
 export const PRODUCT_DETAIL = {
   heading: 'Product',
+  keyPoints: [
+    { label: 'Channel', value: 'WhatsApp, menu-driven' },
+    { label: 'Scope', value: 'Listing to registration' },
+    { label: 'People', value: 'PPRA practitioners + concierge' },
+  ] satisfies KeyPoint[],
   cards: [
     {
       title: 'Scope',
@@ -111,6 +135,11 @@ export const PRODUCT_DETAIL = {
 // source: docs/dataroom/01-financial-model.md §1–2
 export const MODEL_DETAIL = {
   heading: 'Revenue lines',
+  keyPoints: [
+    { label: 'Origination, Y1', value: '0.5% of the bond' },
+    { label: 'Origination, Y2+', value: '~1.5% of the bond' },
+    { label: 'Per transaction, Y2', value: 'R70.6k blended' },
+  ] satisfies KeyPoint[],
   originationStep: {
     y1: {
       label: 'Year 1 — BetterBond referral',
@@ -156,6 +185,11 @@ export const MODEL_DETAIL = {
 // source: docs/dataroom/03-market-sizing.md
 export const MARKET_DETAIL = {
   heading: 'Market',
+  keyPoints: [
+    { label: 'Addressable', value: 'R6.25bn a year' },
+    { label: 'Entry', value: 'Prime Cape Town, R6.5m avg' },
+    { label: 'Y5 share', value: '8.3% of upper market' },
+  ] satisfies KeyPoint[],
   intro:
     'An addressable market of about R6.25bn a year. Entry is at prime Cape Town, where the average transacting price is R6.5m, broadening into the national upper market with the average tapering to R4.0m by Year 5. Listings are distributed through the existing portals as an agency-grade feed; Sold Direct is a customer of the portals rather than a competitor to them.',
   stats: [
@@ -191,6 +225,11 @@ export const REVENUE_RAMP = [
 // source: docs/dataroom/01-financial-model.md, 02-capital-and-valuation.md
 export const FIN_DETAIL = {
   heading: 'Financial summary',
+  keyPoints: [
+    { label: 'Revenue, Y1 → Y5', value: 'R6.1m → R162m' },
+    { label: 'EBITDA-positive', value: 'Year 2' },
+    { label: 'Y5 EBITDA margin', value: '~17%' },
+  ] satisfies KeyPoint[],
   intro:
     'Base case from the model reviewed by a chartered accountant: 27% corporate tax, headcount sized for delivery, and revenue the Legal Practice Council prohibits removed. The full workbook is in the data room.',
   stats: [
@@ -217,6 +256,11 @@ export const FIN_DETAIL = {
 // source: docs/PROGRESS.md; partnerships founder-confirmed
 export const TRACTION_DETAIL = {
   heading: 'Status and partners',
+  keyPoints: [
+    { label: 'Product', value: 'Built, demonstrable' },
+    { label: 'WhatsApp sender', value: 'Pending Meta approval' },
+    { label: 'Partners', value: '4 in progress' },
+  ] satisfies KeyPoint[],
   intro:
     'The end-to-end flow is built and can be demonstrated. The WhatsApp sender is pending Meta approval. Launch partnerships are in progress.',
   shipped: [
@@ -236,6 +280,11 @@ export const TRACTION_DETAIL = {
 // source: docs/dataroom/02-capital-and-valuation.md §3
 export const TEAM_DETAIL = {
   heading: 'Team',
+  keyPoints: [
+    { label: 'Founders', value: '2, full-time, 32.5% each' },
+    { label: 'Technology', value: 'Paysoft, 10% vesting' },
+    { label: 'Board', value: '1 non-executive seat reserved' },
+  ] satisfies KeyPoint[],
   intro:
     'Two full-time founders, a technology partner providing the CTO function, and a reserved non-executive seat. The cap table and terms are in the data room.',
   // photo: drop a headshot at public/team/<file>.jpg and set it here —
@@ -272,7 +321,7 @@ export const TEAM_DETAIL = {
 export const ASK_SECTION = {
   heading: 'R5m for 20%.',
   intro:
-    'R5m at a R20m pre-money valuation. Until the business is self-funding it runs on four people: the two founders at R50,000 a month each, covering marketing, management, transactions, bookkeeping and technical support; a principal practitioner who also holds compliance; and an agent. There is no office, and hires beyond the four are made only against signed mandates. The round covers the modelled cash trough in every scenario; the balance funds the Cape Town launch.',
+    'R5m at a R20m pre-money valuation. Until the business is self-funding it runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, and hires beyond the four are made only against signed mandates. The round covers the modelled cash trough in every scenario; the balance funds the Cape Town launch.',
   useOfFunds: [
     'Cape Town launch and brand campaign',
     'Four-person team: founders, principal practitioner, agent',
@@ -319,7 +368,7 @@ export const FAQ = [
   },
   {
     q: 'Is R5m sufficient?',
-    a: 'In every modelled scenario, yes. Year 1 runs on four people at R150,000 a month in total: the two founders at R50,000 each, a principal practitioner who also holds compliance at R30,000, and an agent at R20,000. There is no office, hires beyond the four are made only against signed mandates, and Paysoft carries the build. That removes about R5m from the pre-breakeven cost base without reducing revenue, marketing or compliance spend, and brings EBITDA-positive forward to Year 2. On a monthly view the Year 1 cash trough is about R2m to R3m, which the round covers with about R2.5m to spare in the base case and about R1m in the conservative case. Capital is released in two tranches against milestones. The runway check is on the Scenarios tab of the model.',
+    a: 'In every modelled scenario, yes. Year 1 runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, hires beyond the four are made only against signed mandates, and Paysoft carries the build. That keeps the pre-breakeven cost base about R5m lower than the earlier plan without reducing revenue, marketing or compliance spend, and brings EBITDA-positive forward to Year 2. On a monthly view the Year 1 cash trough is about R2m to R3m, which the round covers with about R2.5m to spare in the base case and about R1m in the conservative case. Capital is released in two tranches against milestones. The runway check is on the Scenarios tab of the model.',
   },
   {
     q: 'What are the principal risks?',
@@ -354,9 +403,53 @@ export const DEMO_SECTION = {
 } as const;
 
 export const DETAIL_SECTION = {
-  heading: 'Further detail.',
+  heading: 'The Business Plan.',
   intro:
-    'Summaries follow. The full model, assumptions with sources, cap table and partner terms are in the data room.',
+    'Each section opens to the detail. The full model, assumptions with sources, cap table and partner terms are in the data room.',
+} as const;
+
+// source: docs/dataroom/02-capital-and-valuation.md §2 (VC method); Scenarios
+// tab. Seed 20% at inception, 16.7% after the optional Series A (R50m at
+// R250m pre, Year 3). IRR assumes a single exit at the end of Year 5.
+export const RETURN_SECTION = {
+  heading: 'Return on the R5m.',
+  intro:
+    'The base-case model values the seed stake at about R135m at a Year 5 exit: 27 times the investment, an IRR of about 93% over five years. The table shows the same calculation across the three scenarios and the comparable-multiple range.',
+  tiles: [
+    { label: 'Invested', value: 'R5m', sub: '20% at inception' },
+    {
+      label: 'Value at exit',
+      value: '~R135m',
+      sub: 'Base case, Year 5, after Series A',
+    },
+    { label: 'Multiple', value: '27×', sub: 'On R5m' },
+    { label: 'IRR', value: '~93%', sub: 'Five-year hold' },
+  ] satisfies Stat[],
+  columns: ['4× revenue', '5× revenue', '6× revenue'],
+  rows: [
+    {
+      scenario: 'Conservative',
+      revenue: 'Y5 revenue R102m',
+      cells: ['13.6× · 69%', '17.0× · 76%', '20.4× · 83%'],
+    },
+    {
+      scenario: 'Base',
+      revenue: 'Y5 revenue R162m',
+      cells: ['21.6× · 85%', '27.1× · 93%', '32.5× · 101%'],
+      highlight: true,
+    },
+    {
+      scenario: 'Aggressive',
+      revenue: 'Y5 revenue R287m',
+      cells: ['38.3× · 107%', '47.8× · 117%', '57.4× · 125%'],
+    },
+  ],
+  cellNote: 'Multiple on R5m · IRR, per cell',
+  notes: [
+    'Exit at the end of Year 5 at the stated multiple of Year 5 revenue. 4–6× is the range the model applies to South African early-stage proptech, discounted from global comparables.',
+    'The seed holds 20% at inception and 16.7% after the optional Series A modelled at Year 3. Without a Series A the figures above are 20% higher.',
+    'Illustrative, from the model-grade base case; not a forecast, guarantee or offer. Early-stage investment carries risk, including loss of capital.',
+  ],
 } as const;
 
 export const ACCESS_SECTION = {
@@ -375,5 +468,6 @@ export const NAV = [
   { href: '#concept', label: 'Proposition' },
   { href: '#demo', label: 'Demonstration' },
   { href: '#ask', label: 'The round' },
-  { href: '#detail', label: 'Detail' },
+  { href: '#returns', label: 'Returns' },
+  { href: '#detail', label: 'Business plan' },
 ] as const;
