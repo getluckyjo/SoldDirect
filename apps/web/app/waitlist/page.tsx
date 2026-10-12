@@ -11,10 +11,17 @@ const ROLE: Record<string, { label: string; cls: string }> = {
 
 export default async function WaitlistPage() {
   let leads: LeadRow[] = [];
+  let requests: LeadRow[] = [];
   let error = false;
   try {
-    leads = (await apiGet<{ leads: LeadRow[] }>('/api/leads?kind=waitlist'))
-      .leads;
+    [leads, requests] = await Promise.all([
+      apiGet<{ leads: LeadRow[] }>('/api/leads?kind=waitlist').then(
+        (r) => r.leads,
+      ),
+      apiGet<{ leads: LeadRow[] }>('/api/leads?kind=investor').then(
+        (r) => r.leads,
+      ),
+    ]);
   } catch {
     error = true;
   }
@@ -41,7 +48,56 @@ export default async function WaitlistPage() {
   return (
     <div className="grid gap-4">
       <div>
-        <h1 className="text-2xl font-bold">Waitlist</h1>
+        <h1 className="text-2xl font-bold">Data-room requests</h1>
+        <p className="text-slate-600">
+          From the investor site, newest first. Each one was acknowledged by
+          email; the NDA and the data room go out by hand.
+        </p>
+      </div>
+      {error ? null : requests.length === 0 ? (
+        <p className="text-slate-600">No requests yet.</p>
+      ) : (
+        <ul className="grid gap-3">
+          {requests.map((l) => (
+            <li
+              key={l.id}
+              className="grid gap-2 rounded-2xl border border-purple-200 bg-white p-4 sm:grid-cols-[1fr_auto] sm:items-start"
+            >
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="font-medium">
+                    {l.name ?? (
+                      <span className="text-slate-400">No name given</span>
+                    )}
+                  </span>
+                  <span className="rounded-full bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-800">
+                    Investor
+                  </span>
+                </div>
+                <div className="mt-1 text-sm text-slate-600">
+                  <a
+                    href={`mailto:${l.email}?subject=Sold%20Direct%20data%20room`}
+                    className="break-all text-brand-700 hover:underline"
+                  >
+                    {l.email}
+                  </a>
+                </div>
+                {l.message ? (
+                  <p className="mt-2 whitespace-pre-line text-sm text-slate-700">
+                    {l.message}
+                  </p>
+                ) : null}
+              </div>
+              <div className="text-xs text-slate-400 sm:text-right">
+                {dmy(l.createdAt)}
+                {l.source ? <div>{l.source}</div> : null}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="mt-6">
+        <h2 className="text-2xl font-bold">Waitlist</h2>
         <p className="text-slate-600">
           Sign-ups from the marketing site, newest first.
         </p>

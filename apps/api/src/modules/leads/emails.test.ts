@@ -62,10 +62,32 @@ describe('waitlist emails', () => {
     expect(sender.send).not.toHaveBeenCalled();
   });
 
-  it('leaves investor requests alone', async () => {
-    const { emails, sender } = setup();
-    await emails.onLeadCreated(newLead, { ...signup, kind: 'investor' });
-    expect(sender.send).not.toHaveBeenCalled();
+  it('acknowledges a data-room request and alerts the team with the message', async () => {
+    const { emails, sent } = setup();
+    await emails.onLeadCreated(newLead, {
+      kind: 'investor',
+      email: 'anna@fund.example',
+      name: 'Anna K.',
+      message: 'Firm: Example Capital\nKeen to see the model.',
+      source: 'fundraising:data-room',
+      consent: true,
+    });
+    expect(sent).toHaveLength(2);
+    const [confirmation, alert] = sent;
+    expect(confirmation.to).toBe('anna@fund.example');
+    expect(confirmation.subject).toBe(
+      'Sold Direct data room — request received',
+    );
+    expect(confirmation.text).toContain('Hi Anna K.');
+    expect(confirmation.text).toContain('within one business day');
+    expect(confirmation.text).toContain('invest.solddirect.co.za/try');
+    expect(alert.to).toEqual(['team@solddirect.co.za']);
+    expect(alert.subject).toBe('Data-room request: Anna K.');
+    expect(alert.replyTo).toBe('anna@fund.example');
+    expect(alert.text).toContain('Firm: Example Capital');
+    expect(alert.text).toContain('Keen to see the model.');
+    expect(alert.text).toContain('https://dashboard.example/waitlist');
+    expect(alert.text).toContain('03/10/2026 15:16 SAST');
   });
 
   it('skips the team alert when no team inbox is configured', async () => {

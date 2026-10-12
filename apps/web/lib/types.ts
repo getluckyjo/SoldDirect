@@ -61,6 +61,7 @@ export interface LeadRow {
   phone: string | null;
   role: 'seller' | 'buyer' | 'investor' | 'other' | null;
   source: string | null;
+  message: string | null;
   consentAt: string;
   /** Null = no WhatsApp opt-in: never business-initiate a WhatsApp message. */
   whatsappConsentAt: string | null;

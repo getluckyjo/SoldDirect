@@ -55,6 +55,7 @@ export function createPrismaLeadRepository(
           phone: true,
           role: true,
           source: true,
+          message: true,
           consentAt: true,
           whatsappConsentAt: true,
           createdAt: true,

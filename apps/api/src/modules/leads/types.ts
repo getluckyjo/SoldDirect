@@ -36,6 +36,8 @@ export interface LeadRow {
   phone: string | null;
   role: LeadRole | null;
   source: string | null;
+  /** The free-text message (investor requests carry firm + note). */
+  message: string | null;
   consentAt: Date;
   whatsappConsentAt: Date | null;
   createdAt: Date;
