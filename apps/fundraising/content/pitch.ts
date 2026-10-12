@@ -413,7 +413,7 @@ export const HOOKS_SECTION = {
     {
       icon: 'handshake',
       title: 'Relationships that carry into post-sale services',
-      body: 'A sale runs for months inside one conversation. That relationship extends into the next bond, insurance, conveyancing and the next move, at no acquisition cost.',
+      body: 'A sale runs for months inside one conversation. That relationship carries into the services around a move: removals, painting, short-term leasing, gardening and recycling, offered through partners at no acquisition cost.',
     },
   ],
 } as const;
