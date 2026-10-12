@@ -22,7 +22,7 @@ export const ASK = {
   stake: '20%',
   preMoney: 'R20m pre-money · R25m post-money',
   seriesA:
-    'The round covers the modelled cash trough in all three scenarios. Operations run on a four-person team until the business is EBITDA-positive, modelled in Year 2. A Series A is modelled at Year 3 and is optional in the base case.',
+    'The round covers the modelled cash trough in all three scenarios. Operations run on a four-person team until the business is EBITDA-positive, modelled in Year 3. A Series A is modelled at Year 3 and is optional in the base case.',
 } as const;
 
 export const HERO = {
@@ -58,8 +58,8 @@ export const SUMMARY_STRIP = [
   { label: 'Status', value: 'Product built', sub: 'WhatsApp sender pending' },
   {
     label: 'Y5 revenue (base)',
-    value: 'R162m',
-    sub: 'EBITDA-positive from Y2',
+    value: 'R86m',
+    sub: 'EBITDA-positive from Y3',
   },
 ] satisfies Stat[];
 
@@ -184,7 +184,7 @@ export const MARKET_DETAIL = {
   keyPoints: [
     { label: 'Addressable', value: 'R6.25bn a year' },
     { label: 'Entry', value: 'Prime Cape Town, R6.5m avg' },
-    { label: 'Y5 share', value: '8.3% of upper market' },
+    { label: 'Y5 share', value: '4.1% of upper market' },
   ] satisfies KeyPoint[],
   intro:
     'An addressable market of about R6.25bn a year. Entry is at prime Cape Town, where the average transacting price is R6.5m, broadening into the national upper market with the average tapering to R4.0m by Year 5. Listings are distributed through the existing portals as an agency-grade feed; Sold Direct is a customer of the portals rather than a competitor to them.',
@@ -201,37 +201,37 @@ export const MARKET_DETAIL = {
     },
     {
       label: 'SOM (base case, Y5)',
-      value: '8.3%',
-      sub: 'Of upper-market transactions; 1.16% of all SA transfers',
+      value: '4.1%',
+      sub: 'Of upper-market transactions; 0.58% of all SA transfers',
     },
   ] satisfies Stat[],
   consumer:
-    'In the base case, sellers using the platform retain about R733m a year by Year 5, and about R1.46bn cumulatively, that a full-service sale at the 6% plus VAT benchmark would have cost. Full-service agents continue to serve the majority of sellers; Sold Direct serves those who choose to sell direct.',
+    'In the base case, sellers using the platform retain about R367m a year by Year 5, and about R743m cumulatively, that a full-service sale at the 6% plus VAT benchmark would have cost. Full-service agents continue to serve the majority of sellers; Sold Direct serves those who choose to sell direct.',
 } as const;
 
 // source: docs/dataroom/01-financial-model.md §3 (base case, CA-reviewed)
 export const REVENUE_RAMP = [
   { year: 'Y1', revenue: 6.14, deals: 50 },
-  { year: 'Y2', revenue: 20.24, deals: 220, ebitdaPositive: true },
-  { year: 'Y3', revenue: 46.83, deals: 650 },
-  { year: 'Y4', revenue: 94.72, deals: 1500 },
-  { year: 'Y5', revenue: 162.3, deals: 2900 },
+  { year: 'Y2', revenue: 12.48, deals: 110 },
+  { year: 'Y3', revenue: 26.51, deals: 325, ebitdaPositive: true },
+  { year: 'Y4', revenue: 51.51, deals: 750 },
+  { year: 'Y5', revenue: 86.35, deals: 1450 },
 ] as const;
 
 // source: docs/dataroom/01-financial-model.md, 02-capital-and-valuation.md
 export const FIN_DETAIL = {
   heading: 'Financial summary',
   keyPoints: [
-    { label: 'Revenue, Y1 → Y5', value: 'R6.1m → R162m' },
-    { label: 'EBITDA-positive', value: 'Year 2' },
-    { label: 'Y5 EBITDA margin', value: '~17%' },
+    { label: 'Revenue, Y1 → Y5', value: 'R6.1m → R86m' },
+    { label: 'EBITDA-positive', value: 'Year 3' },
+    { label: 'Y5 EBITDA margin', value: '~14%' },
   ] satisfies KeyPoint[],
   intro:
     'Base case from the model reviewed by a chartered accountant: 27% corporate tax, headcount sized for delivery, and revenue the Legal Practice Council prohibits removed. The full workbook is in the data room.',
   stats: [
     {
       label: 'EBITDA-positive',
-      value: 'Year 2',
+      value: 'Year 3',
       sub: 'Four-person team until self-funding',
     },
     {
@@ -241,7 +241,7 @@ export const FIN_DETAIL = {
     },
     {
       label: 'Y5 enterprise value',
-      value: 'R649–974m',
+      value: 'R345–518m',
       sub: 'At 4–6× revenue, discounted from global proptech comparables',
     },
   ] satisfies Stat[],
@@ -332,7 +332,7 @@ export const ASK_SECTION = {
 } as const;
 
 // source: docs/dataroom/02-capital-and-valuation.md §2b — the seed models
-// ~27× to the base-case exit (~R811m EV at 5× Y5 revenue, post-Series-A
+// ~14× to the base-case exit (~R432m EV at 5× Y5 revenue, post-Series-A
 // dilution). The calculator scales that per rand invested; post-money R25m.
 export const CALCULATOR = {
   heading: 'Illustrative return',
@@ -343,9 +343,9 @@ export const CALCULATOR = {
   max: 5_000_000,
   step: 250_000,
   initial: 1_000_000,
-  exitMultiple: 27,
+  exitMultiple: 14.4,
   exitLabel:
-    'Modelled value at the base-case exit (about R811m enterprise value in Year 5, after Series A dilution)',
+    'Modelled value at the base-case exit (about R432m enterprise value in Year 5, after Series A dilution)',
   caveat:
     'Illustrative only, from the model-grade base case (exit at 5× Year 5 revenue, after an optional Series A). Not a forecast, guarantee or offer. Early-stage investment carries risk, including loss of capital.',
 } as const;
@@ -369,7 +369,7 @@ export const FAQ = [
   },
   {
     q: 'Is R5m sufficient?',
-    a: 'In every modelled scenario, yes. Year 1 runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, hires beyond the four are made only against signed mandates, and Paysoft carries the build. That keeps the pre-breakeven cost base about R5m lower than the earlier plan without reducing revenue, marketing or compliance spend, and brings EBITDA-positive forward to Year 2. On a monthly view the Year 1 cash trough is about R2m to R3m, which the round covers with about R2.5m to spare in the base case and about R1m in the conservative case. Capital is released in two tranches against milestones. The runway check is on the Scenarios tab of the model.',
+    a: 'In every modelled scenario, yes. Year 1 runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, hires beyond the four are made only against signed mandates, and Paysoft carries the build. The deal ramp from Year 2 was halved in October 2026, with marketing and headcount scaled to match, so the plan is sized to what the founders will defend; EBITDA-positive is modelled in Year 3. On a monthly view the cash trough is about R3m, which the round covers with about R2m to spare in the base case and about R1.5m in the conservative case. Capital is released in two tranches against milestones. The runway check is on the Scenarios tab of the model.',
   },
   {
     q: 'What are the principal risks?',
@@ -377,7 +377,7 @@ export const FAQ = [
   },
   {
     q: 'What is on offer?',
-    a: '20% of Sold Direct for R5m at a R20m pre-money valuation, alongside the two founders at 32.5% each, Paysoft at 10% vesting, a reserved option pool of 4% and a reserved non-executive board seat of 1%. The base-case model gives the seed about 27× at exit. Full terms, the reviewed model and the cap table are in the data room under NDA.',
+    a: '20% of Sold Direct for R5m at a R20m pre-money valuation, alongside the two founders at 32.5% each, Paysoft at 10% vesting, a reserved option pool of 4% and a reserved non-executive board seat of 1%. The base-case model gives the seed about 14× at exit. Full terms, the reviewed model and the cap table are in the data room under NDA.',
   },
 ] as const;
 
@@ -485,39 +485,39 @@ export const DETAIL_SECTION = {
 } as const;
 
 // source: docs/dataroom/02-capital-and-valuation.md §2 (VC method); Scenarios
-// tab. Seed 20% at inception, 16.7% after the optional Series A (R50m at
-// R250m pre, Year 3). IRR assumes a single exit at the end of Year 5.
+// tab. Seed 20% at inception, 16.7% after the optional Series A (R25m at
+// R125m pre, Year 3). IRR assumes a single exit at the end of Year 5.
 export const RETURN_SECTION = {
   heading: 'Return on the R5m.',
   intro:
-    'The base-case model values the seed stake at about R135m at a Year 5 exit: 27 times the investment, an IRR of about 93% over five years. The table shows the same calculation across the three scenarios and the comparable-multiple range.',
+    'The base-case model values the seed stake at about R72m at a Year 5 exit: about 14 times the investment, an IRR of about 70% over five years. The deal ramp from Year 2 was halved in October 2026; the table shows the same calculation across the three scenarios and the comparable-multiple range.',
   tiles: [
     { label: 'Invested', value: 'R5m', sub: '20% at inception' },
     {
       label: 'Value at exit',
-      value: '~R135m',
+      value: '~R72m',
       sub: 'Base case, Year 5, after Series A',
     },
-    { label: 'Multiple', value: '27×', sub: 'On R5m' },
-    { label: 'IRR', value: '~93%', sub: 'Five-year hold' },
+    { label: 'Multiple', value: '~14×', sub: 'On R5m' },
+    { label: 'IRR', value: '~70%', sub: 'Five-year hold' },
   ] satisfies Stat[],
   columns: ['4× revenue', '5× revenue', '6× revenue'],
   rows: [
     {
       scenario: 'Conservative',
-      revenue: 'Y5 revenue R102m',
-      cells: ['13.6× · 69%', '17.0× · 76%', '20.4× · 83%'],
+      revenue: 'Y5 revenue R56m',
+      cells: ['7.5× · 50%', '9.4× · 56%', '11.2× · 62%'],
     },
     {
       scenario: 'Base',
-      revenue: 'Y5 revenue R162m',
-      cells: ['21.6× · 85%', '27.1× · 93%', '32.5× · 101%'],
+      revenue: 'Y5 revenue R86m',
+      cells: ['11.5× · 63%', '14.4× · 70%', '17.3× · 77%'],
       highlight: true,
     },
     {
       scenario: 'Aggressive',
-      revenue: 'Y5 revenue R287m',
-      cells: ['38.3× · 107%', '47.8× · 117%', '57.4× · 125%'],
+      revenue: 'Y5 revenue R149m',
+      cells: ['19.8× · 82%', '24.8× · 90%', '29.7× · 97%'],
     },
   ],
   cellNote: 'Multiple on R5m · IRR, per cell',

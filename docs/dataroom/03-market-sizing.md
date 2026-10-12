@@ -41,21 +41,21 @@ transfer at a blended ~R25k/deal:
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
-| Y5 registered deals | 1,900 | **2,900** | 4,800 |
-| Y5 revenue | R102.0m | **R162.3m** | R287.0m |
-| **% of upper-market transactions** | 5.4% | **8.3%** | 13.7% |
-| % of ALL SA transfers | 0.76% | **1.16%** | 1.92% |
+| Y5 registered deals | 950 | **1,450** | 2,400 |
+| Y5 revenue | R56.2m | **R86.4m** | R148.7m |
+| **% of upper-market transactions** | 2.7% | **4.1%** | 6.9% |
+| % of ALL SA transfers | 0.38% | **0.58%** | 0.96% |
 
 ## 5. Stress test & positioning (the point of the taper)
 
-**Tapering the average price down cut the implied Y5 share from ~21% (prime-only) to ~8% of the
-upper-market** — a far more defensible ask. Sensitivity to the (estimated) pool:
+**Tapering the average price down, and halving the ramp from Y2 (Oct 2026), cut the implied Y5
+share from ~21% (prime-only) to ~4% of the upper-market** — a far more defensible ask. Sensitivity to the (estimated) pool:
 
 | Pool size | Base Y5 share |
 |---|---|
-| 25,000 | **11.6%** |
-| 35,000 (base) | **8.3%** |
-| 50,000 | **5.8%** |
+| 25,000 | **5.8%** |
+| 35,000 (base) | **4.1%** |
+| 50,000 | **2.9%** |
 
 **Positioning:**
 - **The service-gap wedge:** the portals sell private sellers a flat-fee *listing*
@@ -70,8 +70,8 @@ upper-market** — a far more defensible ask. Sensitivity to the (estimated) poo
 - Still the **category-defining** play: the only 0%-to-consumer, WhatsApp-native, concierge +
   ecosystem channel.
 - **De-risk:** confirm the upper-market pool count and the ATL→deals conversion with a Cape Town
-  pilot before scaling the R50m/yr marketing.
-- **Downside:** at roughly two-thirds of the base share (~5.4%) we're still ~1,900 Y5 deals ≈ R117m
+  pilot before scaling the R25m/yr marketing.
+- **Downside:** at roughly two-thirds of the base share (~2.7%) we're still ~950 Y5 deals ≈ R56m
   revenue — the conservative scenario. The model is robust well below the base.
 
 ## 6. Consumer value — commission saved
@@ -83,11 +83,11 @@ commission on the qualifying path, and a faster, transparent process.
 | | Y1 | Y3 | Y5 |
 |---|---:|---:|---:|
 | Saving per sale (vs 6% + VAT) | ~R410k | ~R315k | **~R253k** |
-| Annual consumer saving | R20.5m | R205m | **R733m** |
-| Cumulative saving | R20.5m | R305m | **~R1.46bn** |
+| Annual consumer saving | R20.5m | R102m | **R367m** |
+| Cumulative saving | R20.5m | R163m | **~R743m** |
 
-> **By Year 5, Sold Direct's sellers keep ~R733m/year that a full-service sale would have cost —
-> ~R1.46bn cumulatively over five years** (lower per-sale than the prime-only model because of the
+> **By Year 5, Sold Direct's sellers keep ~R367m/year that a full-service sale would have cost —
+> ~R743m cumulatively over five years** (lower per-sale than the prime-only model because of the
 > taper, but across more, broader deals). The consumer-value and regulatory-goodwill story holds:
 > we return value to sellers who choose the self-service path, while full-service agents continue
 > to serve those who want them.
