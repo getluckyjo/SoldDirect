@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { InvestorForm } from '@/components/InvestorForm';
 import { Logo } from '@/components/Logo';
 import { WhatsAppDemo } from '@/components/WhatsAppDemo';
+import { Details } from '@/components/pitch/Details';
 import { Section } from '@/components/pitch/Section';
 import { StatGrid } from '@/components/pitch/StatGrid';
 import { RevenueBars } from '@/components/pitch/RevenueBars';
@@ -14,22 +15,24 @@ import { QualifyingNote } from '@/components/pitch/QualifyingNote';
 import { StickyCta } from '@/components/pitch/StickyCta';
 import {
   ACCESS_SECTION,
-  AI_SECTION,
   ASK,
   ASK_SECTION,
+  CONCEPT_SECTION,
   DEMO_SECTION,
+  DETAIL_SECTION,
   DISCLAIMER,
   FAQ,
-  FIN_SECTION,
+  FIN_DETAIL,
   HERO,
-  MARKET_SECTION,
-  MODEL_SECTION,
+  MARKET_DETAIL,
+  MODEL_DETAIL,
   NAV,
   NEXT_STEPS,
+  PRODUCT_DETAIL,
   QUALIFYING_PATH_NOTE,
   RIBBON,
-  TEAM_SECTION,
-  TRACTION_SECTION,
+  TEAM_DETAIL,
+  TRACTION_DETAIL,
 } from '@/content/pitch';
 
 // Copy strings mark the qualifying-path condition as "0%*"; every instance
@@ -61,7 +64,7 @@ export default function Investors() {
               Investors
             </span>
           </span>
-          <nav className="hidden min-w-0 items-center gap-4 overflow-x-auto text-sm text-slate-300 md:flex">
+          <nav className="hidden min-w-0 items-center gap-5 text-sm text-slate-300 md:flex">
             {NAV.map((item) => (
               <a
                 key={item.href}
@@ -81,7 +84,7 @@ export default function Investors() {
         </div>
       </header>
 
-      {/* Hero */}
+      {/* Hero — the concept and the deal, nothing else */}
       <section className="relative isolate overflow-hidden">
         <Image
           src="/cape-town-hero.jpg"
@@ -96,17 +99,9 @@ export default function Investors() {
           className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/90 via-navy/75 to-slate-900/45"
         />
         <div className="mx-auto max-w-6xl px-6 pb-14 pt-16 sm:pb-20 sm:pt-24">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <p className="text-sm font-medium uppercase tracking-wide text-slate-300">
-              {HERO.eyebrow}
-            </p>
-            <a
-              href="#summary"
-              className="text-sm font-medium text-brand-300 underline decoration-brand-400/50 underline-offset-4 hover:text-brand-200"
-            >
-              {HERO.summaryAnchor}
-            </a>
-          </div>
+          <p className="text-sm font-medium uppercase tracking-wide text-slate-300">
+            {HERO.eyebrow}
+          </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm sm:text-6xl">
             {HERO.title}{' '}
             <span className="text-brand-400">
@@ -117,34 +112,40 @@ export default function Investors() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-slate-200">{HERO.sub}</p>
 
-          {/* The deal at a glance */}
           <SummaryStrip />
 
-          <a
-            href="#financials"
-            className="mt-4 inline-flex rounded-lg border border-slate-500 px-4 py-2 text-sm font-semibold text-white transition hover:border-brand-400 hover:text-brand-300"
-          >
-            {HERO.ctaSecondary} ↓
-          </a>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="#access"
+              className="inline-flex rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-brand-400"
+            >
+              {HERO.ctaPrimary}
+            </a>
+            <a
+              href="#demo"
+              className="inline-flex rounded-lg border border-slate-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-brand-400 hover:text-brand-300"
+            >
+              {HERO.ctaSecondary} ↓
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Product (the AI) */}
+      {/* The concept */}
       <Section
-        id="ai"
+        id="concept"
         tone="tinted"
-        eyebrow="Product"
-        heading={AI_SECTION.heading}
-        intro={AI_SECTION.intro}
+        eyebrow="The idea"
+        heading={CONCEPT_SECTION.heading}
       >
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {AI_SECTION.cards.map((card) => (
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {CONCEPT_SECTION.cards.map((card) => (
             <div
               key={card.title}
               className="rounded-2xl border border-slate-800 bg-navy p-6"
             >
               <h3 className="font-semibold text-brand-300">{card.title}</h3>
-              <p className="mt-2 text-base text-slate-300">
+              <p className="mt-3 text-base leading-relaxed text-slate-300">
                 {withZeroNote(card.body)}
               </p>
             </div>
@@ -155,7 +156,7 @@ export default function Investors() {
       {/* Interactive journey */}
       <Section
         id="demo"
-        eyebrow="See it work · interactive"
+        eyebrow="Interactive"
         heading={DEMO_SECTION.heading}
         intro={DEMO_SECTION.intro}
         backdrop={{
@@ -168,187 +169,12 @@ export default function Investors() {
         </div>
       </Section>
 
-      {/* Revenue model */}
-      <Section
-        id="model"
-        eyebrow="Revenue model"
-        heading={MODEL_SECTION.heading}
-      >
-        <p className="mt-3 max-w-3xl text-base text-slate-300">
-          {MODEL_SECTION.introPre}
-          <QualifyingNote />
-          {MODEL_SECTION.introPost}
-        </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {[
-            MODEL_SECTION.originationStep.y1,
-            MODEL_SECTION.originationStep.y2,
-          ].map((step, i) => (
-            <div
-              key={step.label}
-              className={`rounded-2xl border p-6 ${
-                i === 1
-                  ? 'border-brand-500/40 bg-brand-500/5'
-                  : 'border-slate-800'
-              }`}
-            >
-              <p className="text-sm font-medium text-slate-400">{step.label}</p>
-              <p className="mt-1 text-3xl font-extrabold tracking-tight text-white">
-                {step.rate}
-              </p>
-              <p className="mt-2 text-base text-slate-300">{step.body}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {MODEL_SECTION.revenueLines.map((line) => (
-            <div
-              key={line.title}
-              className="rounded-2xl border border-slate-800 p-6"
-            >
-              <h3 className="font-semibold">{line.title}</h3>
-              <p className="mt-2 text-base text-slate-300">{line.body}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Revenue per deal — mini table */}
-        <div className="mt-8 max-w-3xl">
-          <h3 className="font-semibold text-white">
-            {MODEL_SECTION.perDeal.heading}
-          </h3>
-          <div className="mt-3 grid grid-cols-3 overflow-hidden rounded-xl border border-slate-800 text-center">
-            {MODEL_SECTION.perDeal.rows.map((row) => (
-              <div
-                key={row.year}
-                className="border-slate-800 p-4 [&:not(:first-child)]:border-l"
-              >
-                <p className="text-sm text-slate-400">{row.year}</p>
-                <p className="mt-1 text-2xl font-extrabold tracking-tight text-white">
-                  {row.value}
-                </p>
-                <p className="mt-0.5 text-xs text-slate-500">{row.note}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-2 text-sm text-slate-400">
-            {MODEL_SECTION.perDeal.explainer}
-          </p>
-        </div>
-      </Section>
-
-      {/* Market */}
-      <Section
-        id="market"
-        eyebrow="Market"
-        heading={MARKET_SECTION.heading}
-        intro={MARKET_SECTION.intro}
-        backdrop={{
-          src: '/cape-town-aerial-atlantic.jpg',
-          alt: 'Aerial view of the Atlantic Seaboard beneath Lion’s Head — Bantry Bay and Sea Point, Cape Town',
-        }}
-      >
-        <StatGrid stats={MARKET_SECTION.stats} />
-        <p className="mt-6 max-w-3xl text-base text-slate-300">
-          {MARKET_SECTION.consumer}
-        </p>
-      </Section>
-
-      {/* City banner */}
-      <section className="relative isolate overflow-hidden">
-        <Image
-          src="/green-point-aerial.jpg"
-          alt="Aerial view of Green Point and the Atlantic coast beneath a tablecloth cloud pouring over Table Mountain"
-          width={2000}
-          height={1500}
-          sizes="100vw"
-          className="h-[22rem] w-full object-cover object-[50%_30%] saturate-[1.1] sm:h-[30rem]"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-navy via-navy/25 to-transparent"
-        />
-        <div className="absolute inset-0 flex items-end">
-          <div className="mx-auto w-full max-w-6xl px-6 pb-12">
-            <h2 className="max-w-2xl text-3xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl">
-              Cape Town first. Then the country.
-            </h2>
-            <p className="mt-3 max-w-xl text-lg text-slate-200 drop-shadow">
-              High-value homes, near-universal WhatsApp adoption, and a finance
-              ecosystem that already pays to be in every deal.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Financials */}
-      <Section
-        id="financials"
-        eyebrow="Financials"
-        heading={FIN_SECTION.heading}
-        intro={FIN_SECTION.intro}
-      >
-        <RevenueBars />
-        <StatGrid stats={FIN_SECTION.stats} />
-        <p className="mt-6 max-w-3xl text-xs text-slate-400">
-          {FIN_SECTION.caveat}
-        </p>
-      </Section>
-
-      {/* Traction & partners */}
-      <Section
-        id="traction"
-        eyebrow="Traction"
-        heading={TRACTION_SECTION.heading}
-        intro={TRACTION_SECTION.intro}
-        backdrop={{
-          src: '/cbd-sunrise.jpg',
-          alt: 'Golden sunrise over the Cape Town city centre',
-        }}
-      >
-        <ul className="mt-8 grid max-w-3xl gap-3 text-slate-300">
-          {TRACTION_SECTION.shipped.map((item) => (
-            <li key={item} className="flex gap-3 text-base">
-              <span aria-hidden className="text-brand-400">
-                ✓
-              </span>
-              {item}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-8 flex flex-wrap gap-3">
-          {TRACTION_SECTION.partners.map((partner) => (
-            <div
-              key={partner.name}
-              className="flex items-baseline gap-2 rounded-full border border-slate-700 bg-navy px-5 py-2.5"
-            >
-              <span className="font-semibold text-white">{partner.name}</span>
-              <span className="text-sm text-slate-400">{partner.role}</span>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Team & cap table */}
-      <Section
-        id="team"
-        eyebrow="Team"
-        heading={TEAM_SECTION.heading}
-        intro={TEAM_SECTION.intro}
-      >
-        <TeamGrid />
-      </Section>
-
-      {/* The Raise */}
+      {/* The raise */}
       <Section
         id="ask"
-        eyebrow="The Raise"
+        eyebrow="The raise"
         heading={ASK_SECTION.heading}
         intro={ASK_SECTION.intro}
-        backdrop={{
-          src: '/camps-bay-sunset.jpg',
-          alt: 'Sunset over Camps Bay beach beneath the Twelve Apostles',
-        }}
       >
         <div className="mt-8 grid gap-6 md:grid-cols-[1fr_1.2fr]">
           <div className="rounded-2xl border border-brand-500/40 bg-brand-500/5 p-6">
@@ -372,13 +198,222 @@ export default function Investors() {
                 </li>
               ))}
             </ul>
+            <a
+              href="#access"
+              className="mt-6 inline-flex rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-brand-400"
+            >
+              Request the data room
+            </a>
           </div>
         </div>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <TicketCalculator />
-          <div className="rounded-2xl border border-slate-800 p-6">
-            <h3 className="font-semibold text-white">What happens next</h3>
-            <ol className="mt-3 grid gap-3 text-base text-slate-300">
+      </Section>
+
+      {/* The detail, collapsed */}
+      <Section
+        id="detail"
+        tone="tinted"
+        eyebrow="Optional reading"
+        heading={DETAIL_SECTION.heading}
+        intro={DETAIL_SECTION.intro}
+        backdrop={{
+          src: '/cape-town-aerial-atlantic.jpg',
+          alt: 'Aerial view of the Atlantic Seaboard beneath Lion’s Head — Bantry Bay and Sea Point, Cape Town',
+        }}
+      >
+        <div className="mt-8 grid gap-3">
+          <Details
+            id="numbers"
+            title={FIN_DETAIL.heading}
+            summary="R6.1m to R162.3m in five years, EBITDA-positive from Year 2 — CA-reviewed base case, bootstrapped."
+          >
+            <p className="mt-3 max-w-3xl text-base text-slate-300">
+              {FIN_DETAIL.intro}
+            </p>
+            <RevenueBars />
+            <StatGrid stats={FIN_DETAIL.stats} />
+            <div className="mt-6">
+              <TicketCalculator />
+            </div>
+            <p className="mt-6 max-w-3xl text-xs text-slate-400">
+              {FIN_DETAIL.caveat}
+            </p>
+          </Details>
+
+          <Details
+            id="model"
+            title={MODEL_DETAIL.heading}
+            summary="Bond origination is the engine — 0.5% of the bond via BetterBond in Year 1, ~1.5% in-house from Year 2."
+          >
+            <div className="mt-4 grid gap-6 md:grid-cols-2">
+              {[
+                MODEL_DETAIL.originationStep.y1,
+                MODEL_DETAIL.originationStep.y2,
+              ].map((step, i) => (
+                <div
+                  key={step.label}
+                  className={`rounded-2xl border p-6 ${
+                    i === 1
+                      ? 'border-brand-500/40 bg-brand-500/5'
+                      : 'border-slate-800'
+                  }`}
+                >
+                  <p className="text-sm font-medium text-slate-400">
+                    {step.label}
+                  </p>
+                  <p className="mt-1 text-3xl font-extrabold tracking-tight text-white">
+                    {step.rate}
+                  </p>
+                  <p className="mt-2 text-base text-slate-300">{step.body}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+              {MODEL_DETAIL.revenueLines.map((line) => (
+                <div
+                  key={line.title}
+                  className="rounded-2xl border border-slate-800 p-6"
+                >
+                  <h3 className="font-semibold">{line.title}</h3>
+                  <p className="mt-2 text-base text-slate-300">{line.body}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 max-w-3xl">
+              <h3 className="font-semibold text-white">
+                {MODEL_DETAIL.perDeal.heading}
+              </h3>
+              <div className="mt-3 grid grid-cols-3 overflow-hidden rounded-xl border border-slate-800 text-center">
+                {MODEL_DETAIL.perDeal.rows.map((row) => (
+                  <div
+                    key={row.year}
+                    className="border-slate-800 p-4 [&:not(:first-child)]:border-l"
+                  >
+                    <p className="text-sm text-slate-400">{row.year}</p>
+                    <p className="mt-1 text-2xl font-extrabold tracking-tight text-white">
+                      {row.value}
+                    </p>
+                    <p className="mt-0.5 text-xs text-slate-500">{row.note}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-2 text-sm text-slate-400">
+                {MODEL_DETAIL.perDeal.explainer}
+              </p>
+            </div>
+          </Details>
+
+          <Details
+            id="product"
+            title={PRODUCT_DETAIL.heading}
+            summary="Built and working. Modern technology does the admin; registered practitioners stay in the loop."
+          >
+            <div className="mt-4 grid gap-6 md:grid-cols-2">
+              {PRODUCT_DETAIL.cards.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-2xl border border-slate-800 p-6"
+                >
+                  <h3 className="font-semibold text-brand-300">{card.title}</h3>
+                  <p className="mt-2 text-base text-slate-300">
+                    {withZeroNote(card.body)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Details>
+
+          <Details
+            id="market"
+            title={MARKET_DETAIL.heading}
+            summary="A R6.25bn-a-year market. Land at prime Cape Town, broaden into the national upper-market."
+          >
+            <p className="mt-3 max-w-3xl text-base text-slate-300">
+              {MARKET_DETAIL.intro}
+            </p>
+            <StatGrid stats={MARKET_DETAIL.stats} />
+            <p className="mt-6 max-w-3xl text-base text-slate-300">
+              {MARKET_DETAIL.consumer}
+            </p>
+          </Details>
+
+          <Details
+            id="traction"
+            title={TRACTION_DETAIL.heading}
+            summary="The loop runs today; BetterBond, Loom, Capture Media and Paysoft are signed up or in motion."
+          >
+            <p className="mt-3 max-w-3xl text-base text-slate-300">
+              {TRACTION_DETAIL.intro}
+            </p>
+            <ul className="mt-6 grid max-w-3xl gap-3 text-slate-300">
+              {TRACTION_DETAIL.shipped.map((item) => (
+                <li key={item} className="flex gap-3 text-base">
+                  <span aria-hidden className="text-brand-400">
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {TRACTION_DETAIL.partners.map((partner) => (
+                <div
+                  key={partner.name}
+                  className="flex items-baseline gap-2 rounded-full border border-slate-700 bg-navy px-5 py-2.5"
+                >
+                  <span className="font-semibold text-white">
+                    {partner.name}
+                  </span>
+                  <span className="text-sm text-slate-400">{partner.role}</span>
+                </div>
+              ))}
+            </div>
+          </Details>
+
+          <Details
+            id="team"
+            title={TEAM_DETAIL.heading}
+            summary="Two working founders and a technology partner carrying the CTO function."
+          >
+            <p className="mt-3 max-w-3xl text-base text-slate-300">
+              {TEAM_DETAIL.intro}
+            </p>
+            <TeamGrid />
+          </Details>
+
+          <Details
+            id="faq"
+            title="Investor FAQ"
+            summary="Straight answers on sustainability, agents, legality, risk and what you are buying."
+          >
+            <div className="mt-4 grid gap-3">
+              {FAQ.map((item) => (
+                <details
+                  key={item.q}
+                  className="group/faq rounded-xl border border-slate-800 p-4 open:border-brand-500/40"
+                >
+                  <summary className="cursor-pointer list-none font-semibold text-slate-100 marker:content-none">
+                    <span className="mr-2 text-brand-400 group-open/faq:hidden">
+                      +
+                    </span>
+                    <span className="mr-2 hidden text-brand-400 group-open/faq:inline">
+                      −
+                    </span>
+                    {item.q}
+                  </summary>
+                  <p className="mt-3 text-base leading-relaxed text-slate-300">
+                    {item.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </Details>
+
+          <Details
+            id="next"
+            title="What happens next"
+            summary="Four steps from this page to an allocation."
+          >
+            <ol className="mt-4 grid max-w-2xl gap-3 text-base text-slate-300">
               {NEXT_STEPS.map((step, i) => (
                 <li key={step} className="flex gap-3">
                   <span
@@ -391,67 +426,9 @@ export default function Investors() {
                 </li>
               ))}
             </ol>
-            <a
-              href="#access"
-              className="mt-6 inline-flex rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-brand-400"
-            >
-              Request the data room
-            </a>
-          </div>
+          </Details>
         </div>
       </Section>
-
-      {/* FAQ */}
-      <Section id="faq" eyebrow="Straight answers" heading="Investor FAQ">
-        <div className="mt-8 grid gap-3">
-          {FAQ.map((item) => (
-            <details
-              key={item.q}
-              className="group rounded-2xl border border-slate-800 bg-navy p-5 open:border-brand-500/40"
-            >
-              <summary className="cursor-pointer list-none font-semibold text-slate-100 marker:content-none">
-                <span className="mr-2 text-brand-400 group-open:hidden">+</span>
-                <span className="mr-2 hidden text-brand-400 group-open:inline">
-                  −
-                </span>
-                {item.q}
-              </summary>
-              <p className="mt-3 text-base leading-relaxed text-slate-300">
-                {item.a}
-              </p>
-            </details>
-          ))}
-        </div>
-      </Section>
-
-      {/* Pre-access banner */}
-      <section className="relative isolate overflow-hidden">
-        <Image
-          src="/lions-head-sunset.jpg"
-          alt="Lion’s Head at sunset seen from the Camps Bay rocks"
-          width={2000}
-          height={1125}
-          sizes="100vw"
-          className="h-[20rem] w-full object-cover object-top sm:h-[26rem]"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-navy/20"
-        />
-        <div className="absolute inset-0 flex items-end">
-          <div className="mx-auto w-full max-w-6xl px-6 pb-12">
-            <h2 className="max-w-2xl text-3xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-4xl">
-              R10m for 25%. The data room is one request away.
-            </h2>
-            <a
-              href="#access"
-              className="mt-5 inline-flex rounded-lg bg-brand-500 px-6 py-3 font-semibold text-navy transition hover:bg-brand-400"
-            >
-              Request the data room
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* Access / data room */}
       <section

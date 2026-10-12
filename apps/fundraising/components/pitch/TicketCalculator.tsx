@@ -40,7 +40,9 @@ export function TicketCalculator() {
 
       <dl className="mt-6 grid gap-3 border-t border-slate-800 pt-4 text-sm">
         <div className="flex items-baseline justify-between gap-4">
-          <dt className="text-slate-400">Your stake at R40m post-money</dt>
+          <dt className="text-slate-400">
+            Your stake at {CALCULATOR.postMoneyLabel} post-money
+          </dt>
           <dd className="font-semibold text-slate-100">{stake.toFixed(2)}%</dd>
         </div>
         <div className="flex items-baseline justify-between gap-4">

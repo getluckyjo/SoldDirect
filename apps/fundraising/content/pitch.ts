@@ -2,36 +2,37 @@
 // restyle only touches components. Figures must match the data room —
 // each block cites its source document. Copy follows the positioning
 // guardrails in CLAUDE.md (never anti-agent; savings framed neutrally;
-// every 0% resolves to the qualifying-path note) and is written for a
-// 60-second investor skim: numbers lead, prose supports.
+// every 0% resolves to the qualifying-path note).
+//
+// The page sells the concept. Anything an investor only needs once they are
+// interested (model detail, market sizing, team, traction, FAQ) renders
+// inside collapsibles, and the full detail lives in the data room.
 
 export type Stat = { label: string; value: string; sub?: string };
 export type Card = { title: string; body: string };
 
 // source: docs/dataroom/02-capital-and-valuation.md §1
 export const RIBBON =
-  'Seed round open: R10m for 25% at a R30m pre-money valuation';
+  'Seed round open: R5m for 20% at a R20m pre-money valuation';
 
 // source: docs/dataroom/02-capital-and-valuation.md §1
 export const ASK = {
-  amount: 'R10m',
-  stake: '25%',
-  preMoney: 'R30m pre-money',
-  badge: 'Raising · R10m seed · 25% · R30m pre-money',
+  amount: 'R5m',
+  stake: '20%',
+  preMoney: 'R20m pre-money · R25m post-money',
   seriesA:
-    'A R50m Series A is modelled at Year 3 as optional — offence, not survival. The seed alone covers the cash trough.',
+    'Covers the cash trough in every modelled scenario, the conservative case included, because a four-person team runs the business until it is self-funding — EBITDA-positive in Year 2. A Series A is modelled at Year 3 as optional — offence, not survival.',
 } as const;
 
 export const HERO = {
   eyebrow: 'Private placement · Cape Town · WhatsApp-first',
-  title: 'Invest in the future of real estate.',
+  title: 'Sell a home on WhatsApp.',
   // The 0%* token is rendered between these two parts as a tap-to-resolve note.
-  titleAccentPre: '',
-  titleAccentPost: '-commission private sales, on WhatsApp.',
-  sub: 'Modern technology streamlines the sale process — listing, offer, bond, transfer — with registered practitioners guiding every step. We earn from the banks as bond originators — not from the consumer.',
+  titleAccentPre: 'At ',
+  titleAccentPost: ' commission.',
+  sub: 'Sold Direct runs the whole private sale — listing, buyer, bond, offer, transfer — over WhatsApp, with registered property practitioners guiding every step. The seller pays nothing on the qualifying path. The bank pays us.',
   ctaPrimary: 'Request the data room',
-  ctaSecondary: 'See the numbers',
-  summaryAnchor: '60-second summary ↓',
+  ctaSecondary: 'See it work',
 } as const;
 
 // The one-sentence resolution behind every 0%* (tooltip copy).
@@ -46,30 +47,42 @@ export const QUALIFYING_PATH_NOTE =
 // The deal at a glance — the most important element on the page.
 // source: docs/dataroom/README.md headlines; 01/02 dataroom docs
 export const SUMMARY_STRIP = [
-  { label: 'Raising', value: 'R10m for 25%', sub: 'R30m pre-money' },
+  { label: 'Raising', value: 'R5m for 20%', sub: 'R20m pre-money' },
+  {
+    label: 'Who pays us',
+    value: 'The bank',
+    sub: 'Bond origination, not commission',
+  },
+  { label: 'Status', value: 'Built & working', sub: 'WhatsApp loop live' },
   {
     label: 'Y5 revenue (base case)',
-    value: 'R162.3m',
-    sub: 'From R6.1m in Y1',
-  },
-  { label: 'Gross margin', value: '~88%', sub: 'COGS ~12%, built bottom-up' },
-  {
-    label: 'Modelled seed return',
-    value: '~16.9×',
-    sub: 'Base case, post-dilution',
-  },
-  {
-    label: 'Status',
-    value: 'Built & working',
-    sub: 'WhatsApp loop live · listing to registered sale',
+    value: 'R162m',
+    sub: 'EBITDA-positive from Year 2',
   },
 ] satisfies Stat[];
 
+// The concept in three beats. source: docs/dataroom/README.md (strategy)
+export const CONCEPT_SECTION = {
+  heading: 'The idea, in three parts.',
+  cards: [
+    {
+      title: '1 · A listing is not a sale',
+      body: 'The portals already sell private sellers a flat-fee listing. After the enquiry, the seller is alone with pricing, viewings, the offer, the bond, FICA and transfer. Full-service agents do all of that for 5–7% + VAT — a great choice for most people, and not what the self-service segment wants.',
+    },
+    {
+      title: '2 · WhatsApp runs the sale',
+      body: 'Sold Direct takes the seller from listing to registered transfer inside the chat they already use. Modern technology does the admin; our registered property practitioners (PPRA, Fidelity Fund Certificate) and a concierge stay in the loop on every deal.',
+    },
+    {
+      title: '3 · The bank pays, not the seller',
+      body: 'Every South African property deal already carries a bond origination fee paid by the bank. We capture it — via BetterBond in Year 1, in-house from Year 2 — so the sale is 0%* to the seller on the qualifying path and a disclosed 1% otherwise.',
+    },
+  ] satisfies Card[],
+} as const;
+
 // source: docs/dataroom/README.md (AI-lean strategy); founder-confirmed status
-export const AI_SECTION = {
-  heading: 'Modern technology + registered practitioners run the sale.',
-  intro:
-    'Built. Working. Trained on 50 years of South African property, conveyancing and bond data. Not a roadmap item — the IP you’re buying into.',
+export const PRODUCT_DETAIL = {
+  heading: 'More on the product',
   cards: [
     {
       title: 'Knows the SA transfer, end to end',
@@ -85,18 +98,14 @@ export const AI_SECTION = {
     },
     {
       title: 'A structurally lean cost base',
-      body: 'Modern tech handles the repetitive steps; 8 heads in Year 1 to a delivery-realistic 96 by Year 5, mostly practitioners and support. Reinvest the ~88% gross margin into brand.',
+      body: 'Modern tech handles the repetitive steps; four people in Year 1 — two founders, a principal practitioner and an agent — to a delivery-realistic 96 by Year 5, mostly practitioners and support. Reinvest the ~88% gross margin into brand.',
     },
   ] satisfies Card[],
 } as const;
 
 // source: docs/dataroom/01-financial-model.md §1–2
-export const MODEL_SECTION = {
-  heading: 'The banks pay us. Not the consumer.',
-  // Rendered around the 0%* tooltip token: pre + 0%* + post.
-  introPre: 'Selling costs the consumer ',
-  introPost:
-    ' on the qualifying path. We monetise the financial ecosystem already paid in every South African property deal.',
+export const MODEL_DETAIL = {
+  heading: 'How the revenue works',
   originationStep: {
     y1: {
       label: 'Year 1 — BetterBond referral',
@@ -141,10 +150,10 @@ export const MODEL_SECTION = {
 } as const;
 
 // source: docs/dataroom/03-market-sizing.md
-export const MARKET_SECTION = {
-  heading: 'A R6.25bn-a-year market. We enter at the top.',
+export const MARKET_DETAIL = {
+  heading: 'Market',
   intro:
-    'The portals sell private sellers a flat-fee listing (R499\u2013R4,999) — Property24\u2019s own private tiers prove the demand — but a listing is not a sale: pricing, viewings, the offer, bond, FICA and transfer stay on the seller. Sold Direct runs that whole journey with registered practitioners at 0% on the qualifying path, distributed through the portals as an agency-grade feed \u2014 a wholesale partner to the portals, not a competitor. We land at prime Cape Town (average transacting price R6.5m), then broaden into the national upper-market — tapering to R4.0m by Year 5.',
+    'A R6.25bn-a-year market. We land at prime Cape Town (average transacting price R6.5m), then broaden into the national upper-market — tapering to R4.0m by Year 5. Distributed through the portals as an agency-grade feed: a wholesale partner to the portals, not a competitor.',
   stats: [
     {
       label: 'TAM',
@@ -169,32 +178,22 @@ export const MARKET_SECTION = {
 // source: docs/dataroom/01-financial-model.md §3 (base case, CA-reviewed)
 export const REVENUE_RAMP = [
   { year: 'Y1', revenue: 6.14, deals: 50 },
-  { year: 'Y2', revenue: 20.24, deals: 220 },
-  { year: 'Y3', revenue: 46.83, deals: 650, ebitdaPositive: true },
+  { year: 'Y2', revenue: 20.24, deals: 220, ebitdaPositive: true },
+  { year: 'Y3', revenue: 46.83, deals: 650 },
   { year: 'Y4', revenue: 94.72, deals: 1500 },
   { year: 'Y5', revenue: 162.3, deals: 2900 },
 ] as const;
 
 // source: docs/dataroom/01-financial-model.md, 02-capital-and-valuation.md
-export const FIN_SECTION = {
-  heading: 'R6.1m to R162.3m in five years. Reviewed, not dreamed.',
+export const FIN_DETAIL = {
+  heading: 'The numbers',
   intro:
     'The base case from the chartered-accountant-reviewed model: 27% tax, delivery-realistic headcount, LPC-prohibited revenue removed. Full workbook in the data room.',
   stats: [
     {
       label: 'EBITDA-positive',
-      value: 'Year 3',
-      sub: 'Cash low-point ≈ −R4.5m (Y2)',
-    },
-    {
-      label: 'EBITDA margin by Y5',
-      value: '~17%',
-      sub: 'Deliberately conservative',
-    },
-    {
-      label: 'Capital to breakeven',
-      value: '~R7.5m',
-      sub: 'The R10m seed covers the trough — minimum cash +R5.5m',
+      value: 'Year 2',
+      sub: 'Four-person team until self-funding',
     },
     {
       label: 'Gross margin',
@@ -206,19 +205,14 @@ export const FIN_SECTION = {
       value: 'R649–974m',
       sub: 'At 4–6× revenue (SA-discounted proptech comps)',
     },
-    {
-      label: 'Modelled seed outcome',
-      value: '~16.9×',
-      sub: 'On the ~R811m base-case exit (5× Y5 revenue), post-dilution',
-    },
   ] satisfies Stat[],
   caveat:
     'Illustrative, model-grade projections (CA-reviewed workbook available in the data room under NDA) — not a forecast or guarantee. Key inputs, sources and reliability flags are documented per line.',
 } as const;
 
 // source: docs/PROGRESS.md; partnerships founder-confirmed
-export const TRACTION_SECTION = {
-  heading: 'Not a concept. A working product.',
+export const TRACTION_DETAIL = {
+  heading: 'Traction & partners',
   intro:
     'The loop runs today — list, qualify, offer, transfer — and the launch partnerships are signed up or in motion.',
   shipped: [
@@ -236,8 +230,8 @@ export const TRACTION_SECTION = {
 } as const;
 
 // source: docs/dataroom/02-capital-and-valuation.md §3
-export const TEAM_SECTION = {
-  heading: 'The people behind the platform',
+export const TEAM_DETAIL = {
+  heading: 'Team',
   intro:
     'Two working founders, a technology partner carrying the CTO function, and a reserved seat for strategic weight. Full cap table and terms are in the data room.',
   // photo: drop a headshot at public/team/<file>.jpg and set it here —
@@ -272,29 +266,30 @@ export const TEAM_SECTION = {
 
 // source: docs/dataroom/02-capital-and-valuation.md §1–2 (Use of Funds tab)
 export const ASK_SECTION = {
-  heading: 'R10m for 25%. Modelled at ~16.9×.',
+  heading: 'R5m for 20%.',
   intro:
-    'R10m at a R30m pre-money valuation. Bottom-up capital need to self-sustaining is ~R7.5m (base case, incl. buffer) — the raise covers the trough with headroom.',
+    'A lean seed at a R20m pre-money valuation. Four people run the business until it is self-funding — the founders at R50k a month doing the marketing, management, dealmaking, bookkeeping and tech support themselves, a principal practitioner, and an agent — with no office and hires only against signed mandates. R5m clears the cash trough in every scenario with headroom; the rest is launch and growth capital.',
   useOfFunds: [
-    'Cape Town launch + above-the-line brand campaign',
-    'Modern tech + registered practitioners (concierge + PPRA-certified team)',
-    'In-house origination accreditation (FAIS/FSP + bank aggregation agreements)',
-    'Partner and platform integrations (WhatsApp BSP, BetterBond, conveyancers)',
+    'Cape Town launch + brand campaign',
+    'Registered practitioners + concierge team',
+    'In-house origination accreditation (FAIS/FSP + bank agreements)',
+    'Platform integrations (WhatsApp BSP, BetterBond, conveyancers)',
   ],
 } as const;
 
 // source: docs/dataroom/02-capital-and-valuation.md §2b — the seed models
-// ~16.9× to the base-case exit (~R811m EV at 5× Y5 revenue, post-Series-A
-// dilution). The calculator scales that per rand invested; post-money R40m.
+// ~27× to the base-case exit (~R811m EV at 5× Y5 revenue, post-Series-A
+// dilution). The calculator scales that per rand invested; post-money R25m.
 export const CALCULATOR = {
   heading: 'What your ticket becomes',
   sub: 'Drag to your investment. Illustrative outcomes from the published base-case model.',
-  postMoney: 40_000_000,
-  min: 1_000_000,
-  max: 10_000_000,
+  postMoney: 25_000_000,
+  postMoneyLabel: 'R25m',
+  min: 500_000,
+  max: 5_000_000,
   step: 250_000,
-  initial: 2_500_000,
-  exitMultiple: 16.9,
+  initial: 1_000_000,
+  exitMultiple: 27,
   exitLabel:
     'Modelled value at the base-case exit (~R811m EV, Y5, post-dilution)',
   caveat:
@@ -308,11 +303,7 @@ export const FAQ = [
   },
   {
     q: 'Are you against estate agents?',
-    a: 'No — we are complementary, not adversarial. Full-service agents remain a great choice for the majority who want full service; we serve sellers who choose to do it themselves, assisted by PPRA-registered practitioners.',
-  },
-  {
-    q: 'What exactly is the AI agent?',
-    a: 'Modern technology trained on 50 years of SA property transaction, legal and bond data — built and working today. It streamlines listing intake, buyer qualification, offer assembly and transfer tracking on WhatsApp; registered practitioners guide the human side of every deal.',
+    a: 'No — we are complementary, not adversarial. Full-service agents remain a great choice for the majority who want full service; we serve sellers who choose to do it themselves, assisted by PPRA-registered practitioners. The industry describes the same split: RE/MAX Southern Africa’s leadership says technology should take the admin, after-hours enquiries and buyer qualification while people keep the judgement and the relationship (Property Professional, October 2026). That is exactly how Sold Direct is built.',
   },
   {
     q: 'Is the conveyancer revenue line legal?',
@@ -323,12 +314,16 @@ export const FAQ = [
     a: 'It is the cautionary comp we manage against. Purplebricks died of marketing-led acquisition costs and over-expansion; we land at prime Cape Town where demand is referral-driven, broaden only as the brand earns trust, and run a lean cost base with modern tech and delivery-realistic headcount.',
   },
   {
+    q: 'Is R5m enough?',
+    a: 'Yes, in every modelled scenario. Year 1 runs on four people at R150k a month in total: a Managing Director and a Marketing Director (the founders, at R50k each, carrying all marketing, management, dealmaking, bookkeeping and tech support), a principal practitioner who also holds compliance (R30k) and an agent/admin (R20k). No office; hires beyond the four only against signed mandates; Paysoft carries the build. That takes ~R5m out of the pre-breakeven cost base without touching revenue, marketing or compliance, and brings EBITDA-positive forward to Year 2. On a monthly view the Year 1 cash trough is roughly −R2m to −R3m, so the R5m seed clears it in the base case with ~R2.5m to spare and in the conservative case with ~R1m. The capital is deployed against milestones in two tranches; the runway check is on the Scenarios tab of the model in the data room.',
+  },
+  {
     q: 'What are the main risks?',
     a: 'Three, flagged before you find them: the Year-2 in-house origination step-up needs FAIS/FSP accreditation and bank aggregation agreements (Year 1 via BetterBond is the runway); marketing-to-deals conversion is the central growth assumption, validated with a Cape Town pilot; and the ~35,000/yr upper-market pool estimate needs primary confirmation. All documented with sources in the data room.',
   },
   {
     q: 'What exactly am I buying?',
-    a: '25% of Sold Direct for R10m at a R30m pre-money valuation — alongside two working founders (30% each), Paysoft as vesting technology partner (10%) and a reserved non-executive board seat (5%). Full terms, the CA-reviewed model and the cap table are in the data room, under NDA.',
+    a: '20% of Sold Direct for R5m at a R20m pre-money valuation — alongside two working founders (32.5% each), Paysoft as vesting technology partner (10%), a reserved option pool (4%) and a reserved non-executive board seat (1%). The seed models ~27× to the base-case exit. Full terms, the CA-reviewed model and the cap table are in the data room, under NDA.',
   },
 ] as const;
 
@@ -336,13 +331,19 @@ export const NEXT_STEPS = [
   'Request access — the data room opens under NDA',
   'Work through the CA-reviewed model and cap table',
   'Meet the founders; see the live WhatsApp product',
-  'Reserve your allocation in the R10m round',
+  'Reserve your allocation in the R5m round',
 ] as const;
 
 export const DEMO_SECTION = {
-  heading: 'The product, end to end.',
+  heading: 'See it work.',
   intro:
     'One Cape Town home from listing to registered sale — and every point where the financial ecosystem pays instead of the consumer. Press Play, or step through it.',
+} as const;
+
+export const DETAIL_SECTION = {
+  heading: 'The detail, if you want it.',
+  intro:
+    'Everything below is a summary. The full model, assumptions with sources, cap table and partner terms are in the data room.',
 } as const;
 
 export const ACCESS_SECTION = {
@@ -358,11 +359,8 @@ export const DISCLAIMER =
   'This page is informational only. It is not an offer of securities to the public, nor a solicitation to invest, and any investment opportunity is available by private placement to selected investors only (Companies Act, 2008). Nothing here constitutes financial, legal or tax advice (FAIS). All projections are illustrative, model-grade and unaudited; actual results may differ materially. Detailed financials, the cap table and partner terms are shared under NDA. Personal information submitted via this page is processed in accordance with POPIA.';
 
 export const NAV = [
-  { href: '#ai', label: 'Product' },
-  { href: '#model', label: 'Revenue' },
-  { href: '#market', label: 'Market' },
-  { href: '#financials', label: 'Financials' },
-  { href: '#traction', label: 'Traction' },
-  { href: '#team', label: 'Team' },
-  { href: '#ask', label: 'The Raise' },
+  { href: '#concept', label: 'The idea' },
+  { href: '#demo', label: 'See it work' },
+  { href: '#ask', label: 'The raise' },
+  { href: '#detail', label: 'Detail' },
 ] as const;

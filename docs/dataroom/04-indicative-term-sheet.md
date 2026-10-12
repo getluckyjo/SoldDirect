@@ -9,25 +9,26 @@ agreements. Figures ZAR; numbers tie to `01-financial-model.md` and `02-capital-
 | Term | Detail |
 |---|---|
 | Issuer | Sold Direct (Cape Town, South Africa) |
-| Raise | **R10m** for **25%** — R30m pre-money / R40m post-money |
+| Raise | **R5m** for **20%** — R20m pre-money / R25m post-money |
 | Instrument | Preference shares, converting to ordinary on exit or listing |
-| Liquidation preference | **1× non-participating** — investor takes the greater of money back or 25% of proceeds |
-| Tranches | **T1 R5m at closing.** **T2 R5m on milestones**, targeted inside 9 months: WhatsApp sender live · first 20 exclusive mandates signed · first qualifying bond registered via the origination partner |
-| Board | **Lead investor takes the board seat** (the reserved 5% non-executive allocation remains for a strategic appointee agreed by the board) |
+| Liquidation preference | **1× non-participating** — investor takes the greater of money back or 20% of proceeds |
+| Tranches | **T1 R2.5m at closing.** **T2 R2.5m on milestones**, targeted inside 9 months: WhatsApp sender live · first 20 exclusive mandates signed · first qualifying bond registered via the origination partner. Hires beyond the founding four are released against signed mandates |
+| Operating stance | **Bootstrap until self-funding:** a four-person team at R150k/month — founders at R50k each (below market, no accrual) carrying marketing, management, dealmaking, bookkeeping and tech support; principal practitioner & compliance R30k; agent/admin R20k — remote-first with no office lease, Paysoft free-development allocation carrying the build. EBITDA-positive in Y2 (base); the seed covers the cash trough in every modelled scenario with ≥ ~R1m to spare on a monthly view in the conservative case |
+| Board | **Lead investor takes the board seat** (the reserved 1% non-executive allocation remains for a strategic appointee agreed by the board) |
 | Information rights | Monthly management accounts; quarterly board pack; annual budget for board approval |
 | Anti-dilution | Broad-based weighted average if a future round prices below the modelled Series A (R250m pre) |
 | Founder commitment | Both founders full-time and exclusive; founder shares reverse-vest over 36 months |
 | Technology partner | Paysoft's 10% vests against preferred development rates plus a free-development allocation to an agreed value — vendor equity is earned, not granted |
 | Use of funds | Cape Town launch + brand campaign · AI-augmented team (concierge + PPRA-registered practitioners) · in-house origination accreditation (FAIS/FSP + bank agreements) · platform integrations |
-| Modelled outcome | ~16.9× on the base case (~R811m EV at 5× Y5 revenue, post-optional-Series-A dilution) — illustrative, model-grade, not a forecast |
+| Modelled outcome | ~27× on the base case (~R811m EV at 5× Y5 revenue, post-optional-Series-A dilution) — illustrative, model-grade, not a forecast |
 
 ## Cap table at closing
 
 | Holder | Stake |
 |---|---:|
-| Johannes le Roux — co-founder, Marketing Director | 30% |
-| Dean Kruger — co-founder, Managing Director | 30% |
-| Seed investor (R10m) | **25%** |
+| Johannes le Roux — co-founder, Marketing Director | 32.5% |
+| Dean Kruger — co-founder, Managing Director | 32.5% |
+| Seed investor (R5m) | **20%** |
 | Paysoft — technology partner (vesting) | 10% |
 | Option pool (reserved, unissued) | 4% |
 | Board seat (reserved, non-executive) | 1% |

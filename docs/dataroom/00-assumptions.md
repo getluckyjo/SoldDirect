@@ -69,6 +69,16 @@ steering).
 > **registered property practitioners (PPRA/FFC)** and a WhatsApp concierge. No anti-agent
 > marketing; zero friction with the PPRA by design. ⚠ Registration and the FFC are **not yet
 > held** — see `05-regulatory-status.md`.
+>
+> **The industry describes the same division of labour.** RE/MAX Southern Africa's CEO Adrian
+> Goslett and senior brokers, asked about the future of the agent (Property Professional, 12 Oct
+> 2026): "Agents are no longer the gatekeepers of information … Information has become a
+> commodity. Judgement has become the differentiator"; technology should "streamline tedious
+> administration", answer initial enquiries after hours, "qualify buyers, and even schedule
+> appointments", freeing people for "relationships, negotiating deals, solving problems, and
+> guiding clients". That is Sold Direct's model stated by the industry itself: the platform does
+> the admin and first response, registered practitioners carry the judgement — for sellers who
+> choose the self-service path. Source: propertyprofessional.co.za/2026/10/12/what-is-the-future-of-real-estate-agents/ (High — primary, named industry leadership).
 
 > ⚠️ **Why not a single-bank prerequisite:** making one bank a condition of the 0% is legally grey
 > (consumer-steering, competition, PPRA). Replaced by the bank-agnostic referral/origination above +
@@ -106,7 +116,8 @@ steering).
 
 > Net effect (base): the Year-2 origination uplift outweighs the added cost + setup; with the
 > conveyancing referral removed (LPC) and tax applied, **Y5 revenue is ~R162.3m** and the
-> cumulative after-tax cash low-point is **~−R4.5m (Y2)**.
+> cumulative after-tax cash low-point is **~−R0.4m (Y1, annual proxy)** under the bootstrap
+> operating stance (§D; ~−R4.5m before it), with EBITDA-positive brought forward to **Y2**.
 
 **Reinvest-for-growth stance.** The base case **reinvests the high gross margin into above-the-line
 (brand) marketing** — R2.5m (Y1) rising to **R50m (Y5)**, ~40% of revenue early easing to ~24% —
@@ -126,8 +137,26 @@ they already sit in the core model.
 
 **CA-review additions:** SA **corporate tax at 27%** applied to positive EBITDA (no loss
 carry-forward modelled — conservative); **total headcount doubled to 96 by Y5** (50% AI) for
-delivery-realistic capacity; a **cash-runway check** on the Scenarios tab confirms the R10m seed
-covers the trough (minimum cash +R5.5m) with Series A at Y3 optional.
+delivery-realistic capacity; a **cash-runway check** on the Scenarios tab confirms the R5m seed
+covers the trough in every scenario (annual-proxy minimum cash ~+R4.6m base, ~+R3.2m
+conservative; ~R2m less on a monthly view; see `02-capital-and-valuation.md` §1) with Series A
+at Y3 optional.
+
+**Bootstrap operating stance (Y1–Y2) — Oct 2026.** The pre-breakeven period runs on a
+**four-person team** so the R5m seed clears the conservative trough with headroom. Three
+measures, all on the cost base and none on revenue, marketing or the regulatory line (detail in
+`01-financial-model.md` §3):
+
+| Measure | Y1 | Y2 | Rel. |
+|---|---:|---:|---|
+| **Four-person team at R150k/month** (R1.80m/yr + ~R0.05m statutory): Managing Director R50k · Marketing Director R50k · principal practitioner & compliance R30k · agent/admin R20k. Founders below market, carrying all marketing, management, dealmaking, bookkeeping and tech support. Y2 adds two practitioners (R30k) and two agent/admin (R20k) against signed mandates → 8 heads, R3.05m | −R1.55m | −R3.05m | High — founder-stated |
+| Remote-first, no office lease (co-working passes; viewings at the property) | −R0.25m | −R0.15m | High |
+| Paysoft free-development allocation + cloud/BSP startup credits carry the build and tooling | −R0.15m | −R0.10m | Medium — tied to the Paysoft terms |
+| **Total opex saving** | **−R1.95m** | **−R3.30m** | |
+
+Bootstrapped Y1–Y2 opex: **R5.85m / R16.63m** (was R7.80m / R19.93m); Y2 turns EBITDA-positive.
+Y3 onward is unchanged (22 heads, founders to market pay). The statutory on-costs (UIF, SDL,
+COIDA) are small at this payroll size; no 13th cheque or benefits are modelled for Y1–Y2.
 
 **COGS — bottom-up (validates the ~12%; gross margin now *derived*).** Rather than assume a flat
 margin, COGS is built up from the direct, per-deal cost of delivering a transaction (full table on
