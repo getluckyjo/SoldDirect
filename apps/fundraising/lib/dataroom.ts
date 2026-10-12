@@ -26,7 +26,7 @@ export const DATAROOM_ENTRIES: DataroomEntry[] = [
     file: 'README.md',
     title: 'Overview',
     blurb:
-      'The strategy in one page, the base-case headlines, what to validate before circulating, and what is next.',
+      'The strategy in one page, the base-case headlines, what we are still confirming, and what is coming next.',
     kind: 'doc',
   },
   {
@@ -34,7 +34,7 @@ export const DATAROOM_ENTRIES: DataroomEntry[] = [
     file: '00-assumptions.md',
     title: 'Assumption base',
     blurb:
-      'Sourced assumptions: market size, prices, bond economics, costs and valuation comps, each with a reliability flag, plus the confirmed data gaps.',
+      'Every input the model runs on: market size, prices, bond economics, costs and valuation comps, each with its source and the weight we put on it.',
     kind: 'doc',
   },
   {
@@ -82,7 +82,7 @@ export const DATAROOM_ENTRIES: DataroomEntry[] = [
     file: 'sold-direct-model.xlsx',
     title: 'Excel model (CA-reviewed)',
     blurb:
-      'Twelve linked tabs: assumptions, P&L, COGS build, scenarios, market sizing, capital and valuation, use of funds, cap table and more. Edit the amber input cells and everything recalculates.',
+      'Reviewed by our chartered accountant. Twelve linked tabs: assumptions, P&L, COGS build, scenarios, market sizing, capital and valuation, use of funds, cap table and more. Edit the amber input cells and everything recalculates.',
     kind: 'xlsx',
   },
   {
@@ -183,6 +183,20 @@ function rewriteHref(href: string): string {
 const markdown = new Marked();
 markdown.use({
   gfm: true,
+  tokenizer: {
+    // GFM also treats a single ~ as strikethrough, which turns "~R3.9m and
+    // ~R3.5m" into struck-through text. Only the double form counts here.
+    del(src) {
+      const match = /^~~(?=\S)([\s\S]*?\S)~~/.exec(src);
+      if (!match) return undefined;
+      return {
+        type: 'del',
+        raw: match[0],
+        text: match[1],
+        tokens: this.lexer.inlineTokens(match[1]),
+      };
+    },
+  },
   walkTokens(token) {
     if (token.type === 'link') token.href = rewriteHref(token.href);
   },

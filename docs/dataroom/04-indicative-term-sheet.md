@@ -2,7 +2,7 @@
 
 **Indicative and non-binding.** For discussion with selected investors under NDA; private
 placement only (Companies Act, 2008). Definitive terms in the subscription and shareholders
-agreements. Figures ZAR; numbers tie to `01-financial-model.md` and `02-capital-and-valuation.md`.
+agreements. Figures ZAR; numbers tie to the Financial model and the Capital and valuation documents.
 
 ## The offer
 
@@ -13,14 +13,14 @@ agreements. Figures ZAR; numbers tie to `01-financial-model.md` and `02-capital-
 | Instrument | Preference shares, converting to ordinary on exit or listing |
 | Liquidation preference | **1× non-participating** — investor takes the greater of money back or 20% of proceeds |
 | Tranches | **T1 R2.5m at closing.** **T2 R2.5m on milestones**, targeted inside 9 months: WhatsApp sender live · first 20 exclusive mandates signed · first qualifying bond registered via the origination partner. Hires beyond the founding four are released against signed mandates |
-| Operating stance | **Bootstrap until self-funding:** a four-person team at R150k/month — founders at R50k each (below market, no accrual) carrying marketing, management, dealmaking, bookkeeping and tech support; principal practitioner & compliance R30k; agent/admin R20k — remote-first with no office lease, Paysoft free-development allocation carrying the build. EBITDA-positive in Y3 (base); the seed covers the cash trough in every modelled scenario with ~R1.5m to spare on a monthly view in the conservative case |
+| Launch team | A four-person team at R150k/month until the business is self-funding — founders at R50k each (no accrual) carrying marketing, management, dealmaking, bookkeeping and tech support; principal practitioner & compliance R30k; agent/admin R20k — remote-first, with Paysoft's free-development allocation carrying the build. EBITDA-positive in Y3 (base); the seed covers the cash trough in every modelled scenario with ~R1.5m to spare on a monthly view in the conservative case |
 | Board | **Lead investor takes the board seat** (the reserved 1% non-executive allocation remains for a strategic appointee agreed by the board) |
 | Information rights | Monthly management accounts; quarterly board pack; annual budget for board approval |
 | Anti-dilution | Broad-based weighted average if a future round prices below the modelled Series A (R125m pre) |
 | Founder commitment | Both founders full-time and exclusive; founder shares reverse-vest over 36 months |
 | Technology partner | Paysoft's 10% vests against preferred development rates plus a free-development allocation to an agreed value — vendor equity is earned, not granted |
 | Use of funds | Cape Town launch + brand campaign · technology-augmented team (concierge + PPRA-registered practitioners) · in-house origination accreditation (FAIS/FSP + bank agreements) · platform integrations |
-| Modelled outcome | ~14× on the base case (~R432m EV at 5× Y5 revenue, post-optional-Series-A dilution) — illustrative, model-grade, not a forecast |
+| Modelled outcome | ~14× on the base case (~R432m EV at 5× Y5 revenue, post-optional-Series-A dilution) — illustrative, not a forecast |
 
 ## Cap table at closing
 
@@ -52,7 +52,7 @@ Both founders work the business full-time. The technology does the admin; PPRA-r
 
 ## Process
 
-1. NDA → full data room (CA-reviewed model workbook, assumptions with sources, cap table, partner terms)
+1. NDA → full data room (model workbook reviewed by our chartered accountant, assumptions with sources, cap table, partner terms)
 2. Founder meeting + live product walk-through on WhatsApp
 3. Confirm allocation → subscription agreement → T1 closing
 
@@ -61,4 +61,4 @@ Both founders work the business full-time. The technology does the admin; PPRA-r
 *This document is informational and indicative only. It is not an offer of securities to the
 public nor a solicitation to invest; any opportunity is by private placement to selected
 investors (Companies Act, 2008). Nothing here is financial, legal or tax advice (FAIS).
-Projections are illustrative, model-grade and unaudited; actual results may differ materially.*
+Projections are illustrative and unaudited; actual results may differ materially.*

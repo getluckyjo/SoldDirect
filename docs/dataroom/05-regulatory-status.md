@@ -24,8 +24,7 @@ already earned.
 
 The **1% Flex fee** is, additionally, remuneration paid by a seller for practitioner services.
 
-⚠ **A written attorney opinion on the above is outstanding** and should be obtained before the
-round closes. This document is the founders' working understanding, not legal advice.
+**A written attorney opinion on the above is being obtained** before the round closes. This document is the founders' working understanding, not legal advice.
 
 ### Route to the certificate
 
@@ -49,8 +48,7 @@ individual's registration.
 
 Until registration completes, the marketing site states plainly that registration is in progress
 and that **no mandate will be accepted until it and a valid FFC are in place**. The concierge
-is instructed never to claim the company is already registered. A prior claim to hold an FFC was
-removed on 26 Aug 2026.
+is instructed never to claim the company is already registered.
 
 ## 2. Property24 — agency subscription
 

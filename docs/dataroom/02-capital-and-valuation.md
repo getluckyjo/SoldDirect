@@ -1,18 +1,16 @@
-# Sold Direct — Capital Requirement, Valuation & Cap Table (CA-reviewed)
+# Sold Direct — Capital Requirement, Valuation & Cap Table
 
 All figures **ZAR** unless noted. USD at **~R18.5/$** (illustrative). Built bottom-up from
-`01-financial-model.md` (prime → upper-market taper; in-house origination from Y2; conveyancing
-referral removed per LPC; 27% tax). Live on the **Capital & Valuation** and **Cap Table** tabs of
-`sold-direct-model.xlsx`, with a **cash-runway check** on the Scenarios tab. Paysoft's
+the Financial model (prime → upper-market taper; in-house origination from Y2; no conveyancing
+referral income; 27% tax). Live on the **Capital & Valuation** and **Cap Table** tabs of
+the workbook, with a **cash-runway check** on the Scenarios tab. Paysoft's
 technology-partner stake is granted in return for **preferred development rates plus a
 free-development allocation to an agreed value**, vesting as that value is delivered.
 
 ## 1. Capital requirement (bottom-up)
 
-Under the **bootstrap operating stance** for Y1–Y2 (a four-person team at R150k/month with the
-founders at R50k each carrying marketing, management, dealmaking, bookkeeping and tech support;
-remote-first; Paysoft free-development allocation — `01-financial-model.md` §3; ~R6.0m of opex
-saved before tax, none of it from revenue, marketing or compliance) the model turns
+With a four-person launch team at R150k/month for Y1–Y2 (Financial model, §3), remote-first,
+and Paysoft's free-development allocation carrying the build, the model turns
 **EBITDA-positive in Y3** and the annual cumulative after-tax cash low-point is **≈ −R1.1m
 (Y2)**. On a monthly view the trough is deeper — **roughly −R3m**
 while the team and launch marketing run ahead of registrations. What the R5m seed leaves at the
@@ -20,7 +18,7 @@ lowest point:
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
-| Cumulative cash low-point, annual proxy (bootstrap stance) | ~R1.5m (Y3) | **~R1.1m (Y2)** | ~R0.02m |
+| Cumulative cash low-point (annual proxy) | ~R1.5m (Y3) | **~R1.1m (Y2)** | ~R0.02m |
 | **Minimum cash with the R5m seed** (annual proxy) | **~+R3.5m** | **~+R3.9m** | ~+R5.0m |
 | Minimum cash on a monthly view (≈ R2m lower) | **~+R1.5m** | **~+R2m** | ~+R3m |
 
@@ -42,7 +40,7 @@ Post-money **R25m**.
 Y3, the minimum cash position across Y1–Y5 is **~+R3.9m in the base case and ~+R3.5m in the
 conservative case on the annual proxy (~R2m lower on a monthly view)** — the seed alone covers
 the trough in every scenario. The Series A is offence, not survival. The seed is deployed in two
-milestone tranches (`04-indicative-term-sheet.md`) so the spend tracks the ramp, and every hire
+milestone tranches (see the Indicative term sheet) so the spend tracks the ramp, and every hire
 beyond the founding four is released only against signed mandates.
 
 ## 2. Valuation
@@ -50,8 +48,8 @@ beyond the founding four is released only against signed mandates.
 ### a) Revenue-multiple (comps)
 
 Global proptech ~**8.8× EV/revenue** (Finro 2025); discount to **~4–6×** for SA early-stage. The
-CA-reviewed model pairs high growth with a deliberately conservative **~14% Y5 EBITDA margin**
-(real headcount, tax, no LPC-prohibited revenue) — numbers built to survive diligence.
+model pairs high growth with a deliberately conservative **~14% Y5 EBITDA margin** (real
+headcount, tax, no LPC-prohibited revenue).
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
@@ -69,8 +67,8 @@ CA-reviewed model pairs high growth with a deliberately conservative **~14% Y5 E
 
 **R20m pre-money** is grounded by: a live product (WhatsApp loop + tracker + dashboard), the
 defensible monetisation wedge (owned origination from Y2), a capital-efficient path (breakeven
-inside the seed in every scenario), a committed technology partner, and conservative CA-reviewed
-numbers that hold up in diligence. It sits below the comps-derived range deliberately: a smaller,
+inside the seed in every scenario), a committed technology partner, and conservative numbers
+reviewed by our chartered accountant. It sits below the comps-derived range deliberately: a smaller,
 cheaper first cheque for a lead who comes in at inception.
 
 ## 3. Cap table
@@ -93,7 +91,7 @@ to an agreed value:
 
 A seed-stage non-executive seat prices at 0.25–1.5% on market terms, which is where the 1%
 allocation sits; alongside it an **option pool** is reserved for the early team — including the principal property practitioner who enables the
-firm's Fidelity Fund Certificate (see `05-regulatory-status.md`).
+firm's Fidelity Fund Certificate (see Regulatory status).
 
 ### Value at the base-case exit (~R432m EV, 5× Y5 revenue)
 
@@ -111,18 +109,19 @@ firm's Fidelity Fund Certificate (see `05-regulatory-status.md`).
 Purplebricks (AIM IPO £240m → peak >£1bn → **sold for £1 in 2023**) was destroyed by marketing-led
 CAC and over-expansion. **Landing at prime is the structural antidote:** prime demand is referral-
 and reputation-driven (lowest CAC), we **earn brand trust before broadening down-market**, and the
-technology-augmented team keeps the cost base honest (the model now carries a delivery-realistic 96
-headcount by Y5 and budget sanity-check ratios on the P&L tab).
+technology-augmented team keeps the cost base honest (the model carries a realistic headcount of 48
+by Y5 and budget sanity-check ratios on the P&L tab).
 
-## 5. What to confirm before circulating
+## 5. Inputs we are confirming
 
-Model-grade, not yet audit-grade. Confirm the highest-leverage inputs first:
+These are our projections, not audited accounts. The inputs with the most leverage, which we
+are confirming against primary documents:
 1. The **Y2 in-house origination commission (~1.5%)** and **bank aggregation terms** (the largest
    revenue line) — plus the FAIS/FSP accreditation cost/timeline.
-2. **Conveyancer panel-advertising subscriptions** (R0.36m→R2.4m) — confirm appetite and LPC-safe
+2. **Conveyancer panel-advertising subscriptions** (R0.36m→R2.4m) — appetite and LPC-safe
    structuring with a panel firm; the consumer fee-discount pass-through too.
 3. The **0.5% Y1 referral share** with BetterBond.
 4. **Upper-market (>~R4m) transfer counts** to firm the ramp and the ~4% share.
-5. **Bonded share** across the taper (we assume ~40–42% — confirm; prime skews cash).
+5. **Bonded share** across the taper (we assume ~40–42%; prime skews cash).
 
-See `00-assumptions.md §F`. None changes the model's shape; they sharpen individual lines.
+See the Assumption base, §F. None changes the model's shape; they sharpen individual lines.

@@ -1,8 +1,8 @@
 # Sold Direct — Market Sizing (TAM / SAM / SOM) & Stress Test
 
 All figures **ZAR**. Linked live to the model on the **Market Sizing** tab of
-`sold-direct-model.xlsx`. Estimates carry the reliability flags from `00-assumptions.md`; the
-segment-pool count is the weakest input and must be confirmed.
+the workbook. Estimates carry the weightings from the Assumption base; the segment-pool count
+is the input we are firming up first.
 
 ## 1. The market context
 
@@ -15,7 +15,7 @@ segment-pool count is the weakest input and must be confirmed.
 
 > **Positioning:** full-service agents continue to serve the majority who want full service; Sold
 > Direct serves the segment who **choose to sell privately** and do the work themselves — with our
-> registered practitioners assisting (registration in progress — see `05-regulatory-status.md`).
+> registered practitioners assisting (registration in progress; see Regulatory status).
 > Complementary, not adversarial.
 
 ## 2. TAM — addressable revenue pool
@@ -32,10 +32,10 @@ transfer at a blended ~R25k/deal:
 
 | | Value |
 |---|---|
-| Upper-market (>~R4m) transfers / yr | **~35,000** *(estimate — broadens as avg price tapers; **confirm**)* |
+| Upper-market (>~R4m) transfers / yr | **~35,000** *(our estimate; broadens as the average price tapers)* |
 | Avg price (segment) | tapers R6.5m → R4.0m |
 | Our revenue / deal | R55.7k (Y1) → **R70.6k (Y2, origination in-house)** → R52.4k (Y5) |
-| **SAM revenue pool / yr** | **~R1.8bn** *(35k × Y5 rev/deal; conveyancing referral removed per LPC)* |
+| **SAM revenue pool / yr** | **~R1.8bn** *(35k × Y5 revenue per deal; no conveyancing referral income)* |
 
 ## 4. SOM — obtainable (our projection, linked)
 
@@ -63,14 +63,14 @@ share from ~21% (prime-only) to ~4% of the upper-market** — a far more defensi
   *sale*: pricing, viewings, OTP, bond, FICA and transfer stay on the seller. As registered practitioners we run that whole
   journey at 0% on the qualifying path, with agency-grade portal syndication — a wholesale
   distribution customer of the portals, not a competitor. That service gap is the
-  “why act now” (see `docs/LAUNCH-PLAN.md`).
+  “why act now”.
 - We **land at prime** (biggest rand savings + bond, lowest-CAC word-of-mouth) and **broaden down**
   to the upper-market as the brand earns trust — so the SOM is a single-digit share of a real,
   large segment, not a fifth of a tiny niche.
 - Still the **category-defining** play: the only 0%-to-consumer, WhatsApp-native, concierge +
   ecosystem channel.
-- **De-risk:** confirm the upper-market pool count and the ATL→deals conversion with a Cape Town
-  pilot before scaling the R25m/yr marketing.
+- **De-risk:** we confirm the upper-market pool count and the ATL→deals conversion in the Cape
+  Town pilot before scaling the R25m/yr marketing.
 - **Downside:** at roughly two-thirds of the base share (~2.7%) we're still ~950 Y5 deals ≈ R56m
   revenue — the conservative scenario. The model is robust well below the base.
 

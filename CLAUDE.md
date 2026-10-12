@@ -29,6 +29,11 @@ employ registered practitioners ourselves. Every piece of copy must follow these
    the model) states the plan as it stands. Never narrate revisions ("halved in October 2026",
    "cut from R10m", "the earlier plan", "was 96"): the reader is evaluating a business, not a
    changelog. Founder rule, Oct 2026.
+7. **Investor documents read as the founders' own research, verified by them** — never describe
+   how the research was produced (agents, sweeps, snippets, workflows, transcripts), never
+   "confirm before circulating" or "flag before investors do", no warning glyphs (⚠), no
+   struck-through or "closed" items. Open points are stated as what we are confirming and
+   validating. Founder rule, Oct 2026.
 6. **Never "AI" in investor or consumer copy** — the line is "the latest technology, trained on
    50 years of South African property transactions". The concierge is "the concierge". Founder
    rule, Oct 2026 (code and internal docs may still say AI).

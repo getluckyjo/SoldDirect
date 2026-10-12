@@ -1,26 +1,27 @@
 # Sold Direct — Investor Data Room
 
-Confidential. For prospective investors under NDA. All figures illustrative and
-model-grade (see sourcing caveats in each document).
+Confidential. For prospective investors under NDA. The figures are the founders' own
+projections, built from sourced inputs we have verified ourselves; each document cites its
+sources and says how much weight we put on each.
 
-Served to investors at `invest.solddirect.co.za/dataroom` behind the shared password
-(`DATAROOM_PASSWORD` on the investor site). The site copies this folder at build time;
-the `property24/` sub-folder (third-party contract documents) stays out.
+<!-- Served to investors at invest.solddirect.co.za/dataroom behind the shared password
+(DATAROOM_PASSWORD on the investor site). The site copies this folder at build time; the
+property24/ sub-folder (third-party contract documents) stays out. -->
 
 ## Contents
 
 | Doc | What it covers |
 |---|---|
-| [`00-assumptions.md`](./00-assumptions.md) | Sourced assumption base — market size, prices, bond economics, costs, valuation comps — with reliability flags and confirmed data gaps |
-| [`01-financial-model.md`](./01-financial-model.md) | 5-year P&L + cashflow, three scenarios (conservative / base / aggressive), the per-deal revenue engine, volume ramp, and sensitivities |
-| [`02-capital-and-valuation.md`](./02-capital-and-valuation.md) | Bottom-up capital requirement, the R5m seed at R20m pre-money (20%), valuation, **cap table** (2 working founders + technology partner + board + strategic funder at inception) and runway check |
-| [`03-market-sizing.md`](./03-market-sizing.md) | TAM/SAM/SOM, the implied upper-market share (stress test + positioning), and consumer commission saved |
-| [`04-indicative-term-sheet.md`](./04-indicative-term-sheet.md) | **Indicative seed terms (one-pager)** — R5m for 20% with investor-friendly structure (tranched against milestones, 1× non-participating preference, lead board seat, founder reverse-vesting), cap table at closing, and the team (founders + Paysoft in the CTO role) |
-| [`05-regulatory-status.md`](./05-regulatory-status.md) | **Regulatory status, written for diligence** — property practitioner registration and FFC (not yet held; route, timeline and key-person mitigation), why the 0% model does not avoid the Property Practitioners Act, the Property24 subscription position and open commercial points, and the FAIS/FSP dependency for Y2 origination |
-| [`sold-direct-model.xlsx`](./sold-direct-model.xlsx) | **Live Excel model (CA-reviewed)** — 12 linked tabs (Home · Assumptions · P&L · COGS Build · Scenarios · Market Sizing · Capital & Valuation · Use of Funds · Cap Table · Competitive Landscape · Ancillary Revenue · Notes). Edit the amber input cells and everything recalculates. |
-| [`model.csv`](./model.csv) | Flat snapshot of the numbers (the `.xlsx` is the working model) |
-| [`partner-brief-paysoft.html`](./partner-brief-paysoft.html) | Print-ready technology-partnership brief for Paysoft |
-| [`partner-brief-property24.html`](./partner-brief-property24.html) | Print-ready syndication brief for Property24 — the incremental-inventory case and the rate structure we're negotiating for (research in `00-assumptions.md` §D) |
+| [Assumption base](./00-assumptions.md) | Every input the model runs on — market size, prices, bond economics, costs, valuation comps — with its source and the weight we put on it |
+| [Financial model](./01-financial-model.md) | 5-year P&L + cashflow, three scenarios (conservative / base / aggressive), the per-deal revenue engine, volume ramp, and sensitivities |
+| [Capital and valuation](./02-capital-and-valuation.md) | Bottom-up capital requirement, the R5m seed at R20m pre-money (20%), valuation, **cap table** (2 working founders + technology partner + board + strategic funder at inception) and runway check |
+| [Market sizing](./03-market-sizing.md) | TAM/SAM/SOM, the implied upper-market share (stress test + positioning), and consumer commission saved |
+| [Indicative term sheet](./04-indicative-term-sheet.md) | **Indicative seed terms (one-pager)** — R5m for 20% with investor-friendly structure (tranched against milestones, 1× non-participating preference, lead board seat, founder reverse-vesting), cap table at closing, and the team (founders + Paysoft in the CTO role) |
+| [Regulatory status](./05-regulatory-status.md) | **Regulatory status, written for diligence** — property practitioner registration and FFC (not yet held; route, timeline and key-person mitigation), why the 0% model does not avoid the Property Practitioners Act, the Property24 subscription position and open commercial points, and the FAIS/FSP dependency for Y2 origination |
+| [Excel model](./sold-direct-model.xlsx) | **Live Excel model, reviewed by our chartered accountant** — 12 linked tabs (Home · Assumptions · P&L · COGS Build · Scenarios · Market Sizing · Capital & Valuation · Use of Funds · Cap Table · Competitive Landscape · Ancillary Revenue · Notes). Edit the amber input cells and everything recalculates. |
+| [Model snapshot](./model.csv) | Flat snapshot of the numbers (the Excel workbook is the working model) |
+| [Paysoft brief](./partner-brief-paysoft.html) | Print-ready technology-partnership brief for Paysoft |
+| [Property24 brief](./partner-brief-property24.html) | Print-ready syndication brief for Property24 — the incremental-inventory case and the rate structure we're negotiating for (our rate-card analysis is in the Assumption base, §D) |
 
 ## Strategy: the service-gap wedge · land at prime · taper down-market · own the origination · technology-lean · ecosystem revenue
 
@@ -31,16 +32,16 @@ transfer.
 **Sold Direct runs the whole journey with registered practitioners at 0% on the qualifying
 path**, syndicated to the portals as a normal agency-grade feed — a wholesale distribution
 customer of the portals, not a competitor. The launch plan is built on this service gap
-(`docs/LAUNCH-PLAN.md`; P24 offering research + negotiation frame in `00-assumptions.md` §D).
+(our Property24 rate analysis and negotiation frame are in the Assumption base, §D).
 
 **We serve the private-sale segment** — sellers who choose to sell direct and do the work
 themselves — assisted by **registered property practitioners (PPRA/FFC)** and a WhatsApp
-concierge. ⚠ Registration and the FFC are **not yet held** — status, route and timeline in
-`05-regulatory-status.md`. **Complementary to full-service agents, not adversarial** (no anti-agent
+concierge. Registration and the FFC are **not yet held**; status, route and timeline are in
+the Regulatory status note. **Complementary to full-service agents, not adversarial** (no anti-agent
 marketing; zero PPRA friction by design) — and the industry itself now describes the same
 division of labour: RE/MAX Southern Africa's leadership says technology should take the admin,
 after-hours enquiries and buyer qualification while people keep the judgement and relationships
-(Property Professional, 12 Oct 2026; quoted in `00-assumptions.md` §C). **Land at prime** (Atlantic Seaboard, City Bowl,
+(Property Professional, 12 Oct 2026; quoted in the Assumption base, §C). **Land at prime** (Atlantic Seaboard, City Bowl,
 Southern Suburbs, Constantia) and **taper the average transacting price down (R6.5m → R4.0m) as
 the brand scales**, broadening into the upper-market to grow from a far larger pool and cut
 market-share risk. Run by a small **technology-augmented** team (half the roles automated), **reinvesting the high
@@ -53,12 +54,11 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
 
 ## Headlines (base case)
 
-- **Revenue:** R6.1m (Y1) → **R86.4m (Y5)**; **EBITDA-positive in Y3** under the bootstrap
-  stance, **~14% margin** by Y5 (CA-reviewed: 27% tax, delivery-realistic headcount of 48 from a
-  four-person Y1 team, conveyancing referral removed per LPC).
+- **Revenue:** R6.1m (Y1) → **R86.4m (Y5)**; **EBITDA-positive in Y3**, **~14% margin** by Y5 (27% tax, a realistic headcount of 48 from a four-person Y1 team, and
+  no conveyancing referral income, which the Legal Practice Council prohibits).
 - **Model:** **~R52–71k per deal** — origination (0.5% BetterBond referral in Y1, **~1.5% in-house from
   Y2**) *or* 1% fee, + add-ons — plus **bank sponsorship (R3→8m/yr)** and **conveyancer panel
-  advertising (R0.36→2.4m/yr, fixed subscriptions — no referral fees, per LPC)**.
+  advertising (R0.36→2.4m/yr, fixed subscriptions, never per-deal referral fees)**.
 - **COGS is validated bottom-up:** ~7 direct per-deal lines + payment processing supporting the
   ~12% of revenue (~88% gross margin) input — itemised, not assumed (COGS Build tab).
 - **In-house origination (from Y2):** working directly with the banks ~3×'s the bond take per
@@ -67,42 +67,41 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
   prime-only) — a defensible ask.
 - **The database:** each customer unlocks **~R50k of ecosystem referral revenue**; modelled optional
   (~R5k/deal captured, default off).
-- **Capital:** Y1–Y2 run on a **bootstrap operating stance** — a four-person team at
-  R150k/month (founders at R50k each carrying marketing, management, dealmaking, bookkeeping and
-  tech support; principal practitioner & compliance R30k; agent/admin R20k), remote-first,
-  Paysoft free-development allocation; ~R6.0m of opex saved before tax, none from revenue or
-  marketing. The annual cash trough is **≈ −R1.1m base / ≈ −R1.5m conservative** (roughly R2m
-  deeper on a monthly view). The **R5m seed (at R20m pre-money, 20%)** covers the trough in every
-  scenario with ~R1.5m to spare in the conservative case; the balance is launch and growth
-  capital (runway check on the Scenarios tab). Deployed in two milestone tranches.
+- **Capital:** a four-person launch team at R150k/month for Y1–Y2 (founders at R50k each
+  carrying marketing, management, dealmaking, bookkeeping and tech support; principal
+  practitioner & compliance R30k; agent/admin R20k), remote-first, with Paysoft's
+  free-development allocation carrying the build. The annual cash trough is **≈ −R1.1m base /
+  ≈ −R1.5m conservative** (roughly R2m deeper on a monthly view). The **R5m seed (at R20m
+  pre-money, 20%)** covers the trough in every scenario with ~R1.5m to spare in the conservative
+  case; the balance is launch and growth capital (runway check on the Scenarios tab). Deployed in
+  two milestone tranches.
 - **Valuation:** Year-5 enterprise value **~R345–518m** (4–6×); base exit **~R432m** (5×).
 - **Cap table:** **Johannes le Roux 32.5% · Dean Kruger 32.5% · Paysoft (technology partner,
   vesting) 10% · option pool (reserved) 4% · board seat (reserved, non-executive) 1% · Strategic
   Funder 20% (R5m)** at inception → post-optional-Series-A: 27.1 / 27.1 / 8.3 / 3.3 / 0.8 / 16.7 /
   16.7; the **seed models ~14×** to the base-case exit.
-- **⚠ Validate** the in-house origination terms (bank agreements + accreditation), the ATL→deals
-  conversion, and the upper-market pool count with a pilot.
-- **⚠ Gating:** property practitioner registration + FFC are **not yet in place**; no mandate can
-  be taken until they are (`05-regulatory-status.md`).
+- **What the pilot validates:** the in-house origination terms (bank agreements + accreditation),
+  the ATL→deals conversion, and the upper-market pool count.
+- **Gating:** property practitioner registration + FFC are **not yet in place**; no mandate can
+  be taken until they are (see the Regulatory status note).
 
-## Before circulating
+## What we are still confirming
 
-These documents are **model-grade, not audit-grade**. Re-confirm the highest-leverage
-inputs against primary sources first — the **Y2 in-house origination commission (~1.5%) + bank
-aggregation/accreditation terms**, the **0.5% Y1 BetterBond referral share**, the **conveyancer
-panel-advertising appetite (LPC-safe structuring)**, **Western Cape/CT transfer counts**, and
-**SA CAC** (see `00-assumptions.md §F`). None changes
-the model's shape; they sharpen individual lines.
+These are our projections, not audited accounts. The inputs with the most leverage, which we
+are confirming against primary documents before close: the **Y2 in-house origination
+commission (~1.5%) + bank aggregation/accreditation terms**, the **0.5% Y1 BetterBond referral
+share**, the **conveyancer panel-advertising appetite (LPC-safe structuring)**, **Western
+Cape/Cape Town transfer counts**, and **SA customer-acquisition cost** (listed in the Assumption
+base, §F). None changes the model's shape; they sharpen individual lines.
 
-## To build out next
+## Coming to the data room
 
-- Team bios + org plan (and the automated operating model in detail)
-- Traction pack: waitlist + investor-lead numbers, and the live WhatsApp journey demo
+- Team bios and the organisation plan, with the automated operating model in detail
+- Traction pack: waitlist and investor-lead numbers, and the live WhatsApp journey demo
 - Letters of intent from BetterBond (referral terms) and a panel conveyancer
-- Formalise the supplier partnerships in motion: Loom (property valuations) and Capture
-  Media (listing video/photography)
-- A signed bank headline-sponsor (the sponsorship line)
-- `sold-direct-model.xlsx`: every tab recalculates from the Assumptions tab. The Home tab lists a "Funder Growth" tab that does not exist — harmless, tidy when convenient.
+- The supplier partnerships in motion, formalised: Loom (property pricing data) and Capture
+  Media (listing video and photography)
+- A signed bank headline sponsor (the sponsorship line)
 
-*(Market sizing, cap table + use-of-funds and the competitive landscape are in the workbook; the
-operational risk playbook lives in `docs/BOTTLENECKS.md`.)*
+*(Market sizing, the cap table, use of funds and the competitive landscape are also in the
+workbook.)*
