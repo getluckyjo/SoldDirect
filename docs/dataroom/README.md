@@ -47,7 +47,8 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
 ## Headlines (base case)
 
 - **Revenue:** R6.1m (Y1) → **R162.3m (Y5)**; **EBITDA-positive in Y3**, **~17% margin** by Y5
-  (CA-reviewed: 27% tax, delivery-realistic headcount of 96, conveyancing referral removed per LPC).
+  (CA-reviewed: 27% tax, delivery-realistic headcount of 96 — 6 in Y1 under the bootstrap
+  stance — conveyancing referral removed per LPC).
 - **Model:** **~R52–71k per deal** — origination (0.5% BetterBond referral in Y1, **~1.5% in-house from
   Y2**) *or* 1% fee, + add-ons — plus **bank sponsorship (R3→8m/yr)** and **conveyancer panel
   advertising (R0.36→2.4m/yr, fixed subscriptions — no referral fees, per LPC)**.
@@ -59,10 +60,12 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
   prime-only) — a defensible ask.
 - **The database:** each customer unlocks **~R50k of ecosystem referral revenue**; modelled optional
   (~R5k/deal captured, default off).
-- **Capital:** the base-case cash trough is **≈ −R4.5m** (~R7.5m to breakeven incl. a R3m
-  buffer); the **R5m seed (at R20m pre-money, 20%)** covers the base-case trough with a minimum
-  cash position of +R0.5m — no buffer, and the conservative case needs a ~R1m top-up (runway
-  check on the Scenarios tab). Deployed in two milestone tranches.
+- **Capital:** Y1–Y2 run on a **bootstrap operating stance** (founders on reduced pay, hiring
+  gated to mandates, remote-first, Paysoft free-development allocation — ~R1.75m of opex saved,
+  none from revenue or marketing), so the base-case cash trough is **≈ −R2.8m** and the
+  conservative **≈ −R4.0m**. The **R5m seed (at R20m pre-money, 20%)** covers the trough in
+  every scenario: minimum cash **+R2.2m base, +R1.0m conservative** (runway check on the
+  Scenarios tab). Deployed in two milestone tranches.
 - **Valuation:** Year-5 enterprise value **~R649–974m** (4–6×); base exit **~R811m** (5×).
 - **Cap table:** **Johannes le Roux 32.5% · Dean Kruger 32.5% · Paysoft (technology partner,
   vesting) 10% · option pool (reserved) 4% · board seat (reserved, non-executive) 1% · Strategic

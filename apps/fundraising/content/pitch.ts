@@ -21,7 +21,7 @@ export const ASK = {
   stake: '20%',
   preMoney: 'R20m pre-money · R25m post-money',
   seriesA:
-    'Covers the base-case cash trough (≈ −R4.5m in Year 2) to EBITDA-positive in Year 3. A Series A is modelled at Year 3 as optional — offence, not survival.',
+    'Covers the cash trough in every modelled scenario, the conservative case included, because operations are bootstrapped until EBITDA-positive in Year 3. A Series A is modelled at Year 3 as optional — offence, not survival.',
 } as const;
 
 export const HERO = {
@@ -98,7 +98,7 @@ export const PRODUCT_DETAIL = {
     },
     {
       title: 'A structurally lean cost base',
-      body: 'Modern tech handles the repetitive steps; 8 heads in Year 1 to a delivery-realistic 96 by Year 5, mostly practitioners and support. Reinvest the ~88% gross margin into brand.',
+      body: 'Modern tech handles the repetitive steps; 6 heads in Year 1 to a delivery-realistic 96 by Year 5, mostly practitioners and support. Reinvest the ~88% gross margin into brand.',
     },
   ] satisfies Card[],
 } as const;
@@ -193,7 +193,7 @@ export const FIN_DETAIL = {
     {
       label: 'EBITDA-positive',
       value: 'Year 3',
-      sub: 'Cash low-point ≈ −R4.5m (Y2)',
+      sub: 'Cash low-point ≈ −R2.8m (Y2), bootstrapped',
     },
     {
       label: 'Gross margin',
@@ -268,7 +268,7 @@ export const TEAM_DETAIL = {
 export const ASK_SECTION = {
   heading: 'R5m for 20%.',
   intro:
-    'A lean seed at a R20m pre-money valuation. The base-case cash trough is ≈ −R4.5m; the round carries the company to EBITDA-positive in Year 3.',
+    'A lean seed at a R20m pre-money valuation. Until the business is EBITDA-positive in Year 3 the founders take reduced pay, hiring follows signed mandates and there is no office — so R5m clears the cash trough even in the conservative case, with headroom.',
   useOfFunds: [
     'Cape Town launch + brand campaign',
     'Registered practitioners + concierge team',
@@ -315,7 +315,7 @@ export const FAQ = [
   },
   {
     q: 'Is R5m enough?',
-    a: 'It covers the base-case cash trough (≈ −R4.5m in Year 2) to EBITDA-positive in Year 3, with the capital deployed against milestones in two tranches. The conservative case would need a small top-up or an earlier Series A — the runway check is on the Scenarios tab of the model in the data room.',
+    a: 'Yes, in every modelled scenario. Years 1 and 2 run on a bootstrap stance — founders on reduced pay until EBITDA-positive, hiring gated to signed mandates (6 heads in Year 1, not 8), remote-first with no office lease, and the Paysoft free-development allocation carrying the build. That takes ~R1.75m out of the pre-breakeven cost base without touching revenue, marketing or compliance. The base-case cash trough is ≈ −R2.8m and the conservative case ≈ −R4.0m, so the R5m seed leaves +R2.2m and +R1.0m respectively at the lowest point. The capital is deployed against milestones in two tranches; the runway check is on the Scenarios tab of the model in the data room.',
   },
   {
     q: 'What are the main risks?',

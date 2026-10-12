@@ -55,21 +55,43 @@ down-market. Layered on top, the **origination rate steps up from 0.5% (Y1, Bett
 | **Total revenue** | **6.14** | **20.24** | **46.83** | **94.72** | **162.30** |
 | COGS (~12%) | (0.74) | (2.43) | (5.62) | (11.37) | (19.48) |
 | **Gross profit** | **5.41** | **17.81** | **41.21** | **83.35** | **142.82** |
-| Payroll + AI agents | 3.40 | 6.10 | 9.77 | 22.77 | 44.59 |
+| Payroll + AI agents *(bootstrap Y1–Y2)* | 2.75 | 5.65 | 9.77 | 22.77 | 44.59 |
 | Marketing (above-the-line) | 2.50 | 8.00 | 18.00 | 32.00 | 50.00 |
-| Tech & tools | 0.60 | 1.00 | 1.80 | 2.80 | 4.00 |
+| Tech & tools *(bootstrap Y1–Y2)* | 0.45 | 0.90 | 1.80 | 2.80 | 4.00 |
 | Legal / compliance / insurance | 0.70 | 1.00 | 1.50 | 2.20 | 3.00 |
-| G&A / office / other | 0.60 | 1.00 | 1.80 | 3.20 | 4.50 |
+| G&A / office / other *(bootstrap Y1–Y2)* | 0.35 | 0.85 | 1.80 | 3.20 | 4.50 |
 | **Bond origination (in-house)** | **—** | **2.83** | **2.56** | **4.98** | **8.81** |
-| **Total operating expenses** | **7.80** | **19.93** | **35.43** | **67.95** | **114.90** |
-| **EBITDA** | **(2.39)** | **(2.12)** | **5.78** | **15.40** | **27.93** |
+| **Total operating expenses** | **6.75** | **19.23** | **35.43** | **67.95** | **114.90** |
+| **EBITDA** | **(1.34)** | **(1.42)** | **5.78** | **15.40** | **27.93** |
 | EBITDA margin | — | — | 12% | 16% | **17%** |
 | **Tax (27%, positive EBITDA only)** | — | — | (1.56) | (4.16) | (7.54) |
-| **EBITDA after tax** | (2.39) | (2.12) | **4.22** | **11.24** | **20.39** |
-| **Cumulative after tax (cash proxy)** | (2.39) | **(4.51)** | (0.29) | 10.95 | 31.33 |
+| **EBITDA after tax** | (1.34) | (1.42) | **4.22** | **11.24** | **20.39** |
+| **Cumulative after tax (cash proxy)** | (1.34) | **(2.76)** | 1.46 | 12.70 | 33.09 |
 
-- **EBITDA-positive in Y3**; cumulative after-tax cash low-point **≈ −R4.5m (Y2)**, cumulative
-  positive from **Y4**.
+- **EBITDA-positive in Y3**; cumulative after-tax cash low-point **≈ −R2.8m (Y2)**, cumulative
+  positive from **Y3**.
+
+### The bootstrap operating stance (Y1–Y2)
+
+The pre-breakeven years run deliberately lean so the **R5m seed covers the cash trough in every
+scenario, including the conservative case, with headroom** (see §4 and
+`02-capital-and-valuation.md` §1). Revenue, marketing and the regulatory/compliance line are
+**untouched** — the cuts are to how we operate, not to what drives the ramp. Versus the earlier
+cost base (R7.80m Y1 / R19.93m Y2) the stance saves **~R1.05m in Y1 and ~R0.70m in Y2 — ~R1.75m
+by the trough**:
+
+| Measure | Y1 | Y2 | Saving |
+|---|---|---|---:|
+| **Founders on reduced pay** until the business is EBITDA-positive (market pay from Y3; the difference is not accrued) | both | both | ~R0.45m / ~R0.30m |
+| **Hiring gated to mandates, not the plan**: the 7th/8th head (second practitioner, ops) is released only against the Tranche-2 milestones; Y2 hires follow signed mandates | 8 → **6** heads | 14 → **12** heads | ~R0.20m / ~R0.15m |
+| **No office lease**: remote-first, co-working day passes, viewings happen at the property | — | — | ~R0.25m / ~R0.15m |
+| **Paysoft free-development allocation + startup credits** carry the Y1 build and most Y2 tooling (cloud, BSP, SaaS) | — | — | ~R0.15m / ~R0.10m |
+| **Total** | | | **~R1.05m / ~R0.70m** |
+
+From Y3 the cost base is the CA-reviewed one unchanged: headcount catches up to 22, founders move
+to market pay, and the delivery-realistic ramp to 96 by Y5 stands. The stance costs nothing in
+revenue; it costs the founders two years of pay and the company a slightly slower Y1–Y2 hiring
+curve, which the milestone tranches already assume.
 - The **in-house origination cost line** (bond-consultant cost per bonded deal + a bank-aggregation /
   licensing base + a one-off R1.5m Y2 setup) is modelled explicitly and nets against the uplift.
 - The **~17% Y5 margin** reflects the CA review: conveyancing referral removed (LPC), **27% tax**,
@@ -88,13 +110,18 @@ down-market. Layered on top, the **origination rate steps up from 0.5% (Y1, Bett
 | Y5 EBITDA | 4.9 | **27.9** | 105.4 |
 | Y5 EBITDA margin | 5% | **17%** | 37% |
 | First EBITDA-positive year | Y4 | **Y3** | Y2 |
-| Total capital need (incl. buffer) | ~R8.7m | **~R7.5m** | ~R5.5m |
+| Cumulative cash low-point (bootstrap stance) | ~−R4.0m | **~−R2.8m** | ~−R0.8m |
+| **Minimum cash with the R5m seed** | **+R1.0m** | **+R2.2m** | +R4.2m |
 | Implied share of upper-market (Y5) | 5.4% | **8.3%** | 13.7% |
+
+The bootstrap stance (§3) applies the same ~R1.75m of Y1–Y2 operating savings in every scenario —
+it is a cost-base choice, not a revenue assumption — so each low-point moves up by the same
+amount (conservative −R5.7m → −R4.0m; base −R4.5m → −R2.8m; aggressive −R2.5m → −R0.8m).
 
 **CA-review adjustments baked in:** 27% SA corporate tax on positive EBITDA; headcount doubled to
 a delivery-realistic **96 by Y5** (50% AI); a **cash-runway check** (R5m seed at Y1, Series A at
-Y3) shows a minimum cash position of **+R0.5m** in the base case — the seed covers the trough,
-without a buffer (conservative case in `02-capital-and-valuation.md` §1).
+Y3) shows a minimum cash position of **+R2.2m in the base case and +R1.0m in the conservative
+case** — the seed covers the trough in all three scenarios (`02-capital-and-valuation.md` §1).
 
 ## 5. Watch-outs (flag before investors do)
 

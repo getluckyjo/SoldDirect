@@ -106,7 +106,8 @@ steering).
 
 > Net effect (base): the Year-2 origination uplift outweighs the added cost + setup; with the
 > conveyancing referral removed (LPC) and tax applied, **Y5 revenue is ~R162.3m** and the
-> cumulative after-tax cash low-point is **~−R4.5m (Y2)**.
+> cumulative after-tax cash low-point is **~−R2.8m (Y2)** under the bootstrap operating stance
+> (§D; ~−R4.5m before it).
 
 **Reinvest-for-growth stance.** The base case **reinvests the high gross margin into above-the-line
 (brand) marketing** — R2.5m (Y1) rising to **R50m (Y5)**, ~40% of revenue early easing to ~24% —
@@ -127,8 +128,22 @@ they already sit in the core model.
 **CA-review additions:** SA **corporate tax at 27%** applied to positive EBITDA (no loss
 carry-forward modelled — conservative); **total headcount doubled to 96 by Y5** (50% AI) for
 delivery-realistic capacity; a **cash-runway check** on the Scenarios tab confirms the R5m seed
-covers the base-case trough (minimum cash +R0.5m; see `02-capital-and-valuation.md` §1 for the
-conservative case) with Series A at Y3 optional.
+covers the trough in every scenario (minimum cash +R2.2m base, +R1.0m conservative; see
+`02-capital-and-valuation.md` §1) with Series A at Y3 optional.
+
+**Bootstrap operating stance (Y1–Y2) — Oct 2026.** The two pre-breakeven years run lean so the
+R5m seed clears the conservative trough with headroom. Four measures, all on the cost base and
+none on revenue, marketing or the regulatory line (detail in `01-financial-model.md` §3):
+
+| Measure | Y1 | Y2 | Rel. |
+|---|---:|---:|---|
+| Founders on reduced pay until EBITDA-positive (market pay from Y3; no accrual) | −R0.45m | −R0.30m | High — founder commitment |
+| Hiring gated to mandates: 6 heads in Y1 (not 8), 12 in Y2 (not 14); the 7th/8th hire is released against the Tranche-2 milestones | −R0.20m | −R0.15m | Medium |
+| Remote-first, no office lease (co-working passes; viewings at the property) | −R0.25m | −R0.15m | High |
+| Paysoft free-development allocation + cloud/BSP startup credits carry the build and tooling | −R0.15m | −R0.10m | Medium — tied to the Paysoft terms |
+| **Total opex saving** | **−R1.05m** | **−R0.70m** | |
+
+Bootstrapped Y1–Y2 opex: **R6.75m / R19.23m** (was R7.80m / R19.93m). Y3 onward is unchanged.
 
 **COGS — bottom-up (validates the ~12%; gross margin now *derived*).** Rather than assume a flat
 margin, COGS is built up from the direct, per-deal cost of delivering a transaction (full table on

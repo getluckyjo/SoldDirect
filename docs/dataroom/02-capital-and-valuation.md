@@ -9,14 +9,20 @@ free-development allocation to an agreed value**, vesting as that value is deliv
 
 ## 1. Capital requirement (bottom-up)
 
-The model turns **EBITDA-positive in Y3**; the cumulative after-tax cash low-point is
-**≈ −R4.5m (Y2)**. With the buffer, the capital to reach self-sustaining:
+The model turns **EBITDA-positive in Y3**. Under the **bootstrap operating stance** for Y1–Y2
+(founders on reduced pay, hiring gated to mandates, remote-first, Paysoft free-development
+allocation — `01-financial-model.md` §3; ~R1.75m of opex saved by the trough, none of it from
+revenue, marketing or compliance) the cumulative after-tax cash low-point is **≈ −R2.8m (Y2)**.
+The capital to reach self-sustaining, and what the R5m seed leaves at the lowest point:
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
-| Cumulative cash low-point | ~R5.7m | **~R4.5m** | ~R2.5m |
-| + buffer | R3m | R3m | R3m |
-| **Total capital to breakeven** | **~R8.7m** | **~R7.5m** | **~R5.5m** |
+| Cumulative cash low-point (bootstrap stance) | ~R4.0m | **~R2.8m** | ~R0.8m |
+| *(before the stance)* | *~R5.7m* | *~R4.5m* | *~R2.5m* |
+| **Minimum cash with the R5m seed** | **+R1.0m** | **+R2.2m** | +R4.2m |
+
+The seed clears the trough in **all three scenarios** — the conservative case with a ~R1m
+cushion — so no top-up, bridge or earlier Series A is required for survival.
 
 ### The raise — R5m seed at inception
 
@@ -30,11 +36,11 @@ pre-money (20%) in Oct 2026** — a leaner seed that prices the company lower bu
 of it.
 
 **Runway check (live on the Scenarios tab):** with the R5m seed injected at Y1 and Series A at
-Y3, the minimum cash position across Y1–Y5 is **+R0.5m in the base case — the seed covers the
-trough, without the R3m buffer**. The conservative case (low-point ≈ −R5.7m) would need a
-**~R1m top-up or an earlier bridge/Series A**; the aggressive case has headroom. The Series A is
-offence, not survival in the base case. The seed is deployed in two milestone tranches
-(`04-indicative-term-sheet.md`) so the spend tracks the ramp.
+Y3, the minimum cash position across Y1–Y5 is **+R2.2m in the base case and +R1.0m in the
+conservative case** — the seed alone covers the trough in every scenario. The Series A is
+offence, not survival. The seed is deployed in two milestone tranches
+(`04-indicative-term-sheet.md`) so the spend tracks the ramp, and the 7th/8th hire is released
+only against those milestones.
 
 ## 2. Valuation
 
@@ -60,7 +66,7 @@ CA-reviewed model pairs high growth with a deliberately conservative **~17% Y5 E
 
 **R20m pre-money** is grounded by: a live product (WhatsApp loop + tracker + dashboard), the
 defensible monetisation wedge (owned origination from Y2), a capital-efficient path (breakeven
-inside the seed in the base case), a committed technology partner, and conservative CA-reviewed
+inside the seed in every scenario), a committed technology partner, and conservative CA-reviewed
 numbers that hold up in diligence. It sits below the comps-derived range deliberately: a smaller,
 cheaper first cheque for a lead who comes in at inception.
 
