@@ -127,7 +127,7 @@ export const PRODUCT_DETAIL = {
     },
     {
       title: 'Cost base',
-      body: 'Four people in Year 1 — two founders, a principal practitioner and an agent — rising to 96 by Year 5 in the model, mostly practitioners and support staff. Gross margin is modelled at about 88%, with the surplus directed to marketing.',
+      body: 'Four people in Year 1 — two founders, a principal practitioner and an agent — rising to 48 by Year 5 in the model, mostly practitioners and support staff. Gross margin is modelled at about 88%, with the surplus directed to marketing.',
     },
   ] satisfies Card[],
 } as const;
