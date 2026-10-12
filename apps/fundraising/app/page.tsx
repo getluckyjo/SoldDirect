@@ -54,7 +54,7 @@ function withZeroNote(text: string): ReactNode {
 
 export default function Investors() {
   return (
-    <div>
+    <div id="top">
       <div
         role="note"
         className="border-b border-white/10 bg-navy-950 px-6 py-2 text-center text-sm font-semibold text-brand-300"
@@ -63,12 +63,16 @@ export default function Investors() {
       </div>
       <header className="sticky top-0 z-10 border-b border-white/10 bg-navy">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-          <span className="inline-flex shrink-0 items-baseline">
+          <a
+            href="#top"
+            aria-label="Back to the top"
+            className="inline-flex shrink-0 items-baseline"
+          >
             <Logo className="text-lg" />
             <span className="ml-2 hidden text-sm font-normal text-slate-400 sm:inline">
               Investors
             </span>
-          </span>
+          </a>
           <nav className="hidden min-w-0 items-center gap-5 text-sm text-slate-300 md:flex">
             {NAV.map((item) => (
               <a
