@@ -626,7 +626,7 @@ export default function Investors() {
             id="traction"
             icon="check"
             title={TRACTION_DETAIL.heading}
-            summary="What is built, and the launch partnerships in progress: BetterBond, LOOM, Capture Media and Paysoft."
+            summary="What is built, and the launch partnerships in progress: BetterBond, LOOM, Capture Media, Paysoft, Lava Lamp Lab and Property24."
             keyPoints={TRACTION_DETAIL.keyPoints}
           >
             <p className="mt-3 max-w-3xl text-base text-slate-300">

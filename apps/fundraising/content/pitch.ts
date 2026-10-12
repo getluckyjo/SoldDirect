@@ -255,7 +255,7 @@ export const TRACTION_DETAIL = {
   keyPoints: [
     { label: 'Product', value: 'Built, demonstrable' },
     { label: 'WhatsApp sender', value: 'Pending Meta approval' },
-    { label: 'Partners', value: '4 in progress' },
+    { label: 'Partners', value: '6 in progress' },
   ] satisfies KeyPoint[],
   intro:
     'The end-to-end flow is built and can be demonstrated. The WhatsApp sender is pending Meta approval. Launch partnerships are in progress.',
@@ -270,6 +270,11 @@ export const TRACTION_DETAIL = {
     { name: 'LOOM', role: 'Property data for estimates and reports' },
     { name: 'Capture Media', role: 'Listing photography and video' },
     { name: 'Paysoft', role: 'Technology partner (vesting equity)' },
+    {
+      name: 'Lava Lamp Lab',
+      role: 'WhatsApp development, engaged through Paysoft',
+    },
+    { name: 'Property24', role: 'Listing distribution (in negotiation)' },
   ],
 } as const;
 
@@ -302,7 +307,7 @@ export const TEAM_DETAIL = {
       name: 'Paysoft',
       role: 'Technology partner · CTO function',
       initials: 'PS',
-      bio: 'Provides the CTO function and engineering delivery of the platform at preferred development rates. Its equity vests as that development is delivered.',
+      bio: 'Provides the CTO function and engineering delivery of the platform at preferred development rates, with Lava Lamp Lab engaged for the WhatsApp build. Its equity vests as that development is delivered.',
     },
     {
       name: 'Board seat',
