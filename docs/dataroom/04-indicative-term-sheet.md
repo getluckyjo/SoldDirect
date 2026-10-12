@@ -19,7 +19,7 @@ agreements. Figures ZAR; numbers tie to `01-financial-model.md` and `02-capital-
 | Anti-dilution | Broad-based weighted average if a future round prices below the modelled Series A (R125m pre) |
 | Founder commitment | Both founders full-time and exclusive; founder shares reverse-vest over 36 months |
 | Technology partner | Paysoft's 10% vests against preferred development rates plus a free-development allocation to an agreed value — vendor equity is earned, not granted |
-| Use of funds | Cape Town launch + brand campaign · AI-augmented team (concierge + PPRA-registered practitioners) · in-house origination accreditation (FAIS/FSP + bank agreements) · platform integrations |
+| Use of funds | Cape Town launch + brand campaign · technology-augmented team (concierge + PPRA-registered practitioners) · in-house origination accreditation (FAIS/FSP + bank agreements) · platform integrations |
 | Modelled outcome | ~14× on the base case (~R432m EV at 5× Y5 revenue, post-optional-Series-A dilution) — illustrative, model-grade, not a forecast |
 
 ## Cap table at closing
@@ -44,10 +44,10 @@ sold three brands** — brand, growth and go-to-market are the seed's biggest sp
 founder who has done it with his own companies.
 
 **Paysoft — technology partner, CTO function.** Carries the CTO role: engineering delivery of
-the AI agent and WhatsApp platform at preferred rates plus a free-development allocation, with
+the concierge and WhatsApp platform at preferred rates plus a free-development allocation, with
 equity vesting only as that value is delivered.
 
-Both founders work the business full-time. The AI does the admin; PPRA-registered practitioners
+Both founders work the business full-time. The technology does the admin; PPRA-registered practitioners
 (employed) stay in the loop on every deal.
 
 ## Process

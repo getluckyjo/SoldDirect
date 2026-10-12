@@ -11,6 +11,8 @@ node_modules/
 *.key
 
 # Build output
+# Investor data room copied from docs/dataroom at build time
+apps/fundraising/content/dataroom/
 dist/
 build/
 .next/

@@ -89,103 +89,109 @@ export default function Investors() {
         </div>
       </header>
 
-      {/* Hero — the proposition and the round, nothing else */}
-      <section className="relative isolate overflow-hidden">
+      {/* The aerial sea photo runs behind the hero and the proposition */}
+      <div className="relative isolate overflow-hidden">
         <Image
           src="/cape-town-aerial-hero.jpg"
           alt="Aerial view of Green Point and the Atlantic coast beneath a tablecloth cloud on Table Mountain, Cape Town"
           fill
           priority
           sizes="100vw"
-          className="-z-10 object-cover object-[50%_35%]"
+          className="-z-20 object-cover object-[50%_35%]"
         />
         <div
           aria-hidden
           className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/90 via-navy/70 to-navy/40"
         />
-        <div className="mx-auto max-w-6xl px-6 pb-14 pt-16 sm:pb-20 sm:pt-24">
-          <p className="text-sm font-medium uppercase tracking-wide text-sky-300">
-            {HERO.eyebrow}
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm sm:text-6xl">
-            {HERO.title}{' '}
-            <span className="text-brand-400">
-              {HERO.titleAccentPre}
-              <QualifyingNote />
-              {HERO.titleAccentPost}
-            </span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-200">{HERO.sub}</p>
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 -z-10 h-2/5 bg-gradient-to-b from-transparent to-navy"
+        />
+        {/* Hero — the proposition and the round, nothing else */}
+        <section className="relative">
+          <div className="mx-auto max-w-6xl px-6 pb-14 pt-16 sm:pb-20 sm:pt-24">
+            <p className="text-sm font-medium uppercase tracking-wide text-sky-300">
+              {HERO.eyebrow}
+            </p>
+            <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm sm:text-6xl">
+              {HERO.title}{' '}
+              <span className="text-brand-400">
+                {HERO.titleAccentPre}
+                <QualifyingNote />
+                {HERO.titleAccentPost}
+              </span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-slate-200">{HERO.sub}</p>
 
-          <SummaryStrip />
+            <SummaryStrip />
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#access"
-              className="inline-flex rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-brand-400"
-            >
-              {HERO.ctaPrimary}
-            </a>
-            <a
-              href="#demo"
-              className="inline-flex rounded-lg border border-slate-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-brand-400 hover:text-brand-300"
-            >
-              {HERO.ctaSecondary} ↓
-            </a>
-            <a
-              href={DEMO_SECTION.tryHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-lg border border-brand-500/60 bg-brand-500/10 px-5 py-2.5 text-sm font-semibold text-brand-200 transition hover:bg-brand-500/20 hover:text-white"
-            >
-              {HERO.ctaTry} ↗
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* The proposition */}
-      <Section
-        id="concept"
-        tone="tinted"
-        eyebrow="Concept"
-        heading={CONCEPT_SECTION.heading}
-      >
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {CONCEPT_SECTION.cards.map((card, i) => (
-            <div
-              key={card.title}
-              className="flex flex-col rounded-2xl border border-slate-800 bg-navy p-6"
-            >
-              <div className="flex items-center gap-3">
-                <IconTile name={card.icon} size="lg" />
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
-                    {i + 1} of 3
-                  </p>
-                  <h3 className="text-lg font-semibold text-white">
-                    {card.title}
-                  </h3>
-                </div>
-              </div>
-              <p className="mt-4 text-base font-semibold leading-snug text-brand-300">
-                {withZeroNote(card.lead)}
-              </p>
-              <ul className="mt-4 grid gap-2.5 border-t border-slate-800 pt-4 text-sm leading-relaxed text-slate-300">
-                {card.points.map((point) => (
-                  <li key={point} className="flex gap-2.5">
-                    <span
-                      aria-hidden
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400"
-                    />
-                    <span>{withZeroNote(point)}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="#access"
+                className="inline-flex rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-brand-400"
+              >
+                {HERO.ctaPrimary}
+              </a>
+              <a
+                href="#demo"
+                className="inline-flex rounded-lg border border-slate-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-brand-400 hover:text-brand-300"
+              >
+                {HERO.ctaSecondary} ↓
+              </a>
+              <a
+                href={DEMO_SECTION.tryHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-lg border border-brand-500/60 bg-brand-500/10 px-5 py-2.5 text-sm font-semibold text-brand-200 transition hover:bg-brand-500/20 hover:text-white"
+              >
+                {HERO.ctaTry} ↗
+              </a>
             </div>
-          ))}
-        </div>
-      </Section>
+          </div>
+        </section>
+
+        {/* The proposition */}
+        <Section
+          id="concept"
+          eyebrow="Concept"
+          heading={CONCEPT_SECTION.heading}
+        >
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {CONCEPT_SECTION.cards.map((card, i) => (
+              <div
+                key={card.title}
+                className="flex flex-col rounded-2xl border border-white/10 bg-navy/80 p-6 backdrop-blur"
+              >
+                <div className="flex items-center gap-3">
+                  <IconTile name={card.icon} size="lg" />
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
+                      {i + 1} of 3
+                    </p>
+                    <h3 className="text-lg font-semibold text-white">
+                      {card.title}
+                    </h3>
+                  </div>
+                </div>
+                <p className="mt-4 text-base font-semibold leading-snug text-brand-300">
+                  {withZeroNote(card.lead)}
+                </p>
+                <ul className="mt-4 grid gap-2.5 border-t border-slate-800 pt-4 text-sm leading-relaxed text-slate-300">
+                  {card.points.map((point) => (
+                    <li key={point} className="flex gap-2.5">
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400"
+                      />
+                      <span>{withZeroNote(point)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Section>
+      </div>
 
       {/* The hooks */}
       <Section

@@ -4,7 +4,7 @@ All figures **ZAR**. Y1 = first full year of Cape Town operations. Illustrative;
 sourced assumptions in `00-assumptions.md`. **Strategy:** *land at prime* (R6.5m, biggest rand
 savings + bond) and **taper the average price down as the brand scales** — broadening into the
 upper-market — to grow from a **much larger addressable pool** and cut the implied market-share
-risk. Run by a small **AI-augmented** team with **above-the-line (brand) marketing** driving the
+risk. Run by a small **technology-augmented** team with **above-the-line (brand) marketing** driving the
 deal ramp. **From Year 2 we bring bond origination in-house, working directly with the banks** —
 capturing the full origination commission instead of a thin referral share.
 
@@ -55,7 +55,7 @@ down-market. Layered on top, the **origination rate steps up from 0.5% (Y1, Bett
 | **Total revenue** | **6.14** | **12.48** | **26.51** | **51.51** | **86.35** |
 | COGS (~12%) | (0.74) | (1.50) | (3.18) | (6.18) | (10.36) |
 | **Gross profit** | **5.41** | **10.98** | **23.33** | **45.33** | **75.99** |
-| Payroll *(bootstrap team Y1–Y2; + AI agents from Y3)* | 1.85 | 2.29 | 4.88 | 11.39 | 22.30 |
+| Payroll *(bootstrap team Y1–Y2; + automated roles from Y3)* | 1.85 | 2.29 | 4.88 | 11.39 | 22.30 |
 | Marketing (above-the-line) | 2.50 | 4.00 | 9.00 | 16.00 | 25.00 |
 | Tech & tools *(bootstrap Y1–Y2)* | 0.45 | 0.90 | 1.80 | 2.80 | 4.00 |
 | Legal / compliance / insurance | 0.70 | 1.00 | 1.50 | 2.20 | 3.00 |
@@ -140,7 +140,7 @@ On a monthly view every scenario's trough sits ~R2m lower than its annual proxy 
 inside the seed with ≥ ~R1.5m to spare in the conservative case.
 
 **CA-review adjustments baked in:** 27% SA corporate tax on positive EBITDA; delivery-realistic
-headcount (**48 by Y5**, 50% AI, from Y3); a **cash-runway check** (R5m seed at Y1,
+headcount (**48 by Y5**, half automated, from Y3); a **cash-runway check** (R5m seed at Y1,
 Series A at Y3) shows the seed covers the trough in all three scenarios
 (`02-capital-and-valuation.md` §1).
 
@@ -153,5 +153,5 @@ Series A at Y3) shows the seed covers the trough in all three scenarios
 2. **ATL→deals conversion** — the central growth assumption; validate with a CT pilot.
 3. **Upper-market pool size** (~35k) — an estimate; confirm. The taper makes the share far safer
    (~4%) but the pool count still needs grounding.
-4. **AI agents at 50% of roles** — pilot before relying on it for the cost base.
+4. **Automated roles at 50% of headcount** — pilot before relying on it for the cost base.
 5. **Marketing-claim consistency** — "0%" holds for the qualifying-bond path; disclose the 1% fee.

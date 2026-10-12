@@ -111,7 +111,7 @@ firm's Fidelity Fund Certificate (see `05-regulatory-status.md`).
 Purplebricks (AIM IPO £240m → peak >£1bn → **sold for £1 in 2023**) was destroyed by marketing-led
 CAC and over-expansion. **Landing at prime is the structural antidote:** prime demand is referral-
 and reputation-driven (lowest CAC), we **earn brand trust before broadening down-market**, and the
-AI-augmented team keeps the cost base honest (the model now carries a delivery-realistic 96
+technology-augmented team keeps the cost base honest (the model now carries a delivery-realistic 96
 headcount by Y5 and budget sanity-check ratios on the P&L tab).
 
 ## 5. What to confirm before circulating
