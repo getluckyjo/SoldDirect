@@ -74,7 +74,7 @@ export default function Investors() {
               <a
                 key={item.href}
                 href={item.href}
-                className="whitespace-nowrap hover:text-white"
+                className="whitespace-nowrap hover:text-sky-200"
               >
                 {item.label}
               </a>
@@ -104,7 +104,7 @@ export default function Investors() {
           className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/90 via-navy/70 to-navy/40"
         />
         <div className="mx-auto max-w-6xl px-6 pb-14 pt-16 sm:pb-20 sm:pt-24">
-          <p className="text-sm font-medium uppercase tracking-wide text-slate-300">
+          <p className="text-sm font-medium uppercase tracking-wide text-sky-300">
             {HERO.eyebrow}
           </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm sm:text-6xl">
@@ -160,7 +160,7 @@ export default function Investors() {
               <div className="flex items-center gap-3">
                 <IconTile name={card.icon} size="lg" />
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                  <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
                     {i + 1} of 3
                   </p>
                   <h3 className="text-lg font-semibold text-white">
@@ -202,7 +202,7 @@ export default function Investors() {
             >
               <IconTile name={hook.icon} size="lg" />
               <div className="min-w-0">
-                <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
                   Hook {i + 1}
                 </p>
                 <h3 className="mt-1 text-lg font-semibold leading-snug text-white">
@@ -283,12 +283,15 @@ export default function Investors() {
       </section>
 
       {/* Community aside */}
-      <section aria-label={COMMUNITY_NOTE.heading}>
+      <section
+        aria-label={COMMUNITY_NOTE.heading}
+        className="border-y border-sky-400/40 bg-sky-600/25"
+      >
         <div className="mx-auto max-w-6xl px-6 py-12">
-          <div className="flex flex-col gap-5 rounded-2xl border border-slate-800 bg-navy p-6 sm:flex-row sm:items-start sm:gap-6 sm:p-8">
-            <IconTile name="map" size="lg" />
+          <div className="flex flex-col gap-5 rounded-2xl border border-sky-400/30 bg-navy/70 p-6 sm:flex-row sm:items-start sm:gap-6 sm:p-8">
+            <IconTile name="map" size="lg" tone="sky" />
             <div className="min-w-0">
-              <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+              <p className="text-xs font-medium uppercase tracking-wide text-sky-300">
                 {COMMUNITY_NOTE.eyebrow}
               </p>
               <h3 className="mt-1 text-lg font-semibold text-white">
@@ -301,7 +304,7 @@ export default function Investors() {
                 {COMMUNITY_NOTE.items.map((item) => (
                   <li
                     key={item}
-                    className="rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-300"
+                    className="rounded-full border border-sky-400/40 bg-sky-500/10 px-3 py-1 text-xs text-sky-100"
                   >
                     {item}
                   </li>

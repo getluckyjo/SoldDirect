@@ -51,8 +51,7 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
 
 - **Revenue:** R6.1m (Y1) → **R86.4m (Y5)**; **EBITDA-positive in Y3** under the bootstrap
   stance, **~14% margin** by Y5 (CA-reviewed: 27% tax, delivery-realistic headcount of 48 from a
-  four-person Y1 team, conveyancing referral removed per LPC; the deal ramp from Y2 was halved in
-  Oct 2026 so the plan is sized to what the founders will defend).
+  four-person Y1 team, conveyancing referral removed per LPC).
 - **Model:** **~R52–71k per deal** — origination (0.5% BetterBond referral in Y1, **~1.5% in-house from
   Y2**) *or* 1% fee, + add-ons — plus **bank sponsorship (R3→8m/yr)** and **conveyancer panel
   advertising (R0.36→2.4m/yr, fixed subscriptions — no referral fees, per LPC)**.
@@ -99,9 +98,7 @@ the model's shape; they sharpen individual lines.
 - Formalise the supplier partnerships in motion: Loom (property valuations) and Capture
   Media (listing video/photography)
 - A signed bank headline-sponsor (the sponsorship line)
-- `sold-direct-model.xlsx` was re-keyed on 12/10/2026 to the R5m-at-R20m seed, the current cap
-  table and the bootstrap Y1–Y2 inputs; every tab recalculates from the Assumptions tab. The
-  Home tab still lists a "Funder Growth" tab that does not exist — harmless, tidy when convenient.
+- `sold-direct-model.xlsx`: every tab recalculates from the Assumptions tab. The Home tab lists a "Funder Growth" tab that does not exist — harmless, tidy when convenient.
 
 *(Market sizing, cap table + use-of-funds and the competitive landscape are in the workbook; the
 operational risk playbook lives in `docs/BOTTLENECKS.md`.)*

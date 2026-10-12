@@ -115,14 +115,12 @@ steering).
 | One-off setup / licensing (Y2 only) | **~R1.5m** | accreditation, systems, bank onboarding | Low |
 
 > Net effect (base): the Year-2 origination uplift outweighs the added cost + setup; with the
-> conveyancing referral removed (LPC), tax applied and the **deal ramp halved from Y2 (Oct
-> 2026)**, **Y5 revenue is ~R86.4m** and the cumulative after-tax cash low-point is **~−R1.1m
+> conveyancing referral removed (LPC) and tax applied, **Y5 revenue is ~R86.4m** and the cumulative after-tax cash low-point is **~−R1.1m
 > (Y2, annual proxy)** under the bootstrap operating stance (§D), with EBITDA-positive in **Y3**.
 
 **Reinvest-for-growth stance.** The base case **reinvests the high gross margin into above-the-line
 (brand) marketing** — R2.5m (Y1) rising to **R25m (Y5)**, ~40% of revenue early easing to ~29% —
-to drive the deal ramp (50 → 1,450 registered deals by Y5, halved from the earlier 2,900 in Oct
-2026 so the plan is sized to what the founders will defend). This trades margin for scale and
+to drive the deal ramp (50 → 1,450 registered deals by Y5). This trades margin for scale and
 tests as a deliberate growth choice. The
 ATL→deals conversion is an assumption to **validate with a pilot** before relying on it.
 
@@ -138,7 +136,7 @@ they already sit in the core model.
 
 **CA-review additions:** SA **corporate tax at 27%** applied to positive EBITDA (no loss
 carry-forward modelled — conservative); delivery-realistic **total headcount of 48 by Y5** (50%
-AI; halved with the ramp from the CA-reviewed 96); a **cash-runway check** on the Scenarios tab
+AI); a **cash-runway check** on the Scenarios tab
 confirms the R5m seed covers the trough in every scenario (annual-proxy minimum cash ~+R3.9m
 base, ~+R3.5m conservative; ~R2m less on a monthly view; see `02-capital-and-valuation.md` §1)
 with Series A at Y3 optional.
@@ -155,9 +153,8 @@ measures, all on the cost base and none on revenue, marketing or the regulatory 
 | Paysoft free-development allocation + cloud/BSP startup credits carry the build and tooling | −R0.15m | −R0.10m | Medium — tied to the Paysoft terms |
 | **Total opex saving** | **−R1.95m** | **−R4.05m** | |
 
-Bootstrapped Y1–Y2 opex: **R5.85m / R11.60m** (was R7.80m / R19.93m before the stance and the
-halved ramp); Y3 turns EBITDA-positive. Y3 onward follows the halved ramp (11 heads, founders
-to market pay). The statutory on-costs (UIF, SDL,
+Bootstrapped Y1–Y2 opex: **R5.85m / R11.60m** (was R7.80m / R19.93m before the stance); Y3 turns
+EBITDA-positive. Y3 onward: 11 heads, founders to market pay. The statutory on-costs (UIF, SDL,
 COIDA) are small at this payroll size; no 13th cheque or benefits are modelled for Y1–Y2.
 
 **COGS — bottom-up (validates the ~12%; gross margin now *derived*).** Rather than assume a flat

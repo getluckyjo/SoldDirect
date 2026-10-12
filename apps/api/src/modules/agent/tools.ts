@@ -371,7 +371,7 @@ function buildIntakeWriteTools(
         'Returns the current draft and which fields are still missing — ask ' +
         'only for those. Never invent or assume a value the seller did not ' +
         'give. Constraints: price min R100,000; bedrooms/bathrooms 0–20; ' +
-        'exclusivity term 60, 90 or 120 days. Also ask ONCE for the street ' +
+        'exclusivity term 90 or 120 days for 0% (60 days = the Flex plan at 1%). Also ask ONCE for the street ' +
         'address (kept private — buyers never see it; used for price ' +
         'guidance and portal syndication); it is optional, so if the seller ' +
         'declines, pass address_skipped=true and move on.',

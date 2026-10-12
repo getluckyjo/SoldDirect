@@ -48,7 +48,7 @@ transfer at a blended ~R25k/deal:
 
 ## 5. Stress test & positioning (the point of the taper)
 
-**Tapering the average price down, and halving the ramp from Y2 (Oct 2026), cut the implied Y5
+**Tapering the average price down cut the implied Y5
 share from ~21% (prime-only) to ~4% of the upper-market** — a far more defensible ask. Sensitivity to the (estimated) pool:
 
 | Pool size | Base Y5 share |

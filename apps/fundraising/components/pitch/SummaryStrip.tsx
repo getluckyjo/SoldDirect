@@ -13,7 +13,7 @@ export function SummaryStrip() {
       <div className="grid grid-cols-2 gap-x-4 gap-y-5 lg:grid-cols-4">
         {SUMMARY_STRIP.map((s) => (
           <div key={s.label}>
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+            <p className="text-xs font-medium uppercase tracking-wide text-sky-300">
               {s.label}
             </p>
             <p className="mt-1 text-xl font-extrabold leading-tight tracking-tight text-white sm:text-2xl lg:whitespace-nowrap">

@@ -39,12 +39,12 @@ export const HERO = {
 
 // The one-sentence resolution behind every 0%* (tooltip copy).
 export const QUALIFYING_TOOLTIP =
-  '0% applies on the qualifying path: an exclusive mandate and a bond of 80% or more placed through our origination partner. Otherwise a 1% facilitation fee applies.';
+  '0% applies on the qualifying path: a 90-day (or longer) exclusive mandate and a bond of 80% or more placed through our origination partner. Otherwise a 1% facilitation fee applies.';
 
 // Full wording, rendered in the footer (verbatim — do not edit).
 // source: docs/dataroom/00-assumptions.md §C; 01-financial-model.md §5
 export const QUALIFYING_PATH_NOTE =
-  '* 0% commission applies on the qualifying path: an exclusive mandate for the agreed term, a qualifying ≥80% bond placed via our origination partner, and a panel conveyancer (with a fee discount passed to the seller). Otherwise a 1% facilitation fee applies.';
+  '* 0% commission applies on the qualifying path: an exclusive mandate of 90 days or longer, a qualifying ≥80% bond placed via our origination partner, and a panel conveyancer (with a fee discount passed to the seller). Otherwise a 1% facilitation fee applies.';
 
 // The round at a glance.
 // source: docs/dataroom/README.md headlines; 01/02 dataroom docs
@@ -55,7 +55,11 @@ export const SUMMARY_STRIP = [
     value: 'Bond origination',
     sub: 'Paid by the lender',
   },
-  { label: 'Status', value: 'Product built', sub: 'WhatsApp sender pending' },
+  {
+    label: 'Status',
+    value: 'Product built',
+    sub: 'Ready to go live with Meta',
+  },
   {
     label: 'Y5 revenue (base)',
     value: 'R86m',
@@ -106,7 +110,7 @@ export const PRODUCT_DETAIL = {
   keyPoints: [
     { label: 'Channel', value: 'WhatsApp, menu-driven' },
     { label: 'Scope', value: 'Listing to registration' },
-    { label: 'People', value: 'PPRA practitioners + concierge' },
+    { label: 'People', value: 'PPRA practitioners + WhatsApp estate agent' },
   ] satisfies KeyPoint[],
   cards: [
     {
@@ -254,11 +258,11 @@ export const TRACTION_DETAIL = {
   heading: 'Status and partners',
   keyPoints: [
     { label: 'Product', value: 'Built, demonstrable' },
-    { label: 'WhatsApp sender', value: 'Pending Meta approval' },
+    { label: 'WhatsApp sender', value: 'Ready to go live with Meta' },
     { label: 'Partners', value: '6 in progress' },
   ] satisfies KeyPoint[],
   intro:
-    'The end-to-end flow is built and can be demonstrated. The WhatsApp sender is pending Meta approval. Launch partnerships are in progress.',
+    'The end-to-end flow is built and can be demonstrated. The WhatsApp sender is ready to go live with Meta. Launch partnerships are in progress.',
   shipped: [
     'WhatsApp journey end to end: listing, enquiry, consented bond pre-qualification, offer, transfer tracking',
     'Deal state machine for the SA transfer: offer to purchase, bond, FICA, clearance, lodgement, registration',
@@ -282,7 +286,7 @@ export const TRACTION_DETAIL = {
 export const TEAM_DETAIL = {
   heading: 'Team',
   keyPoints: [
-    { label: 'Founders', value: '2, full-time, 32.5% each' },
+    { label: 'Founders', value: '2, fully focussed' },
     { label: 'Technology', value: 'Paysoft, 10% vesting' },
     { label: 'Board', value: '1 non-executive seat reserved' },
   ] satisfies KeyPoint[],
@@ -369,7 +373,7 @@ export const FAQ = [
   },
   {
     q: 'Is R5m sufficient?',
-    a: 'In every modelled scenario, yes. Year 1 runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, hires beyond the four are made only against signed mandates, and Paysoft carries the build. The deal ramp from Year 2 was halved in October 2026, with marketing and headcount scaled to match, so the plan is sized to what the founders will defend; EBITDA-positive is modelled in Year 3. On a monthly view the cash trough is about R3m, which the round covers with about R2m to spare in the base case and about R1.5m in the conservative case. Capital is released in two tranches against milestones. The runway check is on the Scenarios tab of the model.',
+    a: 'In every modelled scenario, yes. Year 1 runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, hires beyond the four are made only against signed mandates, and Paysoft carries the build. EBITDA-positive is modelled in Year 3. On a monthly view the cash trough is about R3m, which the round covers with about R2m to spare in the base case and about R1.5m in the conservative case. Capital is released in two tranches against milestones. The runway check is on the Scenarios tab of the model.',
   },
   {
     q: 'What are the principal risks?',
@@ -471,7 +475,7 @@ export const DEMO_SECTION = {
   // proxy route (see DEPLOYMENT.md, "The live demo on the investor site").
   tryHeading: 'Sell a home yourself, on the live pipeline.',
   tryBody:
-    'The live demo runs the production system on our servers: the same conversation code, database, deal state machine and AI concierge that will answer on the WhatsApp number. Only the WhatsApp transport is simulated in your browser. Get a Quick Estimate and the Property Report, list the home, send photos, then watch the market respond: a pre-qualified buyer, a viewing, an offer, the bond, and the transfer through to registration.',
+    'The live demo runs on our production system: the same conversation code, database and deal tracker that will answer on the WhatsApp number; only the WhatsApp transport is simulated. Get a Quick Estimate and Property Report, list the home, add photos, then watch the sale run: a pre-qualified buyer, a viewing, an offer, the bond and the transfer to registration.',
   tryCta: 'Open the live demo',
   tryHref: '/try',
   tryNote:
@@ -490,7 +494,7 @@ export const DETAIL_SECTION = {
 export const RETURN_SECTION = {
   heading: 'Return on the R5m.',
   intro:
-    'The base-case model values the seed stake at about R72m at a Year 5 exit: about 14 times the investment, an IRR of about 70% over five years. The deal ramp from Year 2 was halved in October 2026; the table shows the same calculation across the three scenarios and the comparable-multiple range.',
+    'The base-case model values the seed stake at about R72m at a Year 5 exit: about 14 times the investment, an IRR of about 70% over five years. The table shows the same calculation across the three scenarios and the comparable-multiple range.',
   tiles: [
     { label: 'Invested', value: 'R5m', sub: '20% at inception' },
     {
