@@ -467,7 +467,6 @@ export const DEMO_SECTION = {
   heading: 'The WhatsApp Estate Agent, step by step.',
   intro:
     'One Cape Town home from the first message to registered transfer: Quick Estimate, Property Report, listing, buyer pre-qualification, offer and transfer, with each point at which revenue arises marked. Press Play, or step through it.',
-  // The standalone build of the real seller-intake flow, served from
   // The live demo at /try: the API's demo simulator behind the site's own
   // proxy route (see DEPLOYMENT.md, "The live demo on the investor site").
   tryHeading: 'Sell a home yourself, on the live pipeline.',
