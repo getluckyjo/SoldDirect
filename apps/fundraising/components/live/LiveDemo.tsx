@@ -1,9 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { Logo } from '@/components/Logo';
 import { ControlRoom } from './ControlRoom';
-import { Phone, type Starter } from './Phone';
+import {
+  Phone,
+  type MediaPicker,
+  type PickedPhoto,
+  type Starter,
+} from './Phone';
 import { useDemoSession } from './useDemoSession';
 
 const STARTERS: Starter[] = [
@@ -16,10 +22,18 @@ const STARTERS: Starter[] = [
   { label: 'How does it work?', text: 'How does it work?', replyId: 'HOW' },
 ];
 
+// A sample gallery of one home, the way a phone's camera roll looks after a
+// walk-through: the rooms buyers want, plus one weak shot to leave out.
 const SAMPLE_PHOTOS = [
+  '/demo-photos/front.jpg',
   '/demo-photos/living-room.jpg',
+  '/demo-photos/kitchen.jpg',
+  '/demo-photos/bedroom.jpg',
+  '/demo-photos/bathroom.jpg',
+  '/demo-photos/garden.jpg',
   '/demo-photos/exterior.jpg',
   '/demo-photos/street.jpg',
+  '/demo-photos/lounge-dark.jpg',
 ];
 
 /** Downscale a photo in the browser so the upload stays small. */
@@ -38,26 +52,68 @@ async function toDataUrl(blob: Blob, max = 1280): Promise<string> {
 
 export function LiveDemo() {
   const s = useDemoSession();
+  const [picked, setPicked] = useState<PickedPhoto[]>([]);
+  const [sending, setSending] = useState(false);
 
-  async function sendFiles(files: FileList) {
-    for (const file of Array.from(files).slice(0, 10)) {
+  const picker: MediaPicker = {
+    items: picked,
+    sending,
+    add(files) {
+      setPicked((prev) => [
+        ...prev,
+        ...files.slice(0, Math.max(0, 10 - prev.length)).map((file) => ({
+          id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+          url: URL.createObjectURL(file),
+          file,
+          keep: true,
+        })),
+      ]);
+    },
+    toggle(id) {
+      setPicked((prev) =>
+        prev.map((p) => (p.id === id ? { ...p, keep: !p.keep } : p)),
+      );
+    },
+    clear() {
+      setPicked((prev) => {
+        prev.forEach((p) => URL.revokeObjectURL(p.url));
+        return [];
+      });
+    },
+    async send() {
+      const chosen = picked.filter((p) => p.keep);
+      setSending(true);
       try {
-        await s.sendPhoto(await toDataUrl(file));
-      } catch {
-        // A single bad file should not abort the rest.
+        for (const p of chosen) {
+          try {
+            await s.sendPhoto(await toDataUrl(p.file));
+          } catch {
+            // A single bad file should not abort the rest.
+          }
+        }
+      } finally {
+        setSending(false);
+        picker.clear();
       }
-    }
-  }
+    },
+  };
 
-  async function sendSamples() {
+  /** Loads the sample home into the picker, like opening the camera roll. */
+  async function openSampleGallery() {
+    const files: File[] = [];
     for (const src of SAMPLE_PHOTOS) {
       try {
         const blob = await (await fetch(src)).blob();
-        await s.sendPhoto(await toDataUrl(blob));
+        files.push(
+          new File([blob], src.split('/').pop() ?? 'photo.jpg', {
+            type: 'image/jpeg',
+          }),
+        );
       } catch {
         // keep going
       }
     }
+    picker.add(files);
   }
 
   return (
@@ -98,7 +154,7 @@ export function LiveDemo() {
               busy={s.busy}
               starters={STARTERS}
               onSend={(text, replyId) => void s.send(text, replyId)}
-              onPhotos={(files) => void sendFiles(files)}
+              picker={picker}
             />
           </div>
           <ControlRoom
@@ -110,7 +166,7 @@ export function LiveDemo() {
             phone={s.phone}
             hasMessages={s.messages.length > 0}
             onSend={(text, replyId) => void s.send(text, replyId)}
-            onSamplePhotos={() => void sendSamples()}
+            onSamplePhotos={() => void openSampleGallery()}
             onJourney={(step) => void s.runJourney(step)}
             onReset={s.reset}
           />

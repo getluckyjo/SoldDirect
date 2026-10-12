@@ -223,13 +223,14 @@ export function ControlRoom({
           Listing confirmed. It goes live with the first photo.
         </p>
         <p className="mt-2 text-sm text-slate-300">
-          Attach your own with the paperclip, or send three sample photos. The
-          photo is stored, the listing is activated and syndication is queued,
-          exactly as in production.
+          Open the sample gallery and pick the best shots, or attach your own
+          with the paperclip, several at once. Each photo is stored, the listing
+          goes live and syndication is queued, exactly as in production. Then
+          tap ✍️ and the description is written from the photos.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           <Action primary disabled={busy} onClick={onSamplePhotos}>
-            Send 3 sample photos
+            Open the sample gallery
           </Action>
         </div>
       </>
