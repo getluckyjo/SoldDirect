@@ -27,6 +27,7 @@ function fakeDeals(): DealRepository {
         id === 'd1' ? { id: 'd1', status: 'enquiry', events: [] } : null,
       ),
     getNotificationContext: vi.fn().mockResolvedValue(null),
+    findLatestDealForSeller: vi.fn().mockResolvedValue(null),
   };
 }
 

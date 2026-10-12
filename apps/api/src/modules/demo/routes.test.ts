@@ -68,7 +68,11 @@ function makeApp(overrides: Partial<DemoRouteDeps> = {}) {
       },
     },
     messages,
-    demo: { conversation: async () => log },
+    demo: {
+      conversation: async () => log,
+      latestListing: async () => null,
+      latestDeal: async () => null,
+    },
     agentDrafts,
     notifier,
     internalToken: 'secret',
@@ -97,6 +101,50 @@ describe('demo routes', () => {
       payload: { phone: PHONE, text: 'hi' },
     });
     expect(res.statusCode).toBe(401);
+  });
+
+  it('accepts the demo-scoped token alongside the internal one', async () => {
+    const { app } = makeApp({ demoToken: 'demo-only' });
+    const ok = await app.inject({
+      method: 'GET',
+      url: `/api/demo/conversation?phone=${encodeURIComponent(PHONE)}`,
+      headers: { 'x-internal-token': 'demo-only' },
+    });
+    expect(ok.statusCode).toBe(200);
+    const bad = await app.inject({
+      method: 'GET',
+      url: `/api/demo/conversation?phone=${encodeURIComponent(PHONE)}`,
+      headers: { 'x-internal-token': 'wrong' },
+    });
+    expect(bad.statusCode).toBe(401);
+  });
+
+  it('serves the control-room state for a demo phone', async () => {
+    const { app } = makeApp();
+    const res = await app.inject({
+      method: 'GET',
+      url: `/api/demo/state?phone=${encodeURIComponent(PHONE)}`,
+      headers: auth,
+    });
+    expect(res.statusCode).toBe(200);
+    expect(res.json()).toEqual({
+      phone: PHONE,
+      estimate: null,
+      intake: null,
+      listing: null,
+      deal: null,
+    });
+  });
+
+  it('answers 404 on the journey until it is wired', async () => {
+    const { app } = makeApp();
+    const res = await app.inject({
+      method: 'POST',
+      url: '/api/demo/journey',
+      headers: auth,
+      payload: { phone: PHONE, step: 'enquiry' },
+    });
+    expect(res.statusCode).toBe(404);
   });
 
   it('runs an inbound through the pipeline and returns the thread', async () => {

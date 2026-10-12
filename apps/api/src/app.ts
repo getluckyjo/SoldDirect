@@ -48,6 +48,7 @@ import {
   transitionDeal,
   type DealRepository,
 } from './modules/deals';
+import { createPrismaEstimateStore } from './modules/listings';
 import { createPrismaDeadlineRepository } from './modules/deadlines';
 import { createPrismaProfileRepository } from './modules/profiles';
 import { BetterBondReferralStub } from './modules/finance';
@@ -240,6 +241,19 @@ export function buildServer(deps?: Partial<ServerDeps>) {
     valuation,
     saveEstimate,
   };
+  // The Quick Estimate (PRICE): three taps to a price band from the
+  // valuation adapter, then the Property Report, then into intake.
+  const estimateStore = createPrismaEstimateStore(prisma);
+  // Seller-side replies on their deal (viewing slot, ACCEPT, COUNTER) are
+  // recorded on the append-only timeline — the same rows the tracker reads.
+  const dealRepository =
+    deps?.dealRepository ?? createPrismaDealRepository(prisma);
+  const sellerDeals = {
+    findLatestForSeller: (phone: string) =>
+      dealRepository.findLatestDealForSeller(phone),
+    recordEvent: (input: Parameters<typeof recordDealEvent>[1]) =>
+      recordDealEvent(prisma, input),
+  };
   // "Write it for me": drafts the optional description from the listing's
   // own facts, for the seller to approve. Degrades to a noop without an API
   // key (the button then simply invites them to type one).
@@ -329,6 +343,8 @@ export function buildServer(deps?: Partial<ServerDeps>) {
       optOut: optOutStore,
       photoIntake: makePhotoIntake((media) => adapter.fetchMedia(media)),
       description,
+      estimate: { store: estimateStore, valuation },
+      sellerDeals,
       agent,
       log: (msg, err) => app.log.error({ err }, msg),
     });
@@ -360,7 +376,7 @@ export function buildServer(deps?: Partial<ServerDeps>) {
   });
 
   const listings = listingRepository;
-  const deals = deps?.dealRepository ?? createPrismaDealRepository(prisma);
+  const deals = dealRepository;
   registerDashboardRoutes(app, { listings, deals, internalToken });
 
   // Shadow-mode review queue: list pending AI drafts, approve (sends) or
@@ -402,18 +418,55 @@ export function buildServer(deps?: Partial<ServerDeps>) {
         return item;
       }),
       description,
+      estimate: { store: estimateStore, valuation: demoValuation },
+      sellerDeals,
       agent:
         deps?.agent ?? makeAgent(demoNotifier, demoAgentMode, demoValuation),
       log: (msg, err) => app.log.error({ err }, msg),
     });
+    const demoRepository = createPrismaDemoRepository(prisma);
     registerDemoRoutes(app, {
       dispatcher: demoDispatcher,
       messages: repository,
-      demo: createPrismaDemoRepository(prisma),
+      demo: demoRepository,
       agentDrafts: agentRepository,
       media: demoMedia,
       notifier: demoNotifier,
       internalToken,
+      // A demo-scoped credential for the investor site's proxy, so it never
+      // holds the internal token.
+      demoToken: process.env.DEMO_ACCESS_TOKEN || undefined,
+      stores: { intake: conversationStore, estimate: estimateStore },
+      // The journey drives the REAL deal state machine and stage
+      // notifications, through the demo notifier.
+      journey: {
+        listings: {
+          findLatestForSeller: async (phone) => {
+            const listing = await demoRepository.latestListing(phone);
+            return listing
+              ? {
+                  id: listing.id,
+                  title: listing.title,
+                  priceZar: listing.priceZar,
+                  status: listing.status,
+                }
+              : null;
+          },
+        },
+        deals: {
+          findLatestForSeller: (phone) =>
+            dealRepository.findLatestDealForSeller(phone),
+        },
+        advance: {
+          deals: dealRepository,
+          transition: (input) => transitionDeal(prisma, input),
+          templates: loadTemplateConfigFromEnv(),
+          deadlines: createPrismaDeadlineRepository(prisma),
+          log: (msg, err) => app.log.error({ err }, msg),
+        },
+        recordEvent: (input) => recordDealEvent(prisma, input),
+        log: (msg, err) => app.log.error({ err }, msg),
+      },
       log: (msg, err) => app.log.error({ err }, msg),
     });
   }

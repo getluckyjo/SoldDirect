@@ -10,6 +10,7 @@ function fakeDeals(context: unknown = null): DealRepository {
     list: vi.fn(async () => []),
     getWithTimeline: vi.fn(async () => null),
     getNotificationContext: vi.fn(async () => context) as never,
+    findLatestDealForSeller: vi.fn(async () => null),
   };
 }
 

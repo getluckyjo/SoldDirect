@@ -3,12 +3,14 @@ import type { Dispatcher } from '../conversation';
 import type { MessageRepository } from '../messaging';
 import type { Notifier } from '../notifications';
 import type { AgentRepository } from '../agent';
+import type { ConversationStore, EstimateStore } from '../listings';
 import {
   DEMO_PHONE_RE,
   type DemoMediaStore,
   type DemoRepository,
 } from './types';
 import { DEMO_PAGE_HTML } from './page';
+import { isJourneyStep, runJourneyStep, type JourneyDeps } from './journey';
 
 export interface DemoRouteDeps {
   /** Dispatcher wired with the demo notifier (persist-only transport). */
@@ -22,6 +24,16 @@ export interface DemoRouteDeps {
   notifier: Notifier;
   /** When set, API endpoints require a matching `x-internal-token` header. */
   internalToken?: string;
+  /**
+   * A demo-scoped credential accepted alongside the internal token, so a
+   * public front end (the investor site's proxy) can drive the simulator
+   * without ever holding the key to the rest of the internal API.
+   */
+  demoToken?: string;
+  /** The conversation stores, read back for the control-room state. */
+  stores?: { intake: ConversationStore; estimate: EstimateStore };
+  /** The "market responds" director (POST /api/demo/journey). */
+  journey?: Omit<JourneyDeps, 'dispatcher' | 'notifier'>;
   log?: (message: string, error?: unknown) => void;
 }
 
@@ -39,9 +51,18 @@ export function registerDemoRoutes(
   app: FastifyInstance,
   deps: DemoRouteDeps,
 ): void {
+  const accepted = [deps.internalToken, deps.demoToken].filter(
+    (t): t is string => !!t,
+  );
+  const gated = accepted.length > 0;
+
+  function authorised(token: unknown): boolean {
+    if (!gated) return true;
+    return typeof token === 'string' && accepted.includes(token);
+  }
+
   async function guard(request: FastifyRequest, reply: FastifyReply) {
-    if (!deps.internalToken) return;
-    if (request.headers['x-internal-token'] !== deps.internalToken) {
+    if (!authorised(request.headers['x-internal-token'])) {
       return reply.code(401).send({ error: 'unauthorized' });
     }
   }
@@ -72,6 +93,25 @@ export function registerDemoRoutes(
       return threadState(phone);
     },
   );
+
+  /**
+   * The control-room view beside the phone: where the seller's conversation
+   * stands (estimate, draft), their newest listing and its deal timeline —
+   * all read from the same rows the production dashboard reads.
+   */
+  app.get('/api/demo/state', { preHandler: guard }, async (request, reply) => {
+    const { phone } = request.query as { phone?: string };
+    if (!phone || !DEMO_PHONE_RE.test(phone)) {
+      return reply.code(400).send({ error: 'invalid_demo_phone' });
+    }
+    const [estimate, intake, listing, deal] = await Promise.all([
+      deps.stores?.estimate.get(phone) ?? null,
+      deps.stores?.intake.get(phone) ?? null,
+      deps.demo.latestListing(phone),
+      deps.demo.latestDeal(phone),
+    ]);
+    return { phone, estimate, intake, listing, deal };
+  });
 
   app.post(
     '/api/demo/messages',
@@ -109,6 +149,47 @@ export function registerDemoRoutes(
       await deps.dispatcher.handle(message);
 
       return threadState(phone);
+    },
+  );
+
+  /**
+   * The market responds: a simulated buyer (on a paired demo number) runs
+   * through the real enquiry and pre-qualification flows, and the real deal
+   * state machine carries the sale to registration — every message the
+   * seller receives comes from the production code paths.
+   */
+  app.post(
+    '/api/demo/journey',
+    { preHandler: guard },
+    async (request, reply) => {
+      if (!deps.journey) return reply.code(404).send({ error: 'not_found' });
+      const body = (request.body ?? {}) as { phone?: string; step?: string };
+      const phone = body.phone ?? '';
+      if (!DEMO_PHONE_RE.test(phone)) {
+        return reply.code(400).send({ error: 'invalid_demo_phone' });
+      }
+      if (!isJourneyStep(body.step)) {
+        return reply.code(400).send({ error: 'invalid_step' });
+      }
+      const result = await runJourneyStep(
+        {
+          ...deps.journey,
+          dispatcher: deps.dispatcher,
+          notifier: deps.notifier,
+        },
+        phone,
+        body.step,
+      );
+      if (!result.ok) {
+        const status =
+          result.error === 'invalid_transition'
+            ? 409
+            : result.error === 'not_found'
+              ? 404
+              : 400;
+        return reply.code(status).send({ error: result.error });
+      }
+      return { ...result, ...(await threadState(phone)) };
     },
   );
 
@@ -160,11 +241,9 @@ export function registerDemoRoutes(
   // the query string instead. Bytes are gone after a restart (404), which the
   // UI renders as a placeholder.
   app.get('/api/demo/media/:id', async (request, reply) => {
-    if (deps.internalToken) {
-      const { token } = request.query as { token?: string };
-      if (token !== deps.internalToken) {
-        return reply.code(401).send({ error: 'unauthorized' });
-      }
+    const { token } = request.query as { token?: string };
+    if (!authorised(token)) {
+      return reply.code(401).send({ error: 'unauthorized' });
     }
     const { id } = request.params as { id: string };
     const item = deps.media.get(id);

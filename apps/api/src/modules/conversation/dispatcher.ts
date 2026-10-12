@@ -6,11 +6,14 @@ import {
   type OptOutStore,
 } from '../notifications';
 import {
+  beginIntakeWith,
   handleDescriptionMessage,
+  handleEstimateMessage,
   handleInboundPhoto,
   handleListingIntakeMessage,
   beginsIntake,
   BEGIN_RE,
+  type EstimateFlowDeps,
   COST_RE,
   COST_REPLY,
   HOW_RE,
@@ -29,6 +32,7 @@ import {
 } from '../enquiry';
 import type { PrequalStore } from './prequal-store';
 import type { AgentHandler } from '../agent';
+import type { DealEventInput, SellerDeal } from '../deals';
 
 /**
  * A buyer arrives via a deep link that pre-fills a message like
@@ -65,6 +69,41 @@ const UPSELL_REPLIES: Record<string, string> = {
 };
 const UPSELL_RE = /^\s*(certs|cover|move|consult|nothing)\b/i;
 
+/** A seller's tap on a viewing slot offered by the platform. */
+const VIEWING_RE = /^\s*viewing:(.+)$/i;
+/** A seller's response to an Offer to Purchase. */
+const ACCEPT_RE = /^\s*accept\b/i;
+const COUNTER_RE = /^\s*counter\b/i;
+
+/** What the seller hears when a buyer arrives on their home. */
+export function sellerEnquiryNotice(property: string): string {
+  return (
+    `🔔 New buyer enquiry on "${property}" — a buyer has just messaged us ` +
+    `about your home. We've invited them to pre-qualify for a bond so you ` +
+    `only deal with real buyers; you'll hear from us the moment they're verified.`
+  );
+}
+
+/** What the seller hears when that buyer consents to pre-qualification. */
+export function sellerPrequalNotice(property: string): string {
+  return (
+    `✅ The buyer on "${property}" is pre-qualifying for a bond with ` +
+    `BetterBond, our multi-bank originator. Pre-qualified buyers are serious ` +
+    `buyers — we'll arrange a viewing next and keep you posted here.`
+  );
+}
+
+const ACCEPT_REPLY =
+  '🎉 Offer accepted. Our registered property practitioner is preparing the ' +
+  'Offer to Purchase for e-signature by both parties — you’ll receive it ' +
+  'here. Once signed, the buyer’s bond application goes to BetterBond and ' +
+  'we track every step of the transfer in this chat.';
+
+const COUNTER_REPLY =
+  '👍 Noted — our registered property practitioner will WhatsApp you shortly ' +
+  'to agree your counter amount and present it to the buyer. Nothing is ' +
+  'binding until both parties sign.';
+
 export interface DispatcherDeps {
   intake: ListingIntakeDeps;
   enquiry: EnquiryDeps;
@@ -84,6 +123,19 @@ export interface DispatcherDeps {
   photoIntake?: PhotoIntakeDeps;
   /** Optional post-publish description step (scripted, verbatim, SKIP-able). */
   description?: DescriptionDeps;
+  /**
+   * Optional Quick Estimate flow (PRICE): three taps to a price band and the
+   * Property Report, then straight into intake with the facts carried over.
+   */
+  estimate?: EstimateFlowDeps;
+  /**
+   * Optional seller-side deal replies: a viewing slot, ACCEPT or COUNTER on
+   * an offer. Each is recorded on the deal's append-only timeline.
+   */
+  sellerDeals?: {
+    findLatestForSeller(phone: string): Promise<SellerDeal | null>;
+    recordEvent(input: DealEventInput): Promise<unknown>;
+  };
   /**
    * Optional AI concierge. When present, messages no scripted flow claims
    * (the intake help fallback) go to the agent instead of the canned help
@@ -113,6 +165,21 @@ export interface Dispatcher {
  */
 export function createDispatcher(deps: DispatcherDeps): Dispatcher {
   const log = deps.log ?? (() => {});
+
+  /** Tell a listing's seller about buyer activity on their deal. */
+  async function notifySeller(
+    dealId: string,
+    buyerPhone: string,
+    render: (property: string) => string,
+  ): Promise<void> {
+    try {
+      const ctx = await deps.enquiry.deals.getNotificationContext(dealId);
+      if (!ctx?.sellerPhone || ctx.sellerPhone === buyerPhone) return;
+      await deps.notifier.send(ctx.sellerPhone, render(ctx.property));
+    } catch (error) {
+      log('seller notification failed', error); // never block the buyer
+    }
+  }
 
   async function route(message: InboundMessage): Promise<void> {
     const phone = message.from;
@@ -186,11 +253,80 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
     //    people here with LIST or PRICE pre-filled, so this has to answer a
     //    cold message with no context, like the welcome does. Kept above the
     //    intake so it never falls through to "I didn't catch that".
-    if (PRICE_GUIDANCE_RE.test(text)) {
+    if (PRICE_GUIDANCE_RE.test(text) && !deps.estimate) {
       await deps.notifier.send(phone, PRICE_GUIDANCE_REPLY, {
         interactive: priceGuidanceOptions(),
       });
       return;
+    }
+
+    // 0. The Quick Estimate (PRICE, and the taps that follow it). On "List
+    //    my property" the flow hands its facts to intake below.
+    let estimateHandOver: Awaited<
+      ReturnType<typeof handleEstimateMessage>
+    >['startIntakeWith'];
+    if (deps.estimate) {
+      const est = await handleEstimateMessage(deps.estimate, { phone, text });
+      if (est.handled) {
+        if (est.needsConcierge && deps.agent?.mode === 'live') {
+          try {
+            const outcome = await deps.agent.handle({ phone, text });
+            if (outcome.sent) {
+              await deps.notifier.send(phone, est.reply ?? '', {
+                interactive: est.options,
+              });
+              return;
+            }
+          } catch (error) {
+            log('concierge aside failed', error);
+          }
+        }
+        await deps.notifier.send(phone, est.reply ?? '', {
+          interactive: est.options,
+        });
+        return;
+      }
+      estimateHandOver = est.startIntakeWith;
+    }
+
+    // 0. A seller replying to their deal: a viewing slot, or an offer.
+    if (deps.sellerDeals) {
+      const viewing = text.match(VIEWING_RE);
+      const wantsAccept = ACCEPT_RE.test(text);
+      const wantsCounter = COUNTER_RE.test(text);
+      if (viewing || wantsAccept || wantsCounter) {
+        const deal = await deps.sellerDeals.findLatestForSeller(phone);
+        if (viewing && deal) {
+          const slot = viewing[1].trim();
+          await deps.sellerDeals.recordEvent({
+            dealId: deal.id,
+            actorType: 'seller',
+            note: `Viewing confirmed by the seller: ${slot}`,
+          });
+          await deps.notifier.send(
+            phone,
+            `📅 Viewing confirmed for ${slot}. We’ve told the buyer and sent ` +
+              `them directions. Tip: have your compliance certificates and ` +
+              `levy or rates statements to hand — serious buyers ask.`,
+          );
+          return;
+        }
+        if (deal && deal.status === 'offer_otp') {
+          await deps.sellerDeals.recordEvent({
+            dealId: deal.id,
+            actorType: 'seller',
+            note: wantsAccept
+              ? 'Seller accepted the offer via WhatsApp'
+              : 'Seller asked to counter the offer via WhatsApp',
+          });
+          await deps.notifier.send(
+            phone,
+            wantsAccept ? ACCEPT_REPLY : COUNTER_REPLY,
+          );
+          return;
+        }
+        // No matching deal: fall through so the concierge can answer.
+      }
     }
 
     // 0. Upsell keyword from a stage message (CERTS / COVER / MOVE):
@@ -213,6 +349,9 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
       });
       await deps.prequalStore.clear(phone);
       await deps.notifier.send(phone, result.reply);
+      if (result.accepted && pending.dealId) {
+        await notifySeller(pending.dealId, phone, sellerPrequalNotice);
+      }
       return;
     }
 
@@ -234,7 +373,10 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
       await deps.prequalStore.set(phone, {
         buyerId: result.buyerId,
         listingId,
+        dealId: result.dealId,
       });
+      // The promise in the welcome copy: enquiries go straight to the seller.
+      await notifySeller(result.dealId, phone, sellerEnquiryNotice);
       // The deterministic work (buyer + deal + pending consent) is done
       // above and never moves to the agent. When live, the agent may word
       // the pre-qual invite itself — aware of the listing and anything the
@@ -285,6 +427,19 @@ export function createDispatcher(deps: DispatcherDeps): Dispatcher {
     //      · typed "sell my 4 bed in Mowbray" → natural language, the agent's
     //        strength, so it takes the opener
     //      · already under way → whoever owns it keeps it
+    if (estimateHandOver) {
+      const started = await beginIntakeWith(
+        deps.intake,
+        phone,
+        estimateHandOver.facts,
+        estimateHandOver.estimate,
+      );
+      await deps.notifier.send(phone, started.reply, {
+        interactive: started.options,
+      });
+      return;
+    }
+
     const active = await deps.intake.store.get(phone);
     const agentOwnsIntake = active
       ? active.owner === 'agent'
