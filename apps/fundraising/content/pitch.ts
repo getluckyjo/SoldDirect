@@ -33,6 +33,7 @@ export const HERO = {
   sub: 'Sold Direct runs the whole private sale — listing, buyer, bond, offer, transfer — over WhatsApp, with registered property practitioners guiding every step. The seller pays nothing on the qualifying path. The bank pays us.',
   ctaPrimary: 'Request the data room',
   ctaSecondary: 'See it work',
+  ctaTry: 'Try it yourself',
 } as const;
 
 // The one-sentence resolution behind every 0%* (tooltip copy).
@@ -338,6 +339,15 @@ export const DEMO_SECTION = {
   heading: 'See it work.',
   intro:
     'One Cape Town home from listing to registered sale — and every point where the financial ecosystem pays instead of the consumer. Press Play, or step through it.',
+  // The standalone build of the real seller-intake flow, served from
+  // content/try.html (regenerate with `pnpm --filter @sell-direct/api build:demo:fundraising`).
+  tryHeading: 'Or try it yourself.',
+  tryBody:
+    'The seller flow below is the production code — the same listing-intake state machine and copy the WhatsApp service runs — bundled to run in your browser with no server behind it. Type “list” and sell a home.',
+  tryCta: 'Try the live flow',
+  tryHref: '/try',
+  tryNote:
+    'Opens in a new tab. Nothing you type is stored or sent anywhere; price guidance in the demo is illustrative.',
 } as const;
 
 export const DETAIL_SECTION = {

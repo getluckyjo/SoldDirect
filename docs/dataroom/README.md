@@ -98,11 +98,9 @@ the model's shape; they sharpen individual lines.
 - Formalise the supplier partnerships in motion: Loom (property valuations) and Capture
   Media (listing video/photography)
 - A signed bank headline-sponsor (the sponsorship line)
-- Refresh `sold-direct-model.xlsx` — the **Capital & Valuation and Cap Table tabs are stale**:
-  they still carry the R10m-at-R30m seed (and the Cap Table tab the even older 3×25% founder
-  split at R40m pre-money, predating the 1% board seat / 4% option pool and the founder names).
-  Re-key the seed inputs to **R5m at R20m pre-money (20%)** and re-run the runway check on the
-  Scenarios tab. P&L, COGS, scenario and market tabs are current.
+- `sold-direct-model.xlsx` was re-keyed on 12/10/2026 to the R5m-at-R20m seed, the current cap
+  table and the bootstrap Y1–Y2 inputs; every tab recalculates from the Assumptions tab. The
+  Home tab still lists a "Funder Growth" tab that does not exist — harmless, tidy when convenient.
 
 *(Market sizing, cap table + use-of-funds and the competitive landscape are in the workbook; the
 operational risk playbook lives in `docs/BOTTLENECKS.md`.)*

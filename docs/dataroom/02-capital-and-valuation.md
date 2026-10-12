@@ -20,16 +20,15 @@ point:
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
-| Cumulative cash low-point, annual proxy (bootstrap stance) | ~R1.8m † | **~R0.4m** | ≤ base |
+| Cumulative cash low-point, annual proxy (bootstrap stance) | ~R1.8m (Y3) | **~R0.4m (Y1)** | ~R0.02m |
 | *(before the stance)* | *~R5.7m* | *~R4.5m* | *~R2.5m* |
-| **Minimum cash with the R5m seed** (annual proxy) | **~+R3.2m** † | **~+R4.6m** | ≥ base |
-| Minimum cash on a monthly view (≈ R2m lower) | **~+R1m** | **~+R2.5m** | ≥ base |
+| **Minimum cash with the R5m seed** (annual proxy) | **~+R3.2m** | **~+R4.6m** | ~+R5.0m |
+| Minimum cash on a monthly view (≈ R2m lower) | **~+R1m** | **~+R2.5m** | ~+R3m |
 
-† Estimate pending the workbook re-run (`01-financial-model.md` §4). The seed clears the trough
-in **all three scenarios**, the conservative case with at least ~R1m to spare on the monthly
-view, so no top-up, bridge or earlier Series A is required for survival. The balance of the
-seed is growth capital: it funds the Cape Town launch campaign and lets Y2 marketing scale ahead
-of revenue.
+Live on the Scenarios tab of the workbook. The seed clears the trough in **all three
+scenarios**, the conservative case with at least ~R1m to spare on the monthly view, so no
+top-up, bridge or earlier Series A is required for survival. The balance of the seed is growth
+capital: it funds the Cape Town launch campaign and lets Y2 marketing scale ahead of revenue.
 
 ### The raise — R5m seed at inception
 

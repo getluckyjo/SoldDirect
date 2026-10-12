@@ -131,17 +131,16 @@ hiring are the release valve if volume outruns the team.
 | Y5 EBITDA | 4.9 | **27.9** | 105.4 |
 | Y5 EBITDA margin | 5% | **17%** | 37% |
 | First EBITDA-positive year | Y4 | **Y2** | Y2 |
-| Cumulative cash low-point, annual proxy (bootstrap stance) | ~−R1.8m † | **~−R0.4m** | ≤ base |
+| Cumulative cash low-point, annual proxy (bootstrap stance) | ~−R1.8m (Y3) | **~−R0.4m (Y1)** | ~−R0.02m |
 | *(before the stance)* | *~−R5.7m* | *~−R4.5m* | *~−R2.5m* |
-| **Minimum cash with the R5m seed (annual proxy)** | **~+R3.2m** † | **~+R4.6m** | ≥ base |
+| **Minimum cash with the R5m seed (annual proxy)** | **~+R3.2m** | **~+R4.6m** | ~+R5.0m |
 | Implied share of upper-market (Y5) | 5.4% | **8.3%** | 13.7% |
 
-† Estimate: the conservative case carries the same ~R5.25m of Y1–Y2 cost savings (a cost-base
-choice, not a revenue assumption) but less Y1–Y2 revenue; its trough is taken as the base trough
-less the ~R1.2–1.5m scenario gap the workbook showed before the stance. **Re-run on the
-Scenarios tab when the workbook is refreshed.** On a monthly view every scenario's trough sits
-~R2m lower than its annual proxy (§3) — still inside the seed with ≥ R1m to spare in the
-conservative case.
+All three columns are live on the Scenarios tab of `sold-direct-model.xlsx` (re-keyed to the
+bootstrap stance and the R5m round in Oct 2026). The conservative case carries the same cost
+base but less Y1–Y2 revenue, so its trough is deeper and later (Y3). On a monthly view every
+scenario's trough sits ~R2m lower than its annual proxy (§3) — still inside the seed with ≥ R1m
+to spare in the conservative case.
 
 **CA-review adjustments baked in:** 27% SA corporate tax on positive EBITDA; headcount doubled to
 a delivery-realistic **96 by Y5** (50% AI) from Y3; a **cash-runway check** (R5m seed at Y1,

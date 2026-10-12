@@ -127,6 +127,14 @@ export default function Investors() {
             >
               {HERO.ctaSecondary} ↓
             </a>
+            <a
+              href={DEMO_SECTION.tryHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-lg border border-brand-500/60 bg-brand-500/10 px-5 py-2.5 text-sm font-semibold text-brand-200 transition hover:bg-brand-500/20 hover:text-white"
+            >
+              {HERO.ctaTry} ↗
+            </a>
           </div>
         </div>
       </section>
@@ -166,6 +174,30 @@ export default function Investors() {
       >
         <div className="mt-8 rounded-3xl bg-white p-4 shadow-2xl sm:p-8">
           <WhatsAppDemo />
+        </div>
+
+        {/* Hands-on: the real seller flow, running in the browser */}
+        <div className="mt-8 grid gap-6 rounded-2xl border border-brand-500/40 bg-navy/80 p-6 backdrop-blur md:grid-cols-[1fr_auto] md:items-center sm:p-8">
+          <div>
+            <h3 className="text-xl font-bold text-white sm:text-2xl">
+              {DEMO_SECTION.tryHeading}
+            </h3>
+            <p className="mt-2 max-w-2xl text-base text-slate-300">
+              {DEMO_SECTION.tryBody}
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              {DEMO_SECTION.tryNote}
+            </p>
+          </div>
+          <a
+            href={DEMO_SECTION.tryHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-brand-500 px-6 py-3 font-semibold text-navy transition hover:bg-brand-400"
+          >
+            {DEMO_SECTION.tryCta}
+            <span aria-hidden>↗</span>
+          </a>
         </div>
       </Section>
 

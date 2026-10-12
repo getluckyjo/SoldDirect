@@ -20,6 +20,7 @@
     "start": "tsx src/server.ts",
     "build:demo": "node scripts/build-standalone-demo.mjs",
     "build:demo:marketing": "node scripts/build-standalone-demo.mjs ../marketing/public/demo.html",
+    "build:demo:fundraising": "node scripts/build-standalone-demo.mjs ../fundraising/content/try.html",
     "sim": "node scripts/simulate-sellers.mjs"
   },
   "dependencies": {
