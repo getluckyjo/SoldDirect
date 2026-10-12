@@ -25,10 +25,12 @@ import {
   FAQ,
   FIN_DETAIL,
   HERO,
+  HOOKS_SECTION,
   MARKET_DETAIL,
   MODEL_DETAIL,
   NAV,
   NEXT_STEPS,
+  PARTNER_LOGOS,
   PRODUCT_DETAIL,
   QUALIFYING_PATH_NOTE,
   RETURN_SECTION,
@@ -145,7 +147,7 @@ export default function Investors() {
       <Section
         id="concept"
         tone="tinted"
-        eyebrow="Proposition"
+        eyebrow="Concept"
         heading={CONCEPT_SECTION.heading}
       >
         <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -179,6 +181,36 @@ export default function Investors() {
                   </li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* The hooks */}
+      <Section
+        id="hooks"
+        eyebrow="The hooks"
+        heading={HOOKS_SECTION.heading}
+        intro={HOOKS_SECTION.intro}
+      >
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {HOOKS_SECTION.hooks.map((hook, i) => (
+            <div
+              key={hook.title}
+              className="flex gap-5 rounded-2xl border border-slate-800 bg-navy p-6"
+            >
+              <IconTile name={hook.icon} size="lg" />
+              <div className="min-w-0">
+                <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                  Hook {i + 1}
+                </p>
+                <h3 className="mt-1 text-lg font-semibold leading-snug text-white">
+                  {hook.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  {withZeroNote(hook.body)}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -223,6 +255,31 @@ export default function Investors() {
           </a>
         </div>
       </Section>
+
+      {/* Partner logos */}
+      <section
+        aria-label={PARTNER_LOGOS.heading}
+        className="border-b border-slate-800"
+      >
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <p className="text-center text-xs font-medium uppercase tracking-wide text-slate-500">
+            {PARTNER_LOGOS.heading}
+          </p>
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+            {PARTNER_LOGOS.logos.map((logo) => (
+              <li key={logo.name} className="flex items-center">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.width}
+                  height={logo.height}
+                  className="h-7 w-auto opacity-80 sm:h-8"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* The round */}
       <Section
@@ -273,7 +330,7 @@ export default function Investors() {
       <Section
         id="returns"
         tone="tinted"
-        eyebrow="Return"
+        eyebrow="IRR"
         heading={RETURN_SECTION.heading}
         intro={RETURN_SECTION.intro}
       >
@@ -385,7 +442,7 @@ export default function Investors() {
       {/* The business plan, collapsed */}
       <Section
         id="detail"
-        eyebrow="The Business Plan"
+        eyebrow="The Numbers"
         heading={DETAIL_SECTION.heading}
         intro={DETAIL_SECTION.intro}
         backdrop={{

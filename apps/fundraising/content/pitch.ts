@@ -53,17 +53,13 @@ export const SUMMARY_STRIP = [
   {
     label: 'Revenue source',
     value: 'Bond origination',
-    sub: 'Paid by the lender, not the seller',
+    sub: 'Paid by the lender',
   },
+  { label: 'Status', value: 'Product built', sub: 'WhatsApp sender pending' },
   {
-    label: 'Status',
-    value: 'Product built',
-    sub: 'End-to-end flow demonstrable; WhatsApp sender pending approval',
-  },
-  {
-    label: 'Y5 revenue (base case)',
+    label: 'Y5 revenue (base)',
     value: 'R162m',
-    sub: 'EBITDA-positive from Year 2',
+    sub: 'EBITDA-positive from Y2',
   },
 ] satisfies Stat[];
 
@@ -387,8 +383,67 @@ export const NEXT_STEPS = [
   'Confirm allocation and subscription terms',
 ] as const;
 
+// Four hooks: what brings a seller in and keeps the sale on the platform.
+// "Estimate", never "valuation" (Property Valuers Profession Act).
+export const HOOKS_SECTION = {
+  heading: 'The hooks.',
+  intro:
+    'Four features that bring sellers in and keep the whole sale on the platform.',
+  hooks: [
+    {
+      icon: 'bolt',
+      title: 'Complimentary instant property estimate',
+      body: 'Every conversation starts with a free Quick Estimate on WhatsApp: a price range in minutes, no commitment. It is the entry point for every seller and the first step of every listing.',
+    },
+    {
+      icon: 'chat',
+      title: 'Always-on WhatsApp estate agent advisory',
+      body: 'Pricing, viewings, offers, bond and transfer, answered in the same WhatsApp thread by the platform and a registered property practitioner, day or night. The seller never waits for office hours.',
+    },
+    {
+      icon: 'key',
+      title: 'Cornering supply with 90-day mandates',
+      body: 'The 0%* path requires an exclusive 90-day mandate. Each listing is ours to sell for the term, so stock builds as the pipeline fills and every buyer enquiry stays on the platform.',
+    },
+    {
+      icon: 'handshake',
+      title: 'Relationships that carry into post-sale services',
+      body: 'A sale runs for months inside one conversation. That relationship extends into the next bond, insurance, conveyancing and the next move, at no acquisition cost.',
+    },
+  ],
+} as const;
+
+// Partner logos shown under the demonstration. White-on-transparent PNGs in
+// public/partners/, generated from the originals in the repo root.
+// source: TRACTION_DETAIL.partners and docs/LAUNCH-PLAN.md (Property24)
+export const PARTNER_LOGOS = {
+  heading: 'Launch partners and partnerships in progress',
+  logos: [
+    {
+      name: 'BetterBond',
+      src: '/partners/betterbond.png',
+      width: 911,
+      height: 160,
+    },
+    { name: 'LOOM', src: '/partners/loom.png', width: 489, height: 160 },
+    { name: 'Paysoft', src: '/partners/paysoft.png', width: 564, height: 160 },
+    {
+      name: 'Property24',
+      src: '/partners/property24.png',
+      width: 911,
+      height: 160,
+    },
+    {
+      name: 'Lava Lamp Lab',
+      src: '/partners/lava-lamp-lab.png',
+      width: 389,
+      height: 160,
+    },
+  ],
+} as const;
+
 export const DEMO_SECTION = {
-  heading: 'The product, step by step.',
+  heading: 'The WhatsApp Estate Agent, step by step.',
   intro:
     'One Cape Town home from the first message to registered transfer: Quick Estimate, Property Report, listing, buyer pre-qualification, offer and transfer, with each point at which revenue arises marked. Press Play, or step through it.',
   // The standalone build of the real seller-intake flow, served from
@@ -465,9 +520,10 @@ export const DISCLAIMER =
   'This page is informational only. It is not an offer of securities to the public, nor a solicitation to invest, and any investment opportunity is available by private placement to selected investors only (Companies Act, 2008). Nothing here constitutes financial, legal or tax advice (FAIS). All projections are illustrative, model-grade and unaudited; actual results may differ materially. Detailed financials, the cap table and partner terms are shared under NDA. Personal information submitted via this page is processed in accordance with POPIA.';
 
 export const NAV = [
-  { href: '#concept', label: 'Proposition' },
+  { href: '#concept', label: 'Concept' },
+  { href: '#hooks', label: 'Hooks' },
   { href: '#demo', label: 'Demonstration' },
   { href: '#ask', label: 'The round' },
-  { href: '#returns', label: 'Returns' },
-  { href: '#detail', label: 'Business plan' },
+  { href: '#returns', label: 'IRR' },
+  { href: '#detail', label: 'The numbers' },
 ] as const;
