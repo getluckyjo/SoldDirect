@@ -53,17 +53,13 @@ export const SUMMARY_STRIP = [
   {
     label: 'Revenue source',
     value: 'Bond origination',
-    sub: 'Paid by the lender, not the seller',
+    sub: 'Paid by the lender',
   },
+  { label: 'Status', value: 'Product built', sub: 'WhatsApp sender pending' },
   {
-    label: 'Status',
-    value: 'Product built',
-    sub: 'End-to-end flow demonstrable; WhatsApp sender pending approval',
-  },
-  {
-    label: 'Y5 revenue (base case)',
+    label: 'Y5 revenue (base)',
     value: 'R162m',
-    sub: 'EBITDA-positive from Year 2',
+    sub: 'EBITDA-positive from Y2',
   },
 ] satisfies Stat[];
 
@@ -386,6 +382,35 @@ export const NEXT_STEPS = [
   'Meet the founders and see the product',
   'Confirm allocation and subscription terms',
 ] as const;
+
+// Partner logos shown under the demonstration. White-on-transparent PNGs in
+// public/partners/, generated from the originals in the repo root.
+// source: TRACTION_DETAIL.partners and docs/LAUNCH-PLAN.md (Property24)
+export const PARTNER_LOGOS = {
+  heading: 'Launch partners and partnerships in progress',
+  logos: [
+    {
+      name: 'BetterBond',
+      src: '/partners/betterbond.png',
+      width: 911,
+      height: 160,
+    },
+    { name: 'LOOM', src: '/partners/loom.png', width: 489, height: 160 },
+    { name: 'Paysoft', src: '/partners/paysoft.png', width: 564, height: 160 },
+    {
+      name: 'Property24',
+      src: '/partners/property24.png',
+      width: 911,
+      height: 160,
+    },
+    {
+      name: 'Lava Lamp Lab',
+      src: '/partners/lava-lamp-lab.png',
+      width: 389,
+      height: 160,
+    },
+  ],
+} as const;
 
 export const DEMO_SECTION = {
   heading: 'The WhatsApp Estate Agent, step by step.',

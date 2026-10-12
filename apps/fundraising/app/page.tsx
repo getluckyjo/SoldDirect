@@ -29,6 +29,7 @@ import {
   MODEL_DETAIL,
   NAV,
   NEXT_STEPS,
+  PARTNER_LOGOS,
   PRODUCT_DETAIL,
   QUALIFYING_PATH_NOTE,
   RETURN_SECTION,
@@ -223,6 +224,31 @@ export default function Investors() {
           </a>
         </div>
       </Section>
+
+      {/* Partner logos */}
+      <section
+        aria-label={PARTNER_LOGOS.heading}
+        className="border-b border-slate-800"
+      >
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <p className="text-center text-xs font-medium uppercase tracking-wide text-slate-500">
+            {PARTNER_LOGOS.heading}
+          </p>
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+            {PARTNER_LOGOS.logos.map((logo) => (
+              <li key={logo.name} className="flex items-center">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.width}
+                  height={logo.height}
+                  className="h-7 w-auto opacity-80 sm:h-8"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* The round */}
       <Section
