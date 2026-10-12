@@ -377,6 +377,7 @@ describe('dispatcher × AI concierge', () => {
           putObject: vi.fn(async ({ path }: { path: string }) => ({ path })),
           getObjectUrl: vi.fn(async () => 'https://cdn.example/p.jpg'),
           getUploadUrl: vi.fn(),
+          getObject: vi.fn(async () => null),
         },
         bucket: 'listing-photos',
         minPhotos: 1,

@@ -55,6 +55,18 @@ export function createSupabaseStorageProvider(
       return { path };
     },
 
+    async getObject({ bucket, path }) {
+      const res = await fetch(
+        `${config.url}/storage/v1/object/${bucket}/${path}`,
+        { headers: auth },
+      );
+      if (res.status === 404) return null;
+      if (!res.ok) {
+        throw new Error(`Supabase storage download failed: ${res.status}`);
+      }
+      return Buffer.from(await res.arrayBuffer());
+    },
+
     async getObjectUrl({ bucket, path, expiresInSeconds }) {
       if (!expiresInSeconds) {
         // Public bucket: the URL is deterministic — no network call.

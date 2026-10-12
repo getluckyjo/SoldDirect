@@ -286,6 +286,21 @@ export function buildServer(deps?: Partial<ServerDeps>) {
     setDescription: (id, text) => listingRepository.setDescription(id, text),
     drafter,
     listingFacts: (id) => listingRepository.getFacts(id),
+    // The photos the writer looks at — read back from wherever they were
+    // stored (Supabase in production, the filesystem locally and in the demo).
+    listingPhotos: async (id) => {
+      const rows = await listingRepository.listPhotos(id);
+      const photos = [];
+      for (const row of rows) {
+        const bytes = await storage.getObject({
+          bucket: storageBucket(),
+          path: row.storagePath,
+        });
+        if (bytes) photos.push({ bytes, mimeType: row.mimeType });
+      }
+      return photos;
+    },
+    findListingForSeller: (phone) => listingRepository.findPhotoTarget(phone),
   };
   const makePhotoIntake = (
     fetchMedia: PhotoIntakeDeps['fetchMedia'],
@@ -296,6 +311,7 @@ export function buildServer(deps?: Partial<ServerDeps>) {
     bucket: storageBucket(),
     minPhotos: Number(process.env.LISTING_MIN_PHOTOS ?? 1) || 1,
     intakeStore: conversationStore,
+    onboarding: onboardingStore,
     syndication,
     log: (msg, err) => app.log.warn({ err }, msg),
   });

@@ -319,7 +319,7 @@ describe('listing intake orchestrator', () => {
     expect(res.reply).toMatch(/region|suburb/i); // flow continues scripted
   });
 
-  it('keeps the description buttons on the publish confirmation', async () => {
+  it('asks for photos first on the publish confirmation, no description buttons', async () => {
     const store = createInMemoryConversationStore();
     const deps = {
       store,
@@ -350,10 +350,10 @@ describe('listing intake orchestrator', () => {
       last = await handleListingIntakeMessage(deps, { phone, text });
     }
     expect(last?.listingId).toBe('listing_x');
-    expect(last?.options).toMatchObject({
-      kind: 'buttons',
-      options: [{ id: 'DRAFT' }, { id: 'TYPE' }, { id: 'SKIP' }],
-    });
+    expect(last?.reply).toMatch(/send 5–10 photos/i);
+    expect(last?.reply).toMatch(/write your description from what they show/i);
+    // The description is written from the photos later — nothing to tap yet.
+    expect(last?.options).toBeUndefined();
   });
 });
 

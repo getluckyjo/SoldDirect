@@ -6,6 +6,7 @@ import { createInMemoryConversationStore } from './store';
 import type { InboundMessage } from '../messaging';
 import type { StorageProvider } from '../storage';
 import type { PhotoTarget } from './repository';
+import type { PhotoReview } from './drafter';
 
 function imageMessage(overrides: Partial<InboundMessage> = {}): InboundMessage {
   return {
@@ -32,6 +33,9 @@ function fakeStorage(): StorageProvider & { objects: string[] } {
     },
     async getUploadUrl() {
       throw new Error('unused');
+    },
+    async getObject() {
+      return null;
     },
   };
 }
@@ -106,6 +110,50 @@ describe('handleInboundPhoto', () => {
     ]);
     expect(storage.objects[0]).toMatch(/^listings\/l1\/\d+-1\.jpg$/);
     expect(publish).toHaveBeenCalledOnce();
+  });
+
+  it('while the description step is open, activation offers the one-tap writer instead of the pitch', async () => {
+    const onboarding = createInMemoryOnboardingStore();
+    await onboarding.set('+27820001111', { listingId: 'l1' });
+    const { deps } = makeDeps(
+      {
+        id: 'l1',
+        title: '4-bed in Mowbray',
+        status: 'awaiting_photos',
+        photoCount: 0,
+      },
+      { onboarding },
+    );
+
+    const result = await handleInboundPhoto(deps, imageMessage());
+
+    expect(result.activated).toBe(true);
+    expect(result.reply).toMatch(/now LIVE/i);
+    expect(result.reply).toMatch(
+      /write your description from what the photos show/i,
+    );
+    expect(result.reply).not.toMatch(/electrical/i);
+    expect(result.options).toMatchObject({
+      kind: 'buttons',
+      options: [{ id: 'DESCRIBE' }],
+    });
+  });
+
+  it('while the description step is open, every photo reply keeps the writer button', async () => {
+    const onboarding = createInMemoryOnboardingStore();
+    await onboarding.set('+27820001111', { listingId: 'l1' });
+    const { deps } = makeDeps(
+      { id: 'l1', title: '4-bed in Mowbray', status: 'active', photoCount: 3 },
+      { onboarding },
+    );
+
+    const result = await handleInboundPhoto(deps, imageMessage());
+
+    expect(result.reply).toMatch(/Photo 4 saved/);
+    expect(result.options).toMatchObject({
+      kind: 'buttons',
+      options: [{ id: 'DESCRIBE' }],
+    });
   });
 
   it('subsequent photos just count up (no re-activation, no re-syndication)', async () => {
@@ -248,13 +296,21 @@ describe('handleDescriptionMessage', () => {
   });
 });
 
-describe('description drafting ("Write it for me")', () => {
+describe('description drafting ("Write my description")', () => {
   function setup(
     draft: string | null = 'A two-bedroom apartment in Sea Point.',
+    options: { photos?: number; review?: PhotoReview | null } = {},
   ) {
+    const photoCount = options.photos ?? 3;
     const onboarding = createInMemoryOnboardingStore();
     const setDescription = vi.fn(async () => {});
-    const drafter = { draft: vi.fn(async () => draft) };
+    const drafter = {
+      draft: vi.fn(async () =>
+        draft === null
+          ? null
+          : { description: draft, photoReview: options.review ?? null },
+      ),
+    };
     const listingFacts = vi.fn(async () => ({
       title: '2-bed apartment in Sea Point',
       propertyType: 'apartment' as const,
@@ -262,14 +318,127 @@ describe('description drafting ("Write it for me")', () => {
       bedrooms: 2,
       bathrooms: 1,
       priceZar: 2_100_000,
+      photoCount,
     }));
+    const listingPhotos = vi.fn(async () =>
+      Array.from({ length: photoCount }, () => ({
+        bytes: Buffer.from('jpeg'),
+        mimeType: 'image/jpeg',
+      })),
+    );
     return {
-      deps: { onboarding, setDescription, drafter, listingFacts },
+      deps: {
+        onboarding,
+        setDescription,
+        drafter,
+        listingFacts,
+        listingPhotos,
+      },
       onboarding,
       setDescription,
       drafter,
+      listingPhotos,
     };
   }
+
+  it('writes from the photos and the facts, and shows the photo check', async () => {
+    const { deps, drafter } = setup('A bright two-bedroom apartment.', {
+      review: {
+        quality: 'mixed',
+        covered: ['living', 'bedroom'],
+        missing: ['kitchen', 'bathroom'],
+        tips: ['The lounge photo is dark — open the curtains.'],
+      },
+    });
+    await deps.onboarding.set('+27820001111', { listingId: 'l1' });
+
+    const result = await handleDescriptionMessage(deps, {
+      phone: '+27820001111',
+      text: 'DESCRIBE',
+    });
+
+    expect(drafter.draft).toHaveBeenCalledOnce();
+    const facts = (
+      drafter.draft.mock.calls as unknown as [{ photos?: unknown[] }][]
+    )[0][0];
+    expect(facts.photos).toHaveLength(3);
+    expect(result.reply).toMatch(/written from your 3 photos/);
+    expect(result.reply).toMatch(/still missing the kitchen and a bathroom/);
+    expect(result.reply).toMatch(/lounge photo is dark/);
+    expect(result.reply).toMatch(/Try again/);
+    expect(result.options).toMatchObject({
+      options: [{ id: 'USE' }, { id: 'DRAFT' }, { id: 'TYPE' }],
+    });
+  });
+
+  it('with fewer than three photos it asks for more before writing', async () => {
+    const { deps, drafter } = setup('x', { photos: 1 });
+    await deps.onboarding.set('+27820001111', { listingId: 'l1' });
+
+    const result = await handleDescriptionMessage(deps, {
+      phone: '+27820001111',
+      text: 'DESCRIBE',
+    });
+
+    expect(drafter.draft).not.toHaveBeenCalled();
+    expect(result.reply).toMatch(/1 photo so far/);
+    expect(result.reply).toMatch(/front of the home/);
+    expect(result.options).toMatchObject({
+      options: [{ id: 'DRAFT_ANYWAY' }, { id: 'TYPE' }, { id: 'SKIP' }],
+    });
+
+    const anyway = await handleDescriptionMessage(deps, {
+      phone: '+27820001111',
+      text: 'DRAFT_ANYWAY',
+    });
+    expect(drafter.draft).toHaveBeenCalledOnce();
+    expect(anyway.reply).toMatch(/written from your 1 photo /);
+  });
+
+  it('a tap after the step was skipped re-opens it on the newest listing', async () => {
+    const { deps, drafter, onboarding } = setup();
+    const findListingForSeller = vi.fn(async () => ({ id: 'l9' }));
+
+    const result = await handleDescriptionMessage(
+      { ...deps, findListingForSeller },
+      { phone: '+27820001111', text: 'DESCRIBE' },
+    );
+
+    expect(findListingForSeller).toHaveBeenCalledWith('+27820001111');
+    expect(drafter.draft).toHaveBeenCalledOnce();
+    expect(result.handled).toBe(true);
+    expect((await onboarding.get('+27820001111'))?.listingId).toBe('l9');
+  });
+
+  it('once photos are in, settling the description brings the certificates pitch', async () => {
+    const { deps } = setup();
+    await deps.onboarding.set('+27820001111', {
+      listingId: 'l1',
+      draft: 'Draft.',
+    });
+
+    const result = await handleDescriptionMessage(deps, {
+      phone: '+27820001111',
+      text: 'USE',
+    });
+
+    expect(result.reply).toMatch(/Description saved/);
+    expect(result.reply).toMatch(/electrical/i);
+    expect(result.options?.kind).toBe('list');
+  });
+
+  it('without photos, settling the description asks for them instead', async () => {
+    const { deps } = setup('x', { photos: 0 });
+    await deps.onboarding.set('+27820001111', { listingId: 'l1' });
+
+    const result = await handleDescriptionMessage(deps, {
+      phone: '+27820001111',
+      text: 'SKIP',
+    });
+
+    expect(result.reply).toMatch(/send 5–10 photos/i);
+    expect(result.options).toBeUndefined();
+  });
 
   it('drafts on DRAFT but saves nothing until the seller approves', async () => {
     const { deps, onboarding, setDescription, drafter } = setup();
@@ -324,7 +493,7 @@ describe('description drafting ("Write it for me")', () => {
     });
 
     expect(result.handled).toBe(true);
-    expect(result.reply).toMatch(/couldn’t draft/i);
+    expect(result.reply).toMatch(/couldn’t write/i);
     expect(setDescription).not.toHaveBeenCalled();
     // Still in the flow: they can retry, type, or skip.
     expect(await onboarding.get('+27820001111')).not.toBeNull();

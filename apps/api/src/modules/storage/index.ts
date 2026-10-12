@@ -41,6 +41,11 @@ export interface StorageProvider {
     contentType: string;
     body: Buffer;
   }): Promise<{ path: string }>;
+  /**
+   * Server-side read of an object's bytes (the description writer looks at
+   * the listing photos). null when the object is missing.
+   */
+  getObject(params: { bucket: string; path: string }): Promise<Buffer | null>;
 }
 
 export * from './supabase';

@@ -519,10 +519,13 @@ function buildIntakeWriteTools(
         await intake.onboarding.set(phone, { listingId: listing.id });
         return (
           `Saved listing ${listing.id} — it is PENDING PHOTOS, not live yet. Tell the seller ` +
-          `it goes live the moment their first photo arrives (5–10 photos is ideal) and invite ` +
-          `them to send photos now. Then draft a short portal-ready description (2–4 factual ` +
-          `sentences from ONLY what the seller told you — never invent features) and ask them ` +
-          `to approve or edit it before you call set_listing_description.`
+          `it goes live the moment their first photo arrives and ask for 5–10 photos NOW: the ` +
+          `front of the home, living area and kitchen, main bedroom and a bathroom, garden or ` +
+          `view (daylight, lights on, phone sideways). Do not draft the description yet — once ` +
+          `the photos are in they tap "✍️ Write my description" and the system writes it from ` +
+          `the photos and reviews the set. Only if they ask you to write it without photos, ` +
+          `draft 2–4 factual sentences from ONLY what they told you and get approval before ` +
+          `set_listing_description.`
         );
       },
     },
