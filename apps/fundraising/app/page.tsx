@@ -18,6 +18,7 @@ import {
   ACCESS_SECTION,
   ASK,
   ASK_SECTION,
+  COMMUNITY_NOTE,
   CONCEPT_SECTION,
   DEMO_SECTION,
   DETAIL_SECTION,
@@ -259,10 +260,10 @@ export default function Investors() {
       {/* Partner logos */}
       <section
         aria-label={PARTNER_LOGOS.heading}
-        className="border-b border-slate-800"
+        className="border-y border-brand-500/30 bg-brand-500/10"
       >
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <p className="text-center text-xs font-medium uppercase tracking-wide text-slate-500">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
             {PARTNER_LOGOS.heading}
           </p>
           <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
@@ -273,11 +274,41 @@ export default function Investors() {
                   alt={logo.name}
                   width={logo.width}
                   height={logo.height}
-                  className="h-7 w-auto opacity-80 sm:h-8"
+                  className="h-7 w-auto sm:h-8"
                 />
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Community aside */}
+      <section aria-label={COMMUNITY_NOTE.heading}>
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <div className="flex flex-col gap-5 rounded-2xl border border-slate-800 bg-navy p-6 sm:flex-row sm:items-start sm:gap-6 sm:p-8">
+            <IconTile name="map" size="lg" />
+            <div className="min-w-0">
+              <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                {COMMUNITY_NOTE.eyebrow}
+              </p>
+              <h3 className="mt-1 text-lg font-semibold text-white">
+                {COMMUNITY_NOTE.heading}
+              </h3>
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-300">
+                {COMMUNITY_NOTE.body}
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {COMMUNITY_NOTE.items.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-300"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

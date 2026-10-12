@@ -418,11 +418,27 @@ export const HOOKS_SECTION = {
   ],
 } as const;
 
+// A low-key aside after the partners: the WhatsApp number stays useful
+// after transfer, which keeps the relationship warm at almost no cost.
+export const COMMUNITY_NOTE = {
+  eyebrow: 'And afterwards',
+  heading: 'The number stays useful after the move.',
+  body: 'Once the transfer is registered the same WhatsApp thread connects the household to its new neighbourhood. It costs little to run and keeps the relationship warm for the next bond, the next sale and the services around them.',
+  items: [
+    'Local security groups',
+    'Moms\u2019 groups',
+    'Pet sitters',
+    'New restaurants',
+    'Schools and sport',
+    'Ultra-local tips',
+  ],
+} as const;
+
 // Partner logos shown under the demonstration. White-on-transparent PNGs in
 // public/partners/, generated from the originals in the repo root.
 // source: TRACTION_DETAIL.partners and docs/LAUNCH-PLAN.md (Property24)
 export const PARTNER_LOGOS = {
-  heading: 'Launch partners and partnerships in progress',
+  heading: 'Our Partners',
   logos: [
     {
       name: 'BetterBond',
