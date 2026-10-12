@@ -65,13 +65,17 @@ export function createLeadEmails(deps: LeadEmailDeps): LeadEmails {
 
   return {
     async onLeadCreated(lead, input) {
-      // Investor data-room requests are answered by hand; waitlist only.
-      if (input.kind !== 'waitlist' || lead.duplicate) return;
+      if (lead.duplicate) return;
+      const investor = input.kind === 'investor';
+      // The data room itself is sent by hand, under NDA: the investor gets an
+      // acknowledgement, the team gets the request with its message.
       const sends = [
         attempt(
           'confirmation',
           lead.id,
-          waitlistConfirmation(lead, input, deps.replyTo),
+          investor
+            ? investorConfirmation(lead, input, deps.replyTo)
+            : waitlistConfirmation(lead, input, deps.replyTo),
         ),
       ];
       if (deps.notifyTo.length > 0) {
@@ -79,16 +83,106 @@ export function createLeadEmails(deps: LeadEmailDeps): LeadEmails {
           attempt(
             'team alert',
             lead.id,
-            waitlistTeamAlert(lead, input, {
-              to: deps.notifyTo,
-              dashboardUrl: deps.dashboardUrl,
-              at: now(),
-            }),
+            investor
+              ? investorTeamAlert(lead, input, {
+                  to: deps.notifyTo,
+                  dashboardUrl: deps.dashboardUrl,
+                  at: now(),
+                })
+              : waitlistTeamAlert(lead, input, {
+                  to: deps.notifyTo,
+                  dashboardUrl: deps.dashboardUrl,
+                  at: now(),
+                }),
           ),
         );
       }
       await Promise.all(sends);
     },
+  };
+}
+
+// ── Investor data-room request: acknowledgement + team alert ───────────────
+
+const INVEST_URL = 'https://invest.solddirect.co.za';
+
+export function investorConfirmation(
+  lead: CreatedLead,
+  input: LeadInput,
+  replyTo?: string,
+): EmailMessage {
+  const name = input.name?.trim();
+  const paragraphs = [
+    `Hi ${name || 'there'},`,
+    'Thank you for your interest in Sold Direct. We have your request for the data room.',
+    'One of the founders will follow up within one business day with the NDA and access to the reviewed model, the cap table and the indicative terms.',
+    `The live demonstration stays open in the meantime: ${INVEST_URL}/try. Questions? Reply to this email.`,
+  ];
+  const signOff = 'Johannes le Roux and Dean Kruger\nSold Direct';
+  const footer =
+    'You are receiving this because you requested data-room access at invest.solddirect.co.za.';
+
+  const text = [
+    ...paragraphs,
+    `${signOff}\n${INVEST_URL}`,
+    `—\n${footer}\nPrivacy notice: ${INVEST_URL}/privacy`,
+  ].join('\n\n');
+
+  const p = (content: string, style = '') =>
+    `<p style="margin:0 0 16px;${style}">${content}</p>`;
+  const html = `<!doctype html>
+<html lang="en-ZA">
+<body style="margin:0;padding:0;background:#f8fafc;">
+<div style="max-width:560px;margin:0 auto;padding:24px 16px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#0f172a;">
+<a href="${INVEST_URL}" style="text-decoration:none;"><img src="${LOGO_URL}" width="220" height="64" alt="SoldDirect." style="display:block;border:0;margin:0 0 24px;" /></a>
+${paragraphs.map((para) => p(escapeHtml(para))).join('\n')}
+${p(`${escapeHtml('Johannes le Roux and Dean Kruger')}<br />Sold Direct<br /><a href="${INVEST_URL}" style="color:#27873A;text-decoration:none;">invest.solddirect.co.za</a>`)}
+${p(`${escapeHtml(footer)} <a href="${INVEST_URL}/privacy" style="color:#64748b;">Privacy notice</a>.`, 'margin-top:32px;padding-top:16px;border-top:1px solid #e2e8f0;font-size:12px;line-height:1.5;color:#64748b;')}
+</div>
+</body>
+</html>`;
+
+  return {
+    to: input.email,
+    subject: 'Sold Direct data room — request received',
+    text,
+    html,
+    replyTo,
+    idempotencyKey: `investor-confirmation/${lead.id}`,
+  };
+}
+
+export function investorTeamAlert(
+  lead: CreatedLead,
+  input: LeadInput,
+  opts: { to: string[]; dashboardUrl?: string; at: Date },
+): EmailMessage {
+  const requestsUrl = opts.dashboardUrl
+    ? `${opts.dashboardUrl.replace(/\/$/, '')}/waitlist`
+    : null;
+  const text = [
+    'New data-room request from the investor site.',
+    [
+      `Name: ${input.name?.trim() || '—'}`,
+      `Email: ${input.email}`,
+      `When: ${sast(opts.at)}`,
+      `Source: ${input.source ?? '—'}`,
+    ].join('\n'),
+    input.message?.trim()
+      ? `Their message:\n${input.message.trim()}`
+      : 'No message given.',
+    requestsUrl
+      ? `All requests: ${requestsUrl}`
+      : "All requests: the dashboard's Waitlist page.",
+    'Next step: reply to this email with the NDA; the data room goes out on signature.',
+  ].join('\n\n');
+
+  return {
+    to: opts.to,
+    subject: `Data-room request: ${input.name?.trim() || input.email}`,
+    text,
+    replyTo: input.email,
+    idempotencyKey: `investor-alert/${lead.id}`,
   };
 }
 
