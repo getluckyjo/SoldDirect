@@ -26,3 +26,117 @@ html {
     margin: 14mm;
   }
 }
+
+/* Rendered data-room documents (markdown from docs/dataroom). */
+.dataroom-prose {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+.dataroom-prose h1 {
+  margin: 0 0 1rem;
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #fff;
+}
+.dataroom-prose h2 {
+  margin: 2.25rem 0 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+}
+.dataroom-prose h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+.dataroom-prose h4 {
+  margin: 1.25rem 0 0.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+.dataroom-prose p {
+  margin: 0.75rem 0;
+}
+.dataroom-prose a {
+  color: #57c468;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.dataroom-prose a:hover {
+  color: #82d492;
+}
+.dataroom-prose strong {
+  color: #fff;
+  font-weight: 600;
+}
+.dataroom-prose ul,
+.dataroom-prose ol {
+  margin: 0.75rem 0;
+  padding-left: 1.4rem;
+}
+.dataroom-prose ul li {
+  list-style: disc;
+}
+.dataroom-prose ol li {
+  list-style: decimal;
+}
+.dataroom-prose li {
+  margin: 0.3rem 0;
+}
+.dataroom-prose blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid #36b44a;
+  color: #94a3b8;
+}
+.dataroom-prose code {
+  padding: 0.1em 0.35em;
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.85em;
+  color: #e2e8f0;
+}
+.dataroom-prose pre {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+}
+.dataroom-prose pre code {
+  padding: 0;
+  background: none;
+}
+.dataroom-prose hr {
+  margin: 2rem 0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.dataroom-prose .table-wrap {
+  margin: 1rem 0;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+}
+.dataroom-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.dataroom-prose th {
+  padding: 0.6rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  text-align: left;
+  font-weight: 600;
+  color: #fff;
+}
+.dataroom-prose td {
+  padding: 0.6rem 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}

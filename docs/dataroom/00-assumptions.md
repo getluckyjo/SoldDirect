@@ -135,8 +135,8 @@ they already sit in the core model.
 ## D. Cost inputs
 
 **CA-review additions:** SA **corporate tax at 27%** applied to positive EBITDA (no loss
-carry-forward modelled — conservative); delivery-realistic **total headcount of 48 by Y5** (50%
-AI); a **cash-runway check** on the Scenarios tab
+carry-forward modelled — conservative); delivery-realistic **total headcount of 48 by Y5** (half the
+roles automated); a **cash-runway check** on the Scenarios tab
 confirms the R5m seed covers the trough in every scenario (annual-proxy minimum cash ~+R3.9m
 base, ~+R3.5m conservative; ~R2m less on a monthly view; see `02-capital-and-valuation.md` §1)
 with Series A at Y3 optional.
@@ -211,8 +211,8 @@ tiers at agreed lead milestones, and optionally a success-based component on the
 | WhatsApp messaging | **Service/utility in 24h window = free; marketing templates = main paid line** (~$0.025–$0.14/msg); modelled inside the COGS build | Meta pricing Jul 2025 | Medium |
 | **Gross margin** | **~88% — DERIVED** from the bottom-up COGS build above (not an input) | Bottom-up | Medium |
 | Fully-loaded cost per **human** FTE (blended) | **~R700k–780k/yr** (eng intermediate ~R48k/mo, senior ~R100k/mo, ops ~R25–35k/mo, +13th cheque/benefits/payroll ≈ ×1.3) | OfferZen 2025 | Medium |
-| **AI-agent run cost** (each, replaces a human worker) | **~R0.15m/yr** (~R12.5k/mo: LLM API + tooling + human oversight) | Assumption | Low |
-| **AI-agent share of headcount** | **50%** (concierge/coordination/ops); ~halves people-cost | Assumption / design choice | Low |
+| **Automated-role run cost** (each, replaces a human worker) | **~R0.15m/yr** (~R12.5k/mo: model API + tooling + human oversight) | Assumption | Low |
+| **Automated share of headcount** | **50%** (concierge/coordination/ops); ~halves people-cost | Assumption / design choice | Low |
 | CAC | **Assumption with wide bands** — no SA property/mortgage CAC found; WhatsApp free-window + portal syndication + referral pulls effective CAC below paid-search proxies (~$84 B2B CPL global) | HubSpot 2025 (proxy) | Low |
 
 ## E. Valuation & funding context

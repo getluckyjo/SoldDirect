@@ -131,6 +131,15 @@ to the same value as `DEMO_ACCESS_TOKEN` on the API. The API accepts that
 token on `/api/demo/*` only, so the public site never holds the internal
 token. Without it the page shows "demo not configured".
 
+**The investor data room.** `/dataroom` on the investor site serves
+`docs/dataroom` (markdown rendered on the page; the Excel model, CSV and
+partner briefs as gated downloads) behind one shared password,
+`DATAROOM_PASSWORD` on the Fundraising Vercel project. The password goes out
+with the NDA; changing it signs every reader out. The build copies the folder
+into `apps/fundraising/content/dataroom` (gitignored), leaving the
+`property24/` sub-folder out. Leave the variable unset and the room stays
+closed.
+
 The marketing site still ships the standalone, serverless build of the
 scripted intake flow at `/demo.html`. Regenerate it whenever the intake flow
 changes:

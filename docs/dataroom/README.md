@@ -3,6 +3,10 @@
 Confidential. For prospective investors under NDA. All figures illustrative and
 model-grade (see sourcing caveats in each document).
 
+Served to investors at `invest.solddirect.co.za/dataroom` behind the shared password
+(`DATAROOM_PASSWORD` on the investor site). The site copies this folder at build time;
+the `property24/` sub-folder (third-party contract documents) stays out.
+
 ## Contents
 
 | Doc | What it covers |
@@ -18,7 +22,7 @@ model-grade (see sourcing caveats in each document).
 | [`partner-brief-paysoft.html`](./partner-brief-paysoft.html) | Print-ready technology-partnership brief for Paysoft |
 | [`partner-brief-property24.html`](./partner-brief-property24.html) | Print-ready syndication brief for Property24 — the incremental-inventory case and the rate structure we're negotiating for (research in `00-assumptions.md` §D) |
 
-## Strategy: the service-gap wedge · land at prime · taper down-market · own the origination · AI-lean · ecosystem revenue
+## Strategy: the service-gap wedge · land at prime · taper down-market · own the origination · technology-lean · ecosystem revenue
 
 **The wedge:** the portals sell private sellers a *listing*, not a *sale*. Property24's own
 flat-fee private-listing tiers (R499–R4,999, Self Service Lite → Featured) prove the demand —
@@ -39,7 +43,7 @@ after-hours enquiries and buyer qualification while people keep the judgement an
 (Property Professional, 12 Oct 2026; quoted in `00-assumptions.md` §C). **Land at prime** (Atlantic Seaboard, City Bowl,
 Southern Suburbs, Constantia) and **taper the average transacting price down (R6.5m → R4.0m) as
 the brand scales**, broadening into the upper-market to grow from a far larger pool and cut
-market-share risk. Run by a small **AI-augmented** team (50% AI agents), **reinvesting the high
+market-share risk. Run by a small **technology-augmented** team (half the roles automated), **reinvesting the high
 gross margin into above-the-line (brand) marketing** to drive the deal ramp. Legally-clean
 monetisation: (1) free 0% via a
 **qualifying ≥80% bond** — **Year 1 via our multi-bank originator (BetterBond)** earning the referral,
@@ -92,7 +96,7 @@ the model's shape; they sharpen individual lines.
 
 ## To build out next
 
-- Team bios + org plan (and the AI-agent operating model in detail)
+- Team bios + org plan (and the automated operating model in detail)
 - Traction pack: waitlist + investor-lead numbers, and the live WhatsApp journey demo
 - Letters of intent from BetterBond (referral terms) and a panel conveyancer
 - Formalise the supplier partnerships in motion: Loom (property valuations) and Capture
