@@ -99,7 +99,7 @@ export interface DemoEstimate {
 
 export interface DemoState {
   phone: string;
-  /** Whether the AI concierge is live and its key accepted. */
+  /** Whether the concierge is live and its key accepted. */
   ai?: { concierge: boolean; key: string };
   estimate: DemoEstimate | null;
   intake: DemoIntake | null;

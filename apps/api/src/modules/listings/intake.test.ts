@@ -317,7 +317,7 @@ describe('intake reply options', () => {
     const state: IntakeState = { step: 'awaiting_exclusivity', data: {} };
     const options = optionsFor('awaiting_exclusivity', state);
     expect(options?.kind).toBe('buttons');
-    expect(ids(options)).toEqual(['60', '90', '120']);
+    expect(ids(options)).toEqual(['90', '120', '60']);
   });
 
   it('offers bedrooms as a list including studio, bathrooms without', () => {
@@ -776,5 +776,31 @@ describe('rand amounts, as sellers actually type them', () => {
   it('rounds to whole rand', () => {
     expect(parseZarAmount('1.2345m')).toBe(1_234_500);
     expect(Number.isInteger(parseZarAmount('1.9999m'))).toBe(true);
+  });
+});
+
+describe('exclusive term → commercial path', () => {
+  it('derives Flex for a 60-day term and the 0% path for 90 days or longer', () => {
+    const base = {
+      step: 'awaiting_exclusivity' as const,
+      data: {
+        propertyType: 'house' as const,
+        suburb: 'Claremont',
+        address: null,
+        priceZar: 3_650_000,
+        bedrooms: 3,
+        bathrooms: 2,
+        tier: 'free' as const,
+      },
+    };
+    const flex = advanceIntake(base, '60');
+    expect(flex.reply).toContain('Flex plan, 1% on sale');
+    const published = advanceIntake(flex.state, 'YES');
+    expect(published.completed?.tier).toBe('flex');
+    expect(published.completed?.exclusivityTermDays).toBe(60);
+
+    const free = advanceIntake(base, '120');
+    expect(free.reply).toContain('0% commission');
+    expect(advanceIntake(free.state, 'YES').completed?.tier).toBe('free');
   });
 });

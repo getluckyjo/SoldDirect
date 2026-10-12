@@ -112,11 +112,11 @@ export const HOW_REPLY =
 export const COST_RE = /^\s*cost\s*$/i;
 export const COST_REPLY =
   'What Sold Direct costs you:\n\n' +
-  '🟢 *0% commission* when you list exclusively with us for the agreed term ' +
+  '🟢 *0% commission* when you list exclusively with us for 90 days or longer ' +
   'and transact through our bond and legal partners. The bank pays us an ' +
   'origination fee on the buyer’s bond, so you pay nothing.\n' +
-  '🔵 *Flex — 1%* of the sale price if you’d rather keep full freedom, agreed ' +
-  'upfront.\n\n' +
+  '🔵 *Flex — 1%* of the sale price for a shorter 60-day term or if you’d ' +
+  'rather keep full freedom, agreed upfront.\n\n' +
   'For context, on a R2.1m home what a full-service sale (5–7% + VAT) would ' +
   'have cost is roughly R120 000–R170 000. A full-service agent is a great ' +
   'choice for many sellers — we’re built for those who want to sell direct ' +

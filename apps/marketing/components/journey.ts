@@ -493,7 +493,7 @@ export const SCENES: Scene[] = [
       },
       {
         label: 'Photos & description',
-        sub: 'First photo activates; optional pro shoot; AI-drafted copy Maria approves',
+        sub: 'First photo activates; optional pro shoot; drafted copy Maria approves',
       },
     ],
     note: {

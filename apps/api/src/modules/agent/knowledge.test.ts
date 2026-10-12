@@ -26,7 +26,7 @@ describe('agent knowledge base', () => {
     for (const fact of [
       '0% commission',
       'FLEX (1% of the sale price',
-      '60, 90 or 120',
+      '90 days or longer',
       'water installation certificate',
       'beetle',
       'voetstoots',

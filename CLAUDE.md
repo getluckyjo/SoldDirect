@@ -25,6 +25,13 @@ employ registered practitioners ourselves. Every piece of copy must follow these
 3. **PPRA-aligned** — we add value via innovative integration; we do not fight the industry.
 4. **Savings framed neutrally** — "what a full-service sale (5–7% + VAT) would have cost", never
    "resented cost", "obsolete", "the cost we remove", strikethrough comparisons, or "no agents".
+5. **The current plan only, never its history** — investor-facing copy (sites, data room, briefs,
+   the model) states the plan as it stands. Never narrate revisions ("halved in October 2026",
+   "cut from R10m", "the earlier plan", "was 96"): the reader is evaluating a business, not a
+   changelog. Founder rule, Oct 2026.
+6. **Never "AI" in investor or consumer copy** — the line is "the latest technology, trained on
+   50 years of South African property transactions". The concierge is "the concierge". Founder
+   rule, Oct 2026 (code and internal docs may still say AI).
 
 ## MVP scope (build in this order)
 

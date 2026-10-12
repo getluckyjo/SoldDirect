@@ -107,15 +107,14 @@ Y2 — ~R6.0m before tax**:
 | **Paysoft free-development allocation + startup credits** carry the Y1 build and most Y2 tooling (cloud, BSP, SaaS) | — | — | ~R0.15m / ~R0.10m |
 | **Total** | | | **~R1.95m / ~R4.05m** |
 
-From Y3 the cost base follows the halved ramp: headcount steps up to 11 (a deliberate
+From Y3 headcount steps up to 11 (a deliberate
 catch-up hire once the business is self-funding), founders move to market pay, and the
-delivery-realistic ramp to 48 by Y5 (half the CA-reviewed 96, in line with half the deals)
-stands. ⚠ Capacity is the thing to watch: 110 registered deals in Y2 on six people is ~18
+delivery-realistic ramp to 48 by Y5 stands. ⚠ Capacity is the thing to watch: 110 registered deals in Y2 on six people is ~18
 deals per head per year, which leans on the platform doing the admin. The milestone tranches
 and mandate-gated hiring are the release valve if volume outruns the team.
 - The **in-house origination cost line** (bond-consultant cost per bonded deal + a bank-aggregation /
   licensing base + a one-off R1.5m Y2 setup) is modelled explicitly and nets against the uplift.
-- The **~14% Y5 margin** reflects the CA review and the halved ramp: conveyancing referral
+- The **~14% Y5 margin** reflects the CA review: conveyancing referral
   removed (LPC), **27% tax**, and delivery-realistic headcount (**48 by Y5**) — deliberately
   conservative and far more defensible in diligence than the earlier ~39%.
 - **COGS is validated bottom-up** on the COGS Build tab (~7 direct per-deal lines + payment
@@ -135,10 +134,7 @@ and mandate-gated hiring are the release valve if volume outruns the team.
 | **Minimum cash with the R5m seed (annual proxy)** | **~+R3.5m** | **~+R3.9m** | ~+R5.0m |
 | Implied share of upper-market (Y5) | 2.7% | **4.1%** | 6.9% |
 
-All three columns are live on the Scenarios tab of `sold-direct-model.xlsx` (re-keyed to the
-bootstrap stance and the R5m round in Oct 2026, and to the **halved deal ramp from Y2**
-decided the same month: every Y2–Y5 volume, the marketing line and the headcount ramp were cut
-in half so the plan is sized to what the founders are prepared to defend). The conservative
+All three columns are live on the Scenarios tab of `sold-direct-model.xlsx`. The conservative
 case carries a proportionate cost base but less revenue, so its trough is deeper and later (Y3).
 On a monthly view every scenario's trough sits ~R2m lower than its annual proxy (§3) — still
 inside the seed with ≥ ~R1.5m to spare in the conservative case.

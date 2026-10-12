@@ -190,9 +190,12 @@ export function Icon({
 export function IconTile({
   name,
   size = 'md',
+  tone = 'brand',
 }: {
   name: IconName;
   size?: 'sm' | 'md' | 'lg';
+  /** brand = green (default); sky = the dusty-blue secondary accent. */
+  tone?: 'brand' | 'sky';
 }) {
   const box =
     size === 'lg' ? 'h-12 w-12' : size === 'sm' ? 'h-8 w-8' : 'h-10 w-10';
@@ -200,7 +203,11 @@ export function IconTile({
     size === 'lg' ? 'h-6 w-6' : size === 'sm' ? 'h-4 w-4' : 'h-5 w-5';
   return (
     <span
-      className={`inline-flex shrink-0 items-center justify-center rounded-xl bg-brand-500/15 text-brand-300 ring-1 ring-inset ring-brand-500/30 ${box}`}
+      className={`inline-flex shrink-0 items-center justify-center rounded-xl ring-1 ring-inset ${
+        tone === 'sky'
+          ? 'bg-sky-500/15 text-sky-200 ring-sky-400/30'
+          : 'bg-brand-500/15 text-brand-300 ring-brand-500/30'
+      } ${box}`}
     >
       <Icon name={name} className={glyph} />
     </span>

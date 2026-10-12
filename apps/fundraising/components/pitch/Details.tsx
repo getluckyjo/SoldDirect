@@ -58,7 +58,7 @@ export function Details({
                     key={point.label}
                     className="rounded-xl border border-slate-800 bg-navy-950/60 px-3 py-2"
                   >
-                    <dt className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
+                    <dt className="text-[11px] font-medium uppercase tracking-wide text-sky-400">
                       {point.label}
                     </dt>
                     <dd className="mt-0.5 text-base font-bold text-white">

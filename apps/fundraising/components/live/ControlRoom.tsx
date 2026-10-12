@@ -455,7 +455,7 @@ export function ControlRoom({
           aiOn ? (
             <span className="flex items-center gap-1.5 text-xs text-slate-400">
               <span className="h-2 w-2 rounded-full bg-brand-400" />
-              Live pipeline · AI concierge on
+              Live pipeline · concierge on
             </span>
           ) : (
             <span
@@ -463,7 +463,7 @@ export function ControlRoom({
               title={aiReason}
             >
               <span className="h-2 w-2 rounded-full bg-amber-400" />
-              Live pipeline · AI concierge off
+              Live pipeline · concierge off
             </span>
           )
         }
@@ -589,15 +589,17 @@ export function ControlRoom({
             <span className="text-brand-400">✓</span>
             <span>
               The conversation runs on the production API: the same flows,
-              database, AI concierge and deal state machine. Only the WhatsApp
+              database, concierge and deal state machine. Only the WhatsApp
               transport is simulated.
             </span>
           </li>
           <li className="flex gap-2">
             <span className="text-brand-400">✓</span>
             <span>
-              The AI concierge answers anything off-script. Try a question about
-              transfer costs, certificates or bonds at any point.
+              The concierge answers anything off-script, built on the latest
+              technology trained on 50 years of South African property
+              transactions. Try a question about transfer costs, certificates or
+              bonds at any point.
             </span>
           </li>
           <li className="flex gap-2">

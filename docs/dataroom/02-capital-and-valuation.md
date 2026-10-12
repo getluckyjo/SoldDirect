@@ -14,7 +14,7 @@ founders at R50k each carrying marketing, management, dealmaking, bookkeeping an
 remote-first; Paysoft free-development allocation — `01-financial-model.md` §3; ~R6.0m of opex
 saved before tax, none of it from revenue, marketing or compliance) the model turns
 **EBITDA-positive in Y3** and the annual cumulative after-tax cash low-point is **≈ −R1.1m
-(Y2)** on the halved ramp (Oct 2026). On a monthly view the trough is deeper — **roughly −R3m**
+(Y2)**. On a monthly view the trough is deeper — **roughly −R3m**
 while the team and launch marketing run ahead of registrations. What the R5m seed leaves at the
 lowest point:
 
@@ -36,9 +36,7 @@ capital: it funds the Cape Town launch campaign and lets Y2 marketing scale ahea
 | **Seed (Strategic Funder)** | Inception | **R5m (~$0.27m)** | **R20m** | **20%** | CT launch + brand campaign, practitioners + concierge team, origination accreditation, integrations (see Use of Funds tab) |
 | **Series A** | *Y3, optional* | R25m | R125m | 16.7% | Fuel on a proven engine; national upper-market rollout |
 
-Post-money **R25m**. The round was **cut from R10m at R30m pre-money (25%) to R5m at R20m
-pre-money (20%) in Oct 2026** — a leaner seed that prices the company lower but gives up less
-of it.
+Post-money **R25m**.
 
 **Runway check (live on the Scenarios tab):** with the R5m seed injected at Y1 and Series A at
 Y3, the minimum cash position across Y1–Y5 is **~+R3.9m in the base case and ~+R3.5m in the
@@ -93,12 +91,8 @@ to an agreed value:
 | Series A Investor (R25m) | — | 16.7% |
 | **Total** | **100%** | **100%** |
 
-The Oct 2026 cut of the seed stake from 25% to 20% accrues to the founders (30% → 32.5% each);
-Paysoft, the option pool and the board seat are unchanged.
-
-The board allocation was **reduced from 5.0% to 1.0% in Aug 2026**. A seed-stage
-non-executive seat prices at 0.25–1.5% on market terms; the balance moved to an **option
-pool** for the early team — including the principal property practitioner who enables the
+A seed-stage non-executive seat prices at 0.25–1.5% on market terms, which is where the 1%
+allocation sits; alongside it an **option pool** is reserved for the early team — including the principal property practitioner who enables the
 firm's Fidelity Fund Certificate (see `05-regulatory-status.md`).
 
 ### Value at the base-case exit (~R432m EV, 5× Y5 revenue)

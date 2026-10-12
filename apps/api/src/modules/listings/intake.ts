@@ -197,8 +197,9 @@ const PROMPTS: Record<Exclude<IntakeStep, 'completed'>, string> = {
   awaiting_bedrooms: 'How many bedrooms?',
   awaiting_bathrooms: 'How many bathrooms?',
   awaiting_exclusivity:
-    'How long should the exclusive listing term run? 90 days is the South ' +
-    'African norm.',
+    'How long should the exclusive listing term run? A 90-day term (the South ' +
+    'African norm) or longer qualifies for 0% commission. 60 days is available ' +
+    'on our Flex plan at 1% of the sale price.',
   awaiting_confirm:
     'Tap Publish now to go live, or Change something to edit. (You can also ' +
     'just type a correction, e.g. "price 4500000".)',
@@ -402,9 +403,27 @@ function capitalise(text: string): string {
 export function withComposedTitle(
   data: Partial<ListingDraft>,
 ): Partial<ListingDraft> {
-  if (data.title !== undefined) return data;
-  const title = composeTitle(data);
-  return title === undefined ? data : { ...data, title };
+  const withTier = withTierForTerm(data);
+  if (withTier.title !== undefined) return withTier;
+  const title = composeTitle(withTier);
+  return title === undefined ? withTier : { ...withTier, title };
+}
+
+/**
+ * The commercial path follows the exclusive term: 90 days or longer is the
+ * 0% path; a shorter term is the Flex plan at 1% of the sale price. Derived
+ * (never asked) wherever the draft is summarised or published.
+ */
+export function tierFor(days: number | undefined): DealTier {
+  return days !== undefined && days < 90 ? 'flex' : 'free';
+}
+
+export function withTierForTerm(
+  data: Partial<ListingDraft>,
+): Partial<ListingDraft> {
+  if (data.exclusivityTermDays === undefined) return data;
+  const tier = tierFor(data.exclusivityTermDays);
+  return data.tier === tier ? data : { ...data, tier };
 }
 
 export function missingFields(data: Partial<ListingDraft>): IntakeField[] {
@@ -499,7 +518,9 @@ export function describeField(
     case 'bathrooms':
       return `${data.bathrooms} bathroom${data.bathrooms === 1 ? '' : 's'}`;
     case 'exclusivityTermDays':
-      return `${data.exclusivityTermDays}-day term`;
+      return `${data.exclusivityTermDays}-day term (${
+        tierFor(data.exclusivityTermDays) === 'free' ? '0%' : 'Flex 1%'
+      })`;
   }
 }
 
@@ -650,11 +671,11 @@ export function optionsFor(
       return {
         kind: 'buttons',
         options: [
-          { id: '60', title: '60 days' },
-          { id: '90', title: '90 days ★' },
-          { id: '120', title: '120 days' },
+          { id: '90', title: '90 days · 0% ★' },
+          { id: '120', title: '120 days · 0%' },
+          { id: '60', title: '60 days · Flex 1%' },
         ],
-        footer: '★ recommended',
+        footer: '★ recommended · 90 days or longer qualifies for 0%',
       };
     case 'awaiting_confirm':
       return {
@@ -708,7 +729,11 @@ export function renderSummary(draft: ListingDraft): string {
     (draft.address ? `📫 ${draft.address} (kept private)\n` : '') +
     `💰 ${formatPriceZar(draft.priceZar)}\n` +
     `🛏 ${draft.bedrooms} bed · 🛁 ${draft.bathrooms} bath\n` +
-    `📆 ${draft.exclusivityTermDays}-day exclusive term`
+    `📆 ${draft.exclusivityTermDays}-day exclusive term · ${
+      tierFor(draft.exclusivityTermDays) === 'free'
+        ? '0% commission'
+        : 'Flex plan, 1% on sale'
+    }`
   );
 }
 
