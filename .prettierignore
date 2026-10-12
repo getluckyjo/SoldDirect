@@ -14,3 +14,6 @@ apps/marketing/public/demo.html
 # breaks attributes across lines and shifts whitespace between inline
 # elements, which some mail clients render as gaps.
 docs/brand/email-signatures/
+
+# Same generator, hosted on the investor site as the hands-on demo.
+apps/fundraising/content/try.html

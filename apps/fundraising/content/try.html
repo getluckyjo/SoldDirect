@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sold Direct — the WhatsApp seller onboarding flow, playable in your browser.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<title>Sold Direct — seller onboarding demo</title>
+</head>
+<body>
+<style>
+  /* ---- Tokens -------------------------------------------------------- */
+  :root {
+    /* SoldDirect brand (apps/marketing/DESIGN.md): navy #0B172B frame,
+       green accents from the bubble's scale. */
+    --ground: #eef1f5;
+    --surface: #ffffff;
+    --surface-2: #f4f6f9;
+    --ink: #0b172b;
+    --ink-soft: #55606f;
+    --ink-faint: #8b95a3;
+    --line: #d7dde5;
+    --accent: #27873a;
+    --accent-ink: #ffffff;
+    --brand-bubble: #36b44a;
+    --notice: #8a6410;
+    --notice-bg: #fdf4dd;
+
+    /* The chat is product truth — WhatsApp's own palette, not ours. */
+    --wa-header: #075e54;
+    --wa-wall: #ece5dd;
+    --wa-out: #dcf8c6;
+    --wa-in: #ffffff;
+    --wa-ink: #111b21;
+    --wa-muted: #667781;
+    --wa-sheet: #ffffff;
+    --wa-line: #e6e2db;
+    --wa-accent: #25d366;
+    --wa-link: #027eb5;
+
+    --step: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+    --radius: 14px;
+    --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+    --sans:
+      ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
+      Arial, sans-serif;
+    --chat: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #060d1a;
+      --surface: #0b172b;
+      --surface-2: #101e35;
+      --ink: #e8edf4;
+      --ink-soft: #93a0b1;
+      --ink-faint: #6b7889;
+      --line: #223049;
+      --accent: #82d492;
+      --accent-ink: #0b172b;
+      --notice: #dcae4c;
+      --notice-bg: #2a2313;
+
+      --wa-header: #1f2c33;
+      --wa-wall: #0b141a;
+      --wa-out: #005c4b;
+      --wa-in: #202c33;
+      --wa-ink: #e9edef;
+      --wa-muted: #8696a0;
+      --wa-sheet: #233138;
+      --wa-line: #2a3942;
+      --wa-accent: #00a884;
+      --wa-link: #53bdeb;
+    }
+  }
+  /* The viewer's explicit toggle must win over the OS preference, both ways. */
+  :root[data-theme='dark'] {
+    --ground: #060d1a;
+    --surface: #0b172b;
+    --surface-2: #101e35;
+    --ink: #e8edf4;
+    --ink-soft: #93a0b1;
+    --ink-faint: #6b7889;
+    --line: #223049;
+    --accent: #82d492;
+    --accent-ink: #0b172b;
+    --notice: #dcae4c;
+    --notice-bg: #2a2313;
+    --wa-header: #1f2c33;
+    --wa-wall: #0b141a;
+    --wa-out: #005c4b;
+    --wa-in: #202c33;
+    --wa-ink: #e9edef;
+    --wa-muted: #8696a0;
+    --wa-sheet: #233138;
+    --wa-line: #2a3942;
+    --wa-accent: #00a884;
+    --wa-link: #53bdeb;
+  }
+  :root[data-theme='light'] {
+    --ground: #eef1f5;
+    --surface: #ffffff;
+    --surface-2: #f4f6f9;
+    --ink: #0b172b;
+    --ink-soft: #55606f;
+    --ink-faint: #8b95a3;
+    --line: #d7dde5;
+    --accent: #27873a;
+    --accent-ink: #ffffff;
+    --notice: #8a6410;
+    --notice-bg: #fdf4dd;
+    --wa-header: #075e54;
+    --wa-wall: #ece5dd;
+    --wa-out: #dcf8c6;
+    --wa-in: #ffffff;
+    --wa-ink: #111b21;
+    --wa-muted: #667781;
+    --wa-sheet: #ffffff;
+    --wa-line: #e6e2db;
+    --wa-accent: #25d366;
+    --wa-link: #027eb5;
+  }
+
+  /* ---- Base ---------------------------------------------------------- */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: var(--step);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 20px 56px;
+  }
+
+  /* ---- Masthead ------------------------------------------------------ */
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 16px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .mark {
+    font-size: 1.35rem;
+    margin: 0;
+    line-height: 1;
+  }
+  /* The SoldDirect. lockup — exact master vectors; wordmark follows the
+     theme ink, bubble stays brand green. */
+  .mark svg {
+    height: 1em;
+    width: auto;
+    display: block;
+    color: var(--ink);
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .masthead p {
+    margin: 0;
+    flex-basis: 100%;
+    max-width: 62ch;
+    color: var(--ink-soft);
+  }
+
+  /* ---- Layout -------------------------------------------------------- */
+  .stage {
+    display: grid;
+    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+    margin-top: 26px;
+  }
+  @media (max-width: 860px) {
+    .stage {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* ---- Phone --------------------------------------------------------- */
+  .phone {
+    background: var(--wa-wall);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: min(78vh, 720px);
+    box-shadow: 0 18px 40px -28px rgb(0 0 0 / 0.5);
+  }
+  .bar {
+    background: var(--wa-header);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 13px;
+    flex: none;
+  }
+  .glyph {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--wa-accent);
+    color: #06231b;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex: none;
+  }
+  .who {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.25;
+  }
+  .who b {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .who span {
+    font-size: 0.72rem;
+    opacity: 0.75;
+  }
+  .bar button {
+    background: rgb(255 255 255 / 0.14);
+    color: #fff;
+    border: 0;
+    border-radius: 7px;
+    padding: 6px 10px;
+    font: inherit;
+    font-size: 0.72rem;
+    cursor: pointer;
+  }
+  .bar button:hover {
+    background: rgb(255 255 255 / 0.24);
+  }
+
+  .thread {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 11px 6px;
+    font-family: var(--chat);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .turn {
+    display: flex;
+  }
+  .turn.me {
+    justify-content: flex-end;
+  }
+  .bubble {
+    max-width: 84%;
+    padding: 7px 10px 6px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    line-height: 1.38;
+    color: var(--wa-ink);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 0.1);
+  }
+  .them .bubble {
+    background: var(--wa-in);
+    border-top-left-radius: 2px;
+  }
+  .me .bubble {
+    background: var(--wa-out);
+    border-top-right-radius: 2px;
+  }
+  .stamp {
+    display: block;
+    font-size: 0.62rem;
+    color: var(--wa-muted);
+    text-align: right;
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .me .stamp::after {
+    content: ' ✓✓';
+    color: var(--wa-link);
+  }
+
+  .typing .bubble {
+    background: var(--wa-in);
+    display: flex;
+    gap: 4px;
+    padding: 11px 12px;
+  }
+  .typing i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--wa-muted);
+    animation: blink 1.2s infinite;
+  }
+  .typing i:nth-child(2) {
+    animation-delay: 0.18s;
+  }
+  .typing i:nth-child(3) {
+    animation-delay: 0.36s;
+  }
+  @keyframes blink {
+    0%,
+    60%,
+    100% {
+      opacity: 0.28;
+    }
+    30% {
+      opacity: 1;
+    }
+  }
+
+  /* Reply buttons sit under the bubble, as WhatsApp renders them. */
+  .replies {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-width: 84%;
+    margin: -2px 0 4px;
+  }
+  .replies button,
+  .opener {
+    background: var(--wa-in);
+    color: var(--wa-link);
+    border: 0;
+    border-top: 1px solid var(--wa-line);
+    padding: 9px 10px;
+    font: inherit;
+    font-family: var(--chat);
+    font-size: 0.85rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+  }
+  .replies button:first-child {
+    border-top: 0;
+    border-radius: 8px 8px 0 0;
+  }
+  .replies button:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+  .replies button:only-child {
+    border-radius: 8px;
+  }
+  .replies button:hover,
+  .opener:hover {
+    background: var(--wa-sheet);
+    filter: brightness(0.97);
+  }
+  .opener {
+    border-radius: 8px;
+    max-width: 84%;
+    margin: -2px 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-weight: 500;
+  }
+
+  /* The list menu — WhatsApp opens these as a bottom sheet. */
+  .sheet-scrim {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 0.42);
+    display: flex;
+    align-items: flex-end;
+    z-index: 5;
+  }
+  .sheet-scrim[hidden] {
+    display: none;
+  }
+  .sheet {
+    background: var(--wa-sheet);
+    width: 100%;
+    max-height: 74%;
+    overflow-y: auto;
+    border-radius: 12px 12px 0 0;
+    font-family: var(--chat);
+    animation: rise 0.18s ease-out;
+  }
+  @keyframes rise {
+    from {
+      transform: translateY(14px);
+    }
+  }
+  .sheet header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 15px;
+    border-bottom: 1px solid var(--wa-line);
+    font-weight: 600;
+    color: var(--wa-ink);
+    font-size: 0.9rem;
+    position: sticky;
+    top: 0;
+    background: var(--wa-sheet);
+  }
+  .sheet header button {
+    background: none;
+    border: 0;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--wa-muted);
+    padding: 0 2px;
+  }
+  .sheet .group {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--wa-accent);
+    padding: 11px 15px 5px;
+    font-weight: 600;
+  }
+  .sheet .row {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--wa-line);
+    padding: 11px 15px;
+    font: inherit;
+    font-family: var(--chat);
+    cursor: pointer;
+    color: var(--wa-ink);
+  }
+  .sheet .row:hover {
+    background: rgb(127 127 127 / 0.1);
+  }
+  .sheet .row b {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  .sheet .row span {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--wa-muted);
+    margin-top: 1px;
+  }
+
+  .composer {
+    display: flex;
+    gap: 7px;
+    padding: 8px;
+    background: var(--wa-sheet);
+    border-top: 1px solid var(--wa-line);
+    flex: none;
+  }
+  .composer input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--wa-line);
+    background: var(--wa-in);
+    color: var(--wa-ink);
+    border-radius: 20px;
+    padding: 9px 14px;
+    font: inherit;
+    font-family: var(--chat);
+  }
+  .composer input::placeholder {
+    color: var(--wa-muted);
+  }
+  .composer button {
+    background: var(--wa-accent);
+    color: #04241b;
+    border: 0;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    cursor: pointer;
+    flex: none;
+  }
+  .composer button:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  .frame {
+    position: relative;
+  }
+
+  /* ---- Record rail --------------------------------------------------- */
+  .rail {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 17px 18px;
+  }
+  /* Matches whether the heading is bare or wrapped in .cardhead. */
+  .card h2 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 620;
+    letter-spacing: -0.012em;
+  }
+  .card .lede {
+    margin: 6px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.79rem;
+    max-width: 54ch;
+  }
+  .cardhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .chip.on {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  .record {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    overflow: hidden;
+  }
+  .record li {
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    gap: 10px;
+    background: var(--surface);
+    padding: 8px 11px;
+    align-items: baseline;
+  }
+  @media (max-width: 420px) {
+    .record li {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1px;
+    }
+  }
+  .record dfn {
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .record var {
+    font-style: normal;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+  }
+  .record li.empty var {
+    color: var(--ink-faint);
+  }
+  .record li.set {
+    background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+  }
+  .record li.set var {
+    font-weight: 560;
+  }
+
+  .notice {
+    background: var(--notice-bg);
+    color: var(--notice);
+    border: 1px solid color-mix(in srgb, var(--notice) 30%, transparent);
+    border-radius: 9px;
+    padding: 9px 12px;
+    font-size: 0.76rem;
+  }
+
+  .facts {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 7px;
+    font-size: 0.79rem;
+    color: var(--ink-soft);
+  }
+  .facts li {
+    display: grid;
+    grid-template-columns: 1.1rem minmax(0, 1fr);
+    gap: 8px;
+  }
+  .facts b {
+    color: var(--ink);
+    font-weight: 590;
+  }
+  .tick {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .cross {
+    color: var(--ink-faint);
+    font-weight: 700;
+  }
+  code {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.5px 4px;
+  }
+  footer {
+    margin-top: 26px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
+    font-size: 0.74rem;
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <h1 class="mark" aria-label="Sold Direct">
+      <svg viewBox="0 0 680.5 105.3" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M680.52 93.7C680.52 88.14 676.01 83.63 670.45 83.63C664.88 83.63 660.37 88.14 660.37 93.7C660.37 99.26 664.88 103.77 670.45 103.77C676.01 103.77 680.52 99.26 680.52 93.7ZM41.03 88.3C45.95 88.3 49.95 87.76 53.02 86.67C58.84 84.6 61.75 80.74 61.75 75.09C61.75 71.8 60.31 69.25 57.42 67.44C54.53 65.68 49.99 64.12 43.81 62.77L33.25 60.4C22.86 58.05 15.69 55.5 11.71 52.75C4.99 48.14 1.62 40.94 1.62 31.15C1.62 22.21 4.88 14.79 11.38 8.87C17.88 2.96 27.42 0 40.02 0C50.54 0 59.51 2.79 66.93 8.36C74.36 13.94 78.25 22.03 78.61 32.64L58.57 32.64C58.21 26.63 55.59 22.37 50.72 19.84C47.47 18.17 43.43 17.33 38.6 17.33C33.22 17.33 28.93 18.42 25.73 20.58C22.53 22.75 20.92 25.78 20.92 29.66C20.92 33.22 22.5 35.89 25.66 37.65C27.7 38.82 32.03 40.2 38.66 41.78L55.86 45.91C63.4 47.72 69.09 50.13 72.93 53.15C78.89 57.85 81.86 64.64 81.86 73.54C81.86 82.65 78.38 90.23 71.4 96.25C64.43 102.28 54.58 105.29 41.85 105.29C28.85 105.29 18.62 102.33 11.17 96.39C3.72 90.45 0 82.29 0 71.91L19.91 71.91C20.54 76.47 21.78 79.88 23.63 82.14C27.02 86.24 32.82 88.3 41.03 88.3ZM175.69 2.91H194.98V102.72H175.69ZZM225.09 66.29C225.09 73.11 226.45 78.55 229.16 82.61C231.82 86.72 235.88 88.77 241.35 88.77C246.81 88.77 250.96 86.74 253.8 82.68C256.65 78.61 258.07 73.36 258.07 66.9C258.07 57.87 255.79 51.42 251.23 47.53C248.43 45.19 245.18 44.01 241.48 44.01C235.84 44.01 231.7 46.15 229.06 50.41C226.41 54.68 225.09 59.97 225.09 66.29M277.1 3.05L277.1 102.72L258.34 102.72L258.34 92.5C255.59 96.87 252.45 100.06 248.93 102.04C245.41 104.03 241.03 105.02 235.79 105.02C227.17 105.02 219.91 101.53 214.02 94.56C208.13 87.59 205.19 78.64 205.19 67.71C205.19 55.12 208.09 45.21 213.89 37.99C219.69 30.77 227.44 27.15 237.15 27.15C241.62 27.15 245.59 28.13 249.06 30.1C252.54 32.06 255.36 34.78 257.53 38.26L257.53 3.05L277.1 3.05ZM344.94 28.37C341.73 22.95 335.39 20.25 325.91 20.25L310.56 20.25L310.56 85.39L325.91 85.39C335.75 85.39 342.61 80.53 346.5 70.83C348.62 65.5 349.68 59.16 349.68 51.8C349.68 41.64 348.1 33.83 344.94 28.37M329.43 102.72L290.32 102.72L290.32 2.91L329.43 2.91C335.62 3 340.76 3.72 344.87 5.08C351.87 7.38 357.54 11.6 361.87 17.74C365.34 22.71 367.71 28.08 368.98 33.86C370.24 39.64 370.87 45.14 370.87 50.38C370.87 63.65 368.21 74.89 362.88 84.1C355.66 96.51 344.51 102.72 329.43 102.72ZM381.42 28.91H400.99V102.72H381.42ZM381.42 2.3H400.99V20.11H381.42ZZM451.61 46.72C443.84 46.72 438.63 49.25 435.96 54.31C434.47 57.15 433.73 61.53 433.73 67.44L433.73 102.72L414.29 102.72L414.29 28.91L432.71 28.91L432.71 41.78C435.69 36.86 438.29 33.5 440.5 31.69C444.11 28.67 448.8 27.15 454.58 27.15C454.95 27.15 455.25 27.16 455.5 27.19C455.75 27.21 456.3 27.24 457.16 27.29L457.16 47.06C455.94 46.92 454.86 46.83 453.91 46.79C452.96 46.75 452.19 46.72 451.61 46.72ZM511.25 58.44C510.94 53.34 509.39 49.46 506.61 46.82C503.84 44.18 500.39 42.86 496.29 42.86C491.82 42.86 488.35 44.26 485.89 47.06C483.43 49.86 481.89 53.65 481.26 58.44L511.25 58.44M530.35 81.05C529.85 85.43 527.57 89.88 523.51 94.39C517.19 101.57 508.34 105.16 496.97 105.16C487.58 105.16 479.29 102.13 472.11 96.08C464.94 90.04 461.35 80.19 461.35 66.56C461.35 53.79 464.59 43.99 471.06 37.17C477.54 30.36 485.95 26.95 496.29 26.95C502.43 26.95 507.96 28.1 512.88 30.4C517.8 32.7 521.86 36.34 525.07 41.3C527.95 45.68 529.83 50.76 530.69 56.54C531.18 59.93 531.39 64.8 531.3 71.17L480.78 71.17C481.05 78.57 483.38 83.76 487.76 86.74C490.42 88.59 493.62 89.52 497.37 89.52C501.34 89.52 504.57 88.39 507.05 86.13C508.41 84.91 509.6 83.22 510.64 81.05L530.35 81.05ZM606.86 55.39L587.08 55.39C586.72 52.64 585.8 50.15 584.31 47.94C582.14 44.96 578.78 43.47 574.22 43.47C567.72 43.47 563.27 46.7 560.88 53.15C559.61 56.59 558.98 61.14 558.98 66.83C558.98 72.25 559.61 76.61 560.88 79.9C563.18 86.04 567.51 89.11 573.88 89.11C578.39 89.11 581.6 87.89 583.49 85.45C585.39 83.02 586.54 79.86 586.95 75.97L606.65 75.97C606.2 81.84 604.08 87.39 600.29 92.63C594.24 101.07 585.28 105.29 573.41 105.29C561.53 105.29 552.8 101.77 547.2 94.73C541.6 87.69 538.8 78.55 538.8 67.31C538.8 54.62 541.9 44.76 548.08 37.72C554.26 30.67 562.8 27.15 573.68 27.15C582.93 27.15 590.5 29.23 596.39 33.38C602.28 37.54 605.77 44.87 606.86 55.39ZM652.62 88.97L652.62 103.4L643.48 103.74C634.36 104.05 628.13 102.47 624.79 99C622.63 96.79 621.54 93.38 621.54 88.77L621.54 43.34L611.25 43.34L611.25 29.59L621.54 29.59L621.54 9.01L640.64 9.01L640.64 29.59L652.62 29.59L652.62 43.34L640.64 43.34L640.64 82.34C640.64 85.36 641.02 87.25 641.79 87.99C642.56 88.74 644.9 89.11 648.83 89.11C649.42 89.11 650.04 89.1 650.69 89.08C651.35 89.05 651.99 89.02 652.62 88.97Z"
+        />
+        <path
+          fill="#36B44A"
+          d="M129.27 84.59C118.06 84.59 108.98 75.51 108.98 64.3C108.98 53.1 118.06 44.01 129.27 44.01C140.47 44.01 149.56 53.1 149.56 64.3C149.56 75.51 140.47 84.59 129.27 84.59M129.27 25.88C108.08 25.88 90.85 43.12 90.85 64.3C90.85 71.76 92.96 78.9 96.97 85.11L91.41 102.53L110.13 97.61C115.95 100.96 122.52 102.72 129.27 102.72C150.45 102.72 167.68 85.49 167.68 64.3C167.68 43.12 150.45 25.88 129.27 25.88Z"
+        />
+      </svg>
+    </h1>
+    <span class="eyebrow">Seller onboarding · live simulator</span>
+    <p>
+      The WhatsApp listing flow, running the production conversation code in
+      your browser. Type <code>list</code> to begin — everything after that is
+      taps.
+    </p>
+  </header>
+
+  <div class="stage">
+    <div class="frame">
+      <section class="phone" aria-label="WhatsApp conversation">
+        <div class="bar">
+          <div class="glyph" aria-hidden="true">SD</div>
+          <div class="who">
+            <b>Sold Direct</b>
+            <span id="presence">online</span>
+          </div>
+          <button id="reset" type="button">Restart</button>
+        </div>
+
+        <div class="thread" id="thread" role="log" aria-live="polite"></div>
+
+        <form class="composer" id="composer">
+          <input
+            id="entry"
+            autocomplete="off"
+            placeholder="Type a message"
+            aria-label="Message"
+          />
+          <button id="send" type="submit" aria-label="Send">➤</button>
+        </form>
+      </section>
+
+      <div class="sheet-scrim" id="scrim" hidden>
+        <div
+          class="sheet"
+          id="sheet"
+          role="dialog"
+          aria-label="Choose an option"
+        ></div>
+      </div>
+    </div>
+
+    <div class="rail">
+      <section class="card">
+        <div class="cardhead">
+          <h2>Listing record</h2>
+          <span class="chip" id="step">no conversation</span>
+        </div>
+        <p class="lede">
+          The typed record the state machine builds as the chat progresses —
+          this is what the dashboard and the portals read.
+        </p>
+        <ul class="record" id="record"></ul>
+      </section>
+
+      <section class="card">
+        <h2>What's real here</h2>
+        <ul class="facts">
+          <li>
+            <span class="tick" aria-hidden="true">✓</span>
+            <span
+              ><b>The conversation logic is the production build.</b>
+              <code>intake.ts</code> and the welcome copy are compiled straight
+              from the repo — same prompts, same menus, same validation.</span
+            >
+          </li>
+          <li>
+            <span class="tick" aria-hidden="true">✓</span>
+            <span
+              ><b>Price guidance uses the demo valuation adapter</b> — the same
+              deterministic stand-in the server runs until LOOM is
+              connected.</span
+            >
+          </li>
+          <li>
+            <span class="cross" aria-hidden="true">×</span>
+            <span
+              ><b>No database and no WhatsApp.</b> The conversation lives in
+              memory and resets on reload; the server build persists to Postgres
+              and sends through the BSP.</span
+            >
+          </li>
+          <li>
+            <span class="cross" aria-hidden="true">×</span>
+            <span
+              ><b>The AI layer runs server-side, so it is not in this page.</b>
+              Two parts of the product call Claude from the API: the
+              <b>description writer</b>, which drafts your listing copy for you
+              to approve, and the <b>concierge</b>, which answers off-script
+              questions — "how long does transfer take?", "who pays the rates
+              clearance?" — in the same thread, and hands over to a registered
+              practitioner when it should. Both need an API key, which has no
+              business in a public web page. Run the API to see them live.</span
+            >
+          </li>
+        </ul>
+        <p class="lede" style="margin-top: 14px">
+          The scripted flow above is deliberately independent of all that: if
+          the model is unavailable, every question here still works.
+        </p>
+      </section>
+
+      <p class="notice">
+        Simulator for demonstration. Price ranges are illustrative, not a
+        valuation, and nothing entered here is stored.
+      </p>
+    </div>
+  </div>
+
+  <footer>Sold Direct · 0% commission · Cape Town</footer>
+</div>
+
+<script>
+  "use strict";var SoldDirectFlow=(()=>{var x=Object.defineProperty;var Q=Object.getOwnPropertyDescriptor;var tt=Object.getOwnPropertyNames;var et=Object.prototype.hasOwnProperty;var nt=(t,e)=>{for(var n in e)x(t,n,{get:e[n],enumerable:!0})},rt=(t,e,n,i)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of tt(e))!et.call(t,r)&&r!==n&&x(t,r,{get:()=>e[r],enumerable:!(i=Q(e,r))||i.enumerable});return t};var it=t=>rt(x({},"__esModule",{value:!0}),t);var Ct={};nt(Ct,{createFlow:()=>Dt});var E=["house","apartment","townhouse","estate","land","other"];function w(t){let e=Math.round(t),n=e<0?"-":"",i=String(Math.abs(e));return`${n}R${i.replace(/\B(?=(\d{3})+(?!\d))/g," ")}`}var T=[{id:"atlantic",title:"Atlantic Seaboard",hint:"Sea Point, Camps Bay, Hout Bay",suburbs:["Sea Point","Green Point","Bantry Bay","Clifton","Camps Bay","Fresnaye","Llandudno","Hout Bay"]},{id:"citybowl",title:"City Bowl",hint:"CBD, Gardens, Woodstock",suburbs:["Cape Town CBD","Gardens","Oranjezicht","Tamboerskloof","Vredehoek","Bo-Kaap","De Waterkant","Woodstock"]},{id:"southern",title:"Southern Suburbs",hint:"Observatory through to Tokai",suburbs:["Observatory","Mowbray","Rondebosch","Newlands","Claremont","Kenilworth","Wynberg","Constantia"]},{id:"northern",title:"Northern Suburbs",hint:"Durbanville, Bellville, Tygervalley",suburbs:["Durbanville","Bellville","Brackenfell","Kraaifontein","Kuils River","Parow","Goodwood","Plattekloof"]},{id:"falsebay",title:"False Bay & South",hint:"Muizenberg down to Simon\u2019s Town",suburbs:["Muizenberg","Kalk Bay","Fish Hoek","Noordhoek","Kommetjie","Simon\u2019s Town","Lakeside","Sun Valley"]},{id:"westcoast",title:"West Coast",hint:"Blouberg, Table View, Milnerton",suburbs:["Table View","Bloubergstrand","Milnerton","Century City","Parklands","Sunningdale","Big Bay","Melkbosstrand"]}];function S(t){let e=t.trim().toLowerCase();return T.find(n=>n.id===e)}var N=["propertyType","suburb","priceZar","bedrooms","bathrooms","exclusivityTermDays"],ot={propertyType:"awaiting_property_type",suburb:"awaiting_suburb",priceZar:"awaiting_price",bedrooms:"awaiting_bedrooms",bathrooms:"awaiting_bathrooms",exclusivityTermDays:"awaiting_exclusivity"},at={awaiting_property_type:"propertyType",awaiting_suburb:"suburb",awaiting_suburb_pick:"suburb",awaiting_price:"priceZar",awaiting_bedrooms:"bedrooms",awaiting_bathrooms:"bathrooms",awaiting_exclusivity:"exclusivityTermDays"},m={awaiting_property_type:"Let\u2019s list your property \u2014 0% commission. What kind of home is it?",awaiting_title:'What headline should buyers see? (e.g. "Sunny 2-bed with mountain views")',awaiting_suburb:"Which part of Cape Town is it in? Pick a region \u2014 or just type the suburb.",awaiting_suburb_pick:"And which suburb?",awaiting_address:"What's the street address? \u{1F512} Kept private \u2014 buyers never see it; we use it for accurate price guidance and portal syndication. Reply SKIP to leave it out.",awaiting_price:"What's the asking price in Rand? (digits only, e.g. 2100000)",awaiting_bedrooms:"How many bedrooms?",awaiting_bathrooms:"How many bathrooms?",awaiting_exclusivity:"How long should the exclusive listing term run? 90 days is the South African norm.",awaiting_confirm:'Tap Publish now to go live, or Change something to edit. (You can also just type a correction, e.g. "price 4500000".)',awaiting_edit_choice:"What would you like to change?"},st={awaiting_property_type:"Please pick the kind of home from the list.",awaiting_title:"Please give a short headline (at least 3 characters).",awaiting_suburb:"Please tell me the suburb.",awaiting_suburb_pick:"Please pick a suburb, or type its name.",awaiting_address:"Please send the street address (e.g. 12 Milner Road), or reply SKIP.",awaiting_price:"I didn\u2019t catch that as a price. Tap one of the amounts above, or send it like 2100000 or R2.1m.",awaiting_bedrooms:"How many bedrooms? Please reply with a number.",awaiting_bathrooms:"How many bathrooms? Please reply with a number.",awaiting_exclusivity:"Please choose 60, 90 or 120 days.",awaiting_edit_choice:"Please pick one of the fields from the list."},lt={kind:"buttons",options:[{id:"DRAFT",title:"\u270D\uFE0F Write it for me"},{id:"TYPE",title:"I\u2019ll write it"},{id:"SKIP",title:"Skip for now"}]},ut=/^\s*(yes|y|yeah|yep|ok|okay|sure|👍)\b/i,pt=/^\s*edit\s*$/i,ct=/^\s*cancel\b/i,dt=/^\s*back\s*$/i,mt=/^\s*edit:([a-z]+)\s*$/i,gt=/^\s*region:([a-z]+)\s*$/i,bt=/^\s*other\s*$/i,yt=/^\s*(skip|no|nope|later)\b/i;function F(t){if(typeof t!="string")return null;let e=t.trim();return e.length>=3?e:null}function P(t){if(typeof t!="string")return null;let e=t.trim();return e.length>=5&&e.length<=200?e:null}function ht(t){let e=t.replace(/[\s,rR]/g,"");return/^\d+$/.test(e)?Number.parseInt(e,10):null}var ft=/^(.*?)(m|mil|million|k|thousand)$/;function wt(t){let e=t.trim().toLowerCase().replace(/[\sr]/g,"");if(e==="")return null;let n=ft.exec(e);if(n){let[,r,a]=n,l=r.replace(",",".");if(!/^\d+(\.\d+)?$/.test(l))return null;let p=a.startsWith("k")||a==="thousand"?1e3:1e6,d=Number.parseFloat(l)*p;return Number.isFinite(d)?Math.round(d):null}let i=e.replace(/[,.]/g,"");return/^\d+$/.test(i)?Number.parseInt(i,10):null}function g(t,e){switch(t){case"suburb":{if(typeof e!="string")return null;let n=e.trim();return n.length>=2?n:null}case"priceZar":{let n=typeof e=="number"?e:NaN;return Number.isInteger(n)&&n>=1e5?n:null}case"bedrooms":case"bathrooms":{let n=typeof e=="number"?e:NaN;return Number.isInteger(n)&&n>=0&&n<=20?n:null}case"exclusivityTermDays":return e===60||e===90||e===120?e:null;case"propertyType":{if(typeof e!="string")return null;let n=e.trim().toLowerCase();return E.includes(n)?n:null}}}var _t={house:"house",apartment:"apartment",townhouse:"townhouse",estate:"home in a secure estate",land:"vacant land",other:"property"},W={house:"House",apartment:"Apartment / flat",townhouse:"Townhouse / duplex",estate:"Secure estate",land:"Vacant land / plot",other:"Something else"};function B(t){let{propertyType:e,suburb:n,bedrooms:i}=t;if(!e||!n)return;let r=_t[e],a=` in ${n}`;return e==="land"?`Vacant land${a}`:i===void 0?`${kt(r)}${a}`:i===0?`Studio ${r}${a}`:`${i}-bed ${r}${a}`}function kt(t){return t.charAt(0).toUpperCase()+t.slice(1)}function h(t){if(t.title!==void 0)return t;let e=B(t);return e===void 0?t:{...t,title:e}}function Rt(t){return N.filter(e=>t[e]===void 0)}function b(t){let e=Rt(t);return t.address===void 0&&(e.length===0||e[0]==="priceZar")?"awaiting_address":e.length===0?"awaiting_confirm":ot[e[0]]}function y(t,e,n={}){let i={...t},r=[];for(let p of N){let d=e[p];if(d===void 0||!n.overwrite&&i[p]!==void 0)continue;let f=g(p,d);f!==null&&(n.overwrite&&i[p]===f||(i[p]=f,r.push(p)))}let a=P(e.address);a!==null&&i.address!==a&&(n.overwrite||i.address===void 0||i.address===null)&&(i.address=a,r.push("address"));let l=F(e.title);return l!==null&&i.title!==l&&(n.overwrite||i.title===void 0)&&(i.title=l,r.push("title")),{data:i,applied:r}}function R(t){return w(t)}function I(t,e){switch(t){case"title":return`"${e.title??B(e)??""}"`;case"propertyType":return e.propertyType?W[e.propertyType].toLowerCase():"";case"suburb":return e.suburb??"";case"address":return e.address??"";case"priceZar":return R(e.priceZar??0);case"bedrooms":return`${e.bedrooms} bedroom${e.bedrooms===1?"":"s"}`;case"bathrooms":return`${e.bathrooms} bathroom${e.bathrooms===1?"":"s"}`;case"exclusivityTermDays":return`${e.exclusivityTermDays}-day term`}}var M=[{id:"priceZar",label:"Asking price"},{id:"bedrooms",label:"Bedrooms"},{id:"bathrooms",label:"Bathrooms"},{id:"suburb",label:"Suburb"},{id:"address",label:"Street address"},{id:"propertyType",label:"Property type"},{id:"title",label:"Headline"},{id:"exclusivityTermDays",label:"Exclusive term"}];function xt(t){let e=t.toLowerCase();return M.find(n=>n.id.toLowerCase()===e)?.id}function v(t,e){let n=[...e.studio?[{id:"0",title:"Studio"}]:[],...Array.from({length:6},(i,r)=>({id:String(r+1),title:`${r+1} ${e.noun}${r===0?"":"s"}`})),{id:"7",title:"7 or more",description:"Pick this, then type the exact number"}];return{kind:"list",button:"Choose",sections:[{title:t,rows:n}]}}function Et(t){let e=i=>Math.max(1e5,Math.round(i/5e4)*5e4),n=[...new Set([e(t.lowZar),e((t.lowZar+t.highZar)/2),e(t.highZar)])].slice(0,3);if(n.length!==0)return{kind:"buttons",options:n.map(i=>({id:String(i),title:R(i)})),footer:"Or type any amount"}}function c(t,e){switch(t){case"awaiting_property_type":return{kind:"list",button:"Choose",sections:[{title:"Property type",rows:E.map(n=>({id:n,title:W[n]}))}]};case"awaiting_suburb":return{kind:"list",button:"Pick a region",sections:[{title:"Cape Town",rows:[...T.map(n=>({id:`REGION:${n.id}`,title:n.title,description:n.hint})),{id:"OTHER",title:"Other \u2014 type it"}]}]};case"awaiting_suburb_pick":{let n=S(e.pending?.region??"");return n?{kind:"list",button:"Pick a suburb",sections:[{title:n.title,rows:[...n.suburbs.map(i=>({id:i,title:i})),{id:"OTHER",title:"Other \u2014 type it"},{id:"REGION:back",title:"\u2190 Another region"}]}]}:void 0}case"awaiting_address":return{kind:"buttons",options:[{id:"SKIP",title:"Skip \u2014 not now"}]};case"awaiting_price":return e.estimate?Et(e.estimate):void 0;case"awaiting_bedrooms":return v("Bedrooms",{studio:!0,noun:"bedroom"});case"awaiting_bathrooms":return v("Bathrooms",{noun:"bathroom"});case"awaiting_exclusivity":return{kind:"buttons",options:[{id:"60",title:"60 days"},{id:"90",title:"90 days \u2605"},{id:"120",title:"120 days"}],footer:"\u2605 recommended"};case"awaiting_confirm":return{kind:"buttons",options:[{id:"YES",title:"\u2705 Publish now"},{id:"EDIT",title:"Change something"},{id:"CANCEL",title:"Cancel listing"}]};case"awaiting_edit_choice":return{kind:"list",button:"Pick a field",sections:[{title:"Change",rows:[...M.map(n=>({id:`EDIT:${n.id}`,title:n.label,...e.data[n.id]!==void 0&&e.data[n.id]!==null?{description:I(n.id,e.data)}:{}})),{id:"BACK",title:"\u2190 Never mind"}]}]};default:return}}function Tt(t,e){return t.length===0?"":`Got it \u2014 ${t.map(n=>I(n,e)).join(", ")}.
+`}function O(t){return`Here's your listing:
+\u{1F3E0} "${t.title}"
+\u{1F4CD} ${t.suburb}, Cape Town
+`+(t.address?`\u{1F4EB} ${t.address} (kept private)
+`:"")+`\u{1F4B0} ${R(t.priceZar)}
+\u{1F6CF} ${t.bedrooms} bed \xB7 \u{1F6C1} ${t.bathrooms} bath
+\u{1F4C6} ${t.exclusivityTermDays}-day exclusive term`}function St(t){return`Perfect \u2014 your listing "${t.title}" in ${t.suburb} at ${R(t.priceZar)} is confirmed!
+
+\u{1F4DD} Optional: a short description buyers will read. I can draft one from your details \u2014 you approve it before anything is saved.
+\u{1F4F8} Then send 5\u201310 photos whenever you're ready \u2014 your listing goes live the moment your first photo arrives.`}function _(t,e){let n=Tt(e,t.data),i=c(t.step,t);if(t.step==="awaiting_confirm"){let r=O(h(t.data));return{state:t,reply:`${n}${r}
+
+${m.awaiting_confirm}`,options:i}}return{state:t,reply:`${n}${m[t.step]}`,options:i}}function $(t){let e={...t,step:"awaiting_confirm"};return{state:e,reply:`${O(h(e.data))}
+
+${m.awaiting_confirm}`,options:c("awaiting_confirm",e)}}function k(t,e){return{state:t,reply:e??st[t.step],options:c(t.step,t),rejected:!0}}function Z(t){let{data:e,applied:n}=y({tier:"free"},t??{}),i={step:b(e),data:e};return i.step==="awaiting_title"&&n.length===0?{state:i,reply:m.awaiting_title,options:c(i.step,i)}:_(i,n)}function H(t,e,n){let i=e.trim(),r={...t.data},a=n??{};if(t.step==="completed")return{state:t,reply:'Your listing is already in. Reply "list" to add another property.'};if(t.step==="awaiting_suburb"||t.step==="awaiting_suburb_pick"){let s=gt.exec(i)?.[1];if(s!==void 0){let o=S(s),u=o?{...t,step:"awaiting_suburb_pick",data:r,pending:{region:o.id}}:{...t,step:"awaiting_suburb",data:r,pending:void 0};return{state:u,reply:m[u.step],options:c(u.step,u)}}if(bt.test(i))return{state:{...t,data:r},reply:"No problem \u2014 what\u2019s the suburb called?"}}if(t.step==="awaiting_edit_choice"){if(dt.test(i))return $(t);let s=mt.exec(i),o=s?xt(s[1]):void 0;if(!o)return k(t);delete r[o];let u=o==="title"?"awaiting_title":b(r);return _({...t,step:u,data:r},[])}if(t.step==="awaiting_confirm"){if(ut.test(i)){let o=h(r),u=o;return{state:{step:"completed",data:o},reply:St(u),options:lt,completed:u}}if(pt.test(i)){let o={...t,step:"awaiting_edit_choice"};return{state:o,reply:m.awaiting_edit_choice,options:c("awaiting_edit_choice",o)}}if(ct.test(i))return{state:t,reply:`No problem \u2014 that draft is discarded. Reply "list" whenever you're ready to start again.`,cancelled:!0};let s=y(r,a,{overwrite:!0});if(s.applied.length>0){let o={...t,step:b(s.data),data:s.data},u=`Updated \u2014 ${s.applied.map(J=>I(J,s.data)).join(", ")}.
+`,A=c(o.step,o);return o.step==="awaiting_confirm"?{state:o,reply:`${u}${O(h(s.data))}
+
+${m.awaiting_confirm}`,options:A}:{state:o,reply:`${u}${m[o.step]}`,options:A}}return $({...t,data:r})}if(t.step==="awaiting_title"){let s=F(i);if(s===null)return k(t);r.title=s;let o=y(r,a);return _({...t,step:b(o.data),data:o.data},o.applied.filter(u=>u!=="title"))}if(t.step==="awaiting_address"){if(yt.test(i))r.address=null;else{let o=P(a.address)??P(i);if(o===null){let u=y(r,a);return k({...t,data:u.data})}r.address=o}let s=y(r,a);return _({...t,step:b(s.data),data:s.data},s.applied.filter(o=>o!=="address"))}let l=at[t.step],p=!1;switch(l){case"propertyType":{let s=g("propertyType",i)??g("propertyType",a.propertyType);s!==null&&(r.propertyType=s,p=!0);break}case"suburb":{let s=g("suburb",a.suburb),o=g("suburb",i),u=s??o;u!==null&&(r.suburb=u,p=!0);break}default:{let o=g(l,l==="priceZar"?wt(i):ht(i))??g(l,a[l]);o!==null&&(r[l]=o,p=!0)}}let d=y(r,a);r=d.data;let f=d.applied.filter(s=>s!==l);return!p&&r[l]===void 0?k({...t,data:r}):_({...t,step:b(r),data:r},f)}var L=/^(list|sell)\b/i,D=/^(list|sell)\b[\s:,-]*(my\s+|our\s+|the\s+)?/i,Pt=/^(start|begin)\b/i;function Y(t){let e=t.trim();return Pt.test(e)?!0:L.test(e)?e.replace(D,"").trim().length>=3:!1}var K=`\u{1F44B} Welcome to Sold Direct \u2014 sell your Cape Town home with 0% commission.
+
+How it works:
+1\uFE0F\u20E3 You build your listing right here \u2014 a few taps, no forms.
+2\uFE0F\u20E3 We syndicate it and send buyer enquiries straight to you.
+3\uFE0F\u20E3 Buyers pre-qualify for a bond in the chat, so you know who\u2019s real.
+4\uFE0F\u20E3 A registered property practitioner and our WhatsApp concierge handle the offer, FICA and transfer admin with you.
+
+What would you like to do?`;function G(){return{kind:"list",button:"Choose an option",sections:[{title:"Sold Direct",rows:[{id:"START",title:"List my property",description:"Build your listing in a few taps \u2014 live today."},{id:"HOW",title:"How it works",description:"The full journey, from listing to transfer."},{id:"COST",title:"What it costs",description:"How 0% commission works, and when it applies."},{id:"PRICE",title:"What\u2019s my home worth?",description:"Free price guidance from recent nearby sales."},{id:"CONSULT",title:"Talk to our team",description:"A member of our team calls you back."}]}]}}var V=/^\s*how\s*$/i,U=`Here\u2019s how Sold Direct works:
+
+1\uFE0F\u20E3 You list your property here on WhatsApp \u2014 a few taps, no forms.
+2\uFE0F\u20E3 We syndicate it and route buyer enquiries straight to you.
+3\uFE0F\u20E3 Buyers get bond pre-qualification in the chat, so you know who\u2019s real.
+4\uFE0F\u20E3 A registered property practitioner and our WhatsApp concierge handle the offer, FICA and transfer admin with you.
+
+It costs you 0% commission when you sell through our partners \u2014 on a R2.1m home, what a full-service sale (5\u20137% + VAT) would have cost is roughly R120 000\u2013R170 000. Prefer a full-service agent? That\u2019s a great choice too \u2014 we\u2019re built for sellers who want to do it themselves.
+
+Reply "list" whenever you\u2019re ready.`,j=/^\s*cost\s*$/i,z=`What Sold Direct costs you:
+
+\u{1F7E2} *0% commission* when you list exclusively with us for the agreed term and transact through our bond and legal partners. The bank pays us an origination fee on the buyer\u2019s bond, so you pay nothing.
+\u{1F535} *Flex \u2014 1%* of the sale price if you\u2019d rather keep full freedom, agreed upfront.
+
+For context, on a R2.1m home what a full-service sale (5\u20137% + VAT) would have cost is roughly R120 000\u2013R170 000. A full-service agent is a great choice for many sellers \u2014 we\u2019re built for those who want to sell direct themselves, with our practitioners handling the admin.
+
+No listing fee, no monthly fee, no lock-in beyond the term you choose.`;function q(){return{async estimate(t){let e=[...t.suburb.toLowerCase()].reduce((a,l)=>a+l.charCodeAt(0),0)+(t.bedrooms??2)*7,n=15e5+e%40*1e5+(t.bedrooms??2)*45e4,i=Math.round(n*.08),r=a=>Math.round(a/5e4)*5e4;return{lowZar:r(n-i),highZar:r(n+i),comparablesCount:8+e%7,source:"LOOM Property Insights"}}}}function X(t){return`\u{1F4A1} Price guidance: homes like yours recently sold for ${w(t.lowZar)}\u2013${w(t.highZar)} (based on confirmed sales via ${t.source}). The asking price is yours \u2014 reply CONSULT anytime for a free pricing chat with our team.`}var It=q(),Ot=/^\s*consult\s*$/i,Lt="\u{1F44D} Great \u2014 our team will WhatsApp you shortly for a free, no-obligation pricing chat about your home. The asking price is always yours; we bring the recent-sales data.",C={kind:"buttons",options:[{id:"START",title:"List my property"},{id:"HOW",title:"How it works"},{id:"COST",title:"What it costs"}]};function Dt(){let t=null;async function e(n,i){let r={...n.state};if(r.estimate===void 0&&i?.estimate!==void 0&&(r={...r,estimate:i.estimate}),n.completed||r.step!=="awaiting_price")return{...n,state:r,options:r.step==="awaiting_price"&&!n.completed?c(r.step,r):n.options};if(r.estimate===void 0){let l=null;try{l=await It.estimate({address:r.data.address,suburb:r.data.suburb??"",bedrooms:r.data.bedrooms,bathrooms:r.data.bathrooms})}catch{l=null}r={...r,estimate:l}}let a=r.estimate?X(r.estimate):"";return{...n,state:r,reply:a?`${n.reply}
+
+${a}`:n.reply,options:c(r.step,r)}}return{async send(n){let i=n.trim();if(!t){if(V.test(i))return{text:U,options:C};if(j.test(i))return{text:z,options:C};if(Ot.test(i))return{text:Lt,options:C};if(Y(i)){let a=L.test(i)?{title:i.replace(D,"").trim()}:{},l=await e(Z(a));return t=l.state,{text:l.reply,options:l.options}}return{text:K,options:G()}}let r=await e(H(t,i),t);return r.cancelled?(t=null,{text:r.reply}):r.completed?(t=null,{text:r.reply,options:r.options}):(t=r.state,{text:r.reply,options:r.options})},snapshot(){return t?{step:t.step,data:h(t.data)}:null},reset(){t=null}}}return it(Ct);})();
+
+</script>
+
+<script>
+  (function () {
+    var flow = SoldDirectFlow.createFlow();
+
+    var thread = document.getElementById('thread');
+    var entry = document.getElementById('entry');
+    var sendBtn = document.getElementById('send');
+    var composer = document.getElementById('composer');
+    var scrim = document.getElementById('scrim');
+    var sheet = document.getElementById('sheet');
+    var recordEl = document.getElementById('record');
+    var stepEl = document.getElementById('step');
+    var presence = document.getElementById('presence');
+
+    var FIELDS = [
+      ['propertyType', 'Type'],
+      ['title', 'Headline'],
+      ['suburb', 'Suburb'],
+      ['address', 'Address'],
+      ['priceZar', 'Asking price'],
+      ['bedrooms', 'Bedrooms'],
+      ['bathrooms', 'Bathrooms'],
+      ['exclusivityTermDays', 'Term'],
+      ['tier', 'Tier'],
+    ];
+
+    var rand = null; // the newest reply's options, the only live ones
+    var busy = false;
+
+    function clockNow() {
+      var d = new Date();
+      return (
+        String(d.getHours()).padStart(2, '0') +
+        ':' +
+        String(d.getMinutes()).padStart(2, '0')
+      );
+    }
+
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text !== undefined) n.textContent = text;
+      return n;
+    }
+
+    function addBubble(dir, text) {
+      var turn = el('div', 'turn ' + (dir === 'in' ? 'me' : 'them'));
+      var b = el('div', 'bubble', text);
+      b.appendChild(el('span', 'stamp', clockNow()));
+      turn.appendChild(b);
+      thread.appendChild(turn);
+      thread.scrollTop = thread.scrollHeight;
+    }
+
+    function showTyping() {
+      var turn = el('div', 'turn them typing');
+      turn.id = 'typing';
+      var b = el('div', 'bubble');
+      b.appendChild(el('i'));
+      b.appendChild(el('i'));
+      b.appendChild(el('i'));
+      turn.appendChild(b);
+      thread.appendChild(turn);
+      thread.scrollTop = thread.scrollHeight;
+      presence.textContent = 'typing…';
+    }
+
+    function clearTyping() {
+      var t = document.getElementById('typing');
+      if (t) t.remove();
+      presence.textContent = 'online';
+    }
+
+    function clearOptions() {
+      var stale = thread.querySelectorAll('.replies, .opener');
+      for (var i = 0; i < stale.length; i++) stale[i].remove();
+    }
+
+    function renderOptions(options) {
+      clearOptions();
+      rand = options || null;
+      if (!options) return;
+
+      if (options.kind === 'buttons') {
+        var wrap = el('div', 'replies');
+        options.options.forEach(function (o) {
+          var b = el('button', null, o.title);
+          b.type = 'button';
+          b.onclick = function () {
+            pick(o);
+          };
+          wrap.appendChild(b);
+        });
+        thread.appendChild(wrap);
+      } else {
+        var opener = el('button', 'opener');
+        opener.type = 'button';
+        opener.textContent = '☰  ' + (options.button || 'Choose');
+        opener.onclick = openSheet;
+        thread.appendChild(opener);
+      }
+      thread.scrollTop = thread.scrollHeight;
+    }
+
+    function openSheet() {
+      if (!rand || rand.kind !== 'list') return;
+      sheet.innerHTML = '';
+      var head = document.createElement('header');
+      head.appendChild(el('span', null, rand.button || 'Choose'));
+      var close = el('button', null, '✕');
+      close.type = 'button';
+      close.setAttribute('aria-label', 'Close');
+      close.onclick = closeSheet;
+      head.appendChild(close);
+      sheet.appendChild(head);
+
+      rand.sections.forEach(function (section) {
+        if (section.title) sheet.appendChild(el('div', 'group', section.title));
+        section.rows.forEach(function (row) {
+          var r = el('button', 'row');
+          r.type = 'button';
+          r.appendChild(el('b', null, row.title));
+          if (row.description) r.appendChild(el('span', null, row.description));
+          r.onclick = function () {
+            closeSheet();
+            pick(row);
+          };
+          sheet.appendChild(r);
+        });
+      });
+      scrim.hidden = false;
+      var first = sheet.querySelector('.row');
+      if (first) first.focus();
+    }
+
+    function closeSheet() {
+      scrim.hidden = true;
+    }
+
+    scrim.addEventListener('click', function (e) {
+      if (e.target === scrim) closeSheet();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeSheet();
+    });
+
+    /* A tap sends the option's id — exactly what WhatsApp delivers as
+       `replyId` — while the bubble shows the label the seller saw. */
+    function pick(option) {
+      turn(option.id, option.title);
+    }
+
+    function money(n) {
+      return 'R' + Number(n).toLocaleString('en-ZA').replace(/,/g, ' ');
+    }
+
+    function paint() {
+      var snap = flow.snapshot();
+      var data = (snap && snap.data) || {};
+      stepEl.textContent = snap
+        ? String(snap.step).replace(/_/g, ' ')
+        : 'no conversation';
+      stepEl.className = 'chip' + (snap ? ' on' : '');
+
+      recordEl.innerHTML = '';
+      FIELDS.forEach(function (pair) {
+        var key = pair[0];
+        var value = data[key];
+        var li = el('li');
+        var shown;
+        if (value === undefined || value === null || value === '') {
+          li.className = 'empty';
+          shown = '—';
+        } else {
+          li.className = 'set';
+          if (key === 'priceZar') shown = money(value);
+          else if (key === 'exclusivityTermDays') shown = value + ' days';
+          else shown = String(value);
+        }
+        li.appendChild(el('dfn', null, pair[1]));
+        li.appendChild(el('var', null, shown));
+        recordEl.appendChild(li);
+      });
+    }
+
+    async function turn(payload, label) {
+      if (busy) return;
+      busy = true;
+      sendBtn.disabled = true;
+      clearOptions();
+      addBubble('in', label !== undefined ? label : payload);
+
+      showTyping();
+      await new Promise(function (r) {
+        setTimeout(r, 420);
+      });
+
+      var reply;
+      try {
+        reply = await flow.send(payload);
+      } catch (err) {
+        reply = {
+          text: 'Something went wrong in the flow — tap Restart to begin again.',
+        };
+      }
+      clearTyping();
+      addBubble('out', reply.text);
+      renderOptions(reply.options);
+      paint();
+
+      busy = false;
+      sendBtn.disabled = false;
+      entry.focus();
+    }
+
+    composer.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var text = entry.value.trim();
+      if (!text) return;
+      entry.value = '';
+      turn(text);
+    });
+
+    document.getElementById('reset').addEventListener('click', function () {
+      flow.reset();
+      thread.innerHTML = '';
+      rand = null;
+      closeSheet();
+      paint();
+      entry.focus();
+      addBubble(
+        'out',
+        'Chat cleared. Send “list” to start the seller journey again.',
+      );
+    });
+
+    paint();
+    addBubble(
+      'out',
+      'This is the Sold Direct seller line. Send “list” to begin.',
+    );
+    entry.focus();
+  })();
+</script>
+</body>
+</html>

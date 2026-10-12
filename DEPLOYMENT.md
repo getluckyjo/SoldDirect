@@ -116,6 +116,23 @@ After deploy you'll have three URLs (e.g. `dashboard.vercel.app`,
 `marketing.vercel.app`, `invest.vercel.app`). Point your real domains at them
 later.
 
+**Investor site domain.** `invest.solddirect.co.za` is attached to the
+Fundraising project on Vercel. DNS for `solddirect.co.za` lives on Cloudflare,
+so the record is a CNAME there: `invest` → `cname.vercel-dns.com`, proxy off
+(DNS only), the same shape as `www`. The site's canonical URL defaults to
+`https://invest.solddirect.co.za` (`NEXT_PUBLIC_SITE_URL` overrides it).
+
+**The hands-on demo on the investor site.** `/try` serves the standalone build
+of the seller-intake flow (the same generator as the marketing site's
+`/demo.html`). Regenerate it whenever the intake flow changes:
+
+```sh
+pnpm --filter @sell-direct/api build:demo:fundraising   # → apps/fundraising/content/try.html
+pnpm --filter @sell-direct/api build:demo:marketing     # → apps/marketing/public/demo.html
+```
+
+Both outputs are committed; Prettier ignores them.
+
 ## 4. WhatsApp webhook (when going live)
 
 1. In the Meta WhatsApp app (or your BSP), set the webhook URL to

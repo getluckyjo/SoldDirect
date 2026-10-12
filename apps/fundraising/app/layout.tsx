@@ -5,7 +5,7 @@ import './globals.css';
 // Used for absolute OpenGraph URLs. Override with NEXT_PUBLIC_SITE_URL when
 // the investor site's final domain is confirmed.
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://investors.solddirect.co.za';
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://invest.solddirect.co.za';
 
 const TITLE = 'Sold Direct — Investor Overview · R5m Seed';
 const DESCRIPTION =
