@@ -78,6 +78,22 @@ export const DATAROOM_ENTRIES: DataroomEntry[] = [
     kind: 'doc',
   },
   {
+    slug: 'marketing-deck-web',
+    file: 'marketing-deck.html',
+    title: 'Go-to-market deck (web version)',
+    blurb: 'The same deck as a web page.',
+    kind: 'html',
+    hidden: true,
+  },
+  {
+    slug: 'marketing-deck',
+    file: 'marketing-deck.pdf',
+    title: 'Go-to-market deck',
+    blurb:
+      'Ten slides: the message, the audience, the funnel, five campaigns in sequence, channels, what the marketing rand buys, targets and triggers, brand, risks.',
+    kind: 'pdf',
+  },
+  {
     slug: 'model',
     file: 'sold-direct-model.xlsx',
     title: 'Excel model (CA-reviewed)',
