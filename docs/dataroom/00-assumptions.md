@@ -39,7 +39,7 @@ used on the marketing site consistent with the launch customer.
 average transacting price from R6.5m (Y1) to R4.0m (Y5)** — landing at prime and **broadening into
 the upper-market (>~R4m)** as the brand scales. This lowers revenue/deal but expands the
 addressable pool from ~14k prime (>R5m) to ~35k upper-market, cutting the implied Y5 share from
-**~21% to ~8.3%** (see `03-market-sizing.md`). Bonded share is held at **~40–42%** (upper-market
+**~21% to ~4.1%** (see `03-market-sizing.md`). Bonded share is held at **~40–42%** (upper-market
 skews cash). Price/bonded inputs are live on the Assumptions tab (C15:G15 / C16:G16).
 
 ## B. Bond financing (the revenue multiplier)
@@ -115,14 +115,15 @@ steering).
 | One-off setup / licensing (Y2 only) | **~R1.5m** | accreditation, systems, bank onboarding | Low |
 
 > Net effect (base): the Year-2 origination uplift outweighs the added cost + setup; with the
-> conveyancing referral removed (LPC) and tax applied, **Y5 revenue is ~R162.3m** and the
-> cumulative after-tax cash low-point is **~−R0.4m (Y1, annual proxy)** under the bootstrap
-> operating stance (§D; ~−R4.5m before it), with EBITDA-positive brought forward to **Y2**.
+> conveyancing referral removed (LPC), tax applied and the **deal ramp halved from Y2 (Oct
+> 2026)**, **Y5 revenue is ~R86.4m** and the cumulative after-tax cash low-point is **~−R1.1m
+> (Y2, annual proxy)** under the bootstrap operating stance (§D), with EBITDA-positive in **Y3**.
 
 **Reinvest-for-growth stance.** The base case **reinvests the high gross margin into above-the-line
-(brand) marketing** — R2.5m (Y1) rising to **R50m (Y5)**, ~40% of revenue early easing to ~24% —
-to drive the deal ramp (50 → 2,900 registered deals by Y5). This trades the lean model's ~68%
-margin for a **~48% margin at ~2× the revenue**, and tests as a deliberate growth choice. The
+(brand) marketing** — R2.5m (Y1) rising to **R25m (Y5)**, ~40% of revenue early easing to ~29% —
+to drive the deal ramp (50 → 1,450 registered deals by Y5, halved from the earlier 2,900 in Oct
+2026 so the plan is sized to what the founders will defend). This trades margin for scale and
+tests as a deliberate growth choice. The
 ATL→deals conversion is an assumption to **validate with a pilot** before relying on it.
 
 **Ancillary / ecosystem revenue (optional — the database value).** Owning the homeowner
@@ -136,11 +137,11 @@ they already sit in the core model.
 ## D. Cost inputs
 
 **CA-review additions:** SA **corporate tax at 27%** applied to positive EBITDA (no loss
-carry-forward modelled — conservative); **total headcount doubled to 96 by Y5** (50% AI) for
-delivery-realistic capacity; a **cash-runway check** on the Scenarios tab confirms the R5m seed
-covers the trough in every scenario (annual-proxy minimum cash ~+R4.6m base, ~+R3.2m
-conservative; ~R2m less on a monthly view; see `02-capital-and-valuation.md` §1) with Series A
-at Y3 optional.
+carry-forward modelled — conservative); delivery-realistic **total headcount of 48 by Y5** (50%
+AI; halved with the ramp from the CA-reviewed 96); a **cash-runway check** on the Scenarios tab
+confirms the R5m seed covers the trough in every scenario (annual-proxy minimum cash ~+R3.9m
+base, ~+R3.5m conservative; ~R2m less on a monthly view; see `02-capital-and-valuation.md` §1)
+with Series A at Y3 optional.
 
 **Bootstrap operating stance (Y1–Y2) — Oct 2026.** The pre-breakeven period runs on a
 **four-person team** so the R5m seed clears the conservative trough with headroom. Three
@@ -149,13 +150,14 @@ measures, all on the cost base and none on revenue, marketing or the regulatory 
 
 | Measure | Y1 | Y2 | Rel. |
 |---|---:|---:|---|
-| **Four-person team at R150k/month** (R1.80m/yr + ~R0.05m statutory): Managing Director R50k · Marketing Director R50k · principal practitioner & compliance R30k · agent/admin R20k. Founders below market, carrying all marketing, management, dealmaking, bookkeeping and tech support. Y2 adds two practitioners (R30k) and two agent/admin (R20k) against signed mandates → 8 heads, R3.05m | −R1.55m | −R3.05m | High — founder-stated |
+| **Four-person team at R150k/month** (R1.80m/yr + ~R0.05m statutory): Managing Director R50k · Marketing Director R50k · principal practitioner & compliance R30k · agent/admin R20k. Founders below market, carrying all marketing, management, dealmaking, bookkeeping and tech support. Y2 adds one practitioner (R30k) and one agent/admin (R20k) against signed mandates → 6 heads, R2.29m | −R1.55m | −R3.80m | High — founder-stated |
 | Remote-first, no office lease (co-working passes; viewings at the property) | −R0.25m | −R0.15m | High |
 | Paysoft free-development allocation + cloud/BSP startup credits carry the build and tooling | −R0.15m | −R0.10m | Medium — tied to the Paysoft terms |
-| **Total opex saving** | **−R1.95m** | **−R3.30m** | |
+| **Total opex saving** | **−R1.95m** | **−R4.05m** | |
 
-Bootstrapped Y1–Y2 opex: **R5.85m / R16.63m** (was R7.80m / R19.93m); Y2 turns EBITDA-positive.
-Y3 onward is unchanged (22 heads, founders to market pay). The statutory on-costs (UIF, SDL,
+Bootstrapped Y1–Y2 opex: **R5.85m / R11.60m** (was R7.80m / R19.93m before the stance and the
+halved ramp); Y3 turns EBITDA-positive. Y3 onward follows the halved ramp (11 heads, founders
+to market pay). The statutory on-costs (UIF, SDL,
 COIDA) are small at this payroll size; no 13th cheque or benefits are modelled for Y1–Y2.
 
 **COGS — bottom-up (validates the ~12%; gross margin now *derived*).** Rather than assume a flat

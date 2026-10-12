@@ -11,22 +11,21 @@ free-development allocation to an agreed value**, vesting as that value is deliv
 
 Under the **bootstrap operating stance** for Y1–Y2 (a four-person team at R150k/month with the
 founders at R50k each carrying marketing, management, dealmaking, bookkeeping and tech support;
-remote-first; Paysoft free-development allocation — `01-financial-model.md` §3; ~R5.25m of opex
+remote-first; Paysoft free-development allocation — `01-financial-model.md` §3; ~R6.0m of opex
 saved before tax, none of it from revenue, marketing or compliance) the model turns
-**EBITDA-positive in Y2** and the annual cumulative after-tax cash low-point is **≈ −R0.4m
-(Y1)**. On a monthly view the Y1 trough is deeper — **roughly −R2m to −R3m** while the team and
-launch marketing run ahead of the first registrations. What the R5m seed leaves at the lowest
-point:
+**EBITDA-positive in Y3** and the annual cumulative after-tax cash low-point is **≈ −R1.1m
+(Y2)** on the halved ramp (Oct 2026). On a monthly view the trough is deeper — **roughly −R3m**
+while the team and launch marketing run ahead of registrations. What the R5m seed leaves at the
+lowest point:
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
-| Cumulative cash low-point, annual proxy (bootstrap stance) | ~R1.8m (Y3) | **~R0.4m (Y1)** | ~R0.02m |
-| *(before the stance)* | *~R5.7m* | *~R4.5m* | *~R2.5m* |
-| **Minimum cash with the R5m seed** (annual proxy) | **~+R3.2m** | **~+R4.6m** | ~+R5.0m |
-| Minimum cash on a monthly view (≈ R2m lower) | **~+R1m** | **~+R2.5m** | ~+R3m |
+| Cumulative cash low-point, annual proxy (bootstrap stance) | ~R1.5m (Y3) | **~R1.1m (Y2)** | ~R0.02m |
+| **Minimum cash with the R5m seed** (annual proxy) | **~+R3.5m** | **~+R3.9m** | ~+R5.0m |
+| Minimum cash on a monthly view (≈ R2m lower) | **~+R1.5m** | **~+R2m** | ~+R3m |
 
 Live on the Scenarios tab of the workbook. The seed clears the trough in **all three
-scenarios**, the conservative case with at least ~R1m to spare on the monthly view, so no
+scenarios**, the conservative case with about R1.5m to spare on the monthly view, so no
 top-up, bridge or earlier Series A is required for survival. The balance of the seed is growth
 capital: it funds the Cape Town launch campaign and lets Y2 marketing scale ahead of revenue.
 
@@ -35,14 +34,14 @@ capital: it funds the Cape Town launch campaign and lets Y2 marketing scale ahea
 | Round | Timing | Amount | Pre-money | Stake | Use of funds |
 |---|---|---:|---:|---:|---|
 | **Seed (Strategic Funder)** | Inception | **R5m (~$0.27m)** | **R20m** | **20%** | CT launch + brand campaign, practitioners + concierge team, origination accreditation, integrations (see Use of Funds tab) |
-| **Series A** | *Y3, optional* | R50m | R250m | 16.7% | Fuel on a proven engine; national upper-market rollout |
+| **Series A** | *Y3, optional* | R25m | R125m | 16.7% | Fuel on a proven engine; national upper-market rollout |
 
 Post-money **R25m**. The round was **cut from R10m at R30m pre-money (25%) to R5m at R20m
 pre-money (20%) in Oct 2026** — a leaner seed that prices the company lower but gives up less
 of it.
 
 **Runway check (live on the Scenarios tab):** with the R5m seed injected at Y1 and Series A at
-Y3, the minimum cash position across Y1–Y5 is **~+R4.6m in the base case and ~+R3.2m in the
+Y3, the minimum cash position across Y1–Y5 is **~+R3.9m in the base case and ~+R3.5m in the
 conservative case on the annual proxy (~R2m lower on a monthly view)** — the seed alone covers
 the trough in every scenario. The Series A is offence, not survival. The seed is deployed in two
 milestone tranches (`04-indicative-term-sheet.md`) so the spend tracks the ramp, and every hire
@@ -53,20 +52,20 @@ beyond the founding four is released only against signed mandates.
 ### a) Revenue-multiple (comps)
 
 Global proptech ~**8.8× EV/revenue** (Finro 2025); discount to **~4–6×** for SA early-stage. The
-CA-reviewed model pairs high growth with a deliberately conservative **~17% Y5 EBITDA margin**
+CA-reviewed model pairs high growth with a deliberately conservative **~14% Y5 EBITDA margin**
 (real headcount, tax, no LPC-prohibited revenue) — numbers built to survive diligence.
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
-| Y5 revenue | R102.0m | **R162.3m** | R287.0m |
-| × 4–6× | R408–612m | **R649–974m** | R1.15–1.72bn |
+| Y5 revenue | R56.2m | **R86.4m** | R148.7m |
+| × 4–6× | R225–337m | **R345–518m** | R595–892m |
 
 ### b) VC method (work back from an exit)
 
-- Base Y5 revenue **R162.3m** → exit enterprise value **~R811m** at the model's 5× base multiple
+- Base Y5 revenue **R86.4m** → exit enterprise value **~R432m** at the model's 5× base multiple
   (editable input, Assumptions C75).
-- The seed investor's **20% (16.7% post-A)** of a ~R811m outcome ≈ **R135m on R5m invested —
-  ~27×** (with dilution). Lead with the revenue line and the ~8% market share, not the multiple.
+- The seed investor's **20% (16.7% post-A)** of a ~R432m outcome ≈ **R72m on R5m invested —
+  ~14×** (with dilution). Lead with the revenue line and the ~4% market share, not the multiple.
 
 ### c) Why the pre-money is well-supported
 
@@ -91,7 +90,7 @@ to an agreed value:
 | Option pool (reserved, unissued) | 4.0% | 3.3% |
 | Board seat (reserved — non-executive strategic) | 1.0% | 0.8% |
 | Strategic Funder / Seed Investor (R5m) | **20.0%** | 16.7% |
-| Series A Investor (R50m) | — | 16.7% |
+| Series A Investor (R25m) | — | 16.7% |
 | **Total** | **100%** | **100%** |
 
 The Oct 2026 cut of the seed stake from 25% to 20% accrues to the founders (30% → 32.5% each);
@@ -102,16 +101,16 @@ non-executive seat prices at 0.25–1.5% on market terms; the balance moved to a
 pool** for the early team — including the principal property practitioner who enables the
 firm's Fidelity Fund Certificate (see `05-regulatory-status.md`).
 
-### Value at the base-case exit (~R811m EV, 5× Y5 revenue)
+### Value at the base-case exit (~R432m EV, 5× Y5 revenue)
 
 | Holder | Invested | Value @ Exit | Multiple |
 |---|---:|---:|---:|
-| Each working founder (×2) | sweat | **~R220m** | — |
-| Paysoft | dev delivery (vesting) | ~R68m | — |
-| Option pool (reserved) | team | ~R27m | — |
-| Board seat (reserved) | board | ~R7m | — |
-| Strategic Funder / Seed | R5m | **~R135m** | **~27×** |
-| Series A | R50m | ~R135m | ~2.7× |
+| Each working founder (×2) | sweat | **~R117m** | — |
+| Paysoft | dev delivery (vesting) | ~R36m | — |
+| Option pool (reserved) | team | ~R14m | — |
+| Board seat (reserved) | board | ~R4m | — |
+| Strategic Funder / Seed | R5m | **~R72m** | **~14×** |
+| Series A | R25m | ~R72m | ~2.9× |
 
 ## 4. The Purplebricks guardrail — and why the taper sidesteps it
 
@@ -129,7 +128,7 @@ Model-grade, not yet audit-grade. Confirm the highest-leverage inputs first:
 2. **Conveyancer panel-advertising subscriptions** (R0.36m→R2.4m) — confirm appetite and LPC-safe
    structuring with a panel firm; the consumer fee-discount pass-through too.
 3. The **0.5% Y1 referral share** with BetterBond.
-4. **Upper-market (>~R4m) transfer counts** to firm the ramp and the ~8% share.
+4. **Upper-market (>~R4m) transfer counts** to firm the ramp and the ~4% share.
 5. **Bonded share** across the taper (we assume ~40–42% — confirm; prime skews cash).
 
 See `00-assumptions.md §F`. None changes the model's shape; they sharpen individual lines.

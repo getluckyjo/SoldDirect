@@ -87,8 +87,8 @@ story = [
         'prime Cape Town. The money comes from bond origination (in-house, '
         'direct with the banks, from Year 2), a 1% facilitation fee, bank '
         'sponsorship and fixed conveyancer panel advertising. Our '
-        'CA-reviewed base case runs <b>R6.1m (Y1) → R162.3m (Y5)</b>, '
-        'EBITDA-positive in Year 2, with a <b>R5m strategic seed '
+        'CA-reviewed base case runs <b>R6.1m (Y1) → R86.4m (Y5)</b>, '
+        'EBITDA-positive in Year 3, with a <b>R5m strategic seed '
         'at a R20m pre-money valuation</b>. And it’s not a slide deck — the core product is '
         'live: the WhatsApp transaction loop, the deal tracker, an internal '
         'dashboard and two public sites, typed end-to-end and CI-gated with '
@@ -106,7 +106,7 @@ story = [
          'Your DebiCheck/debit-order and bulk-EFT rails are exactly the '
          'collections layer the platform needs: the 1% Flex fee, add-on '
          'services, and recurring conveyancer panel-advertising '
-         'subscriptions. We bring transaction volume — 2,900 deals/yr by '
+         'subscriptions. We bring transaction volume — 1,450 deals/yr by '
          'Year 5 plus a ~R50k/customer ecosystem menu; you bring the rails '
          'and earn on every movement.'),
         ('ID verification',
@@ -154,8 +154,8 @@ story = [
                            'transaction fees on everything that moves — '
                            'collections, payouts and subscriptions across '
                            'the property ecosystem'),
-        ('The upside', 'Our base-case model puts 10% at <b>~R68m</b> at a '
-                       '~R811m Year-5 exit (8.3% post-Series A). '
+        ('The upside', 'Our base-case model puts 10% at <b>~R36m</b> at a '
+                       '~R432m Year-5 exit (8.3% post-Series A). '
                        'Model-grade, happily interrogated.'),
     ], key_w=30),
 

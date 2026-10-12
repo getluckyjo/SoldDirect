@@ -49,9 +49,10 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
 
 ## Headlines (base case)
 
-- **Revenue:** R6.1m (Y1) → **R162.3m (Y5)**; **EBITDA-positive in Y2** under the bootstrap
-  stance, **~17% margin** by Y5 (CA-reviewed: 27% tax, delivery-realistic headcount of 96 from a
-  four-person Y1 team, conveyancing referral removed per LPC).
+- **Revenue:** R6.1m (Y1) → **R86.4m (Y5)**; **EBITDA-positive in Y3** under the bootstrap
+  stance, **~14% margin** by Y5 (CA-reviewed: 27% tax, delivery-realistic headcount of 48 from a
+  four-person Y1 team, conveyancing referral removed per LPC; the deal ramp from Y2 was halved in
+  Oct 2026 so the plan is sized to what the founders will defend).
 - **Model:** **~R52–71k per deal** — origination (0.5% BetterBond referral in Y1, **~1.5% in-house from
   Y2**) *or* 1% fee, + add-ons — plus **bank sponsorship (R3→8m/yr)** and **conveyancer panel
   advertising (R0.36→2.4m/yr, fixed subscriptions — no referral fees, per LPC)**.
@@ -59,23 +60,23 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
   ~12% of revenue (~88% gross margin) input — itemised, not assumed (COGS Build tab).
 - **In-house origination (from Y2):** working directly with the banks ~3×'s the bond take per
   qualifying deal; modelled with its own cost line + a one-off Y2 setup.
-- **Market share:** the taper keeps the implied Y5 share at **~8.3% of the upper-market** (vs ~21%
+- **Market share:** the taper keeps the implied Y5 share at **~4.1% of the upper-market** (vs ~21%
   prime-only) — a defensible ask.
 - **The database:** each customer unlocks **~R50k of ecosystem referral revenue**; modelled optional
   (~R5k/deal captured, default off).
 - **Capital:** Y1–Y2 run on a **bootstrap operating stance** — a four-person team at
   R150k/month (founders at R50k each carrying marketing, management, dealmaking, bookkeeping and
   tech support; principal practitioner & compliance R30k; agent/admin R20k), remote-first,
-  Paysoft free-development allocation; ~R5.25m of opex saved before tax, none from revenue or
-  marketing. The annual cash trough is **≈ −R0.4m base / ≈ −R1.8m conservative** (roughly R2m
+  Paysoft free-development allocation; ~R6.0m of opex saved before tax, none from revenue or
+  marketing. The annual cash trough is **≈ −R1.1m base / ≈ −R1.5m conservative** (roughly R2m
   deeper on a monthly view). The **R5m seed (at R20m pre-money, 20%)** covers the trough in every
-  scenario with ≥ ~R1m to spare in the conservative case; the balance is launch and growth
+  scenario with ~R1.5m to spare in the conservative case; the balance is launch and growth
   capital (runway check on the Scenarios tab). Deployed in two milestone tranches.
-- **Valuation:** Year-5 enterprise value **~R649–974m** (4–6×); base exit **~R811m** (5×).
+- **Valuation:** Year-5 enterprise value **~R345–518m** (4–6×); base exit **~R432m** (5×).
 - **Cap table:** **Johannes le Roux 32.5% · Dean Kruger 32.5% · Paysoft (technology partner,
   vesting) 10% · option pool (reserved) 4% · board seat (reserved, non-executive) 1% · Strategic
   Funder 20% (R5m)** at inception → post-optional-Series-A: 27.1 / 27.1 / 8.3 / 3.3 / 0.8 / 16.7 /
-  16.7; the **seed models ~27×** to the base-case exit.
+  16.7; the **seed models ~14×** to the base-case exit.
 - **⚠ Validate** the in-house origination terms (bank agreements + accreditation), the ATL→deals
   conversion, and the upper-market pool count with a pilot.
 - **⚠ Gating:** property practitioner registration + FFC are **not yet in place**; no mandate can
