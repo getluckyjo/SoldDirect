@@ -737,17 +737,26 @@ export function renderSummary(draft: ListingDraft): string {
   );
 }
 
+/** What buyers look for — the shot list we ask every seller for. */
+export const PHOTO_GUIDE =
+  '• the front of the home\n' +
+  '• the living area and the kitchen\n' +
+  '• the main bedroom and a bathroom\n' +
+  '• the garden, pool, balcony or view, if you have one';
+
 // The listing pends until the first photo arrives (portals effectively
-// require photos); the celebratory copy + Cape Town CERTS pitch moved to the
-// activation message in photos.ts. Description is optional and SKIP-able.
+// require photos). Photos come first: once they are in, one tap has the
+// description written from what they show (description.ts); the certificates
+// pitch follows once the description is settled.
 function pendingReply(completed: ListingDraft): string {
   return (
     `Perfect — your listing "${completed.title}" in ${completed.suburb} at ` +
-    `${formatPriceZar(completed.priceZar)} is confirmed!\n\n` +
-    `📝 Optional: a short description buyers will read. I can draft one from ` +
-    `your details — you approve it before anything is saved.\n` +
-    `📸 Then send 5–10 photos whenever you're ready — your listing goes live ` +
-    `the moment your first photo arrives.`
+    `${formatPriceZar(completed.priceZar)} is confirmed! 🎉\n\n` +
+    `📸 Now send 5–10 photos — your listing goes live with the first one. ` +
+    `Buyers look for:\n${PHOTO_GUIDE}\n` +
+    `Tip: daylight, lights on, phone sideways, and a quick tidy first.\n\n` +
+    `✍️ Once your photos are in, I’ll write your description from what they ` +
+    `show — you approve it before anything is saved.`
   );
 }
 
@@ -895,7 +904,6 @@ export function advanceIntake(
       return {
         state: { step: 'completed', data: published },
         reply: pendingReply(completed),
-        options: DESCRIPTION_OPTIONS,
         completed,
       };
     }

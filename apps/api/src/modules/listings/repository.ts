@@ -53,6 +53,10 @@ export interface ListingRepository {
     estimate: { lowZar: number; highZar: number; source: string },
   ): Promise<void>;
   getForSyndication(listingId: string): Promise<SyndicationListing | null>;
+  /** The listing's photos in order (storage keys), for the description writer. */
+  listPhotos(
+    listingId: string,
+  ): Promise<{ storagePath: string; mimeType: string }[]>;
   /**
    * The facts the description drafter may use — deliberately only what the
    * seller told us, so a draft can never introduce a feature they didn't
@@ -210,6 +214,15 @@ export function createPrismaListingRepository(
         priceZar: Number(listing.priceZar),
         photoCount: listing._count.photos,
       };
+    },
+
+    async listPhotos(listingId) {
+      return prisma.listingPhoto.findMany({
+        where: { listingId },
+        select: { storagePath: true, mimeType: true },
+        orderBy: { sortOrder: 'asc' },
+        take: 10,
+      });
     },
 
     async getForSyndication(listingId) {

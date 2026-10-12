@@ -44,6 +44,10 @@ export function createLocalStorageProvider(
     async getUploadUrl() {
       throw new Error('signed uploads are not supported by local storage');
     },
+
+    async getObject({ bucket, path }) {
+      return readLocalObject(config.baseDir, bucket, path);
+    },
   };
 }
 
