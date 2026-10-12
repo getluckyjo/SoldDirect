@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en-ZA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sold Direct — Go-to-market</title>
+    <style>
+      :root {
+        --navy: #0b172b;
+        --navy2: #060d1a;
+        --green: #36b44a;
+        --green2: #2c9940;
+        --sky: #8aaacb;
+        --sky2: #6f94b8;
+        --ink: #0f172a;
+        --body: #334155;
+        --muted: #64748b;
+        --hair: #e2e8f0;
+        --amber: #f59e0b;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        background: #0f172a;
+      }
+      body {
+        font:
+          15px/1.45 system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+        color: var(--body);
+        padding: 24px 0;
+      }
+      .slide {
+        width: 1280px;
+        height: 720px;
+        margin: 0 auto 24px;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+        padding: 56px 72px 48px;
+        page-break-after: always;
+        break-after: page;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+      }
+      .slide.dark {
+        background: var(--navy);
+        color: #cbd5e1;
+      }
+      .slide.dark h1,
+      .slide.dark h2,
+      .slide.dark h3 {
+        color: #fff;
+      }
+      .top {
+        position: absolute;
+        top: 28px;
+        left: 72px;
+        right: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .dark .top {
+        color: var(--sky);
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        color: var(--navy);
+      }
+      .dark .brand {
+        color: #fff;
+      }
+      .brand svg {
+        height: 18px;
+        width: auto;
+        display: block;
+      }
+      .foot {
+        position: absolute;
+        bottom: 22px;
+        left: 72px;
+        right: 72px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .dark .foot {
+        color: var(--sky2);
+      }
+      .kicker {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--green2);
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      .dark .kicker {
+        color: var(--sky);
+      }
+      h1 {
+        font-size: 46px;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        font-weight: 800;
+        max-width: 900px;
+      }
+      h2 {
+        font-size: 34px;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        font-weight: 800;
+        margin-bottom: 22px;
+      }
+      h3 {
+        font-size: 17px;
+        color: var(--ink);
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      p {
+        max-width: 980px;
+      }
+      .lead {
+        font-size: 19px;
+        color: var(--body);
+        margin-top: 18px;
+        max-width: 860px;
+      }
+      .dark .lead {
+        color: #cbd5e1;
+      }
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+      .g2 {
+        grid-template-columns: 1fr 1fr;
+      }
+      .g3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .g4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .g5 {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .card {
+        border: 1px solid var(--hair);
+        border-radius: 14px;
+        padding: 18px 20px;
+        background: #fff;
+      }
+      .dark .card {
+        border-color: rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .card .n {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--sky2);
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .card p {
+        font-size: 13.5px;
+        line-height: 1.45;
+      }
+      .card .when {
+        margin-top: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .dark .card .when {
+        color: var(--sky);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13.5px;
+      }
+      th {
+        text-align: left;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 8px 10px;
+        border-bottom: 2px solid var(--hair);
+      }
+      td {
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--hair);
+        vertical-align: top;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+      .dark th {
+        color: var(--sky);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      .dark td {
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+      .big {
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+      .dark .big {
+        color: #fff;
+      }
+      .small {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .dark .small {
+        color: var(--sky);
+      }
+      .green {
+        color: var(--green2);
+      }
+      .dark .green {
+        color: #57c468;
+      }
+      .rule {
+        height: 3px;
+        background: var(--green);
+        width: 64px;
+        margin: 0 0 22px;
+      }
+      ol.steps {
+        counter-reset: s;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      ol.steps li {
+        counter-increment: s;
+        border-top: 3px solid var(--green);
+        padding-top: 12px;
+        font-size: 13.5px;
+      }
+      ol.steps li::before {
+        content: 'P' counter(s, decimal);
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--green2);
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      ol.steps li b {
+        display: block;
+        color: var(--ink);
+        margin-bottom: 4px;
+        font-size: 15px;
+      }
+      .quote {
+        font-size: 26px;
+        line-height: 1.3;
+        color: #fff;
+        font-weight: 700;
+        max-width: 980px;
+      }
+      .pill {
+        display: inline-block;
+        border: 1px solid var(--green);
+        color: var(--green2);
+        border-radius: 999px;
+        padding: 2px 10px;
+        font-size: 12px;
+        margin: 0 6px 6px 0;
+      }
+      .dark .pill {
+        border-color: rgba(87, 196, 104, 0.6);
+        color: #82d492;
+      }
+      .bar {
+        display: flex;
+        align-items: flex-end;
+        gap: 22px;
+        height: 200px;
+        margin-top: 12px;
+      }
+      .bar div {
+        flex: 1;
+        background: var(--green);
+        border-radius: 6px 6px 0 0;
+        position: relative;
+      }
+      .bar div span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -22px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .bar div em {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -22px;
+        text-align: center;
+        font-size: 12px;
+        font-style: normal;
+        color: var(--muted);
+      }
+      @media print {
+        html,
+        body {
+          background: #fff;
+          padding: 0;
+        }
+        .slide {
+          margin: 0;
+          box-shadow: none;
+        }
+        @page {
+          size: 1280px 720px;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="slide dark">
+      <div class="top">
+        <span class="brand">Sold Direct</span
+        ><span>Confidential · Prospective investors under NDA</span>
+      </div>
+      <div style="position: absolute; left: 72px; top: 200px; right: 72px">
+        <div class="kicker">Go-to-market</div>
+        <h1 style="color: #fff; font-size: 56px; max-width: 1000px">
+          Launching Sold Direct in Cape Town: the campaigns behind the deal
+          ramp.
+        </h1>
+        <p class="lead">
+          What we say, who hears it first, the campaigns in sequence, what the
+          marketing rand buys, and the numbers that tell us to scale or stop.
+        </p>
+      </div>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>October 2026</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>The message</span>
+      </div>
+      <div class="kicker">One message, in one order</div>
+      <h2>The whole sale, run for you. At 0%.</h2>
+      <div class="grid g3">
+        <div class="card">
+          <div class="n">1 · What we are</div>
+          <h3>The whole sale, run for you</h3>
+          <p>
+            An agency-grade listing on Property24 and every step to registration
+            handled: pricing, viewings, the offer, bond, FICA and transfer. Not
+            a DIY ad.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">2 · The promise</div>
+          <h3>0% commission to the seller</h3>
+          <p>
+            The banks pay us, not the seller, on the qualifying path (90-day
+            exclusive mandate, bond through our partner, panel conveyancer). The
+            1% Flex fee is always disclosed.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">3 · The reassurance</div>
+          <h3>Guided and compliant</h3>
+          <p>
+            A WhatsApp concierge and registered property practitioners from
+            mandate to registration. Audited trust accounts, verified market
+            numbers, privacy by design.
+          </p>
+        </div>
+      </div>
+      <p class="lead" style="margin-top: 26px">
+        <b>The line:</b> “Your home on Property24, agency-grade — and the whole
+        sale run for you at 0%.”
+      </p>
+      <p class="small" style="margin-top: 14px">
+        Never anti-agent. Full-service agents remain the right choice for most
+        sellers; we serve the segment who choose to sell direct. Savings are
+        framed as what the seller keeps, never as someone else's fee.
+      </p>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>2</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>The audience</span>
+      </div>
+      <div class="kicker">Who hears it first</div>
+      <h2>Prime Cape Town sellers, and the neighbours who are next.</h2>
+      <div class="grid g2">
+        <div>
+          <h3>Launch pockets</h3>
+          <p>
+            Atlantic Seaboard · City Bowl · Southern Suburbs · Constantia.
+            Transacting prices of R6–7m are normal here, the bond is large, and
+            the sale is referral- and reputation-driven: the lowest acquisition
+            cost in the market.
+          </p>
+          <h3 style="margin-top: 18px">The seller we serve</h3>
+          <p>
+            Owners who want to sell direct and do the work themselves, who today
+            choose between a full-service mandate and running a R6m transaction
+            alone after a flat-fee portal ad.
+          </p>
+          <h3 style="margin-top: 18px">The second audience</h3>
+          <p>
+            Every live listing is seen by the street. The neighbour watching the
+            board and the sold-direct story is the next mandate.
+          </p>
+        </div>
+        <div class="card" style="background: #f8fafc">
+          <div class="n">The taper</div>
+          <p>
+            We land at prime and broaden into the upper-market (above ~R4m) as
+            the brand earns trust: the average transacting price moves from
+            R6.5m in Year 1 to R4.0m in Year 5, growing the pool from ~14,000
+            prime transfers a year to ~35,000.
+          </p>
+          <table style="margin-top: 14px">
+            <tr>
+              <th></th>
+              <th class="num">Y1</th>
+              <th class="num">Y3</th>
+              <th class="num">Y5</th>
+            </tr>
+            <tr>
+              <td>Average transacting price</td>
+              <td class="num">R6.5m</td>
+              <td class="num">R5.0m</td>
+              <td class="num">R4.0m</td>
+            </tr>
+            <tr>
+              <td>Registered deals</td>
+              <td class="num">50</td>
+              <td class="num">325</td>
+              <td class="num">1,450</td>
+            </tr>
+            <tr>
+              <td>Share of the upper-market</td>
+              <td class="num">—</td>
+              <td class="num">—</td>
+              <td class="num">~4.1%</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>3</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>The funnel</span>
+      </div>
+      <div class="kicker">From first message to the next sale</div>
+      <h2>One WhatsApp thread carries the whole relationship.</h2>
+      <div class="grid g5">
+        <div class="card">
+          <div class="n">Hook</div>
+          <h3>Quick Estimate</h3>
+          <p>
+            A free price range in minutes, on WhatsApp. The entry point for
+            every seller.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Convert</div>
+          <h3>Property Report and listing</h3>
+          <p>
+            Comparable sales, suggested asking price, then a guided listing with
+            photos and a written description.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Lock in</div>
+          <h3>90-day mandate</h3>
+          <p>
+            The 0% path needs an exclusive term, so stock builds and every
+            enquiry stays on the platform. Live on Property24 within 48 hours.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Deliver</div>
+          <h3>The sale, run to registration</h3>
+          <p>
+            Buyer pre-qualification, offers, bond, FICA, clearance, lodgement
+            and registration, tracked in the thread.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Keep</div>
+          <h3>The number stays useful</h3>
+          <p>
+            Post-sale services and the neighbourhood: movers, painters, security
+            groups, schools. The next bond and the next sale start here.
+          </p>
+        </div>
+      </div>
+      <p class="small" style="margin-top: 22px">
+        The platform does the admin and first response; registered practitioners
+        carry the judgement. Every stage is a message the seller can forward,
+        which is how the funnel refills itself.
+      </p>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>4</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>The campaigns</span>
+      </div>
+      <div class="kicker">Five campaigns, in sequence</div>
+      <h2>Earn the first twenty, prove the loop, then buy reach.</h2>
+      <div class="grid g3">
+        <div class="card">
+          <div class="n">Campaign 1 · Weeks 4–10</div>
+          <h3>The Founding Twenty</h3>
+          <p>
+            Twenty founding listings across the four launch pockets,
+            white-glove, live on Property24 within 48 hours of mandate. Each one
+            is a case study: a DIY ad became an agency-grade listing and a run
+            sale, at 0%.
+          </p>
+          <div class="when">
+            Channel: founders' networks, suburb groups, boards
+          </div>
+        </div>
+        <div class="card">
+          <div class="n">Campaign 2 · Always on</div>
+          <h3>What is my home worth?</h3>
+          <p>
+            The Quick Estimate as the ad. Targeted social to homeowners in the
+            launch suburbs, QR codes on boards and flyers, suburb WhatsApp and
+            community groups. A price range in minutes; a Property Report for
+            the serious.
+          </p>
+          <div class="when">
+            Channel: Meta geo + interest, community groups, print
+          </div>
+        </div>
+        <div class="card">
+          <div class="n">Campaign 3 · From week 10</div>
+          <h3>Sold direct, the story</h3>
+          <p>
+            PR on a genuinely useful consumer question: a portal ad is not a
+            sale, so what does a R6m private sale actually take? Then the first
+            sold-direct stories, with consent, street by street.
+          </p>
+          <div class="when">
+            Channel: property press, radio interviews, our own pages
+          </div>
+        </div>
+        <div class="card">
+          <div class="n">Campaign 4 · Always on</div>
+          <h3>Neighbours next</h3>
+          <p>
+            Every live listing advertises to the street. A referral reward for
+            the seller who brings the next mandate, and the after-sale community
+            thread that keeps the number in the household's pocket.
+          </p>
+          <div class="when">
+            Channel: boards, the thread itself, referral links
+          </div>
+        </div>
+        <div class="card">
+          <div class="n">Campaign 5 · Month 5 onward</div>
+          <h3>Brand, above the line</h3>
+          <p>
+            Outdoor on the Atlantic Seaboard and Southern Suburbs commutes, Cape
+            Town radio, digital video. Unlocked only once the founding cohort's
+            conversion data confirms the model's marketing-to-deals assumption.
+          </p>
+          <div class="when">
+            Channel: OOH, radio, video; bank sponsor co-funded
+          </div>
+        </div>
+        <div class="card" style="background: #f8fafc">
+          <div class="n">Partner co-marketing</div>
+          <h3>The bank headline sponsor</h3>
+          <p>
+            One bank as the featured brand on the platform (advertising, never
+            steering), co-funding above-the-line reach from Year 1. Property24
+            and BetterBond carry the agency-grade and bond stories in their own
+            channels.
+          </p>
+          <div class="when">Modelled sponsorship: R3m (Y1) to R8m (Y5)</div>
+        </div>
+      </div>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>5</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>Sequence</span>
+      </div>
+      <div class="kicker">The first five months</div>
+      <h2>Nothing launches until the wedge is unlocked.</h2>
+      <ol class="steps">
+        <li>
+          <b>Unlock · weeks 1–4</b>Property24 wholesale distribution agreement
+          (Private Property as the second portal), practitioner registration and
+          FFC in the operating entity, BetterBond referral letter,
+          panel-conveyancer subscription.
+        </li>
+        <li>
+          <b>Founding Twenty · weeks 4–10</b>Twenty founding listings in the
+          four pockets. White-glove concierge; the 48-hour promise; every
+          listing a case study in the making.
+        </li>
+        <li>
+          <b>Prove the loop · weeks 10–20</b>First registered sales. Measure
+          listing-to-enquiry-to-offer-to-registration, leads per listing,
+          sell-through, acquisition cost by channel, and why sellers chose us.
+        </li>
+        <li>
+          <b>Scale · month 5 onward</b>Above-the-line brand spend only after the
+          conversion data holds. Broaden suburbs; take the wedge story national.
+        </li>
+      </ol>
+      <div class="grid g2" style="margin-top: 34px">
+        <div class="card">
+          <div class="n">Channels, ranked by fit</div>
+          <p>
+            1 · The portal itself (every listing is an ad to the exact audience)
+            · 2 · Suburb communities and referral loops · 3 · PR · 4 · Targeted
+            social in the launch suburbs · 5 · Above the line, gated behind the
+            data.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Why this order</div>
+          <p>
+            Prime sells on word of mouth and reputation. We earn trust before we
+            buy reach, which is the structural answer to the marketing-led
+            failure the category is known for.
+          </p>
+        </div>
+      </div>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>6</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>Spend</span>
+      </div>
+      <div class="kicker">What the marketing rand buys</div>
+      <h2>Reinvesting an ~88% gross margin into brand, with discipline.</h2>
+      <div class="grid g2">
+        <div>
+          <table>
+            <tr>
+              <th></th>
+              <th class="num">Y1</th>
+              <th class="num">Y2</th>
+              <th class="num">Y3</th>
+              <th class="num">Y4</th>
+              <th class="num">Y5</th>
+            </tr>
+            <tr>
+              <td>Marketing (R'm)</td>
+              <td class="num">2.5</td>
+              <td class="num">4.0</td>
+              <td class="num">9.0</td>
+              <td class="num">16.0</td>
+              <td class="num">25.0</td>
+            </tr>
+            <tr>
+              <td>Registered deals</td>
+              <td class="num">50</td>
+              <td class="num">110</td>
+              <td class="num">325</td>
+              <td class="num">750</td>
+              <td class="num">1,450</td>
+            </tr>
+            <tr>
+              <td>Marketing per registered deal</td>
+              <td class="num">R50k</td>
+              <td class="num">R36k</td>
+              <td class="num">R28k</td>
+              <td class="num">R21k</td>
+              <td class="num">R17k</td>
+            </tr>
+            <tr>
+              <td>Revenue per registered deal</td>
+              <td class="num">R56k</td>
+              <td class="num">R71k</td>
+              <td class="num">R63k</td>
+              <td class="num">R58k</td>
+              <td class="num">R52k</td>
+            </tr>
+            <tr>
+              <td>Marketing as % of revenue</td>
+              <td class="num">41%</td>
+              <td class="num">32%</td>
+              <td class="num">34%</td>
+              <td class="num">31%</td>
+              <td class="num">29%</td>
+            </tr>
+          </table>
+          <p class="small" style="margin-top: 12px">
+            Base case; live on the P&amp;L tab of the model. Marketing per deal
+            falls below revenue per deal from Year 2, when origination moves
+            in-house.
+          </p>
+        </div>
+        <div class="card" style="background: #f8fafc">
+          <div class="n">Year 1 allocation · R2.5m, indicative</div>
+          <table>
+            <tr>
+              <td>Founding Twenty and suburb communities</td>
+              <td class="num">R0.5m</td>
+            </tr>
+            <tr>
+              <td>Always-on Quick Estimate (targeted social, print, QR)</td>
+              <td class="num">R0.6m</td>
+            </tr>
+            <tr>
+              <td>PR, content and sold-direct stories</td>
+              <td class="num">R0.3m</td>
+            </tr>
+            <tr>
+              <td>Brand above the line, month 5 onward (gated)</td>
+              <td class="num">R0.8m</td>
+            </tr>
+            <tr>
+              <td>Creative, tooling and measurement</td>
+              <td class="num">R0.3m</td>
+            </tr>
+          </table>
+          <p class="small" style="margin-top: 12px">
+            The above-the-line tranche is released only against the Founding
+            Twenty's conversion data; until then it sits in runway.
+          </p>
+        </div>
+      </div>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>7</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>Targets</span>
+      </div>
+      <div class="kicker">The numbers that tell us to scale or stop</div>
+      <h2>Targets and the triggers we act on.</h2>
+      <table>
+        <tr>
+          <th>Metric</th>
+          <th>Target</th>
+          <th>Trigger to act</th>
+        </tr>
+        <tr>
+          <td>Founding listings</td>
+          <td>20 by week 10</td>
+          <td>
+            Fewer than 10: revisit the offer and segment before spending further
+          </td>
+        </tr>
+        <tr>
+          <td>Attribution</td>
+          <td>
+            At least 40% of sellers cite the run-for-you service and the
+            agency-grade portal listing
+          </td>
+          <td>
+            Under 20%: the wedge is weaker than modelled; re-test the message
+          </td>
+        </tr>
+        <tr>
+          <td>Leads per listing</td>
+          <td>At least 5 a month (this also sets our Property24 tier)</td>
+          <td>
+            Tier cost above R10k a month before 100 concurrent listings:
+            renegotiate
+          </td>
+        </tr>
+        <tr>
+          <td>Sell-through</td>
+          <td>At least 60% within 6 months</td>
+          <td>Below: pricing guidance and concierge intervention</td>
+        </tr>
+        <tr>
+          <td>Acquisition cost, organic phase</td>
+          <td>Under R3,000 per listing</td>
+          <td>
+            Above: channels 1–3 are not working; no move to above the line
+          </td>
+        </tr>
+      </table>
+      <p class="small" style="margin-top: 18px">
+        Measured weekly from the platform's own data: every enquiry, offer and
+        registration is a tracked WhatsApp event.
+      </p>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>8</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>Brand</span>
+      </div>
+      <div class="kicker">How it looks and sounds</div>
+      <h2>Warm, direct, assured, unpretentious. South African. Human first.</h2>
+      <div class="grid g5">
+        <div class="card">
+          <div class="n">Pillar 1</div>
+          <h3>Empowered</h3>
+          <p>
+            The seller is the hero, one step ahead, in motion. Never
+            patronising.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Pillar 2</div>
+          <h3>Effortlessly smart</h3>
+          <p>
+            The latest technology, trained on fifty years of South African
+            property transactions, felt as ease, never as machinery.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Pillar 3</div>
+          <h3>Trusted</h3>
+          <p>
+            Visible step-by-step journey, attorneys' trust accounts, verified
+            market numbers, privacy by design.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Pillar 4</div>
+          <h3>Personal, 24/7</h3>
+          <p>
+            The whole sale in the most human channel there is. Always on; a real
+            person when it matters.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Pillar 5</div>
+          <h3>Free from fees</h3>
+          <p>
+            0% as a proud, ownable device: what sellers keep, the feeling of a
+            weight lifted.
+          </p>
+        </div>
+      </div>
+      <div
+        class="card"
+        style="margin-top: 22px; border-color: #fde68a; background: #fffbeb"
+      >
+        <div class="n" style="color: #b45309">Guardrails, non-negotiable</div>
+        <p>
+          Never anti-agent, never mocking: estate agents play a valuable role
+          and our own team includes registered practitioners. Savings framed as
+          what the seller keeps. The concierge is the concierge. Technology does
+          the admin; people help you sell.
+        </p>
+      </div>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>9</span>
+      </div>
+    </section>
+
+    <section class="slide dark">
+      <div class="top">
+        <span class="brand">Sold Direct</span><span>Risks</span>
+      </div>
+      <div class="kicker">What could go wrong, and what we do about it</div>
+      <h2>Discipline on acquisition cost is the whole plan.</h2>
+      <div class="grid g3">
+        <div class="card">
+          <div class="n">Marketing-led failure</div>
+          <h3>The Purplebricks guardrail</h3>
+          <p>
+            The comparable that was destroyed by acquisition cost and
+            over-expansion. We land at prime where demand is referral-driven,
+            earn trust before buying reach, and gate every above-the-line rand
+            behind conversion data.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Distribution</div>
+          <h3>Property24 slow-walks the agreement</h3>
+          <p>
+            Sign Private Property first (both portals are bound by the same
+            interoperability rights); our own listing pages and shareable
+            WhatsApp links carry the interim. The relationship is framed as
+            complementary: we are a paying wholesale customer.
+          </p>
+        </div>
+        <div class="card">
+          <div class="n">Competition</div>
+          <h3>Copycats and portal private tiers</h3>
+          <p>
+            A copycat needs practitioner registration, origination economics to
+            fund 0%, a portal agreement and consumer trust. We move first, own
+            the prime brand, and keep the product depth they would have to
+            rebuild.
+          </p>
+        </div>
+      </div>
+      <p class="quote" style="margin-top: 40px">
+        “Earn the first twenty, prove the loop, then buy reach.”
+      </p>
+      <div class="foot">
+        <span>Sold Direct · Go-to-market</span><span>10</span>
+      </div>
+    </section>
+  </body>
+</html>

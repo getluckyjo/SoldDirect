@@ -18,6 +18,7 @@ import {
   ACCESS_SECTION,
   ASK,
   ASK_SECTION,
+  CAMPAIGNS_SECTION,
   COMMUNITY_NOTE,
   CONCEPT_SECTION,
   DEMO_SECTION,
@@ -222,6 +223,39 @@ export default function Investors() {
                   {withZeroNote(hook.body)}
                 </p>
               </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* The campaigns */}
+      <Section
+        id="campaigns"
+        tone="tinted"
+        eyebrow="The campaigns"
+        heading={CAMPAIGNS_SECTION.heading}
+        intro={CAMPAIGNS_SECTION.intro}
+      >
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {CAMPAIGNS_SECTION.campaigns.map((c) => (
+            <div
+              key={c.title}
+              className="flex flex-col rounded-2xl border border-slate-800 bg-navy p-6"
+            >
+              <div className="flex items-center gap-3">
+                <IconTile name={c.icon} size="lg" />
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
+                    {c.when}
+                  </p>
+                  <h3 className="text-lg font-semibold leading-snug text-white">
+                    {c.title}
+                  </h3>
+                </div>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-slate-300">
+                {c.body}
+              </p>
             </div>
           ))}
         </div>

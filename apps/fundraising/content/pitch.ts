@@ -422,6 +422,52 @@ export const HOOKS_SECTION = {
   ],
 } as const;
 
+// The go-to-market: the campaigns in sequence. source: docs/LAUNCH-PLAN.md and
+// docs/dataroom/marketing-deck.html (the full deck is in the data room).
+export const CAMPAIGNS_SECTION = {
+  heading: 'Earn the first twenty, prove the loop, then buy reach.',
+  intro:
+    'Marketing is the largest use of the seed: R2.5m in Year 1 rising to R25m in Year 5, reinvesting an ~88% gross margin into brand. Every above-the-line rand is released only against conversion data from the founding cohort.',
+  campaigns: [
+    {
+      icon: 'key',
+      when: 'Weeks 4–10',
+      title: 'The Founding Twenty',
+      body: 'Twenty founding listings across the Atlantic Seaboard, City Bowl, Southern Suburbs and Constantia, white-glove, live on Property24 within 48 hours of mandate. Each one becomes a case study.',
+    },
+    {
+      icon: 'bolt',
+      when: 'Always on',
+      title: 'What is my home worth?',
+      body: 'The Quick Estimate as the advertisement: targeted social to homeowners in the launch suburbs, QR codes on boards and flyers, suburb WhatsApp and community groups. A price range in minutes.',
+    },
+    {
+      icon: 'chat',
+      when: 'From week 10',
+      title: 'Sold direct, the story',
+      body: 'PR on a useful consumer question, what a R6m private sale actually takes, then the first sold-direct stories, with consent, street by street.',
+    },
+    {
+      icon: 'people',
+      when: 'Always on',
+      title: 'Neighbours next',
+      body: 'Every live listing advertises to the street. A referral reward for the seller who brings the next mandate, and the after-sale community thread that keeps the number in the household’s pocket.',
+    },
+    {
+      icon: 'growth',
+      when: 'Month 5 onward',
+      title: 'Brand, above the line',
+      body: 'Outdoor on the Atlantic Seaboard and Southern Suburbs commutes, Cape Town radio and digital video, co-funded by the bank headline sponsor. Unlocked once the founding cohort’s conversion data holds.',
+    },
+    {
+      icon: 'chart',
+      when: 'Weekly',
+      title: 'The numbers we act on',
+      body: 'Twenty founding listings by week 10, five leads per listing a month, 60% sell-through within six months, acquisition cost under R3,000 per listing before any brand spend. The full plan and targets are in the data room.',
+    },
+  ],
+} as const;
+
 // A low-key aside after the partners: the WhatsApp number stays useful
 // after transfer, which keeps the relationship warm at almost no cost.
 export const COMMUNITY_NOTE = {
@@ -547,6 +593,7 @@ export const DISCLAIMER =
 export const NAV = [
   { href: '#concept', label: 'Concept' },
   { href: '#hooks', label: 'Hooks' },
+  { href: '#campaigns', label: 'Campaigns' },
   { href: '#demo', label: 'Demonstration' },
   { href: '#ask', label: 'The round' },
   { href: '#returns', label: 'IRR' },
