@@ -12,14 +12,15 @@ export const metadata: Metadata = {
 const CHAPTERS = [
   {
     n: 1,
-    title: 'List in minutes',
+    title: 'Estimate, report & list',
     who: 'Seller',
     points: [
-      'Starts in WhatsApp from solddirect.co.za — no app, no portal login',
-      'POPIA consent captured first; owner confirmed',
-      'Chooses Free (0%, exclusive) or Flex (1% of sale price)',
-      'Sole mandate e-signed; guided intake builds a structured listing',
-      'Listing live & syndicated to Property24 / Private Property',
+      'Starts in WhatsApp from solddirect.co.za with LIST or PRICE pre-filled — no app, no portal login',
+      'One menu, tap-driven: “What’s my home worth?” or “List my property”, with a human exit on every screen',
+      'Quick Estimate from confirmed sales (guidance, never a “valuation”); free Property Report PDF; nurture at day 3, 14, 30',
+      'POPIA consent as its own timestamped record; ownership verified before listing',
+      'Chooses 0% (exclusive, via partners) or Flex (1%); mandate e-signed by a registered practitioner',
+      'Tap-by-tap listing with the estimate inline at the price step; reviewed within 24h, then live on Property24',
     ],
   },
   {

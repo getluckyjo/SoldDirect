@@ -338,7 +338,7 @@ export const NEXT_STEPS = [
 export const DEMO_SECTION = {
   heading: 'See it work.',
   intro:
-    'One Cape Town home from listing to registered sale — and every point where the financial ecosystem pays instead of the consumer. Press Play, or step through it.',
+    'One Cape Town home from a tap on “What’s my home worth?” to registered sale — Quick Estimate, Property Report, tap-by-tap listing, buyer pre-qualification, offer and transfer — and every point where the financial ecosystem pays instead of the consumer. Press Play, or step through it.',
   // The standalone build of the real seller-intake flow, served from
   // content/try.html (regenerate with `pnpm --filter @sell-direct/api build:demo:fundraising`).
   tryHeading: 'Or try it yourself.',
