@@ -273,7 +273,7 @@ export default function Investors() {
       <Section
         id="returns"
         tone="tinted"
-        eyebrow="Return"
+        eyebrow="IRR"
         heading={RETURN_SECTION.heading}
         intro={RETURN_SECTION.intro}
       >
@@ -385,7 +385,7 @@ export default function Investors() {
       {/* The business plan, collapsed */}
       <Section
         id="detail"
-        eyebrow="The Business Plan"
+        eyebrow="The Numbers"
         heading={DETAIL_SECTION.heading}
         intro={DETAIL_SECTION.intro}
         backdrop={{

@@ -388,7 +388,7 @@ export const NEXT_STEPS = [
 ] as const;
 
 export const DEMO_SECTION = {
-  heading: 'The product, step by step.',
+  heading: 'The WhatsApp Estate Agent, step by step.',
   intro:
     'One Cape Town home from the first message to registered transfer: Quick Estimate, Property Report, listing, buyer pre-qualification, offer and transfer, with each point at which revenue arises marked. Press Play, or step through it.',
   // The standalone build of the real seller-intake flow, served from
@@ -468,6 +468,6 @@ export const NAV = [
   { href: '#concept', label: 'Concept' },
   { href: '#demo', label: 'Demonstration' },
   { href: '#ask', label: 'The round' },
-  { href: '#returns', label: 'Returns' },
-  { href: '#detail', label: 'Business plan' },
+  { href: '#returns', label: 'IRR' },
+  { href: '#detail', label: 'The numbers' },
 ] as const;
