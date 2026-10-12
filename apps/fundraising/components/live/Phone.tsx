@@ -10,6 +10,25 @@ export interface Starter {
   replyId?: string;
 }
 
+/** A photo chosen from the gallery, waiting in the picker. */
+export interface PickedPhoto {
+  id: string;
+  url: string;
+  file: File;
+  /** Unticked photos stay out of the send. */
+  keep: boolean;
+}
+
+/** The gallery picker's state and actions, owned by the page. */
+export interface MediaPicker {
+  items: PickedPhoto[];
+  sending: boolean;
+  add: (files: File[]) => void;
+  toggle: (id: string) => void;
+  clear: () => void;
+  send: () => void;
+}
+
 interface PhoneProps {
   messages: DemoMessage[];
   dividers: Divider[];
@@ -17,7 +36,126 @@ interface PhoneProps {
   busy: boolean;
   starters: Starter[];
   onSend: (text: string, replyId?: string) => void;
-  onPhotos: (files: FileList) => void;
+  picker: MediaPicker;
+}
+
+/**
+ * WhatsApp's multi-select media preview: pick several from the gallery,
+ * flick through them, untick the weak ones, send the best. Sellers take
+ * photos one at a time and choose later — the picker is that moment.
+ */
+function Picker({
+  picker,
+  onAddMore,
+}: {
+  picker: MediaPicker;
+  onAddMore: () => void;
+}) {
+  const [current, setCurrent] = useState(0);
+  const items = picker.items;
+  const shown = items[Math.min(current, items.length - 1)];
+  const kept = items.filter((i) => i.keep).length;
+  return (
+    <div className="absolute inset-0 z-20 flex flex-col bg-[#0b141a] text-white">
+      <div className="flex items-center gap-3 px-4 pb-2 pt-4">
+        <button
+          type="button"
+          aria-label="Close"
+          onClick={picker.clear}
+          disabled={picker.sending}
+          className="text-2xl leading-none"
+        >
+          ×
+        </button>
+        <div className="min-w-0">
+          <div className="text-[15px] font-semibold">
+            Choose your best photos
+          </div>
+          <div className="text-[12px] text-white/60">
+            {kept} of {items.length} selected · tap a photo to leave it out
+          </div>
+        </div>
+      </div>
+      <div className="relative flex min-h-0 flex-1 items-center justify-center bg-black">
+        {shown ? (
+          <button
+            type="button"
+            onClick={() => picker.toggle(shown.id)}
+            className="h-full w-full"
+            aria-label={
+              shown.keep ? 'Leave this photo out' : 'Include this photo'
+            }
+          >
+            <img
+              src={shown.url}
+              alt=""
+              className={`h-full w-full object-contain ${shown.keep ? '' : 'opacity-35'}`}
+            />
+          </button>
+        ) : null}
+        {shown && !shown.keep ? (
+          <span className="pointer-events-none absolute rounded-full bg-black/70 px-3 py-1 text-[13px] font-medium">
+            Left out — tap to include
+          </span>
+        ) : null}
+      </div>
+      <div className="flex gap-2 overflow-x-auto px-3 py-3">
+        {items.map((it, i) => (
+          <button
+            key={it.id}
+            type="button"
+            onClick={() => setCurrent(i)}
+            aria-label={`Photo ${i + 1}${it.keep ? '' : ', left out'}`}
+            className={`relative h-14 w-14 shrink-0 overflow-hidden rounded-md ${
+              it === shown ? 'ring-2 ring-[#00a884]' : ''
+            }`}
+          >
+            <img
+              src={it.url}
+              alt=""
+              className={`h-full w-full object-cover ${it.keep ? '' : 'opacity-35'}`}
+            />
+            <span
+              className={`absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full text-[10px] ${
+                it.keep ? 'bg-[#00a884] text-white' : 'border border-white/70'
+              }`}
+              aria-hidden
+            >
+              {it.keep ? '✓' : ''}
+            </span>
+          </button>
+        ))}
+        <button
+          type="button"
+          onClick={onAddMore}
+          disabled={picker.sending || items.length >= 10}
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md border border-dashed border-white/40 text-2xl text-white/70 disabled:opacity-40"
+          aria-label="Add more photos"
+        >
+          +
+        </button>
+      </div>
+      <div className="flex items-center justify-between px-4 pb-4 pt-1">
+        <span className="text-[12px] text-white/60">
+          {items.length >= 10 ? 'Ten at a time' : 'Add up to ten'}
+        </span>
+        <button
+          type="button"
+          onClick={picker.send}
+          disabled={picker.sending || kept === 0}
+          className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#00a884] text-white disabled:opacity-50"
+          aria-label={`Send ${kept} photos`}
+        >
+          <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden>
+            <path d="M3 11.5 21 3l-5 18-4-7-9-2.5Z" fill="currentColor" />
+          </svg>
+          <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-white px-1 text-[11px] font-bold text-[#00a884]">
+            {kept}
+          </span>
+        </button>
+      </div>
+    </div>
+  );
 }
 
 function clock(iso: string): string {
@@ -305,7 +443,7 @@ export function Phone({
   busy,
   starters,
   onSend,
-  onPhotos,
+  picker,
 }: PhoneProps) {
   const [draft, setDraft] = useState('');
   const [sheet, setSheet] = useState<Extract<
@@ -454,6 +592,9 @@ export function Phone({
   return (
     <div className="mx-auto w-full max-w-[390px] rounded-[3rem] bg-[#0a0a0a] p-[10px] shadow-2xl ring-1 ring-white/10">
       <div className="relative flex h-[min(78vh,780px)] flex-col overflow-hidden rounded-[2.5rem] bg-[#efeae2] text-[#111b21]">
+        {picker.items.length > 0 ? (
+          <Picker picker={picker} onAddMore={() => fileRef.current?.click()} />
+        ) : null}
         {/* status bar */}
         <div className="flex items-center justify-between bg-[#f6f6f6] px-7 pb-1 pt-3 text-[12px] font-semibold text-[#111b21]">
           <span>{time}</span>
@@ -720,7 +861,7 @@ export function Phone({
             hidden
             onChange={(e) => {
               if (e.target.files && e.target.files.length > 0) {
-                onPhotos(e.target.files);
+                picker.add(Array.from(e.target.files));
               }
               e.target.value = '';
             }}

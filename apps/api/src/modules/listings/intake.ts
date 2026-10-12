@@ -754,7 +754,8 @@ function pendingReply(completed: ListingDraft): string {
     `${formatPriceZar(completed.priceZar)} is confirmed! 🎉\n\n` +
     `📸 Now send 5–10 photos — your listing goes live with the first one. ` +
     `Buyers look for:\n${PHOTO_GUIDE}\n` +
-    `Tip: daylight, lights on, phone sideways, and a quick tidy first.\n\n` +
+    `Tip: daylight, lights on, phone sideways, and a quick tidy first. Take ` +
+    `plenty, then pick your best from your gallery and send them together.\n\n` +
     `✍️ Once your photos are in, I’ll write your description from what they ` +
     `show — you approve it before anything is saved.`
   );
