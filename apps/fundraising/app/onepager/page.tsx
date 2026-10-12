@@ -162,8 +162,9 @@ export default function OnePager() {
               ))}
             </ul>
             <p className="mt-2 text-[11px] font-medium text-purple-700">
-              The banks pay us, not the consumer. No bond in the deal? A
-              disclosed 1% — still ~6× less than full service (6% + VAT).
+              Revenue comes from the lender, not the consumer. Where no
+              qualifying bond is in the transaction, a disclosed 1% facilitation
+              fee applies, against 5–7% plus VAT for a full-service sale.
             </p>
           </section>
           <section className="rounded-xl border border-amber-200 bg-amber-50/50 p-4">

@@ -157,8 +157,8 @@ export const SCENES: Scene[] = [
     text: 'Maria taps “What’s my home worth?” on solddirect.co.za — it opens WhatsApp with PRICE pre-filled. No app to install.',
     note: {
       tag: 'Product',
-      title: 'Two entry words, one front door',
-      body: 'Every ad, portal listing and site button deep-links WhatsApp with LIST or PRICE pre-filled. A seller who only wants a number and a seller who wants to sell today land on the same menu — neither path gates the other.',
+      title: 'Two entry points',
+      body: 'Every advertisement, portal listing and site button opens WhatsApp with LIST or PRICE pre-filled. A seller who wants only a price and a seller ready to list arrive at the same menu; neither path depends on the other.',
     },
   },
   { chapter: 1, track: 0, from: 'seller', kind: 'text', text: 'PRICE' },
@@ -180,8 +180,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Product',
-      title: 'Quick selects: tap, don’t type',
-      body: 'Every step is a menu or a row of reply buttons — the same WhatsApp native controls the production flow sends. No free-text chatter to parse, and “Talk to our team” is on every screen as the human exit.',
+      title: 'Menu-driven steps',
+      body: 'Every step is a menu or a row of reply buttons, the WhatsApp controls the production flow sends. There is no free text to interpret, and “Talk to our team” is on every screen.',
     },
   },
   {
@@ -208,7 +208,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'POPIA',
       title: 'Consent is its own timestamped record',
-      body: 'Identity is asked for in three tiers. The Quick Estimate needs only a WhatsApp number, a name, consent, an address and a basic description — the minimum LOOM needs, and the minimum PII we hold.',
+      body: 'Identity is asked for in three tiers. The Quick Estimate needs only a WhatsApp number, a name, consent, an address and a basic description — the minimum the data partner needs, and the minimum personal information held.',
     },
   },
   {
@@ -321,8 +321,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Revenue',
-      title: 'The Property Report: our cheapest lead',
-      body: 'Free to the seller. It costs us about R7.50 in data, booked as marketing — and there is no payment step anywhere in the product. The plan assumes one report in ten becomes a listing.',
+      title: 'The Property Report as a lead',
+      body: 'Free to the seller. The data cost is about R7.50 per report, booked as marketing; there is no payment step in the product. The plan assumes one report in ten becomes a listing.',
     },
   },
   {
@@ -369,8 +369,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Product',
-      title: 'A branded report worth converting on',
-      body: 'Built from the data partner’s comparables and our template, delivered in the chat and by email. The PDF is the thing that gets forwarded to a spouse or the family group — our brand travels with it.',
+      title: 'The Property Report',
+      body: 'Built from the data partner’s comparables and the Sold Direct template, delivered in the chat and by email as a PDF that carries the brand when forwarded.',
     },
   },
   {
@@ -392,7 +392,7 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'POPIA',
-      title: 'Nurture, by the rules',
+      title: 'Follow-up within the rules',
       body: 'Outside WhatsApp’s 24-hour window only an approved marketing template may be sent. Follow-ups go out at day 3, 14 and 30, every one carries STOP, and an opt-out is honoured immediately.',
     },
   },
@@ -415,8 +415,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Revenue',
-      title: 'The 0% mechanic',
-      body: 'The bank in the buyer’s bond pays an origination fee, so the seller pays R0 — when they list exclusively and transact through our partners. Cash or third-party-financed deals pay a disclosed 1%. Both paths produce a Property24 listing.',
+      title: 'The 0% path',
+      body: 'The lender on the buyer’s bond pays an origination fee, so the seller pays nothing when they list exclusively and transact through the partners. Cash or third-party-financed transactions pay a disclosed 1%. Both paths produce a Property24 listing.',
     },
   },
   { chapter: 1, track: 0, from: 'seller', kind: 'text', text: '🟢 0% please' },
@@ -518,8 +518,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Product',
-      title: 'Distribution without a portal of our own',
-      body: 'We publish to the portals buyers already browse — create, update, under offer, sold, withdraw, all by API — and every listing carries a one-tap WhatsApp enquiry link.',
+      title: 'Distribution through existing portals',
+      body: 'Listings are published to the portals buyers already use (create, update, under offer, sold, withdraw, all by API), and each carries a WhatsApp enquiry link.',
     },
   },
 
@@ -533,7 +533,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Product',
       title: 'Buyer enters the same channel',
-      body: 'The buyer lands in WhatsApp too. One conversation thread now links a real buyer to a real listing — and creates a deal record at “Enquiry”.',
+      body: 'The buyer also arrives in WhatsApp. One conversation now links a buyer to a listing and creates a deal record at “Enquiry”.',
     },
   },
   {
@@ -556,7 +556,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'POPIA',
       title: 'Consent — buyer side too',
-      body: 'Same privacy gate for buyers before we capture anything, and before any finance talk. Consent and timestamp logged.',
+      body: 'The same consent step applies to buyers before any details are captured and before any discussion of finance. Consent and timestamp are logged.',
     },
   },
   { chapter: 2, track: 1, from: 'buyer', kind: 'text', text: 'Agreed ✅' },
@@ -572,8 +572,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Finance',
-      title: 'The pre-qualification hook',
-      body: 'Pre-qualifying buyers in-chat is the heart of the model: it qualifies serious buyers AND opens the bond-origination referral. “Pre-qualified” is only ever shown after a real partner result.',
+      title: 'Buyer pre-qualification',
+      body: 'Pre-qualifying buyers in the chat is central to the model: it qualifies serious buyers and opens the bond-origination referral. “Pre-qualified” is shown only after a result from the partner.',
     },
   },
   { chapter: 2, track: 1, from: 'buyer', kind: 'text', text: 'Yes please!' },
@@ -586,7 +586,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Revenue',
       title: 'Bond origination referral (BetterBond)',
-      body: 'A consented hand-off to our originator partner. The bank pays an origination share on a successful bond — at zero cost to the buyer or seller. This is our primary revenue engine.',
+      body: 'A consented hand-off to the origination partner. The lender pays an origination share on a successful bond, at no cost to the buyer or seller. This is the principal revenue line.',
     },
   },
   {
@@ -721,7 +721,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Finance',
       title: 'Multi-bank bond application',
-      body: 'BetterBond submits to multiple banks simultaneously and negotiates — historically winning better rates than going to one bank.',
+      body: 'BetterBond submits to several banks at once and negotiates the rate, which has historically produced better terms than a single-bank application.',
     },
   },
   {
@@ -741,7 +741,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Revenue',
       title: 'Revenue realised',
-      body: 'On the granted bond, the bank pays an origination share to our partner, shared with us — the consumer pays nothing. The deal moves to “Bond”.',
+      body: 'On the granted bond, the lender pays an origination share to the partner, which is shared with Sold Direct. The consumer pays nothing. The deal moves to “Bond”.',
     },
   },
   {
@@ -770,7 +770,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Revenue',
       title: 'Panel conveyancing',
-      body: 'The transferring attorney comes from our panel — the seller gets a fee discount, and panel firms pay fixed advertising subscriptions (no referral fees, per Legal Practice Council rules).',
+      body: 'The transferring attorney comes from the panel; the seller receives a fee discount, and panel firms pay fixed advertising subscriptions (no referral fees, per Legal Practice Council rules).',
     },
   },
   {
@@ -803,8 +803,8 @@ export const SCENES: Scene[] = [
     ],
     note: {
       tag: 'Legal',
-      title: 'The transfer machinery',
-      body: 'Behind the scenes the attorney coordinates the bank, municipality and SARS. We surface each step in the buyer & seller chat so nobody is left wondering “where is my deal?”.',
+      title: 'The transfer process',
+      body: 'The attorney coordinates the bank, the municipality and SARS. Each step is reported in the buyer and seller chat, so both parties know the status of the transaction.',
     },
   },
   {
@@ -823,8 +823,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Legal',
-      title: 'Costs made transparent',
-      body: 'Transfer duty is a sliding SARS tax on the purchase price. Showing it upfront avoids the nasty surprises that derail deals.',
+      title: 'Transfer costs disclosed',
+      body: 'Transfer duty is a sliding SARS tax on the purchase price. It is shown up front so that it does not surprise the buyer later in the transaction.',
     },
   },
   {
@@ -846,7 +846,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Legal',
       title: 'Seller’s compliance obligations',
-      body: 'The seller must deliver valid certificates before transfer. We coordinate the inspections (an optional add-on revenue line too).',
+      body: 'The seller must deliver valid certificates before transfer. Sold Direct coordinates the inspections, which is also an optional add-on revenue line.',
     },
   },
   {
@@ -886,7 +886,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Legal',
       title: 'Simultaneous lodgement',
-      body: 'The three matters must lodge together at the Deeds Office. This is the home stretch — “Lodgement”.',
+      body: 'The three matters must lodge together at the Deeds Office. The deal moves to “Lodgement”.',
     },
   },
   {
@@ -905,7 +905,7 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Legal',
-      title: 'Registration = done',
+      title: 'Registration',
       body: 'On registration, ownership legally passes and funds are disbursed. The deal record reaches its final state, “Registered”.',
     },
   },
@@ -925,8 +925,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Revenue',
-      title: 'The whole model in one deal',
-      body: 'Consumer pays nothing. We earned from the bond origination share and partner advertising — recurring, scalable, paid by the financial ecosystem around every deal.',
+      title: 'The model in one transaction',
+      body: 'The consumer paid nothing. Sold Direct earned from the bond origination share and partner advertising, paid by the financial parties already present in every transaction.',
     },
   },
   {
@@ -938,7 +938,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Product',
       title: 'One thread, start to finish',
-      body: 'Every step happened in a single WhatsApp conversation, tracked by the deal state machine and visible in our internal dashboard.',
+      body: 'Every step took place in a single WhatsApp conversation, tracked by the deal state machine and visible in the internal dashboard.',
     },
   },
 ];

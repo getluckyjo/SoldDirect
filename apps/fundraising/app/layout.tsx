@@ -9,7 +9,7 @@ const SITE_URL =
 
 const TITLE = 'Sold Direct — Investor Overview · R5m Seed';
 const DESCRIPTION =
-  'Sold Direct runs 0%-commission private property sales on WhatsApp (qualifying path), with registered practitioners in the loop and the bank paying us as bond originator. Raising a R5m seed for 20% at a R20m pre-money valuation.';
+  'Sold Direct manages private property sales over WhatsApp at 0% commission to the seller on the qualifying path, with registered practitioners involved and revenue from bond origination paid by the lender. Seed round: R5m for 20% at a R20m pre-money valuation.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

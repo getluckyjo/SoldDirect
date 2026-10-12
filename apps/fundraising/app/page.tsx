@@ -143,7 +143,7 @@ export default function Investors() {
       <Section
         id="concept"
         tone="tinted"
-        eyebrow="The idea"
+        eyebrow="Proposition"
         heading={CONCEPT_SECTION.heading}
       >
         <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -164,7 +164,7 @@ export default function Investors() {
       {/* Interactive journey */}
       <Section
         id="demo"
-        eyebrow="Interactive"
+        eyebrow="Product demonstration"
         heading={DEMO_SECTION.heading}
         intro={DEMO_SECTION.intro}
         backdrop={{
@@ -204,7 +204,7 @@ export default function Investors() {
       {/* The raise */}
       <Section
         id="ask"
-        eyebrow="The raise"
+        eyebrow="The round"
         heading={ASK_SECTION.heading}
         intro={ASK_SECTION.intro}
       >
@@ -244,7 +244,7 @@ export default function Investors() {
       <Section
         id="detail"
         tone="tinted"
-        eyebrow="Optional reading"
+        eyebrow="Further detail"
         heading={DETAIL_SECTION.heading}
         intro={DETAIL_SECTION.intro}
         backdrop={{
@@ -256,7 +256,7 @@ export default function Investors() {
           <Details
             id="numbers"
             title={FIN_DETAIL.heading}
-            summary="R6.1m to R162.3m in five years, EBITDA-positive from Year 2 — CA-reviewed base case, bootstrapped."
+            summary="Revenue of R6.1m in Year 1 to R162.3m in Year 5; EBITDA-positive from Year 2. Base case, reviewed by a chartered accountant."
           >
             <p className="mt-3 max-w-3xl text-base text-slate-300">
               {FIN_DETAIL.intro}
@@ -274,7 +274,7 @@ export default function Investors() {
           <Details
             id="model"
             title={MODEL_DETAIL.heading}
-            summary="Bond origination is the engine — 0.5% of the bond via BetterBond in Year 1, ~1.5% in-house from Year 2."
+            summary="Bond origination is the principal line: 0.5% of the bond through BetterBond in Year 1, about 1.5% in-house from Year 2."
           >
             <div className="mt-4 grid gap-6 md:grid-cols-2">
               {[
@@ -337,7 +337,7 @@ export default function Investors() {
           <Details
             id="product"
             title={PRODUCT_DETAIL.heading}
-            summary="Built and working. Modern technology does the admin; registered practitioners stay in the loop."
+            summary="Scope of the transfer process covered, cost of delivery, registered practitioners, and the cost base."
           >
             <div className="mt-4 grid gap-6 md:grid-cols-2">
               {PRODUCT_DETAIL.cards.map((card) => (
@@ -357,7 +357,7 @@ export default function Investors() {
           <Details
             id="market"
             title={MARKET_DETAIL.heading}
-            summary="A R6.25bn-a-year market. Land at prime Cape Town, broaden into the national upper-market."
+            summary="An addressable market of about R6.25bn a year. Entry at prime Cape Town, broadening into the national upper market."
           >
             <p className="mt-3 max-w-3xl text-base text-slate-300">
               {MARKET_DETAIL.intro}
@@ -371,7 +371,7 @@ export default function Investors() {
           <Details
             id="traction"
             title={TRACTION_DETAIL.heading}
-            summary="The loop runs today; BetterBond, Loom, Capture Media and Paysoft are signed up or in motion."
+            summary="What is built, and the launch partnerships in progress: BetterBond, LOOM, Capture Media and Paysoft."
           >
             <p className="mt-3 max-w-3xl text-base text-slate-300">
               {TRACTION_DETAIL.intro}
@@ -404,7 +404,7 @@ export default function Investors() {
           <Details
             id="team"
             title={TEAM_DETAIL.heading}
-            summary="Two working founders and a technology partner carrying the CTO function."
+            summary="Two full-time founders and a technology partner providing the CTO function."
           >
             <p className="mt-3 max-w-3xl text-base text-slate-300">
               {TEAM_DETAIL.intro}
@@ -414,8 +414,8 @@ export default function Investors() {
 
           <Details
             id="faq"
-            title="Investor FAQ"
-            summary="Straight answers on sustainability, agents, legality, risk and what you are buying."
+            title="Questions and answers"
+            summary="Sustainability of 0%, the position on agents, the conveyancer line, Purplebricks, sufficiency of the round, risks, and the terms."
           >
             <div className="mt-4 grid gap-3">
               {FAQ.map((item) => (
@@ -443,7 +443,7 @@ export default function Investors() {
           <Details
             id="next"
             title="What happens next"
-            summary="Four steps from this page to an allocation."
+            summary="The process from here to an allocation."
           >
             <ol className="mt-4 grid max-w-2xl gap-3 text-base text-slate-300">
               {NEXT_STEPS.map((step, i) => (
