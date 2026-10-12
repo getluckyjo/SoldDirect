@@ -133,6 +133,7 @@ describe('demo routes', () => {
       intake: null,
       listing: null,
       deal: null,
+      ai: { concierge: false, key: 'missing' },
     });
   });
 

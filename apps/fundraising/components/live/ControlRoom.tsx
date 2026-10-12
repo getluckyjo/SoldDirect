@@ -152,6 +152,18 @@ export function ControlRoom({
   const { step: next, awaiting } = nextJourneyStep(done, issued);
   const live = listingIsLive(listing);
   const sold = deal?.status === 'registered';
+  const ai = state?.ai;
+  const aiOn =
+    !!ai && ai.concierge && (ai.key === 'ok' || ai.key === 'unverified');
+  const aiReason = !ai
+    ? 'Checking…'
+    : !ai.concierge
+      ? 'AGENT_ENABLED is off on the API'
+      : ai.key === 'invalid'
+        ? 'The Anthropic API key on the API is rejected (401)'
+        : ai.key === 'missing'
+          ? 'No ANTHROPIC_API_KEY on the API'
+          : 'The Anthropic API could not be reached';
 
   /* ── "Now": what to do next, in context ─────────────────────────────── */
   let now: ReactNode;
@@ -440,10 +452,20 @@ export function ControlRoom({
         icon="bolt"
         title="Now"
         aside={
-          <span className="flex items-center gap-1.5 text-xs text-slate-400">
-            <span className="h-2 w-2 rounded-full bg-brand-400" />
-            Live pipeline
-          </span>
+          aiOn ? (
+            <span className="flex items-center gap-1.5 text-xs text-slate-400">
+              <span className="h-2 w-2 rounded-full bg-brand-400" />
+              Live pipeline · AI concierge on
+            </span>
+          ) : (
+            <span
+              className="flex items-center gap-1.5 text-xs text-amber-300"
+              title={aiReason}
+            >
+              <span className="h-2 w-2 rounded-full bg-amber-400" />
+              Live pipeline · AI concierge off
+            </span>
+          )
         }
       >
         {now}

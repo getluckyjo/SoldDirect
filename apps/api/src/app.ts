@@ -56,11 +56,13 @@ import { registerDashboardRoutes } from './modules/dashboard';
 import {
   createAgentHandler,
   createAnthropicAgentModel,
+  createAnthropicKeyProbe,
   createPrismaAgentDataSource,
   createPrismaAgentRepository,
   registerAgentRoutes,
   type AgentHandler,
   type AgentMode,
+  type KeyProbe,
 } from './modules/agent';
 import {
   createDemoMediaStore,
@@ -90,6 +92,8 @@ import {
 } from './modules/listings';
 
 export type ServerDeps = MessagingRouteDeps & {
+  /** Test seam: a static key probe instead of a live check. */
+  keyProbe?: KeyProbe;
   leadRepository: LeadRepository;
   listingRepository: ListingRepository;
   dealRepository: DealRepository;
@@ -152,6 +156,15 @@ export function buildServer(deps?: Partial<ServerDeps>) {
     },
   );
 
+  // Is the AI key actually accepted? Presence alone has fooled us before.
+  const keyProbe =
+    deps?.keyProbe ??
+    createAnthropicKeyProbe({
+      apiKey: process.env.ANTHROPIC_API_KEY,
+      log: (msg, err) => app.log.warn({ err }, msg),
+    });
+  if (!deps?.keyProbe && process.env.ANTHROPIC_API_KEY) void keyProbe.check();
+
   app.get('/health', async () => {
     // The deployed commit, so "is the live API running the code I just
     // merged?" is answerable from a browser instead of the host's dashboard.
@@ -182,6 +195,9 @@ export function buildServer(deps?: Partial<ServerDeps>) {
         // a from-address on a verified domain are both set.
         waitlistEmails: emailConfigured(),
       },
+      // 'ok' | 'invalid' | 'error' | 'unverified' | 'missing' — a present but
+      // rejected key reads 'invalid' here while `features` above still says on.
+      ai: { key: keyProbe.status(), checkedAt: keyProbe.checkedAt() },
     };
   });
 
@@ -437,6 +453,10 @@ export function buildServer(deps?: Partial<ServerDeps>) {
       // holds the internal token.
       demoToken: process.env.DEMO_ACCESS_TOKEN || undefined,
       stores: { intake: conversationStore, estimate: estimateStore },
+      ai: () => ({
+        concierge: agentEnabled && demoAgentMode === 'live',
+        key: keyProbe.status(),
+      }),
       // The journey drives the REAL deal state machine and stage
       // notifications, through the demo notifier.
       journey: {
