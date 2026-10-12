@@ -224,7 +224,7 @@ export default function Investors() {
           <Details
             id="numbers"
             title={FIN_DETAIL.heading}
-            summary="R6.1m to R162.3m in five years, EBITDA-positive from Year 3 — CA-reviewed base case."
+            summary="R6.1m to R162.3m in five years, EBITDA-positive from Year 2 — CA-reviewed base case, bootstrapped."
           >
             <p className="mt-3 max-w-3xl text-base text-slate-300">
               {FIN_DETAIL.intro}

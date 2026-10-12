@@ -12,8 +12,8 @@ agreements. Figures ZAR; numbers tie to `01-financial-model.md` and `02-capital-
 | Raise | **R5m** for **20%** — R20m pre-money / R25m post-money |
 | Instrument | Preference shares, converting to ordinary on exit or listing |
 | Liquidation preference | **1× non-participating** — investor takes the greater of money back or 20% of proceeds |
-| Tranches | **T1 R2.5m at closing.** **T2 R2.5m on milestones**, targeted inside 9 months: WhatsApp sender live · first 20 exclusive mandates signed · first qualifying bond registered via the origination partner. Hires beyond the founding six are released against the same milestones |
-| Operating stance | **Bootstrap until EBITDA-positive:** founders on reduced pay (market pay from Y3, no accrual), remote-first with no office lease, Paysoft free-development allocation carrying the build — the seed covers the cash trough in every modelled scenario (conservative: +R1.0m minimum cash) |
+| Tranches | **T1 R2.5m at closing.** **T2 R2.5m on milestones**, targeted inside 9 months: WhatsApp sender live · first 20 exclusive mandates signed · first qualifying bond registered via the origination partner. Hires beyond the founding four are released against signed mandates |
+| Operating stance | **Bootstrap until self-funding:** a four-person team at R150k/month — founders at R50k each (below market, no accrual) carrying marketing, management, dealmaking, bookkeeping and tech support; principal practitioner & compliance R30k; agent/admin R20k — remote-first with no office lease, Paysoft free-development allocation carrying the build. EBITDA-positive in Y2 (base); the seed covers the cash trough in every modelled scenario with ≥ ~R1m to spare on a monthly view in the conservative case |
 | Board | **Lead investor takes the board seat** (the reserved 1% non-executive allocation remains for a strategic appointee agreed by the board) |
 | Information rights | Monthly management accounts; quarterly board pack; annual budget for board approval |
 | Anti-dilution | Broad-based weighted average if a future round prices below the modelled Series A (R250m pre) |

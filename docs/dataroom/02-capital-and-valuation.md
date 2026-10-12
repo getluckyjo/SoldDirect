@@ -9,20 +9,27 @@ free-development allocation to an agreed value**, vesting as that value is deliv
 
 ## 1. Capital requirement (bottom-up)
 
-The model turns **EBITDA-positive in Y3**. Under the **bootstrap operating stance** for Y1–Y2
-(founders on reduced pay, hiring gated to mandates, remote-first, Paysoft free-development
-allocation — `01-financial-model.md` §3; ~R1.75m of opex saved by the trough, none of it from
-revenue, marketing or compliance) the cumulative after-tax cash low-point is **≈ −R2.8m (Y2)**.
-The capital to reach self-sustaining, and what the R5m seed leaves at the lowest point:
+Under the **bootstrap operating stance** for Y1–Y2 (a four-person team at R150k/month with the
+founders at R50k each carrying marketing, management, dealmaking, bookkeeping and tech support;
+remote-first; Paysoft free-development allocation — `01-financial-model.md` §3; ~R5.25m of opex
+saved before tax, none of it from revenue, marketing or compliance) the model turns
+**EBITDA-positive in Y2** and the annual cumulative after-tax cash low-point is **≈ −R0.4m
+(Y1)**. On a monthly view the Y1 trough is deeper — **roughly −R2m to −R3m** while the team and
+launch marketing run ahead of the first registrations. What the R5m seed leaves at the lowest
+point:
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
-| Cumulative cash low-point (bootstrap stance) | ~R4.0m | **~R2.8m** | ~R0.8m |
+| Cumulative cash low-point, annual proxy (bootstrap stance) | ~R1.8m † | **~R0.4m** | ≤ base |
 | *(before the stance)* | *~R5.7m* | *~R4.5m* | *~R2.5m* |
-| **Minimum cash with the R5m seed** | **+R1.0m** | **+R2.2m** | +R4.2m |
+| **Minimum cash with the R5m seed** (annual proxy) | **~+R3.2m** † | **~+R4.6m** | ≥ base |
+| Minimum cash on a monthly view (≈ R2m lower) | **~+R1m** | **~+R2.5m** | ≥ base |
 
-The seed clears the trough in **all three scenarios** — the conservative case with a ~R1m
-cushion — so no top-up, bridge or earlier Series A is required for survival.
+† Estimate pending the workbook re-run (`01-financial-model.md` §4). The seed clears the trough
+in **all three scenarios**, the conservative case with at least ~R1m to spare on the monthly
+view, so no top-up, bridge or earlier Series A is required for survival. The balance of the
+seed is growth capital: it funds the Cape Town launch campaign and lets Y2 marketing scale ahead
+of revenue.
 
 ### The raise — R5m seed at inception
 
@@ -36,11 +43,11 @@ pre-money (20%) in Oct 2026** — a leaner seed that prices the company lower bu
 of it.
 
 **Runway check (live on the Scenarios tab):** with the R5m seed injected at Y1 and Series A at
-Y3, the minimum cash position across Y1–Y5 is **+R2.2m in the base case and +R1.0m in the
-conservative case** — the seed alone covers the trough in every scenario. The Series A is
-offence, not survival. The seed is deployed in two milestone tranches
-(`04-indicative-term-sheet.md`) so the spend tracks the ramp, and the 7th/8th hire is released
-only against those milestones.
+Y3, the minimum cash position across Y1–Y5 is **~+R4.6m in the base case and ~+R3.2m in the
+conservative case on the annual proxy (~R2m lower on a monthly view)** — the seed alone covers
+the trough in every scenario. The Series A is offence, not survival. The seed is deployed in two
+milestone tranches (`04-indicative-term-sheet.md`) so the spend tracks the ramp, and every hire
+beyond the founding four is released only against signed mandates.
 
 ## 2. Valuation
 

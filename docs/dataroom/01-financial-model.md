@@ -55,43 +55,64 @@ down-market. Layered on top, the **origination rate steps up from 0.5% (Y1, Bett
 | **Total revenue** | **6.14** | **20.24** | **46.83** | **94.72** | **162.30** |
 | COGS (~12%) | (0.74) | (2.43) | (5.62) | (11.37) | (19.48) |
 | **Gross profit** | **5.41** | **17.81** | **41.21** | **83.35** | **142.82** |
-| Payroll + AI agents *(bootstrap Y1–Y2)* | 2.75 | 5.65 | 9.77 | 22.77 | 44.59 |
+| Payroll *(bootstrap team Y1–Y2; + AI agents from Y3)* | 1.85 | 3.05 | 9.77 | 22.77 | 44.59 |
 | Marketing (above-the-line) | 2.50 | 8.00 | 18.00 | 32.00 | 50.00 |
 | Tech & tools *(bootstrap Y1–Y2)* | 0.45 | 0.90 | 1.80 | 2.80 | 4.00 |
 | Legal / compliance / insurance | 0.70 | 1.00 | 1.50 | 2.20 | 3.00 |
 | G&A / office / other *(bootstrap Y1–Y2)* | 0.35 | 0.85 | 1.80 | 3.20 | 4.50 |
 | **Bond origination (in-house)** | **—** | **2.83** | **2.56** | **4.98** | **8.81** |
-| **Total operating expenses** | **6.75** | **19.23** | **35.43** | **67.95** | **114.90** |
-| **EBITDA** | **(1.34)** | **(1.42)** | **5.78** | **15.40** | **27.93** |
-| EBITDA margin | — | — | 12% | 16% | **17%** |
-| **Tax (27%, positive EBITDA only)** | — | — | (1.56) | (4.16) | (7.54) |
-| **EBITDA after tax** | (1.34) | (1.42) | **4.22** | **11.24** | **20.39** |
-| **Cumulative after tax (cash proxy)** | (1.34) | **(2.76)** | 1.46 | 12.70 | 33.09 |
+| **Total operating expenses** | **5.85** | **16.63** | **35.43** | **67.95** | **114.90** |
+| **EBITDA** | **(0.44)** | **1.18** | **5.78** | **15.40** | **27.93** |
+| EBITDA margin | — | 6% | 12% | 16% | **17%** |
+| **Tax (27%, positive EBITDA only)** | — | (0.32) | (1.56) | (4.16) | (7.54) |
+| **EBITDA after tax** | (0.44) | **0.86** | **4.22** | **11.24** | **20.39** |
+| **Cumulative after tax (cash proxy)** | **(0.44)** | 0.42 | 4.64 | 15.88 | 36.27 |
 
-- **EBITDA-positive in Y3**; cumulative after-tax cash low-point **≈ −R2.8m (Y2)**, cumulative
-  positive from **Y3**.
+- **EBITDA-positive in Y2**; cumulative after-tax cash low-point **≈ −R0.4m (Y1)** on the annual
+  proxy, cumulative positive from **Y2**.
+- ⚠ **The annual proxy understates the intra-year trough.** With the launch team in place from
+  month 1, marketing front-loaded and the first registrations ~3–4 months behind the first
+  mandates (a South African transfer takes ~3 months after the offer), the **monthly cash
+  low-point in Y1 sits well below the annual −R0.4m — roughly −R2m to −R3m** before Y1 revenue
+  catches up. The R5m seed is sized against that monthly trough, not the annual figure
+  (`02-capital-and-valuation.md` §1).
 
 ### The bootstrap operating stance (Y1–Y2)
 
-The pre-breakeven years run deliberately lean so the **R5m seed covers the cash trough in every
-scenario, including the conservative case, with headroom** (see §4 and
+The pre-breakeven period runs on a **four-person team** so the R5m seed covers the cash trough
+in every scenario, the conservative case included, with headroom (§4 and
 `02-capital-and-valuation.md` §1). Revenue, marketing and the regulatory/compliance line are
-**untouched** — the cuts are to how we operate, not to what drives the ramp. Versus the earlier
-cost base (R7.80m Y1 / R19.93m Y2) the stance saves **~R1.05m in Y1 and ~R0.70m in Y2 — ~R1.75m
-by the trough**:
+**untouched** — the stance changes how we operate, not what drives the ramp.
+
+**The Y1 team (4 people, R150k/month, R1.80m/yr + ~R0.05m statutory):**
+
+| Role | Monthly | Annual | Carries |
+|---|---:|---:|---|
+| Managing Director (founder) | R50k | R600k | Management, dealmaking, partnerships, bookkeeping, tech support |
+| Marketing Director (founder) | R50k | R600k | All marketing and the seller funnel, dealmaking, tech support |
+| Principal practitioner & compliance (PPRA / FFC) | R30k | R360k | Mandates, offers, transfer oversight; the firm's Fidelity Fund Certificate |
+| Agent / admin | R20k | R240k | Viewings, document chasing, concierge |
+| **Total** | **R150k** | **R1.80m** | |
+
+The founders are paid **R50k/month each — below market for both roles — and do all marketing,
+management, dealmaking, bookkeeping and tech support themselves**; no agency, no finance hire, no
+in-house developer (Paysoft carries the build under its free-development allocation). Versus the
+CA-reviewed cost base (R7.80m Y1 / R19.93m Y2) the stance saves **~R1.95m in Y1 and ~R3.30m in
+Y2 — ~R5.25m before tax**:
 
 | Measure | Y1 | Y2 | Saving |
 |---|---|---|---:|
-| **Founders on reduced pay** until the business is EBITDA-positive (market pay from Y3; the difference is not accrued) | both | both | ~R0.45m / ~R0.30m |
-| **Hiring gated to mandates, not the plan**: the 7th/8th head (second practitioner, ops) is released only against the Tranche-2 milestones; Y2 hires follow signed mandates | 8 → **6** heads | 14 → **12** heads | ~R0.20m / ~R0.15m |
+| **Four-person team**, founders at R50k/month carrying the functions above; Y2 hires (two practitioners at R30k, two agent/admin at R20k) released only against signed mandates and modelled from the start of Y2 to be conservative on cost | **4** heads (was 8) | **8** heads (was 14) | ~R1.55m / ~R3.05m |
 | **No office lease**: remote-first, co-working day passes, viewings happen at the property | — | — | ~R0.25m / ~R0.15m |
 | **Paysoft free-development allocation + startup credits** carry the Y1 build and most Y2 tooling (cloud, BSP, SaaS) | — | — | ~R0.15m / ~R0.10m |
-| **Total** | | | **~R1.05m / ~R0.70m** |
+| **Total** | | | **~R1.95m / ~R3.30m** |
 
-From Y3 the cost base is the CA-reviewed one unchanged: headcount catches up to 22, founders move
-to market pay, and the delivery-realistic ramp to 96 by Y5 stands. The stance costs nothing in
-revenue; it costs the founders two years of pay and the company a slightly slower Y1–Y2 hiring
-curve, which the milestone tranches already assume.
+From Y3 the cost base is the CA-reviewed one unchanged: headcount steps up to 22 (a deliberate
+catch-up hire once the business is self-funding), founders move to market pay, and the
+delivery-realistic ramp to 96 by Y5 stands. ⚠ Capacity is the thing to watch: 220 registered
+deals in Y2 on eight people is ~28 deals per head per year, which leans on the platform doing
+the admin; the CA review had sized Y2 at 14 heads. The milestone tranches and mandate-gated
+hiring are the release valve if volume outruns the team.
 - The **in-house origination cost line** (bond-consultant cost per bonded deal + a bank-aggregation /
   licensing base + a one-off R1.5m Y2 setup) is modelled explicitly and nets against the uplift.
 - The **~17% Y5 margin** reflects the CA review: conveyancing referral removed (LPC), **27% tax**,
@@ -109,19 +130,23 @@ curve, which the milestone tranches already assume.
 | Y5 revenue | 102.0 | **162.3** | 287.0 |
 | Y5 EBITDA | 4.9 | **27.9** | 105.4 |
 | Y5 EBITDA margin | 5% | **17%** | 37% |
-| First EBITDA-positive year | Y4 | **Y3** | Y2 |
-| Cumulative cash low-point (bootstrap stance) | ~−R4.0m | **~−R2.8m** | ~−R0.8m |
-| **Minimum cash with the R5m seed** | **+R1.0m** | **+R2.2m** | +R4.2m |
+| First EBITDA-positive year | Y4 | **Y2** | Y2 |
+| Cumulative cash low-point, annual proxy (bootstrap stance) | ~−R1.8m † | **~−R0.4m** | ≤ base |
+| *(before the stance)* | *~−R5.7m* | *~−R4.5m* | *~−R2.5m* |
+| **Minimum cash with the R5m seed (annual proxy)** | **~+R3.2m** † | **~+R4.6m** | ≥ base |
 | Implied share of upper-market (Y5) | 5.4% | **8.3%** | 13.7% |
 
-The bootstrap stance (§3) applies the same ~R1.75m of Y1–Y2 operating savings in every scenario —
-it is a cost-base choice, not a revenue assumption — so each low-point moves up by the same
-amount (conservative −R5.7m → −R4.0m; base −R4.5m → −R2.8m; aggressive −R2.5m → −R0.8m).
+† Estimate: the conservative case carries the same ~R5.25m of Y1–Y2 cost savings (a cost-base
+choice, not a revenue assumption) but less Y1–Y2 revenue; its trough is taken as the base trough
+less the ~R1.2–1.5m scenario gap the workbook showed before the stance. **Re-run on the
+Scenarios tab when the workbook is refreshed.** On a monthly view every scenario's trough sits
+~R2m lower than its annual proxy (§3) — still inside the seed with ≥ R1m to spare in the
+conservative case.
 
 **CA-review adjustments baked in:** 27% SA corporate tax on positive EBITDA; headcount doubled to
-a delivery-realistic **96 by Y5** (50% AI); a **cash-runway check** (R5m seed at Y1, Series A at
-Y3) shows a minimum cash position of **+R2.2m in the base case and +R1.0m in the conservative
-case** — the seed covers the trough in all three scenarios (`02-capital-and-valuation.md` §1).
+a delivery-realistic **96 by Y5** (50% AI) from Y3; a **cash-runway check** (R5m seed at Y1,
+Series A at Y3) shows the seed covers the trough in all three scenarios
+(`02-capital-and-valuation.md` §1).
 
 ## 5. Watch-outs (flag before investors do)
 

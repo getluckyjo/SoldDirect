@@ -21,7 +21,7 @@ export const ASK = {
   stake: '20%',
   preMoney: 'R20m pre-money · R25m post-money',
   seriesA:
-    'Covers the cash trough in every modelled scenario, the conservative case included, because operations are bootstrapped until EBITDA-positive in Year 3. A Series A is modelled at Year 3 as optional — offence, not survival.',
+    'Covers the cash trough in every modelled scenario, the conservative case included, because a four-person team runs the business until it is self-funding — EBITDA-positive in Year 2. A Series A is modelled at Year 3 as optional — offence, not survival.',
 } as const;
 
 export const HERO = {
@@ -57,7 +57,7 @@ export const SUMMARY_STRIP = [
   {
     label: 'Y5 revenue (base case)',
     value: 'R162m',
-    sub: 'EBITDA-positive from Year 3',
+    sub: 'EBITDA-positive from Year 2',
   },
 ] satisfies Stat[];
 
@@ -98,7 +98,7 @@ export const PRODUCT_DETAIL = {
     },
     {
       title: 'A structurally lean cost base',
-      body: 'Modern tech handles the repetitive steps; 6 heads in Year 1 to a delivery-realistic 96 by Year 5, mostly practitioners and support. Reinvest the ~88% gross margin into brand.',
+      body: 'Modern tech handles the repetitive steps; four people in Year 1 — two founders, a principal practitioner and an agent — to a delivery-realistic 96 by Year 5, mostly practitioners and support. Reinvest the ~88% gross margin into brand.',
     },
   ] satisfies Card[],
 } as const;
@@ -178,8 +178,8 @@ export const MARKET_DETAIL = {
 // source: docs/dataroom/01-financial-model.md §3 (base case, CA-reviewed)
 export const REVENUE_RAMP = [
   { year: 'Y1', revenue: 6.14, deals: 50 },
-  { year: 'Y2', revenue: 20.24, deals: 220 },
-  { year: 'Y3', revenue: 46.83, deals: 650, ebitdaPositive: true },
+  { year: 'Y2', revenue: 20.24, deals: 220, ebitdaPositive: true },
+  { year: 'Y3', revenue: 46.83, deals: 650 },
   { year: 'Y4', revenue: 94.72, deals: 1500 },
   { year: 'Y5', revenue: 162.3, deals: 2900 },
 ] as const;
@@ -192,8 +192,8 @@ export const FIN_DETAIL = {
   stats: [
     {
       label: 'EBITDA-positive',
-      value: 'Year 3',
-      sub: 'Cash low-point ≈ −R2.8m (Y2), bootstrapped',
+      value: 'Year 2',
+      sub: 'Four-person team until self-funding',
     },
     {
       label: 'Gross margin',
@@ -268,7 +268,7 @@ export const TEAM_DETAIL = {
 export const ASK_SECTION = {
   heading: 'R5m for 20%.',
   intro:
-    'A lean seed at a R20m pre-money valuation. Until the business is EBITDA-positive in Year 3 the founders take reduced pay, hiring follows signed mandates and there is no office — so R5m clears the cash trough even in the conservative case, with headroom.',
+    'A lean seed at a R20m pre-money valuation. Four people run the business until it is self-funding — the founders at R50k a month doing the marketing, management, dealmaking, bookkeeping and tech support themselves, a principal practitioner, and an agent — with no office and hires only against signed mandates. R5m clears the cash trough in every scenario with headroom; the rest is launch and growth capital.',
   useOfFunds: [
     'Cape Town launch + brand campaign',
     'Registered practitioners + concierge team',
@@ -315,7 +315,7 @@ export const FAQ = [
   },
   {
     q: 'Is R5m enough?',
-    a: 'Yes, in every modelled scenario. Years 1 and 2 run on a bootstrap stance — founders on reduced pay until EBITDA-positive, hiring gated to signed mandates (6 heads in Year 1, not 8), remote-first with no office lease, and the Paysoft free-development allocation carrying the build. That takes ~R1.75m out of the pre-breakeven cost base without touching revenue, marketing or compliance. The base-case cash trough is ≈ −R2.8m and the conservative case ≈ −R4.0m, so the R5m seed leaves +R2.2m and +R1.0m respectively at the lowest point. The capital is deployed against milestones in two tranches; the runway check is on the Scenarios tab of the model in the data room.',
+    a: 'Yes, in every modelled scenario. Year 1 runs on four people at R150k a month in total: a Managing Director and a Marketing Director (the founders, at R50k each, carrying all marketing, management, dealmaking, bookkeeping and tech support), a principal practitioner who also holds compliance (R30k) and an agent/admin (R20k). No office; hires beyond the four only against signed mandates; Paysoft carries the build. That takes ~R5m out of the pre-breakeven cost base without touching revenue, marketing or compliance, and brings EBITDA-positive forward to Year 2. On a monthly view the Year 1 cash trough is roughly −R2m to −R3m, so the R5m seed clears it in the base case with ~R2.5m to spare and in the conservative case with ~R1m. The capital is deployed against milestones in two tranches; the runway check is on the Scenarios tab of the model in the data room.',
   },
   {
     q: 'What are the main risks?',

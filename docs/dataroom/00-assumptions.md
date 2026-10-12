@@ -106,8 +106,8 @@ steering).
 
 > Net effect (base): the Year-2 origination uplift outweighs the added cost + setup; with the
 > conveyancing referral removed (LPC) and tax applied, **Y5 revenue is ~R162.3m** and the
-> cumulative after-tax cash low-point is **~−R2.8m (Y2)** under the bootstrap operating stance
-> (§D; ~−R4.5m before it).
+> cumulative after-tax cash low-point is **~−R0.4m (Y1, annual proxy)** under the bootstrap
+> operating stance (§D; ~−R4.5m before it), with EBITDA-positive brought forward to **Y2**.
 
 **Reinvest-for-growth stance.** The base case **reinvests the high gross margin into above-the-line
 (brand) marketing** — R2.5m (Y1) rising to **R50m (Y5)**, ~40% of revenue early easing to ~24% —
@@ -128,22 +128,25 @@ they already sit in the core model.
 **CA-review additions:** SA **corporate tax at 27%** applied to positive EBITDA (no loss
 carry-forward modelled — conservative); **total headcount doubled to 96 by Y5** (50% AI) for
 delivery-realistic capacity; a **cash-runway check** on the Scenarios tab confirms the R5m seed
-covers the trough in every scenario (minimum cash +R2.2m base, +R1.0m conservative; see
-`02-capital-and-valuation.md` §1) with Series A at Y3 optional.
+covers the trough in every scenario (annual-proxy minimum cash ~+R4.6m base, ~+R3.2m
+conservative; ~R2m less on a monthly view; see `02-capital-and-valuation.md` §1) with Series A
+at Y3 optional.
 
-**Bootstrap operating stance (Y1–Y2) — Oct 2026.** The two pre-breakeven years run lean so the
-R5m seed clears the conservative trough with headroom. Four measures, all on the cost base and
-none on revenue, marketing or the regulatory line (detail in `01-financial-model.md` §3):
+**Bootstrap operating stance (Y1–Y2) — Oct 2026.** The pre-breakeven period runs on a
+**four-person team** so the R5m seed clears the conservative trough with headroom. Three
+measures, all on the cost base and none on revenue, marketing or the regulatory line (detail in
+`01-financial-model.md` §3):
 
 | Measure | Y1 | Y2 | Rel. |
 |---|---:|---:|---|
-| Founders on reduced pay until EBITDA-positive (market pay from Y3; no accrual) | −R0.45m | −R0.30m | High — founder commitment |
-| Hiring gated to mandates: 6 heads in Y1 (not 8), 12 in Y2 (not 14); the 7th/8th hire is released against the Tranche-2 milestones | −R0.20m | −R0.15m | Medium |
+| **Four-person team at R150k/month** (R1.80m/yr + ~R0.05m statutory): Managing Director R50k · Marketing Director R50k · principal practitioner & compliance R30k · agent/admin R20k. Founders below market, carrying all marketing, management, dealmaking, bookkeeping and tech support. Y2 adds two practitioners (R30k) and two agent/admin (R20k) against signed mandates → 8 heads, R3.05m | −R1.55m | −R3.05m | High — founder-stated |
 | Remote-first, no office lease (co-working passes; viewings at the property) | −R0.25m | −R0.15m | High |
 | Paysoft free-development allocation + cloud/BSP startup credits carry the build and tooling | −R0.15m | −R0.10m | Medium — tied to the Paysoft terms |
-| **Total opex saving** | **−R1.05m** | **−R0.70m** | |
+| **Total opex saving** | **−R1.95m** | **−R3.30m** | |
 
-Bootstrapped Y1–Y2 opex: **R6.75m / R19.23m** (was R7.80m / R19.93m). Y3 onward is unchanged.
+Bootstrapped Y1–Y2 opex: **R5.85m / R16.63m** (was R7.80m / R19.93m); Y2 turns EBITDA-positive.
+Y3 onward is unchanged (22 heads, founders to market pay). The statutory on-costs (UIF, SDL,
+COIDA) are small at this payroll size; no 13th cheque or benefits are modelled for Y1–Y2.
 
 **COGS — bottom-up (validates the ~12%; gross margin now *derived*).** Rather than assume a flat
 margin, COGS is built up from the direct, per-deal cost of delivering a transaction (full table on

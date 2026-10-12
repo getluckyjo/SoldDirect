@@ -46,9 +46,9 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
 
 ## Headlines (base case)
 
-- **Revenue:** R6.1m (Y1) → **R162.3m (Y5)**; **EBITDA-positive in Y3**, **~17% margin** by Y5
-  (CA-reviewed: 27% tax, delivery-realistic headcount of 96 — 6 in Y1 under the bootstrap
-  stance — conveyancing referral removed per LPC).
+- **Revenue:** R6.1m (Y1) → **R162.3m (Y5)**; **EBITDA-positive in Y2** under the bootstrap
+  stance, **~17% margin** by Y5 (CA-reviewed: 27% tax, delivery-realistic headcount of 96 from a
+  four-person Y1 team, conveyancing referral removed per LPC).
 - **Model:** **~R52–71k per deal** — origination (0.5% BetterBond referral in Y1, **~1.5% in-house from
   Y2**) *or* 1% fee, + add-ons — plus **bank sponsorship (R3→8m/yr)** and **conveyancer panel
   advertising (R0.36→2.4m/yr, fixed subscriptions — no referral fees, per LPC)**.
@@ -60,12 +60,14 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
   prime-only) — a defensible ask.
 - **The database:** each customer unlocks **~R50k of ecosystem referral revenue**; modelled optional
   (~R5k/deal captured, default off).
-- **Capital:** Y1–Y2 run on a **bootstrap operating stance** (founders on reduced pay, hiring
-  gated to mandates, remote-first, Paysoft free-development allocation — ~R1.75m of opex saved,
-  none from revenue or marketing), so the base-case cash trough is **≈ −R2.8m** and the
-  conservative **≈ −R4.0m**. The **R5m seed (at R20m pre-money, 20%)** covers the trough in
-  every scenario: minimum cash **+R2.2m base, +R1.0m conservative** (runway check on the
-  Scenarios tab). Deployed in two milestone tranches.
+- **Capital:** Y1–Y2 run on a **bootstrap operating stance** — a four-person team at
+  R150k/month (founders at R50k each carrying marketing, management, dealmaking, bookkeeping and
+  tech support; principal practitioner & compliance R30k; agent/admin R20k), remote-first,
+  Paysoft free-development allocation; ~R5.25m of opex saved before tax, none from revenue or
+  marketing. The annual cash trough is **≈ −R0.4m base / ≈ −R1.8m conservative** (roughly R2m
+  deeper on a monthly view). The **R5m seed (at R20m pre-money, 20%)** covers the trough in every
+  scenario with ≥ ~R1m to spare in the conservative case; the balance is launch and growth
+  capital (runway check on the Scenarios tab). Deployed in two milestone tranches.
 - **Valuation:** Year-5 enterprise value **~R649–974m** (4–6×); base exit **~R811m** (5×).
 - **Cap table:** **Johannes le Roux 32.5% · Dean Kruger 32.5% · Paysoft (technology partner,
   vesting) 10% · option pool (reserved) 4% · board seat (reserved, non-executive) 1% · Strategic

@@ -15,7 +15,7 @@ export function RevenueBars() {
         role="img"
         aria-label={`Base-case total revenue by year, in millions of rand: ${REVENUE_RAMP.map(
           (d) => `${d.year} R${d.revenue} million`,
-        ).join(', ')}. EBITDA-positive from Year 3.`}
+        ).join(', ')}. EBITDA-positive from Year 2.`}
         className="flex h-64 items-end gap-2 sm:gap-4"
       >
         {REVENUE_RAMP.map((d) => {
@@ -52,7 +52,7 @@ export function RevenueBars() {
       </div>
       <figcaption className="mt-3 text-sm text-slate-400">
         Base-case total revenue, R&apos;m (registered deals below each year).
-        EBITDA-positive from Year 3.
+        EBITDA-positive from Year 2.
       </figcaption>
     </figure>
   );
