@@ -6,6 +6,8 @@ const FLOW = 'buyer_prequal';
 export interface PrequalState {
   buyerId: string;
   listingId: string;
+  /** The enquiry deal, so the seller can be told when consent lands. */
+  dealId?: string;
 }
 
 /**
@@ -26,9 +28,17 @@ export function createPrismaPrequalStore(prisma: PrismaClient): PrequalStore {
         where: { phone },
       });
       if (!row || row.flow !== FLOW) return null;
-      const data = row.data as { buyerId?: string; listingId?: string };
+      const data = row.data as {
+        buyerId?: string;
+        listingId?: string;
+        dealId?: string;
+      };
       if (!data.buyerId || !data.listingId) return null;
-      return { buyerId: data.buyerId, listingId: data.listingId };
+      return {
+        buyerId: data.buyerId,
+        listingId: data.listingId,
+        ...(data.dealId ? { dealId: data.dealId } : {}),
+      };
     },
     async set(phone, state) {
       const data = state as unknown as Prisma.InputJsonValue;

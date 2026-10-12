@@ -172,6 +172,7 @@ export const DEMO_PAGE_HTML = `<!doctype html>
 
   var CHIPS = [
     'list',
+    'price',
     'How long does a transfer usually take?',
     'What 2-beds are for sale in Sea Point?',
     'I have a R150k deposit on a R1.5m home — first-time buyer. Am I ok?',

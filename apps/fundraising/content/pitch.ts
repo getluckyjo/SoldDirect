@@ -34,7 +34,7 @@ export const HERO = {
   sub: 'Sold Direct manages the private sale — listing, buyer enquiry, bond, offer and transfer — over WhatsApp, with registered property practitioners involved at each step. On the qualifying path the seller pays no commission. Revenue comes from bond origination, paid by the lender.',
   ctaPrimary: 'Request the data room',
   ctaSecondary: 'Product demonstration',
-  ctaTry: 'Try the seller flow',
+  ctaTry: 'Sell a home on the live demo',
 } as const;
 
 // The one-sentence resolution behind every 0%* (tooltip copy).
@@ -467,15 +467,15 @@ export const DEMO_SECTION = {
   heading: 'The WhatsApp Estate Agent, step by step.',
   intro:
     'One Cape Town home from the first message to registered transfer: Quick Estimate, Property Report, listing, buyer pre-qualification, offer and transfer, with each point at which revenue arises marked. Press Play, or step through it.',
-  // The standalone build of the real seller-intake flow, served from
-  // content/try.html (regenerate with `pnpm --filter @sell-direct/api build:demo:fundraising`).
-  tryHeading: 'Try the seller flow.',
+  // The live demo at /try: the API's demo simulator behind the site's own
+  // proxy route (see DEPLOYMENT.md, "The live demo on the investor site").
+  tryHeading: 'Sell a home yourself, on the live pipeline.',
   tryBody:
-    'The seller flow below runs the production conversation code — the same listing-intake state machine and copy as the WhatsApp service — in your browser, with no server behind it. Type “list” to begin.',
-  tryCta: 'Open the seller flow',
+    'The live demo runs the production system on our servers: the same conversation code, database, deal state machine and AI concierge that will answer on the WhatsApp number. Only the WhatsApp transport is simulated in your browser. Get a Quick Estimate and the Property Report, list the home, send photos, then watch the market respond: a pre-qualified buyer, a viewing, an offer, the bond, and the transfer through to registration.',
+  tryCta: 'Open the live demo',
   tryHref: '/try',
   tryNote:
-    'Opens in a new tab. Nothing entered is stored or transmitted. Price guidance in the demonstration is illustrative.',
+    'Opens in a new tab. Demo conversations use a reserved number range and never reach a real seller or buyer. The buyer is simulated; price data is illustrative until the LOOM feed is connected.',
 } as const;
 
 export const DETAIL_SECTION = {

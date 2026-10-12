@@ -122,16 +122,24 @@ so the record is a CNAME there: `invest` → `cname.vercel-dns.com`, proxy off
 (DNS only), the same shape as `www`. The site's canonical URL defaults to
 `https://invest.solddirect.co.za` (`NEXT_PUBLIC_SITE_URL` overrides it).
 
-**The hands-on demo on the investor site.** `/try` serves the standalone build
-of the seller-intake flow (the same generator as the marketing site's
-`/demo.html`). Regenerate it whenever the intake flow changes:
+**The live demo on the investor site.** `/try` is a WhatsApp-faithful client
+for the API's demo simulator: the browser talks to the site's own
+`/api/demo/*` route, which forwards to `API_INTERNAL_URL` with the
+demo-scoped token. Two variables on the Fundraising Vercel project make it
+work: `API_INTERNAL_URL` (the Railway API URL) and `DEMO_ACCESS_TOKEN`, set
+to the same value as `DEMO_ACCESS_TOKEN` on the API. The API accepts that
+token on `/api/demo/*` only, so the public site never holds the internal
+token. Without it the page shows "demo not configured".
+
+The marketing site still ships the standalone, serverless build of the
+scripted intake flow at `/demo.html`. Regenerate it whenever the intake flow
+changes:
 
 ```sh
-pnpm --filter @sell-direct/api build:demo:fundraising   # → apps/fundraising/content/try.html
 pnpm --filter @sell-direct/api build:demo:marketing     # → apps/marketing/public/demo.html
 ```
 
-Both outputs are committed; Prettier ignores them.
+The output is committed; Prettier ignores it.
 
 ## 4. WhatsApp webhook (when going live)
 

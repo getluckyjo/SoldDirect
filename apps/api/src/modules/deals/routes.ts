@@ -1,12 +1,10 @@
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { DEAL_STAGES, type DealStage } from '@sell-direct/shared';
-import { InvalidTransitionError } from './state-machine';
 import type { DealEventInput, TransitionInput } from './service';
 import type { DealRepository } from './repository';
-import { buildStageNotifications } from './stage-notifications';
+import { advanceDeal } from './advance';
 import type { Notifier } from '../notifications';
 import type { TemplateConfig } from '../notifications/templates';
-import { applyStageDeadlines } from '../deadlines';
 import type { DeadlineRepository } from '../deadlines';
 
 export interface DealRouteDeps {
@@ -58,7 +56,8 @@ const BODY_SCHEMA = {
  * and seller on WhatsApp using the approved template for the stage (falling
  * back to plain session text until template SIDs are configured). Notification
  * failures never roll back the transition — the status change is the record;
- * delivery is best-effort and logged.
+ * delivery is best-effort and logged. The shared `advanceDeal` helper is the
+ * same one the demo journey uses, so the simulator and the tracker agree.
  */
 export function registerDealRoutes(
   app: FastifyInstance,
@@ -80,57 +79,30 @@ export function registerDealRoutes(
       const { id } = request.params as { id: string };
       const body = request.body as TransitionBody;
 
-      const context = await deps.deals.getNotificationContext(id);
-      if (!context) return reply.code(404).send({ error: 'not_found' });
-
-      let deal;
-      try {
-        deal = await deps.transition({
+      const result = await advanceDeal(
+        {
+          deals: deps.deals,
+          transition: deps.transition,
+          notifier: deps.notifier,
+          templates: deps.templates,
+          deadlines: deps.deadlines,
+          log,
+        },
+        {
           dealId: id,
           to: body.to,
-          actorType: body.actorType ?? 'agent',
           note: body.note,
-        });
-      } catch (error) {
-        if (error instanceof InvalidTransitionError) {
-          return reply.code(409).send({ error: 'invalid_transition' });
-        }
-        throw error;
+          bank: body.bank,
+          amountZar: body.amountZar,
+          actorType: body.actorType,
+        },
+      );
+      if (!result.ok) {
+        return reply
+          .code(result.error === 'not_found' ? 404 : 409)
+          .send({ error: result.error });
       }
-
-      // Countdown engine: create this stage's deadlines, resolve completed ones.
-      if (deps.deadlines) {
-        try {
-          await applyStageDeadlines(deps.deadlines, id, body.to);
-        } catch (error) {
-          log('stage deadlines failed', error);
-        }
-      }
-
-      const notifications = buildStageNotifications(body.to, {
-        ...context,
-        note: body.note,
-        bank: body.bank,
-        amountZar: body.amountZar,
-      });
-
-      let notified = 0;
-      for (const n of notifications) {
-        try {
-          const templateId = n.templateKey
-            ? deps.templates[n.templateKey]
-            : undefined;
-          await deps.notifier.send(n.to, n.text, {
-            templateId,
-            variables: templateId ? n.variables : undefined,
-          });
-          notified += 1;
-        } catch (error) {
-          log('stage notification failed', error);
-        }
-      }
-
-      return { deal: { id: deal.id, status: deal.status }, notified };
+      return { deal: result.deal, notified: result.notified };
     },
   );
 

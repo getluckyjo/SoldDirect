@@ -201,6 +201,32 @@ export async function handleListingIntakeMessage(
 }
 
 /**
+ * Begin intake with facts already known — the Quick Estimate hands over its
+ * suburb, property type and bedrooms (and the estimate the seller was shown,
+ * so the price step carries the same guidance and tap-able amounts). The
+ * seller is never asked for something they just told us.
+ */
+export async function beginIntakeWith(
+  deps: ListingIntakeDeps,
+  phone: string,
+  known: ExtractedListingFields,
+  estimate?: PriceEstimate | null,
+): Promise<IntakeReply> {
+  const base = startIntake(known);
+  const started = await withPriceGuidance(deps, {
+    ...base,
+    // Carry the Quick Estimate so the price step reuses it instead of a
+    // second lookup; `undefined` keeps the normal lookup-on-arrival.
+    state: {
+      ...base.state,
+      ...(estimate !== undefined ? { estimate } : {}),
+    },
+  });
+  await deps.store.set(phone, { ...started.state, owner: 'scripted' });
+  return { reply: started.reply, options: started.options };
+}
+
+/**
  * A seller mid-flow who types something we cannot parse has usually either
  * fat-fingered an answer or asked us something. Only the second deserves the
  * concierge, so the test is deliberately narrow: an explicit question mark, or

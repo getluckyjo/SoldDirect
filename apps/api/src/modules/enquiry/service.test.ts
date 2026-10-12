@@ -18,6 +18,7 @@ function makeDeps() {
     list: vi.fn().mockResolvedValue([]),
     getWithTimeline: vi.fn().mockResolvedValue(null),
     getNotificationContext: vi.fn().mockResolvedValue(null),
+    findLatestDealForSeller: vi.fn().mockResolvedValue(null),
   };
   const finance = {
     submitReferral: vi.fn().mockResolvedValue({
@@ -102,6 +103,7 @@ describe('buyer consent buttons', () => {
           list: async () => [],
           getWithTimeline: async () => null,
           getNotificationContext: async () => null,
+          findLatestDealForSeller: async () => null,
         },
         finance: new BetterBondReferralStub(),
       },

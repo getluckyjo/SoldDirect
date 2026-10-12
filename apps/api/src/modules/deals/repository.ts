@@ -16,6 +16,19 @@ export interface DealRepository {
     buyerPhone: string;
     sellerPhone?: string;
   } | null>;
+  /**
+   * The newest deal on any listing this seller owns — what a seller's
+   * reply (a viewing slot, ACCEPT, COUNTER) refers to.
+   */
+  findLatestDealForSeller(phone: string): Promise<SellerDeal | null>;
+}
+
+export interface SellerDeal {
+  id: string;
+  status: string;
+  listingId: string;
+  property: string;
+  buyerPhone: string;
 }
 
 export function createPrismaDealRepository(
@@ -61,6 +74,27 @@ export function createPrismaDealRepository(
         property: deal.listing.title,
         buyerPhone: deal.buyer.phone,
         sellerPhone: deal.listing.seller.phone ?? undefined,
+      };
+    },
+    async findLatestDealForSeller(phone) {
+      const deal = await prisma.deal.findFirst({
+        where: { listing: { seller: { phone } } },
+        orderBy: { createdAt: 'desc' },
+        select: {
+          id: true,
+          status: true,
+          listingId: true,
+          listing: { select: { title: true } },
+          buyer: { select: { phone: true } },
+        },
+      });
+      if (!deal) return null;
+      return {
+        id: deal.id,
+        status: deal.status,
+        listingId: deal.listingId,
+        property: deal.listing.title,
+        buyerPhone: deal.buyer.phone,
       };
     },
     async getWithTimeline(id) {

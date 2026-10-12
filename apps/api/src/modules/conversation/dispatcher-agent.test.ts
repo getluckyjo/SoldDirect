@@ -63,6 +63,7 @@ function makeDeps(agent?: AgentHandler, extra: Partial<DispatcherDeps> = {}) {
     list: vi.fn(async () => []),
     getWithTimeline: vi.fn(async () => null),
     getNotificationContext: vi.fn(async () => null),
+    findLatestDealForSeller: vi.fn(async () => null),
   };
   const deps: DispatcherDeps = {
     intake: {
@@ -322,6 +323,7 @@ describe('dispatcher × AI concierge', () => {
     expect(await d.prequalStore.get(PHONE)).toEqual({
       buyerId: 'buyer-1',
       listingId: 'listing-42',
+      dealId: 'deal-1',
     });
     // …while the agent words the invite.
     expect(agent.handle).toHaveBeenCalled();
