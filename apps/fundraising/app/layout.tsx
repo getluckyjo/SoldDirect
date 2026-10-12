@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     siteName: 'Sold Direct',
     images: [
       {
-        url: '/cape-town-hero.jpg',
-        width: 1920,
-        height: 1280,
-        alt: 'Homes above the bay in Camps Bay, Cape Town',
+        url: '/cape-town-aerial-hero.jpg',
+        width: 2400,
+        height: 1800,
+        alt: 'Aerial view of Green Point and the Atlantic coast beneath a tablecloth cloud on Table Mountain, Cape Town',
       },
     ],
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
-    images: ['/cape-town-hero.jpg'],
+    images: ['/cape-town-aerial-hero.jpg'],
   },
 };
 
