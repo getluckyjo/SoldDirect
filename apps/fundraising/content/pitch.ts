@@ -465,7 +465,7 @@ export const DISCLAIMER =
   'This page is informational only. It is not an offer of securities to the public, nor a solicitation to invest, and any investment opportunity is available by private placement to selected investors only (Companies Act, 2008). Nothing here constitutes financial, legal or tax advice (FAIS). All projections are illustrative, model-grade and unaudited; actual results may differ materially. Detailed financials, the cap table and partner terms are shared under NDA. Personal information submitted via this page is processed in accordance with POPIA.';
 
 export const NAV = [
-  { href: '#concept', label: 'Proposition' },
+  { href: '#concept', label: 'Concept' },
   { href: '#demo', label: 'Demonstration' },
   { href: '#ask', label: 'The round' },
   { href: '#returns', label: 'Returns' },

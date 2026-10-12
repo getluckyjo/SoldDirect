@@ -145,7 +145,7 @@ export default function Investors() {
       <Section
         id="concept"
         tone="tinted"
-        eyebrow="Proposition"
+        eyebrow="Concept"
         heading={CONCEPT_SECTION.heading}
       >
         <div className="mt-10 grid gap-6 md:grid-cols-3">
