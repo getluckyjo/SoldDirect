@@ -18,7 +18,10 @@ export type IconName =
   | 'steps'
   | 'growth'
   | 'home'
-  | 'shield';
+  | 'shield'
+  | 'bolt'
+  | 'key'
+  | 'handshake';
 
 const PATHS: Record<IconName, React.ReactNode> = {
   // A house outline with a gap in the roofline: the unserved segment.
@@ -132,6 +135,30 @@ const PATHS: Record<IconName, React.ReactNode> = {
     <>
       <path d="M12 3.5 5 6v5.5c0 4.2 3 7.3 7 9 4-1.7 7-4.8 7-9V6l-7-2.5Z" />
       <path d="m9 12 2 2 4-4" />
+    </>
+  ),
+  // A lightning bolt: instant.
+  bolt: (
+    <>
+      <path d="M13 3 5 13.5h6L10 21l9-11h-6l1-7Z" />
+    </>
+  ),
+  // A key: the mandate.
+  key: (
+    <>
+      <circle cx="8" cy="14" r="4.5" />
+      <path d="m11.5 10.5 8-8" />
+      <path d="M16.5 5.5 19 8M14 8l2 2" />
+    </>
+  ),
+  // Two hands meeting: the relationship.
+  handshake: (
+    <>
+      <path d="M2.5 9h3.5l3.5 3.5a2 2 0 0 0 2.8 0L15 10" />
+      <path d="M21.5 9H18l-3-3H11L8 9" />
+      <path d="m6 9 4.5 4.5M18 9l-4 4.5a1.5 1.5 0 0 1-2.2 0" />
+      <path d="M2.5 9v6.5h3l3 3 1.5-1.5" />
+      <path d="M21.5 9v6.5h-3l-2.5 2.5" />
     </>
   ),
 };

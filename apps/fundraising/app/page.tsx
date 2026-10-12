@@ -25,6 +25,7 @@ import {
   FAQ,
   FIN_DETAIL,
   HERO,
+  HOOKS_SECTION,
   MARKET_DETAIL,
   MODEL_DETAIL,
   NAV,
@@ -180,6 +181,36 @@ export default function Investors() {
                   </li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* The hooks */}
+      <Section
+        id="hooks"
+        eyebrow="The hooks"
+        heading={HOOKS_SECTION.heading}
+        intro={HOOKS_SECTION.intro}
+      >
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {HOOKS_SECTION.hooks.map((hook, i) => (
+            <div
+              key={hook.title}
+              className="flex gap-5 rounded-2xl border border-slate-800 bg-navy p-6"
+            >
+              <IconTile name={hook.icon} size="lg" />
+              <div className="min-w-0">
+                <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                  Hook {i + 1}
+                </p>
+                <h3 className="mt-1 text-lg font-semibold leading-snug text-white">
+                  {hook.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  {withZeroNote(hook.body)}
+                </p>
+              </div>
             </div>
           ))}
         </div>

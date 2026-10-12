@@ -383,6 +383,36 @@ export const NEXT_STEPS = [
   'Confirm allocation and subscription terms',
 ] as const;
 
+// Four hooks: what brings a seller in and keeps the sale on the platform.
+// "Estimate", never "valuation" (Property Valuers Profession Act).
+export const HOOKS_SECTION = {
+  heading: 'The hooks.',
+  intro:
+    'Four features that bring sellers in and keep the whole sale on the platform.',
+  hooks: [
+    {
+      icon: 'bolt',
+      title: 'Complimentary instant property estimate',
+      body: 'Every conversation starts with a free Quick Estimate on WhatsApp: a price range in minutes, no commitment. It is the entry point for every seller and the first step of every listing.',
+    },
+    {
+      icon: 'chat',
+      title: 'Always-on WhatsApp estate agent advisory',
+      body: 'Pricing, viewings, offers, bond and transfer, answered in the same WhatsApp thread by the platform and a registered property practitioner, day or night. The seller never waits for office hours.',
+    },
+    {
+      icon: 'key',
+      title: 'Cornering supply with 90-day mandates',
+      body: 'The 0%* path requires an exclusive 90-day mandate. Each listing is ours to sell for the term, so stock builds as the pipeline fills and every buyer enquiry stays on the platform.',
+    },
+    {
+      icon: 'handshake',
+      title: 'Relationships that carry into post-sale services',
+      body: 'A sale runs for months inside one conversation. That relationship extends into the next bond, insurance, conveyancing and the next move, at no acquisition cost.',
+    },
+  ],
+} as const;
+
 // Partner logos shown under the demonstration. White-on-transparent PNGs in
 // public/partners/, generated from the originals in the repo root.
 // source: TRACTION_DETAIL.partners and docs/LAUNCH-PLAN.md (Property24)
@@ -491,6 +521,7 @@ export const DISCLAIMER =
 
 export const NAV = [
   { href: '#concept', label: 'Concept' },
+  { href: '#hooks', label: 'Hooks' },
   { href: '#demo', label: 'Demonstration' },
   { href: '#ask', label: 'The round' },
   { href: '#returns', label: 'IRR' },
