@@ -180,7 +180,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Legal',
       title: 'Sole mandate & PPRA',
-      body: 'A mandate may only be held by a registered property practitioner with a valid Fidelity Fund Certificate. Sold Direct is completing that registration and will not take a mandate until it is in place.',
+      body: 'A mandate may only be held by a registered property practitioner with a valid Fidelity Fund Certificate. Sold Direct’s registration and FFC are approved; mandates are signed as soon as the PPRA issues the registration numbers.',
     },
   },
   {

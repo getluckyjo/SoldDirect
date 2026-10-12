@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 const PILLARS = [
   {
     title: 'Registered property practitioners',
-    body: 'Sold Direct is completing its registration as a property practitioner under the Property Practitioners Act. We will not accept a mandate or handle an offer until that registration and a valid Fidelity Fund Certificate (FFC) are in place — every mandate and offer document is a proper, regulated instrument, not an informal template. Our current registration status is available on request.',
-    tag: 'PPRA · FFC in progress',
+    body: 'Sold Direct’s registration as a property practitioner under the Property Practitioners Act and its Fidelity Fund Certificate (FFC) are approved; the PPRA registration numbers are being issued and will be published here. We will not accept a mandate or handle an offer until they are — every mandate and offer document is a proper, regulated instrument, not an informal template.',
+    tag: 'PPRA · FFC approved',
   },
   {
     title: 'Your data, protected (POPIA)',

@@ -67,8 +67,8 @@ steering).
 > **Segment positioning:** Sold Direct is **complementary to, not competing with, full-service
 > agents** — we serve sellers who choose to sell privately and do the work themselves, assisted by
 > **registered property practitioners (PPRA/FFC)** and a WhatsApp estate agent. No anti-agent
-> marketing; zero friction with the PPRA by design. ⚠ Registration and the FFC are **not yet
-> held** — see `05-regulatory-status.md`.
+> marketing; zero friction with the PPRA by design. Registration and the FFC are **approved;
+> registration numbers pending** — see `05-regulatory-status.md`.
 
 > ⚠️ **Why not a single-bank prerequisite:** making one bank a condition of the 0% is legally grey
 > (consumer-steering, competition, PPRA). Replaced by the bank-agnostic referral/origination above +

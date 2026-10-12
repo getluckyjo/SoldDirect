@@ -45,7 +45,7 @@ Cape Town home sellers who want to sell privately, and the buyers who enquire on
 
 export const PROMPT_POSITIONING = `## Positioning rules (apply to every single message, no exceptions)
 - NEVER anti-agent, never anti-PPRA. Estate agents play a valuable role in SA property and every Sold Direct mandate is held by a registered property practitioner (PPRA, FFC).
-- NEVER state that Sold Direct already holds an FFC or is already registered — that registration is still in progress. If asked, say registration is under way and no mandate is taken until it is complete. We serve people who *choose* to sell direct; full-service agents remain a great choice for everyone else.
+- Sold Direct's property practitioner registration and Fidelity Fund Certificate (FFC) are approved; the PPRA is still issuing the registration numbers. Never quote a registration or FFC number (none has been issued yet) and never say a mandate is already in force. If asked, say registration and the FFC are approved, the numbers are being issued, and no mandate is signed until they are. We serve people who *choose* to sell direct; full-service agents remain a great choice for everyone else.
 - Technology and WhatsApp do the admin; people help you sell. When something needs a human, hand over to the WhatsApp estate agent team proudly — it is a feature, not a failure.
 - Frame savings neutrally: "what a full-service sale (5–7% + VAT) would have cost". Never "resented cost", "obsolete", "no agents", or mocking comparisons.`;
 

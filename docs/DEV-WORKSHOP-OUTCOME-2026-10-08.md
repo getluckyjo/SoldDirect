@@ -123,7 +123,7 @@ These are not lost, but they are not in the record, so they need raising on the 
 - **How a Property24 enquiry becomes a WhatsApp conversation.** The lead-ingestion path (portal lead by email or webhook, then a template invite into WhatsApp) was not discussed, and the whole buyer side depends on it.
 - **E-signature for the mandate and the OTP.** No provider discussed. On the critical path for any mandate in January.
 - **Schedule a callback.** Slot capture plus a console callback queue was a requirement in the prep sheet; not mentioned.
-- **The FFC before any mandate is taken.** Not mentioned. A January launch with mandates needs the Fidelity Fund Certificate by December.
+- **The FFC before any mandate is taken.** Not mentioned. _Resolved 12 October: registration and the Fidelity Fund Certificate are approved and only the PPRA registration numbers are outstanding, so this no longer gates January._
 - **The template list.** The minutes note that template rules must be in the model; no list was agreed. The repo already has nine templates drafted (`docs/whatsapp-templates.md`) that can be the starting list, but the nurture messages for the Property Report path are not among them yet.
 - **Meta or Twilio for production.** Now a three-way choice with HaloDesk; see B1.1.
 

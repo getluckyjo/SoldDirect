@@ -1,14 +1,17 @@
-# Sold Direct — Regulatory Status & Portal Access (as at 26 Aug 2026)
+# Sold Direct — Regulatory Status & Portal Access (as at 12 Oct 2026)
 
 Written to be read by an investor before they ask. Two things gate trading: a **Fidelity Fund
-Certificate** and a **portal subscription**. Both are in progress; neither is in place.
+Certificate** and a **portal subscription**. The certificate is approved and its registration numbers are awaited; the portal subscription follows the numbers.
 
 ## 1. Property practitioner registration — the critical path
 
-**Status: not held. Registration in progress.**
+**Status (12 Oct 2026): approved. PPRA registration numbers pending.**
 
-Sold Direct is not yet a registered property practitioner and does not hold a Fidelity Fund
-Certificate (FFC). Until it does, the company cannot lawfully take a mandate, and — under the
+Sold Direct's registration as a property practitioner and its Fidelity Fund Certificate (FFC)
+have been approved; the PPRA is issuing the registration numbers. Until the numbers are in hand
+no mandate is signed and the Property24 Annexure D cannot be completed. The legal position that
+made this the critical path is kept below for the record: without a valid FFC a company cannot
+lawfully take a mandate, and — under the
 Property Practitioners Act — **a practitioner without a valid FFC is not entitled to
 remuneration**, a provision South African courts have enforced by clawing back commission
 already earned.
@@ -27,7 +30,7 @@ The **1% Flex fee** is, additionally, remuneration paid by a seller for practiti
 ⚠ **A written attorney opinion on the above is outstanding** and should be obtained before the
 round closes. This document is the founders' working understanding, not legal advice.
 
-### Route to the certificate
+### Route to the certificate (as planned in August 2026, kept for the record)
 
 A firm FFC requires a qualified **principal property practitioner** (NQF5 + PDE5). Qualifying a
 founder from scratch runs 12+ months through the candidate period; appointing an already-
@@ -47,15 +50,16 @@ individual's registration.
 
 ### What the public sites say
 
-Until registration completes, the marketing site states plainly that registration is in progress
-and that **no mandate will be accepted until it and a valid FFC are in place**. The AI WhatsApp estate agent
-is instructed never to claim the company is already registered. A prior claim to hold an FFC was
-removed on 26 Aug 2026.
+The marketing site states that registration and the FFC are approved, that the registration
+numbers are being issued and will be published, and that **no mandate is accepted until they
+are**. The AI WhatsApp estate agent is instructed never to quote a registration or FFC number
+until one exists. A prior claim to hold an FFC was removed on 26 Aug 2026; the numbers go back
+onto the site the day the PPRA issues them.
 
 ## 2. Property24 — agency subscription
 
-**Status: paperwork received, not yet signed** (gated on the FFC — Annexure D requires the
-number). Full 2026 rate card, subscription agreement and annexures are on file.
+**Status: paperwork received, not yet signed** (Annexure D requires the FFC number, which the
+PPRA is issuing). Full 2026 rate card, subscription agreement and annexures are on file.
 
 **The model is contractually permitted.** Clause 2(a) entitles a subscriber to list
 **unlimited** properties for sale, *"provided the Subscriber possesses a mandate to market each

@@ -12,7 +12,7 @@ model-grade (see sourcing caveats in each document).
 | [`02-capital-and-valuation.md`](./02-capital-and-valuation.md) | Bottom-up capital requirement, the R10m seed at R30m pre-money (25%), valuation, **cap table** (2 working founders + technology partner + board + strategic funder at inception) and runway check |
 | [`03-market-sizing.md`](./03-market-sizing.md) | TAM/SAM/SOM, the implied upper-market share (stress test + positioning), and consumer commission saved |
 | [`04-indicative-term-sheet.md`](./04-indicative-term-sheet.md) | **Indicative seed terms (one-pager)** — R10m for 25% with investor-friendly structure (tranched against milestones, 1× non-participating preference, lead board seat, founder reverse-vesting), cap table at closing, and the team (founders + Paysoft in the CTO role) |
-| [`05-regulatory-status.md`](./05-regulatory-status.md) | **Regulatory status, written for diligence** — property practitioner registration and FFC (not yet held; route, timeline and key-person mitigation), why the 0% model does not avoid the Property Practitioners Act, the Property24 subscription position and open commercial points, and the FAIS/FSP dependency for Y2 origination |
+| [`05-regulatory-status.md`](./05-regulatory-status.md) | **Regulatory status, written for diligence** — property practitioner registration and FFC (approved, registration numbers pending; route and key-person mitigation), why the 0% model does not avoid the Property Practitioners Act, the Property24 subscription position and open commercial points, and the FAIS/FSP dependency for Y2 origination |
 | [`sold-direct-model.xlsx`](./sold-direct-model.xlsx) | **Live Excel model (CA-reviewed)** — 12 linked tabs (Home · Assumptions · P&L · COGS Build · Scenarios · Market Sizing · Capital & Valuation · Use of Funds · Cap Table · Competitive Landscape · Ancillary Revenue · Notes). Edit the amber input cells and everything recalculates. |
 | [`model.csv`](./model.csv) | Flat snapshot of the numbers (the `.xlsx` is the working model) |
 | [`partner-brief-paysoft.html`](./partner-brief-paysoft.html) | Print-ready technology-partnership brief for Paysoft |
@@ -31,8 +31,8 @@ customer of the portals, not a competitor. The launch plan is built on this serv
 
 **We serve the private-sale segment** — sellers who choose to sell direct and do the work
 themselves — assisted by **registered property practitioners (PPRA/FFC)** and a WhatsApp
-WhatsApp estate agent. ⚠ Registration and the FFC are **not yet held** — status, route and timeline in
-`05-regulatory-status.md`. **Complementary to full-service agents, not adversarial** (no anti-agent
+estate agent. Registration and the FFC are **approved; the PPRA registration numbers are pending** —
+status and route in `05-regulatory-status.md`. **Complementary to full-service agents, not adversarial** (no anti-agent
 marketing; zero PPRA friction by design). **Land at prime** (Atlantic Seaboard, City Bowl,
 Southern Suburbs, Constantia) and **taper the average transacting price down (R6.5m → R4.0m) as
 the brand scales**, broadening into the upper-market to grow from a far larger pool and cut
@@ -68,8 +68,8 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
   the **seed models ~16.9×** to the base-case exit.
 - **⚠ Validate** the in-house origination terms (bank agreements + accreditation), the ATL→deals
   conversion, and the upper-market pool count with a pilot.
-- **⚠ Gating:** property practitioner registration + FFC are **not yet in place**; no mandate can
-  be taken until they are (`05-regulatory-status.md`).
+- **Gating:** property practitioner registration + FFC are **approved**; mandates start once the
+  PPRA issues the registration numbers (`05-regulatory-status.md`).
 
 ## Before circulating
 
