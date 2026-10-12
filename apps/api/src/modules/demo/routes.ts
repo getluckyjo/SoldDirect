@@ -34,6 +34,8 @@ export interface DemoRouteDeps {
   stores?: { intake: ConversationStore; estimate: EstimateStore };
   /** The "market responds" director (POST /api/demo/journey). */
   journey?: Omit<JourneyDeps, 'dispatcher' | 'notifier'>;
+  /** Whether the AI concierge is on and its key accepted, for the control room. */
+  ai?: () => { concierge: boolean; key: string };
   log?: (message: string, error?: unknown) => void;
 }
 
@@ -110,7 +112,14 @@ export function registerDemoRoutes(
       deps.demo.latestListing(phone),
       deps.demo.latestDeal(phone),
     ]);
-    return { phone, estimate, intake, listing, deal };
+    return {
+      phone,
+      estimate,
+      intake,
+      listing,
+      deal,
+      ai: deps.ai?.() ?? { concierge: false, key: 'missing' },
+    };
   });
 
   app.post(
