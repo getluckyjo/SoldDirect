@@ -11,20 +11,20 @@ const CONTACT_EMAIL = 'johannes@solddirect.co.za';
 
 const STEPS = [
   {
-    title: 'List on WhatsApp',
-    body: 'A few guided questions, add your photos — live in minutes.',
+    title: 'Start on WhatsApp',
+    body: 'Send LIST or PRICE. One menu: find out what your home is worth, or list it. Every step is a tap, and a person is one tap away.',
   },
   {
-    title: 'Buyers enquire & pre-qualify',
-    body: 'Bond pre-qualification happens in the chat — you only deal with serious offers.',
+    title: 'Quick Estimate and Property Report',
+    body: 'A price range from confirmed nearby sales, then a free Property Report for your home. Market guidance, not a valuation; the asking price is yours.',
   },
   {
-    title: 'Accept an offer',
-    body: 'Compare offers, sign the Offer to Purchase, hand off to a panel conveyancer.',
+    title: 'List, and buyers pre-qualify',
+    body: 'Build your listing in a few taps and it goes to Property24. Buyers pre-qualify for a bond in the chat, so you deal with serious offers.',
   },
   {
-    title: 'Tracked to transfer',
-    body: 'Every stage tracked, from bond to Deeds Office registration.',
+    title: 'Offer to transfer',
+    body: 'Sign the Offer to Purchase, a panel conveyancer handles the transfer, and every stage is reported until registration at the Deeds Office.',
   },
 ];
 
@@ -34,13 +34,13 @@ const TIERS = [
     tagline: '0% commission',
     price: 'R0',
     mechanic:
-      'Your buyer bonds through our partner and a panel conveyancer handles transfer. The bank pays us — you pay nothing.',
+      'Your buyer’s bond is placed through our origination partner and a panel conveyancer handles the transfer. The lender pays us; you pay nothing.',
     points: [
       'Full listing, portal syndication & deal tracker',
       'WhatsApp concierge from mandate to registration',
       'Exclusive with us for a fixed term',
     ],
-    foot: 'Cash buyer? A simple 1%, agreed upfront.',
+    foot: 'Cash buyer? A 1% facilitation fee, agreed up front.',
     highlight: true,
   },
   {
@@ -48,13 +48,13 @@ const TIERS = [
     tagline: 'No lock-in',
     price: '1%',
     mechanic:
-      'No exclusivity, no partner requirements — one simple fee, only when you sell.',
+      'No exclusivity and no partner requirements. One fee, payable only when your home sells.',
     points: [
       'The same platform, tools and concierge',
       'Any buyer, any bank, any conveyancer',
       'Nothing to pay until your home sells',
     ],
-    foot: 'For sellers who want total freedom.',
+    foot: 'For sellers who prefer no exclusivity.',
     highlight: false,
   },
 ];
@@ -62,7 +62,7 @@ const TIERS = [
 const ADDONS = [
   {
     title: 'Photography & floor plans',
-    body: 'Professional shoots and floor plans that make your listing stand out.',
+    body: 'Professional photography and floor plans for your listing.',
   },
   {
     title: 'Featured placement & social campaigns',
@@ -70,30 +70,30 @@ const ADDONS = [
   },
   {
     title: 'Compliance-certificate coordination',
-    body: 'We arrange every certificate your transfer needs — electrical, plumbing, gas and more.',
+    body: 'We arrange the certificates your transfer needs: electrical, plumbing, gas and others.',
   },
 ];
 
 const FAQ = [
   {
     q: 'Is it really 0% commission?',
-    a: 'Yes. Every sale already has a bank earning inside it. When your buyer takes a bond of 80% or more through our partner and a panel conveyancer handles transfer, the bank pays us an origination commission — and you pay R0. The cost of selling moves off your shoulders and onto the banks.',
+    a: 'Yes. When your buyer takes a bond of 80% or more through our origination partner and a panel conveyancer handles the transfer, the lender pays us an origination fee and you pay no commission.',
   },
   {
     q: 'What if my buyer pays cash?',
-    a: 'Take it — a cash offer is often your best offer. With no bond there’s no bank to pay us, so a simple 1% applies, agreed upfront in your mandate. On a R6m home: R60,000, versus ~R414,000 for full service (6% + VAT).',
+    a: 'A cash offer is often the best offer. With no bond there is no origination fee, so a 1% facilitation fee applies, agreed up front in your mandate. On a R6m home that is R60,000; a full-service sale at 6% plus VAT would cost about R414,000.',
   },
   {
     q: 'What does the exclusive mandate involve? Can I cancel?',
-    a: 'A fixed-term exclusive mandate with plain-language terms, e-signed on WhatsApp and handled by a registered practitioner. Cancellation follows its notice terms — or choose Flex, with no exclusivity.',
+    a: 'A fixed-term exclusive mandate in plain language, e-signed on WhatsApp and held by a registered property practitioner. Cancellation follows its notice terms. Flex has no exclusivity.',
   },
   {
     q: 'Are you against estate agents?',
-    a: 'No. Full-service agents are the right choice for many sellers — we work with registered practitioners ourselves. We simply serve those who choose to sell privately.',
+    a: 'No. Full-service agents are the right choice for many sellers, and we work with registered practitioners ourselves. We serve sellers who choose to sell privately.',
   },
   {
     q: 'Is my information safe?',
-    a: 'Explicit consent before we collect anything, only what each step needs, sensitive fields encrypted, never sold — POPIA by design. See our privacy notice and compliance page.',
+    a: 'We ask for consent before collecting anything, collect only what each step needs, encrypt sensitive fields and never sell your information, in line with POPIA. See the privacy notice and compliance page.',
   },
 ];
 
@@ -117,7 +117,7 @@ export default function Home() {
               Pricing
             </a>
             <a href="#journey" className="hover:text-white">
-              See it work
+              The journey
             </a>
             <a href="#faq" className="hover:text-white">
               FAQ
@@ -151,16 +151,19 @@ export default function Home() {
         />
         <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 sm:pb-28 sm:pt-28">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm font-medium text-white ring-1 ring-inset ring-white/30 backdrop-blur">
-            Cape Town • WhatsApp-first • 0% commission
+            Cape Town • WhatsApp • 0% commission on the qualifying path
           </p>
           <h1 className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm sm:text-6xl">
             Sell your home direct.{' '}
-            <span className="text-brand-300">Keep your money.</span>
+            <span className="text-brand-300">
+              On WhatsApp, at 0% commission.
+            </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-slate-100">
-            Sell privately, guided end-to-end on WhatsApp — with our concierge
-            and registered practitioners behind you. 0% commission, because the
-            banks pay us — not you.
+            A guided private sale over WhatsApp, with our concierge and
+            registered property practitioners involved at each step. On the
+            qualifying path you pay no commission; the lender pays us a bond
+            origination fee.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -186,8 +189,7 @@ export default function Home() {
           </div>
           {wa ? (
             <p className="mt-4 text-sm text-slate-200">
-              Two words, one chat. Everything happens on WhatsApp — no forms, no
-              logins.
+              Everything happens on WhatsApp. No forms, no logins.
             </p>
           ) : null}
         </div>
@@ -198,14 +200,14 @@ export default function Home() {
         id="for"
         tone="tinted"
         eyebrow="Who it's for"
-        heading="Made for sellers who choose to sell direct."
+        heading="For sellers who choose to sell direct."
       >
         <div className="mt-8 grid items-center gap-10 sm:grid-cols-3">
           <div className="grid gap-6 sm:col-span-2">
             <p className="max-w-xl text-slate-600">
-              Full-service agents are the right choice for many. Sold Direct is
-              for sellers who&apos;d rather do it themselves — with our
-              technology and people handling every step.
+              Full-service agents are the right choice for many sellers. Sold
+              Direct is for those who prefer to sell themselves, with our
+              platform and people handling each step.
             </p>
             <ul className="grid gap-3 text-slate-600">
               <li className="flex gap-3">
@@ -241,12 +243,14 @@ export default function Home() {
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
             <p className="text-sm text-slate-500">
-              Agent commission on a R6m home
+              What a full-service sale (6% + VAT) would cost on a R6m home
             </p>
             <p className="mt-1 text-4xl font-extrabold text-slate-600">
               ~R414k
             </p>
-            <p className="mt-6 text-sm text-slate-500">With Sold Direct</p>
+            <p className="mt-6 text-sm text-slate-500">
+              With Sold Direct, on the qualifying path
+            </p>
             <p className="mt-1 text-5xl font-extrabold text-brand-600">R0</p>
           </div>
         </div>
@@ -257,7 +261,7 @@ export default function Home() {
         id="how"
         eyebrow="The journey"
         heading="How it works"
-        intro="A guided, digital version of the South African property journey — start to registration."
+        intro="The South African property journey, guided step by step on WhatsApp, from the first message to registration."
         backdrop={{
           src: '/bo-kaap-street.jpg',
           alt: 'Colourful Bo-Kaap houses beneath Lion’s Head, Cape Town',
@@ -285,12 +289,36 @@ export default function Home() {
       <Section
         id="journey"
         tone="tinted"
-        eyebrow="See it work · interactive"
+        eyebrow="The journey, step by step"
         heading="The whole journey, inside WhatsApp."
-        intro="One Cape Town home, from listing to registered sale. Press Play, or step through it yourself."
+        intro="One Cape Town home, from “What’s my home worth?” to registered sale. Press Play, or step through it."
       >
         <div className="mt-8 rounded-3xl bg-white p-4 shadow-xl ring-1 ring-slate-200 sm:p-8">
           <WhatsAppDemo />
+        </div>
+        <div className="mt-8 grid gap-6 rounded-2xl border border-brand-200 bg-white p-6 shadow-sm md:grid-cols-[1fr_auto] md:items-center sm:p-8">
+          <div>
+            <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
+              Try the seller flow yourself.
+            </h3>
+            <p className="mt-2 max-w-2xl text-slate-600">
+              The listing flow runs in your browser with no server behind it.
+              Nothing you type is stored. Type “list” to begin.
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              Opens in a new tab. Price guidance in the demonstration is
+              illustrative.
+            </p>
+          </div>
+          <a
+            href="/demo.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700"
+          >
+            Open the seller flow
+            <span aria-hidden>↗</span>
+          </a>
         </div>
       </Section>
 
@@ -298,8 +326,8 @@ export default function Home() {
       <Section
         id="pricing"
         eyebrow="Pricing"
-        heading="Two ways to sell. One simple rule: the banks pay us, not you."
-        intro="When your buyer bonds through our partner, the bank pays us — you pay 0%. No bond? A simple 1%, agreed upfront."
+        heading="Two ways to sell."
+        intro="When your buyer’s bond is placed through our partner, the lender pays us and you pay 0%. With no bond, a 1% facilitation fee applies, agreed up front."
       >
         <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
           {TIERS.map((tier) => (
@@ -341,10 +369,10 @@ export default function Home() {
           ))}
         </div>
         <p className="mx-auto mt-8 max-w-4xl text-center text-sm text-slate-600">
-          On a R6m home, that&apos;s{' '}
+          On a R6m home, that is{' '}
           <span className="font-semibold text-brand-700">R0</span> or{' '}
-          <span className="font-semibold text-brand-700">R60k</span> — versus
-          ~R414k for a typical full-service commission (6% + VAT).
+          <span className="font-semibold text-brand-700">R60,000</span>. A
+          full-service sale at 6% plus VAT would cost about R414,000.
         </p>
         <p className="mx-auto mt-3 max-w-4xl text-center text-xs text-slate-400">
           Pricing shown is indicative for our Cape Town launch and subject to
@@ -357,7 +385,7 @@ export default function Home() {
         id="addons"
         eyebrow="À la carte"
         heading="Optional add-ons"
-        intro="Extras to make your home shine — priced per service."
+        intro="Optional services, priced per service."
         backdrop={{
           src: '/living-room-interior.jpg',
           alt: 'A bright, professionally styled living room, ready for viewings',
@@ -378,11 +406,7 @@ export default function Home() {
       </Section>
 
       {/* FAQ */}
-      <Section
-        id="faq"
-        eyebrow="Straight answers"
-        heading="Questions sellers ask"
-      >
+      <Section id="faq" eyebrow="Questions" heading="Questions sellers ask">
         <div className="mt-8 grid max-w-3xl gap-4">
           {FAQ.map((item) => (
             <details
@@ -419,7 +443,7 @@ export default function Home() {
               Built for Cape Town, from the first listing to registration.
             </h2>
             <p className="mt-3 max-w-xl text-lg text-slate-200 drop-shadow">
-              Designed around how South African transfers actually work.
+              Designed around how South African transfers work.
             </p>
           </div>
         </div>
@@ -432,11 +456,10 @@ export default function Home() {
       >
         <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-            Be first in Cape Town
+            Join the Cape Town launch list
           </h2>
           <p className="mt-2 text-slate-600">
-            Join the first group of Cape Town sellers and buyers — we&apos;ll
-            reach out as we go live.
+            Register your interest and we will be in touch as we go live.
           </p>
           {wa ? (
             <p className="mt-3 rounded-xl bg-brand-50 p-3 text-sm text-brand-800">

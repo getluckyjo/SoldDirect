@@ -1,7 +1,14 @@
 // The Sold Direct consumer journey, scripted as a WhatsApp conversation.
-// Used by the interactive demo (app/demo) to show team & investors the full
-// South African flow: profile → listing → enquiry → bond pre-qual → offer →
-// conveyancing → registration. All names, prices and figures are illustrative.
+// Used by the interactive demo to show investors the full South African
+// flow as the product is now scoped (docs/DEV-WORKSHOP-PREP-2026-10-08.md):
+// front door → Quick Estimate → Property Report → nurture → tap-by-tap
+// listing → enquiry → bond pre-qual → offer → conveyancing → registration.
+// All names, prices and figures are illustrative.
+//
+// Naming is load-bearing: the product says "Quick Estimate" and "Property
+// Report", never "valuation" — under the Property Valuers Profession Act only
+// a registered valuer may perform one, and the asking price is always the
+// seller's.
 
 export type TrackerStage = { key: string; label: string };
 
@@ -21,7 +28,7 @@ export const TRACKER: TrackerStage[] = [
 export type Chapter = { n: number; title: string; participant: string };
 
 export const CHAPTERS: Chapter[] = [
-  { n: 1, title: 'List in minutes', participant: 'Maria · Seller' },
+  { n: 1, title: 'Estimate, report & list', participant: 'Maria · Seller' },
   { n: 2, title: 'Enquire & get bond-ready', participant: 'John · Buyer' },
   { n: 3, title: 'Offer to Purchase', participant: 'John · Buyer' },
   { n: 4, title: 'Bond, legal & transfer', participant: 'Conveyancing' },
@@ -33,6 +40,13 @@ export type Note = { tag: Tag; title: string; body: string };
 
 export type ChecklistItem = { label: string; sub?: string; role?: string };
 
+/**
+ * Quick selects: the tappable replies WhatsApp shows under a message (reply
+ * buttons or a list menu). `picked` is the one the person taps next, so the
+ * demo can show the choice without a typed reply.
+ */
+export type Options = { items: string[]; picked?: string; footer?: string };
+
 export type ListingData = {
   photo: string;
   address: string;
@@ -42,6 +56,21 @@ export type ListingData = {
   baths: number;
   erf: string;
   type: string;
+};
+
+export type EstimateData = {
+  home: string;
+  low: string;
+  high: string;
+  comparables: string;
+  source: string;
+};
+
+export type ReportData = {
+  title: string;
+  address: string;
+  pages: string[];
+  delivery: string;
 };
 
 export type PrequalData = {
@@ -72,6 +101,8 @@ export type Kind =
   | 'system'
   | 'image'
   | 'listing'
+  | 'estimate'
+  | 'report'
   | 'prequal'
   | 'otp'
   | 'status'
@@ -85,7 +116,10 @@ export type Scene = {
   text?: string;
   src?: string;
   caption?: string;
+  options?: Options;
   listing?: ListingData;
+  estimate?: EstimateData;
+  report?: ReportData;
   prequal?: PrequalData;
   otp?: OtpData;
   status?: StatusData;
@@ -105,30 +139,76 @@ const LISTING: ListingData = {
   type: 'House',
 };
 
+const ESTIMATE: EstimateData = {
+  home: '3-bed house · Vredehoek',
+  low: 'R5 900 000',
+  high: 'R6 500 000',
+  comparables: '14 confirmed sales nearby, last 12 months',
+  source: 'LOOM Property Insights',
+};
+
 export const SCENES: Scene[] = [
-  // ───────────────────────── Chapter 1 — Seller lists ─────────────────────────
+  // ─────────────── Chapter 1 — Front door, Quick Estimate, Property Report, listing ───────────────
   {
     chapter: 1,
     track: 0,
     from: 'system',
     kind: 'system',
-    text: 'Maria taps “List my home” on solddirect.co.za — it opens WhatsApp. No app to install.',
+    text: 'Maria taps “What’s my home worth?” on solddirect.co.za — it opens WhatsApp with PRICE pre-filled. No app to install.',
     note: {
       tag: 'Product',
-      title: 'WhatsApp is the front door',
-      body: 'No download, no portal login. Sellers start in the channel they already use every day — the core of our distribution advantage.',
+      title: 'Two entry points',
+      body: 'Every advertisement, portal listing and site button opens WhatsApp with LIST or PRICE pre-filled. A seller who wants only a price and a seller ready to list arrive at the same menu; neither path depends on the other.',
     },
+  },
+  { chapter: 1, track: 0, from: 'seller', kind: 'text', text: 'PRICE' },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'text',
+    text: '👋 Welcome to Sold Direct — sell your Cape Town home with 0% commission.\n\nWhat would you like to do?',
+    options: {
+      items: [
+        'What’s my home worth?',
+        'List my property',
+        'How it works',
+        'What it costs',
+        'Talk to our team',
+      ],
+      picked: 'What’s my home worth?',
+    },
+    note: {
+      tag: 'Product',
+      title: 'Menu-driven steps',
+      body: 'Every step is a menu or a row of reply buttons, the WhatsApp controls the production flow sends. There is no free text to interpret, and “Talk to our team” is on every screen.',
+    },
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'seller',
+    kind: 'text',
+    text: 'What’s my home worth? 📊',
   },
   {
     chapter: 1,
     track: 0,
     from: 'bot',
     kind: 'text',
-    text: '👋 Welcome to Sold Direct — sell your home with 0% commission. Before we start, do you consent to us processing your personal details to help you sell, under POPIA?',
+    text: 'Happy to help. One quick thing first: may we process your details under POPIA to give you price guidance? Tap to confirm.',
+    options: {
+      items: [
+        '✅ Yes, I consent',
+        'Read the privacy notice',
+        'Talk to our team',
+      ],
+      picked: '✅ Yes, I consent',
+    },
     note: {
       tag: 'POPIA',
-      title: 'Consent captured first',
-      body: 'Explicit, timestamped consent is recorded before any personal data is collected — privacy-by-design from the first message.',
+      title: 'Consent is its own timestamped record',
+      body: 'Identity is asked for in three tiers. The Quick Estimate needs only a WhatsApp number, a name, consent, an address and a basic description — the minimum the data partner needs, and the minimum personal information held.',
     },
   },
   {
@@ -136,32 +216,25 @@ export const SCENES: Scene[] = [
     track: 0,
     from: 'seller',
     kind: 'text',
-    text: 'Yes, I agree ✅',
+    text: '✅ Yes, I consent — Maria Adams',
   },
   {
     chapter: 1,
     track: 0,
     from: 'bot',
     kind: 'text',
-    text: "Great to meet you! What's your name, and are you the registered owner of the property?",
-  },
-  {
-    chapter: 1,
-    track: 0,
-    from: 'seller',
-    kind: 'text',
-    text: 'Maria Adams — yes, I own it 🏡',
-  },
-  {
-    chapter: 1,
-    track: 0,
-    from: 'bot',
-    kind: 'text',
-    text: 'Two ways to sell, Maria:\n\n🟢 Free (0%) — list exclusively with us for 90 days and transact through our bond & legal partners.\n🔵 Flex — just 1% of the sale price, total freedom.\n\nWhich suits you?',
-    note: {
-      tag: 'Revenue',
-      title: 'The 0% mechanic',
-      body: "The bank in the buyer's bond pays us, so the seller pays R0 — free when they list exclusively and transact via our partners. No bond in the deal? A simple 1%, agreed upfront. Flex is the no-exclusivity option at the same 1%.",
+    text: 'Thanks Maria. Which part of Cape Town is the home in?',
+    options: {
+      items: [
+        'Atlantic Seaboard',
+        'City Bowl',
+        'Southern Suburbs',
+        'Northern Suburbs',
+        'False Bay & South',
+        'West Coast',
+        'Other — type it',
+      ],
+      picked: 'City Bowl',
     },
   },
   {
@@ -169,18 +242,71 @@ export const SCENES: Scene[] = [
     track: 0,
     from: 'seller',
     kind: 'text',
-    text: 'Free (0%) please 🙌',
+    text: 'City Bowl → Vredehoek',
   },
   {
     chapter: 1,
     track: 0,
     from: 'bot',
     kind: 'text',
-    text: "Perfect. I'll prepare a sole mandate for you to e-sign (required for the free tier). A registered property practitioner handles the mandate — a proper, regulated process.",
+    text: 'And the street address? It makes the guidance far more accurate — or skip for now.',
+    options: { items: ['Skip — not now'] },
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'seller',
+    kind: 'text',
+    text: '23 Vredehoek Avenue',
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'text',
+    text: 'What type of home is it?',
+    options: {
+      items: ['House', 'Apartment / flat', 'Townhouse', 'Plot / vacant land'],
+      picked: 'House',
+    },
+  },
+  { chapter: 1, track: 0, from: 'seller', kind: 'text', text: 'House 🏡' },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'text',
+    text: 'Bedrooms? (Then bathrooms.)',
+    options: {
+      items: [
+        'Studio',
+        '1 bedroom',
+        '2 bedrooms',
+        '3 bedrooms',
+        '4 bedrooms',
+        '5 bedrooms',
+        '7 or more',
+      ],
+      picked: '3 bedrooms',
+    },
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'seller',
+    kind: 'text',
+    text: '3 bedrooms · 2 bathrooms',
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'estimate',
+    estimate: ESTIMATE,
     note: {
       tag: 'Legal',
-      title: 'Sole mandate & PPRA',
-      body: 'A mandate may only be held by a registered property practitioner with a valid Fidelity Fund Certificate. Sold Direct is completing that registration and will not take a mandate until it is in place.',
+      title: 'Quick Estimate — guidance, never a “valuation”',
+      body: 'Under the Property Valuers Profession Act only a registered valuer may perform a valuation, so the product shows what comparable homes actually sold for and says so. If the data partner returns nothing, no range is shown — a fabricated number never reaches a seller.',
     },
   },
   {
@@ -188,11 +314,15 @@ export const SCENES: Scene[] = [
     track: 0,
     from: 'bot',
     kind: 'text',
-    text: 'Now the fun part — a few guided questions to build your listing. Address, type, bedrooms, bathrooms, erf size, asking price, rates & levies…',
+    text: 'Want the full picture? A free *Property Report* for 23 Vredehoek Avenue — comparable sales mapped, street and area trends, and a branded PDF you can keep. Add a few photos and confirm you’re the owner.',
+    options: {
+      items: ['📄 Yes, get my report', 'Not now', 'Talk to our team'],
+      picked: '📄 Yes, get my report',
+    },
     note: {
-      tag: 'Product',
-      title: 'Guided listing intake',
-      body: 'A structured WhatsApp Flow turns a chat into a clean, validated listing record — self-guided, live in minutes.',
+      tag: 'Revenue',
+      title: 'The Property Report as a lead',
+      body: 'Free to the seller. The data cost is about R7.50 per report, booked as marketing; there is no payment step in the product. The plan assumes one report in ten becomes a listing.',
     },
   },
   {
@@ -201,18 +331,175 @@ export const SCENES: Scene[] = [
     from: 'seller',
     kind: 'image',
     src: '/cape-town-hero.jpg',
-    caption: 'Maria adds 14 photos 📸',
+    caption: 'Maria adds 6 photos 📸',
   },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'text',
+    text: 'Lovely. Are you the registered owner, or authorised to sell? And an email for the PDF.',
+    options: {
+      items: ['✅ I’m the owner', 'I’m authorised', 'Just curious'],
+      picked: '✅ I’m the owner',
+    },
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'seller',
+    kind: 'text',
+    text: '✅ I’m the owner — maria@example.co.za',
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'report',
+    report: {
+      title: 'Property Report',
+      address: '23 Vredehoek Avenue, Vredehoek',
+      pages: [
+        'Quick Estimate range, and how it was built',
+        '14 comparable sales, mapped',
+        'Street & area trend, five years',
+        'What a 0% sale keeps in your pocket',
+      ],
+      delivery: 'PDF in this chat and by email',
+    },
+    note: {
+      tag: 'Product',
+      title: 'The Property Report',
+      body: 'Built from the data partner’s comparables and the Sold Direct template, delivered in the chat and by email as a PDF that carries the brand when forwarded.',
+    },
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'system',
+    kind: 'system',
+    text: 'Three days later.',
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'text',
+    text: 'Hi Maria, it’s Sold Direct. Still thinking about selling 23 Vredehoek Avenue? Your report range was R5.9m–R6.5m. When you’re ready, listing takes a few taps.',
+    options: {
+      items: ['List my property', 'Remind me in 2 weeks', 'STOP'],
+      picked: 'List my property',
+    },
+    note: {
+      tag: 'POPIA',
+      title: 'Follow-up within the rules',
+      body: 'Outside WhatsApp’s 24-hour window only an approved marketing template may be sent. Follow-ups go out at day 3, 14 and 30, every one carries STOP, and an opt-out is honoured immediately.',
+    },
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'seller',
+    kind: 'text',
+    text: 'List my property 🙌',
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'text',
+    text: 'Two ways to sell, Maria:\n\n🟢 0% — an exclusive mandate for the term you choose; the buyer’s bond goes through BetterBond and a panel conveyancer handles the transfer. The bank pays us, not you.\n🔵 Flex — 1% of the sale price, no exclusivity.',
+    options: {
+      items: ['🟢 0% — exclusive', '🔵 Flex — 1%'],
+      picked: '🟢 0% — exclusive',
+    },
+    note: {
+      tag: 'Revenue',
+      title: 'The 0% path',
+      body: 'The lender on the buyer’s bond pays an origination fee, so the seller pays nothing when they list exclusively and transact through the partners. Cash or third-party-financed transactions pay a disclosed 1%. Both paths produce a Property24 listing.',
+    },
+  },
+  { chapter: 1, track: 0, from: 'seller', kind: 'text', text: '🟢 0% please' },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'text',
+    text: 'Exclusive term?',
+    options: {
+      items: ['60 days', '90 days ★', '120 days'],
+      picked: '90 days ★',
+      footer: '★ recommended',
+    },
+  },
+  { chapter: 1, track: 0, from: 'seller', kind: 'text', text: '90 days' },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'text',
+    text: 'Asking price? Your Quick Estimate was R5.9m–R6.5m — tap one, or type your own. The price is always yours.',
+    options: {
+      items: ['R5 900 000', 'R6 200 000', 'R6 500 000'],
+      footer: 'Or type any amount',
+    },
+    note: {
+      tag: 'Product',
+      title: 'The estimate, inline at the price step',
+      body: 'The listing path shows the same guidance where it matters. The buttons are the low, mid and high of the band; the seller can always type a different number — and here Maria does.',
+    },
+  },
+  { chapter: 1, track: 0, from: 'seller', kind: 'text', text: 'R6 250 000' },
   {
     chapter: 1,
     track: 0,
     from: 'bot',
     kind: 'listing',
     listing: LISTING,
+    options: {
+      items: ['✅ Publish now', 'Change something', 'Cancel listing'],
+      picked: '✅ Publish now',
+    },
     note: {
       tag: 'Product',
-      title: 'Structured listing created',
-      body: 'The conversation produces a typed listing record (price in ZAR, erf size, tier = Free). This is the same record the dashboard and portals read.',
+      title: 'Structured listing record',
+      body: 'A few taps produced a typed listing record — price in ZAR, type, beds, baths, term, tier. It is the same record the dashboard reads and the Property24 feed is built from.',
+    },
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'seller',
+    kind: 'text',
+    text: '✅ Publish now',
+  },
+  {
+    chapter: 1,
+    track: 0,
+    from: 'bot',
+    kind: 'checklist',
+    checklistTitle: 'Before it goes live',
+    checklist: [
+      {
+        label: 'Ownership proof',
+        sub: 'Municipal account or title deed',
+        role: 'Private storage · 24h review',
+      },
+      { label: 'ID document', sub: 'Encrypted at rest' },
+      {
+        label: 'Sole mandate e-signed',
+        sub: 'Held by a registered property practitioner (PPRA, FFC)',
+        role: 'No mandate before the FFC',
+      },
+      {
+        label: 'Photos & description',
+        sub: 'First photo activates; optional pro shoot; AI-drafted copy Maria approves',
+      },
+    ],
+    note: {
+      tag: 'Legal',
+      title: 'Verify, sign, review — then publish',
+      body: 'Nothing publishes unreviewed. Ownership proof and ID go to private, encrypted storage with a 24-hour human review, and the mandate is signed only once the firm’s Fidelity Fund Certificate is in place.',
     },
   },
   {
@@ -223,15 +510,16 @@ export const SCENES: Scene[] = [
     status: {
       title: '✅ Listing live',
       lines: [
-        'Syndicated to Property24 & Private Property',
+        'Reviewed by our team within 24 hours',
+        'Published to Property24 by direct API',
         'Shareable WhatsApp listing link generated',
       ],
       tone: 'good',
     },
     note: {
       tag: 'Product',
-      title: 'Distribution without a portal of our own',
-      body: 'We syndicate to the portals buyers already browse, and every listing has a one-tap WhatsApp enquiry link — meeting buyers where they are.',
+      title: 'Distribution through existing portals',
+      body: 'Listings are published to the portals buyers already use (create, update, under offer, sold, withdraw, all by API), and each carries a WhatsApp enquiry link.',
     },
   },
 
@@ -245,7 +533,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Product',
       title: 'Buyer enters the same channel',
-      body: 'The buyer lands in WhatsApp too. One conversation thread now links a real buyer to a real listing — and creates a deal record at “Enquiry”.',
+      body: 'The buyer also arrives in WhatsApp. One conversation now links a buyer to a listing and creates a deal record at “Enquiry”.',
     },
   },
   {
@@ -260,11 +548,15 @@ export const SCENES: Scene[] = [
     track: 1,
     from: 'bot',
     kind: 'text',
-    text: "Hi John! Yes, it's available. I can book a viewing. Quick POPIA consent to handle your details first?",
+    text: 'Hi John! Yes, it’s available. Quick POPIA consent to handle your details, then I’ll book a viewing.',
+    options: {
+      items: ['✅ Yes, I consent', 'Talk to our team'],
+      picked: '✅ Yes, I consent',
+    },
     note: {
       tag: 'POPIA',
       title: 'Consent — buyer side too',
-      body: 'Same privacy gate for buyers before we capture anything. Consent + timestamp logged.',
+      body: 'The same consent step applies to buyers before any details are captured and before any discussion of finance. Consent and timestamp are logged.',
     },
   },
   { chapter: 2, track: 1, from: 'buyer', kind: 'text', text: 'Agreed ✅' },
@@ -273,11 +565,15 @@ export const SCENES: Scene[] = [
     track: 1,
     from: 'bot',
     kind: 'text',
-    text: 'Want to know exactly what you can afford — and make a stronger offer? I can pre-qualify you for a home loan in ~2 minutes. Free, no obligation.',
+    text: 'Want to know exactly what you can afford — and make a stronger offer? BetterBond can pre-qualify you for a home loan in about two minutes. Free, no obligation.',
+    options: {
+      items: ['Yes, pre-qualify me', 'Just book a viewing', 'Talk to our team'],
+      picked: 'Yes, pre-qualify me',
+    },
     note: {
       tag: 'Finance',
-      title: 'The pre-qualification hook',
-      body: 'Pre-qualifying buyers in-chat is the heart of the model: it qualifies serious buyers AND opens the bond-origination referral.',
+      title: 'Buyer pre-qualification',
+      body: 'Pre-qualifying buyers in the chat is central to the model: it qualifies serious buyers and opens the bond-origination referral. “Pre-qualified” is shown only after a result from the partner.',
     },
   },
   { chapter: 2, track: 1, from: 'buyer', kind: 'text', text: 'Yes please!' },
@@ -290,7 +586,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Revenue',
       title: 'Bond origination referral (BetterBond)',
-      body: 'A consented hand-off to our originator partner. The bank pays an origination share on a successful bond — at zero cost to the buyer or seller. This is our primary revenue engine.',
+      body: 'A consented hand-off to the origination partner. The lender pays an origination share on a successful bond, at no cost to the buyer or seller. This is the principal revenue line.',
     },
   },
   {
@@ -316,7 +612,11 @@ export const SCENES: Scene[] = [
     track: 1,
     from: 'bot',
     kind: 'text',
-    text: "You're bond-ready 💪 Viewing booked for Saturday 10:00. I'll send the address and a calendar reminder.",
+    text: 'You’re bond-ready 💪 Pick a viewing slot:',
+    options: {
+      items: ['Sat 10:00', 'Sat 11:30', 'Sun 14:00'],
+      picked: 'Sat 10:00',
+    },
   },
   {
     chapter: 2,
@@ -332,14 +632,14 @@ export const SCENES: Scene[] = [
     track: 2,
     from: 'buyer',
     kind: 'text',
-    text: "I'd like to make an offer 🖊️",
+    text: 'I’d like to make an offer 🖊️',
   },
   {
     chapter: 3,
     track: 2,
     from: 'bot',
     kind: 'text',
-    text: "Let's build your Offer to Purchase (OTP). It becomes a legally binding agreement once both parties sign — so we'll capture the price, deposit, conditions and dates carefully.",
+    text: 'Let’s build your Offer to Purchase (OTP). It becomes a legally binding agreement once both parties sign — so we’ll capture the price, deposit, conditions and dates carefully.',
     note: {
       tag: 'Legal',
       title: 'The OTP is binding',
@@ -374,13 +674,14 @@ export const SCENES: Scene[] = [
     from: 'bot',
     kind: 'text',
     text: 'Sent to Maria for review ✍️',
+    options: { items: ['Accept', 'Counter', 'Decline'], picked: 'Counter' },
   },
   {
     chapter: 3,
     track: 2,
     from: 'seller',
     kind: 'text',
-    text: "Close! I'll counter at R6 000 000 — everything else fine.",
+    text: 'Close! I’ll counter at R6 000 000 — everything else fine.',
   },
   {
     chapter: 3,
@@ -406,7 +707,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Legal',
       title: 'A valid sale exists',
-      body: 'The deal record moves to “Offer (OTP)”. Every status change is timestamped and logged — the audit trail conveyancers and partners can rely on.',
+      body: 'The deal record moves to “Offer (OTP)”. Every status change is timestamped with an actor — the audit trail conveyancers and partners can rely on.',
     },
   },
 
@@ -416,11 +717,11 @@ export const SCENES: Scene[] = [
     track: 3,
     from: 'bot',
     kind: 'text',
-    text: "Now I'll submit John's bond application to several banks at once via BetterBond, to secure the best rate.",
+    text: 'Now I’ll submit John’s bond application to several banks at once via BetterBond, to secure the best rate.',
     note: {
       tag: 'Finance',
       title: 'Multi-bank bond application',
-      body: 'BetterBond submits to multiple banks simultaneously and negotiates — historically winning better rates than going to one bank.',
+      body: 'BetterBond submits to several banks at once and negotiates the rate, which has historically produced better terms than a single-bank application.',
     },
   },
   {
@@ -440,7 +741,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Revenue',
       title: 'Revenue realised',
-      body: 'On the granted bond, the bank pays an origination share to our partner, shared with us — the consumer pays nothing. The deal moves to “Bond”.',
+      body: 'On the granted bond, the lender pays an origination share to the partner, which is shared with Sold Direct. The consumer pays nothing. The deal moves to “Bond”.',
     },
   },
   {
@@ -457,19 +758,19 @@ export const SCENES: Scene[] = [
       },
       {
         label: 'Bond attorney',
-        sub: "Registers the buyer's new bond",
-        role: "Buyer's bank",
+        sub: 'Registers the buyer’s new bond',
+        role: 'Buyer’s bank',
       },
       {
         label: 'Cancellation attorney',
-        sub: "Cancels the seller's existing bond",
-        role: "Seller's bank",
+        sub: 'Cancels the seller’s existing bond',
+        role: 'Seller’s bank',
       },
     ],
     note: {
       tag: 'Revenue',
       title: 'Panel conveyancing',
-      body: 'The transferring attorney comes from our panel — the seller gets a fee discount, and panel firms pay fixed advertising subscriptions (no referral fees, per Legal Practice Council rules).',
+      body: 'The transferring attorney comes from the panel; the seller receives a fee discount, and panel firms pay fixed advertising subscriptions (no referral fees, per Legal Practice Council rules).',
     },
   },
   {
@@ -496,14 +797,14 @@ export const SCENES: Scene[] = [
     kind: 'checklist',
     checklistTitle: 'Transferring attorney gathers',
     checklist: [
-      { label: 'Title deed & cancellation figures', sub: "from seller's bank" },
+      { label: 'Title deed & cancellation figures', sub: 'from seller’s bank' },
       { label: 'Rates clearance figures', sub: 'from the City of Cape Town' },
       { label: 'Transfer duty', sub: 'paid to SARS' },
     ],
     note: {
       tag: 'Legal',
-      title: 'The transfer machinery',
-      body: 'Behind the scenes the attorney coordinates the bank, municipality and SARS. We surface each step in the buyer & seller chat so nobody is left wondering “where is my deal?”.',
+      title: 'The transfer process',
+      body: 'The attorney coordinates the bank, the municipality and SARS. Each step is reported in the buyer and seller chat, so both parties know the status of the transaction.',
     },
   },
   {
@@ -522,8 +823,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Legal',
-      title: 'Costs made transparent',
-      body: 'Transfer duty is a sliding SARS tax on the purchase price. Showing it upfront avoids the nasty surprises that derail deals.',
+      title: 'Transfer costs disclosed',
+      body: 'Transfer duty is a sliding SARS tax on the purchase price. It is shown up front so that it does not surprise the buyer later in the transaction.',
     },
   },
   {
@@ -544,8 +845,8 @@ export const SCENES: Scene[] = [
     ],
     note: {
       tag: 'Legal',
-      title: "Seller's compliance obligations",
-      body: 'The seller must deliver valid certificates before transfer. We coordinate the inspections (an optional add-on revenue line too).',
+      title: 'Seller’s compliance obligations',
+      body: 'The seller must deliver valid certificates before transfer. Sold Direct coordinates the inspections, which is also an optional add-on revenue line.',
     },
   },
   {
@@ -585,7 +886,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Legal',
       title: 'Simultaneous lodgement',
-      body: 'The three matters must lodge together at the Deeds Office. This is the home stretch — “Lodgement”.',
+      body: 'The three matters must lodge together at the Deeds Office. The deal moves to “Lodgement”.',
     },
   },
   {
@@ -604,7 +905,7 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Legal',
-      title: 'Registration = done',
+      title: 'Registration',
       body: 'On registration, ownership legally passes and funds are disbursed. The deal record reaches its final state, “Registered”.',
     },
   },
@@ -624,8 +925,8 @@ export const SCENES: Scene[] = [
     },
     note: {
       tag: 'Revenue',
-      title: 'The whole model in one deal',
-      body: 'Consumer pays nothing. We earned from the bond origination share and partner advertising — recurring, scalable, paid by the financial ecosystem around every deal.',
+      title: 'The model in one transaction',
+      body: 'The consumer paid nothing. Sold Direct earned from the bond origination share and partner advertising, paid by the financial parties already present in every transaction.',
     },
   },
   {
@@ -633,11 +934,11 @@ export const SCENES: Scene[] = [
     track: 7,
     from: 'bot',
     kind: 'text',
-    text: "That's the Sold Direct journey: list → enquire → finance → offer → transfer → registered. All inside WhatsApp, with 0% commission. 🏡",
+    text: 'That’s the Sold Direct journey: estimate → report → list → enquire → finance → offer → transfer → registered. All inside WhatsApp, with 0% commission. 🏡',
     note: {
       tag: 'Product',
       title: 'One thread, start to finish',
-      body: 'Every step happened in a single WhatsApp conversation, tracked by the deal state machine and visible in our internal dashboard.',
+      body: 'Every step took place in a single WhatsApp conversation, tracked by the deal state machine and visible in the internal dashboard.',
     },
   },
 ];

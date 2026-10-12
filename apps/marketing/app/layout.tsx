@@ -7,9 +7,9 @@ import './globals.css';
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.solddirect.co.za';
 
-const TITLE = 'Sold Direct — Sell your home direct. Keep your money.';
+const TITLE = 'Sold Direct — Sell your home direct, on WhatsApp.';
 const DESCRIPTION =
-  'The streamlined way to sell your Cape Town home privately — 0% commission, because the banks pay us, not you. Guided on WhatsApp by our technology, concierge and registered property practitioners.';
+  'Sell your Cape Town home privately over WhatsApp, guided by our concierge and registered property practitioners. 0% commission on the qualifying path; the lender pays us a bond origination fee.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
