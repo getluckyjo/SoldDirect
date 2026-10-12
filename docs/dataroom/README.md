@@ -33,7 +33,10 @@ customer of the portals, not a competitor. The launch plan is built on this serv
 themselves — assisted by **registered property practitioners (PPRA/FFC)** and a WhatsApp
 concierge. ⚠ Registration and the FFC are **not yet held** — status, route and timeline in
 `05-regulatory-status.md`. **Complementary to full-service agents, not adversarial** (no anti-agent
-marketing; zero PPRA friction by design). **Land at prime** (Atlantic Seaboard, City Bowl,
+marketing; zero PPRA friction by design) — and the industry itself now describes the same
+division of labour: RE/MAX Southern Africa's leadership says technology should take the admin,
+after-hours enquiries and buyer qualification while people keep the judgement and relationships
+(Property Professional, 12 Oct 2026; quoted in `00-assumptions.md` §C). **Land at prime** (Atlantic Seaboard, City Bowl,
 Southern Suburbs, Constantia) and **taper the average transacting price down (R6.5m → R4.0m) as
 the brand scales**, broadening into the upper-market to grow from a far larger pool and cut
 market-share risk. Run by a small **AI-augmented** team (50% AI agents), **reinvesting the high

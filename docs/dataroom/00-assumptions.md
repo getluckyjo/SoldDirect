@@ -69,6 +69,16 @@ steering).
 > **registered property practitioners (PPRA/FFC)** and a WhatsApp concierge. No anti-agent
 > marketing; zero friction with the PPRA by design. ⚠ Registration and the FFC are **not yet
 > held** — see `05-regulatory-status.md`.
+>
+> **The industry describes the same division of labour.** RE/MAX Southern Africa's CEO Adrian
+> Goslett and senior brokers, asked about the future of the agent (Property Professional, 12 Oct
+> 2026): "Agents are no longer the gatekeepers of information … Information has become a
+> commodity. Judgement has become the differentiator"; technology should "streamline tedious
+> administration", answer initial enquiries after hours, "qualify buyers, and even schedule
+> appointments", freeing people for "relationships, negotiating deals, solving problems, and
+> guiding clients". That is Sold Direct's model stated by the industry itself: the platform does
+> the admin and first response, registered practitioners carry the judgement — for sellers who
+> choose the self-service path. Source: propertyprofessional.co.za/2026/10/12/what-is-the-future-of-real-estate-agents/ (High — primary, named industry leadership).
 
 > ⚠️ **Why not a single-bank prerequisite:** making one bank a condition of the 0% is legally grey
 > (consumer-steering, competition, PPRA). Replaced by the bank-agnostic referral/origination above +

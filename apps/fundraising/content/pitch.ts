@@ -303,7 +303,7 @@ export const FAQ = [
   },
   {
     q: 'Are you against estate agents?',
-    a: 'No — we are complementary, not adversarial. Full-service agents remain a great choice for the majority who want full service; we serve sellers who choose to do it themselves, assisted by PPRA-registered practitioners.',
+    a: 'No — we are complementary, not adversarial. Full-service agents remain a great choice for the majority who want full service; we serve sellers who choose to do it themselves, assisted by PPRA-registered practitioners. The industry describes the same split: RE/MAX Southern Africa’s leadership says technology should take the admin, after-hours enquiries and buyer qualification while people keep the judgement and the relationship (Property Professional, October 2026). That is exactly how Sold Direct is built.',
   },
   {
     q: 'Is the conveyancer revenue line legal?',
