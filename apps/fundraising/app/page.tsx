@@ -25,11 +25,11 @@ import {
   DEMO_SECTION,
   DETAIL_SECTION,
   DISCLAIMER,
+  ECONOMICS_SECTION,
   FAQ,
   FIN_DETAIL,
   HERO,
   HOOKS_SECTION,
-  MARKET_DETAIL,
   MODEL_DETAIL,
   NAV,
   NEXT_STEPS,
@@ -38,8 +38,10 @@ import {
   QUALIFYING_PATH_NOTE,
   RETURN_SECTION,
   RIBBON,
+  STATUS_SECTION,
   TEAM_DETAIL,
   TRACTION_DETAIL,
+  WHY_NOW,
 } from '@/content/pitch';
 
 // Copy strings mark the qualifying-path condition as "0%*"; every instance
@@ -199,6 +201,23 @@ export default function Investors() {
         </Section>
       </div>
 
+      {/* Why now */}
+      <Section id="why-now" eyebrow="Why now" heading={WHY_NOW.heading}>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {WHY_NOW.items.map((item) => (
+            <div key={item.title} className="flex flex-col gap-3">
+              <IconTile name={item.icon} />
+              <h3 className="text-base font-semibold text-white">
+                {item.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-300">
+                {item.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* Interactive journey */}
       <Section
         id="demo"
@@ -210,10 +229,6 @@ export default function Investors() {
           alt: 'Colourful Bo-Kaap houses beneath Lion’s Head, Cape Town',
         }}
       >
-        <div className="mt-8 rounded-3xl bg-white p-4 shadow-2xl sm:p-8">
-          <WhatsAppDemo />
-        </div>
-
         {/* Hands-on: the real seller flow, running in the browser */}
         <div className="mt-8 grid gap-6 rounded-2xl border border-brand-500/40 bg-navy/80 p-6 backdrop-blur md:grid-cols-[1fr_auto] md:items-center sm:p-8">
           <div>
@@ -236,6 +251,13 @@ export default function Investors() {
             {DEMO_SECTION.tryCta}
             <span aria-hidden>↗</span>
           </a>
+        </div>
+
+        <p className="mt-10 text-sm font-medium text-slate-300">
+          {DEMO_SECTION.watchLabel}
+        </p>
+        <div className="mt-3 rounded-3xl bg-white p-4 shadow-2xl sm:p-8">
+          <WhatsAppDemo />
         </div>
       </Section>
 
@@ -297,6 +319,80 @@ export default function Investors() {
         </div>
       </section>
 
+      {/* Market and unit economics */}
+      <Section
+        id="economics"
+        eyebrow="Market and economics"
+        heading={ECONOMICS_SECTION.heading}
+        intro={ECONOMICS_SECTION.intro}
+      >
+        <p className="mt-8 text-xs font-medium uppercase tracking-wide text-sky-400">
+          The market
+        </p>
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {ECONOMICS_SECTION.market.map((s) => (
+            <div
+              key={s.label}
+              className="rounded-2xl border border-slate-800 bg-navy p-5"
+            >
+              <p className="text-sm font-medium text-slate-400">{s.label}</p>
+              <p className="mt-1 text-3xl font-extrabold tracking-tight text-white">
+                {s.value}
+              </p>
+              {s.sub ? (
+                <p className="mt-1 text-sm text-slate-400">{s.sub}</p>
+              ) : null}
+            </div>
+          ))}
+        </div>
+        <p className="mt-8 text-xs font-medium uppercase tracking-wide text-sky-400">
+          Each sale
+        </p>
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {ECONOMICS_SECTION.unit.map((s) => (
+            <div
+              key={s.label}
+              className="rounded-2xl border border-slate-800 bg-navy p-5"
+            >
+              <p className="text-sm font-medium text-slate-400">{s.label}</p>
+              <p className="mt-1 text-3xl font-extrabold tracking-tight text-white">
+                {s.value}
+              </p>
+              {s.sub ? (
+                <p className="mt-1 text-sm text-slate-400">{s.sub}</p>
+              ) : null}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Team and status */}
+      <Section
+        id="team"
+        tone="tinted"
+        eyebrow="Team"
+        heading="Two founders, full-time. A technology partner for the build."
+        intro={TEAM_DETAIL.intro}
+      >
+        <TeamGrid />
+        <p className="mt-10 text-xs font-medium uppercase tracking-wide text-sky-400">
+          Status
+        </p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          {TRACTION_DETAIL.keyPoints.map((point) => (
+            <div
+              key={point.label}
+              className="rounded-2xl border border-slate-800 bg-navy p-5"
+            >
+              <p className="text-sm font-medium text-slate-400">
+                {point.label}
+              </p>
+              <p className="mt-1 text-xl font-bold text-white">{point.value}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* The hooks */}
       <Section
         id="hooks"
@@ -357,6 +453,19 @@ export default function Investors() {
             </p>
             <p className="mt-1 text-base text-slate-300">{ASK.preMoney}</p>
             <p className="mt-4 text-sm text-slate-400">{ASK.seriesA}</p>
+            <p className="mt-5 text-xs font-medium uppercase tracking-wide text-sky-400">
+              Terms at a glance
+            </p>
+            <ul className="mt-2 grid gap-1.5 text-sm text-slate-300">
+              {ASK_SECTION.terms.map((term) => (
+                <li key={term} className="flex gap-2">
+                  <span aria-hidden className="text-brand-400">
+                    ·
+                  </span>
+                  {term}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="rounded-2xl border border-slate-800 p-6">
             <div className="flex items-center gap-3">
@@ -364,12 +473,15 @@ export default function Investors() {
               <h3 className="font-semibold text-white">Use of funds</h3>
             </div>
             <ul className="mt-4 grid gap-2 text-base text-slate-300">
-              {ASK_SECTION.useOfFunds.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span aria-hidden className="text-brand-400">
-                    →
+              {ASK_SECTION.useOfFunds.map((row) => (
+                <li
+                  key={row.item}
+                  className="flex items-baseline justify-between gap-4 border-b border-slate-800/80 pb-2"
+                >
+                  <span>{row.item}</span>
+                  <span className="shrink-0 font-semibold text-white">
+                    {row.amount}
                   </span>
-                  {item}
                 </li>
               ))}
             </ul>
@@ -381,119 +493,6 @@ export default function Investors() {
             </a>
           </div>
         </div>
-      </Section>
-
-      {/* Return on the R5m */}
-      <Section
-        id="returns"
-        tone="tinted"
-        eyebrow="IRR"
-        heading={RETURN_SECTION.heading}
-        intro={RETURN_SECTION.intro}
-      >
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {RETURN_SECTION.tiles.map((tile, i) => (
-            <div
-              key={tile.label}
-              className={`rounded-2xl border p-5 ${
-                i >= 2
-                  ? 'border-brand-500/40 bg-brand-500/5'
-                  : 'border-slate-800 bg-navy'
-              }`}
-            >
-              <p className="text-sm font-medium text-slate-400">{tile.label}</p>
-              <p className="mt-1 text-4xl font-extrabold tracking-tight text-white">
-                {tile.value}
-              </p>
-              {tile.sub ? (
-                <p className="mt-1 text-sm text-slate-400">{tile.sub}</p>
-              ) : null}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-8 overflow-hidden rounded-2xl border border-slate-800 bg-navy">
-          <div className="flex items-center justify-between gap-4 border-b border-slate-800 px-5 py-4">
-            <div className="flex items-center gap-3">
-              <IconTile name="growth" size="sm" />
-              <h3 className="font-semibold text-white">
-                Multiple and IRR by scenario and exit multiple
-              </h3>
-            </div>
-            <p className="hidden text-xs text-slate-500 sm:block">
-              {RETURN_SECTION.cellNote}
-            </p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[560px] text-left text-sm">
-              <thead>
-                <tr className="text-xs uppercase tracking-wide text-slate-500">
-                  <th scope="col" className="px-5 py-3 font-medium">
-                    Scenario
-                  </th>
-                  {RETURN_SECTION.columns.map((col) => (
-                    <th
-                      key={col}
-                      scope="col"
-                      className="px-5 py-3 text-center font-medium"
-                    >
-                      {col}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {RETURN_SECTION.rows.map((row) => {
-                  const highlight = 'highlight' in row && row.highlight;
-                  return (
-                    <tr
-                      key={row.scenario}
-                      className={`border-t border-slate-800 ${
-                        highlight ? 'bg-brand-500/5' : ''
-                      }`}
-                    >
-                      <th
-                        scope="row"
-                        className="px-5 py-4 align-top font-semibold text-white"
-                      >
-                        {row.scenario}
-                        <span className="block text-xs font-normal text-slate-400">
-                          {row.revenue}
-                        </span>
-                      </th>
-                      {row.cells.map((cell, i) => (
-                        <td
-                          key={cell}
-                          className={`px-5 py-4 text-center text-base tabular-nums ${
-                            highlight && i === 1
-                              ? 'font-extrabold text-brand-300'
-                              : 'font-semibold text-slate-100'
-                          }`}
-                        >
-                          {cell}
-                        </td>
-                      ))}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <p className="border-t border-slate-800 px-5 py-2 text-xs text-slate-500 sm:hidden">
-            {RETURN_SECTION.cellNote}
-          </p>
-        </div>
-
-        <ul className="mt-6 grid max-w-3xl gap-2 text-xs leading-relaxed text-slate-400">
-          {RETURN_SECTION.notes.map((note) => (
-            <li key={note} className="flex gap-2">
-              <span aria-hidden className="text-brand-400">
-                ·
-              </span>
-              {note}
-            </li>
-          ))}
-        </ul>
       </Section>
 
       {/* The business plan, collapsed */}
@@ -654,82 +653,6 @@ export default function Investors() {
           </Details>
 
           <Details
-            id="market"
-            icon="map"
-            title={MARKET_DETAIL.heading}
-            summary="Size, entry point and the share the base case implies by Year 5."
-            keyPoints={MARKET_DETAIL.keyPoints}
-          >
-            <p className="mt-3 max-w-3xl text-base text-slate-300">
-              {MARKET_DETAIL.intro}
-            </p>
-            <SubHeading
-              icon="map"
-              title="Sizing"
-              note="Total, serviceable and obtainable market, base case."
-            />
-            <StatGrid stats={MARKET_DETAIL.stats} />
-            <SubHeading
-              icon="home"
-              title="What sellers retain"
-              note="Against the full-service benchmark of 6% plus VAT."
-            />
-            <p className="mt-3 max-w-3xl text-base text-slate-300">
-              {MARKET_DETAIL.consumer}
-            </p>
-          </Details>
-
-          <Details
-            id="traction"
-            icon="check"
-            title={TRACTION_DETAIL.heading}
-            summary="What is built, and the launch partnerships in progress: BetterBond, LOOM, Capture Media, Paysoft, Lava Lamp Lab and Property24."
-            keyPoints={TRACTION_DETAIL.keyPoints}
-          >
-            <p className="mt-3 max-w-3xl text-base text-slate-300">
-              {TRACTION_DETAIL.intro}
-            </p>
-            <SubHeading icon="check" title="Built" />
-            <ul className="mt-4 grid max-w-3xl gap-3 text-slate-300">
-              {TRACTION_DETAIL.shipped.map((item) => (
-                <li key={item} className="flex gap-3 text-base">
-                  <span aria-hidden className="text-brand-400">
-                    ✓
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <SubHeading icon="people" title="Partners" />
-            <div className="mt-4 flex flex-wrap gap-3">
-              {TRACTION_DETAIL.partners.map((partner) => (
-                <div
-                  key={partner.name}
-                  className="flex items-baseline gap-2 rounded-full border border-slate-700 bg-navy px-5 py-2.5"
-                >
-                  <span className="font-semibold text-white">
-                    {partner.name}
-                  </span>
-                  <span className="text-sm text-slate-400">{partner.role}</span>
-                </div>
-              ))}
-            </div>
-          </Details>
-
-          <Details
-            id="team"
-            icon="people"
-            title={TEAM_DETAIL.heading}
-            summary="Two full-time founders and a technology partner providing the CTO function."
-            keyPoints={TEAM_DETAIL.keyPoints}
-          >
-            <p className="mt-3 max-w-3xl text-base text-slate-300">
-              {TEAM_DETAIL.intro}
-            </p>
-            <TeamGrid />
-          </Details>
-
-          <Details
             id="faq"
             icon="question"
             title="Questions and answers"
@@ -783,6 +706,147 @@ export default function Investors() {
               ))}
             </ol>
           </Details>
+        </div>
+      </Section>
+
+      {/* Return on the R5m */}
+      <Section
+        id="returns"
+        tone="tinted"
+        eyebrow="IRR"
+        heading={RETURN_SECTION.heading}
+        intro={RETURN_SECTION.intro}
+      >
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {RETURN_SECTION.tiles.map((tile, i) => (
+            <div
+              key={tile.label}
+              className={`rounded-2xl border p-5 ${
+                i >= 2
+                  ? 'border-brand-500/40 bg-brand-500/5'
+                  : 'border-slate-800 bg-navy'
+              }`}
+            >
+              <p className="text-sm font-medium text-slate-400">{tile.label}</p>
+              <p className="mt-1 text-4xl font-extrabold tracking-tight text-white">
+                {tile.value}
+              </p>
+              {tile.sub ? (
+                <p className="mt-1 text-sm text-slate-400">{tile.sub}</p>
+              ) : null}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 overflow-hidden rounded-2xl border border-slate-800 bg-navy">
+          <div className="flex items-center justify-between gap-4 border-b border-slate-800 px-5 py-4">
+            <div className="flex items-center gap-3">
+              <IconTile name="growth" size="sm" />
+              <h3 className="font-semibold text-white">
+                Multiple and IRR by scenario and exit multiple
+              </h3>
+            </div>
+            <p className="hidden text-xs text-slate-500 sm:block">
+              {RETURN_SECTION.cellNote}
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[560px] text-left text-sm">
+              <thead>
+                <tr className="text-xs uppercase tracking-wide text-slate-500">
+                  <th scope="col" className="px-5 py-3 font-medium">
+                    Scenario
+                  </th>
+                  {RETURN_SECTION.columns.map((col) => (
+                    <th
+                      key={col}
+                      scope="col"
+                      className="px-5 py-3 text-center font-medium"
+                    >
+                      {col}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {RETURN_SECTION.rows.map((row) => {
+                  const highlight = 'highlight' in row && row.highlight;
+                  return (
+                    <tr
+                      key={row.scenario}
+                      className={`border-t border-slate-800 ${
+                        highlight ? 'bg-brand-500/5' : ''
+                      }`}
+                    >
+                      <th
+                        scope="row"
+                        className="px-5 py-4 align-top font-semibold text-white"
+                      >
+                        {row.scenario}
+                        <span className="block text-xs font-normal text-slate-400">
+                          {row.revenue}
+                        </span>
+                      </th>
+                      {row.cells.map((cell, i) => (
+                        <td
+                          key={cell}
+                          className={`px-5 py-4 text-center text-base tabular-nums ${
+                            highlight && i === 1
+                              ? 'font-extrabold text-brand-300'
+                              : 'font-semibold text-slate-100'
+                          }`}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="border-t border-slate-800 px-5 py-2 text-xs text-slate-500 sm:hidden">
+            {RETURN_SECTION.cellNote}
+          </p>
+        </div>
+
+        <ul className="mt-6 grid max-w-3xl gap-2 text-xs leading-relaxed text-slate-400">
+          {RETURN_SECTION.notes.map((note) => (
+            <li key={note} className="flex gap-2">
+              <span aria-hidden className="text-brand-400">
+                ·
+              </span>
+              {note}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* Status and risks */}
+      <Section id="status" eyebrow="Status" heading={STATUS_SECTION.heading}>
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          {STATUS_SECTION.columns.map((col) => (
+            <div
+              key={col.title}
+              className="rounded-2xl border border-slate-800 bg-navy p-6"
+            >
+              <div className="flex items-center gap-3">
+                <IconTile name={col.icon} />
+                <h3 className="font-semibold text-white">{col.title}</h3>
+              </div>
+              <ul className="mt-4 grid gap-2.5 text-sm leading-relaxed text-slate-300">
+                {col.items.map((item) => (
+                  <li key={item} className="flex gap-2.5">
+                    <span
+                      aria-hidden
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </Section>
 
