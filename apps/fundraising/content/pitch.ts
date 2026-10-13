@@ -231,7 +231,7 @@ export const FIN_DETAIL = {
     { label: 'Y5 EBITDA margin', value: '~14%' },
   ] satisfies KeyPoint[],
   intro:
-    'Base case from the model reviewed by a chartered accountant: 27% corporate tax, headcount sized for delivery, and revenue the Legal Practice Council prohibits removed. The full workbook is in the data room.',
+    'Base case from the model reviewed by a chartered accountant: 27% corporate tax, headcount sized for delivery, no revenue the Legal Practice Council prohibits. The full workbook is in the data room.',
   stats: [
     {
       label: 'EBITDA-positive',
@@ -250,7 +250,7 @@ export const FIN_DETAIL = {
     },
   ] satisfies Stat[],
   caveat:
-    'Projections are illustrative and unaudited, not a forecast or guarantee. The reviewed workbook, with inputs, sources and reliability flags per line, is available in the data room under NDA.',
+    'Projections are illustrative and unaudited, not a forecast or guarantee. The reviewed workbook, with inputs and sources per line, is available in the data room under NDA.',
 } as const;
 
 // source: docs/PROGRESS.md; partnerships founder-confirmed
@@ -387,13 +387,6 @@ export const FAQ = [
   },
 ] as const;
 
-export const NEXT_STEPS = [
-  'Request access; the data room opens under NDA',
-  'Review the model, assumptions and cap table',
-  'Meet the founders and see the product',
-  'Confirm allocation and subscription terms',
-] as const;
-
 // Four hooks: what brings a seller in and keeps the sale on the platform.
 // "Estimate", never "valuation" (Property Valuers Profession Act).
 export const HOOKS_SECTION = {
@@ -405,25 +398,21 @@ export const HOOKS_SECTION = {
       icon: 'bolt',
       title: 'Complimentary instant property estimate',
       line: 'A free price range on WhatsApp in minutes: the entry point for every seller.',
-      body: 'Every conversation starts with a free Quick Estimate on WhatsApp: a price range in minutes, no commitment. It is the entry point for every seller and the first step of every listing.',
     },
     {
       icon: 'chat',
       title: 'Always-on WhatsApp estate agent advisory',
       line: 'Pricing, viewings, offers, bond and transfer, answered in the same thread, day or night.',
-      body: 'Pricing, viewings, offers, bond and transfer, answered in the same WhatsApp thread by the platform and a registered property practitioner, day or night. The seller never waits for office hours.',
     },
     {
       icon: 'key',
       title: 'Cornering supply with 90-day mandates',
       line: 'The 0%* path needs an exclusive term, so stock builds and every enquiry stays on the platform.',
-      body: 'The 0%* path requires an exclusive 90-day mandate. Each listing is ours to sell for the term, so stock builds as the pipeline fills and every buyer enquiry stays on the platform.',
     },
     {
       icon: 'handshake',
       title: 'Relationships that carry into post-sale services',
       line: 'Removals, painting, leasing, gardening and recycling through partners, at no acquisition cost.',
-      body: 'A sale runs for months inside one conversation. That relationship carries into the services around a move: removals, painting, short-term leasing, gardening and recycling, offered through partners at no acquisition cost.',
     },
   ],
 } as const;
@@ -528,12 +517,12 @@ export const PARTNER_LOGOS = {
 export const DEMO_SECTION = {
   heading: 'The WhatsApp Estate Agent, step by step.',
   intro:
-    'One Cape Town home from the first message to registered transfer: Quick Estimate, Property Report, listing, buyer pre-qualification, offer and transfer, with each point at which revenue arises marked. Press Play, or step through it.',
+    'Sell a Cape Town home yourself, on the live pipeline: Quick Estimate, Property Report, listing and photos, then a pre-qualified buyer, an offer, the bond and the transfer to registration.',
   // The live demo at /try: the API's demo simulator behind the site's own
   // proxy route (see DEPLOYMENT.md, "The live demo on the investor site").
-  tryHeading: 'Sell a home yourself, on the live pipeline.',
+  tryHeading: 'It runs on the production system.',
   tryBody:
-    'The live demo runs on our production system: the same conversation code, database and deal tracker that will answer on the WhatsApp number; only the WhatsApp transport is simulated. Get a Quick Estimate and Property Report, list the home, add photos, then watch the sale run: a pre-qualified buyer, a viewing, an offer, the bond and the transfer to registration.',
+    'The same conversation code, database and deal tracker that will answer on the WhatsApp number. Only the WhatsApp transport is simulated.',
   tryCta: 'Open the live demo',
   tryHref: '/try',
   tryNote:
