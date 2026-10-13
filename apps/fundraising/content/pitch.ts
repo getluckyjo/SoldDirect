@@ -425,6 +425,12 @@ export const CAMPAIGNS_SECTION = {
     'Marketing is the largest use of the seed: R2.5m in Year 1 rising to R25m in Year 5, reinvesting an ~88% gross margin into brand. Every above-the-line rand is released only against conversion data from the founding cohort.',
   campaigns: [
     {
+      icon: 'home',
+      when: 'Weeks 1–4',
+      title: 'Property24 and Ask Ash: the launch burst',
+      body: 'Every Cape Town homeowner sees the brand eight times in four weeks, across Property24 and the Ask Ash channel, so the Founding Twenty opens to a market that already knows the name.',
+    },
+    {
       icon: 'key',
       when: 'Weeks 4–10',
       title: 'The Founding Twenty',
@@ -601,43 +607,6 @@ export const ECONOMICS_SECTION = {
       sub: 'About 14% margin by Year 5',
     },
   ] satisfies Stat[],
-} as const;
-
-// Status and risks, stated in the flow. source: docs/dataroom/05-regulatory-status.md,
-// 01-financial-model.md §5, docs/LAUNCH-PLAN.md §1.
-export const STATUS_SECTION = {
-  heading: 'Where we stand, and the risks.',
-  columns: [
-    {
-      icon: 'shield',
-      title: 'Regulatory status',
-      items: [
-        'Practitioner registration and the Fidelity Fund Certificate are in progress. No mandate is taken until both are held.',
-        'Route: an appointed principal practitioner with twenty years in prime Cape Town, targeted for close of the round.',
-        'A written attorney opinion on the 0% structure is being obtained before close.',
-        'Year 1 origination runs through BetterBond under its licence; FAIS/FSP accreditation is the Year 2 step.',
-      ],
-    },
-    {
-      icon: 'question',
-      title: 'Principal risks',
-      items: [
-        'In-house origination needs FAIS/FSP accreditation and bank agreements. Year 1 through BetterBond is the bridge.',
-        'Marketing-to-transaction conversion is the central growth assumption. It is validated in the Cape Town pilot before brand spend.',
-        'The upper-market pool of about 35,000 transfers is an estimate we are firming up.',
-      ],
-    },
-    {
-      icon: 'key',
-      title: 'Why it is hard to copy',
-      items: [
-        'Practitioner status, for agency-grade portal listings.',
-        'Origination economics that fund the 0%.',
-        'A wholesale distribution agreement with the portals.',
-        'A WhatsApp product that runs the sale to registration.',
-      ],
-    },
-  ],
 } as const;
 
 export const DETAIL_SECTION = {

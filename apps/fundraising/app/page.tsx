@@ -33,7 +33,6 @@ import {
   QUALIFYING_PATH_NOTE,
   RETURN_SECTION,
   RIBBON,
-  STATUS_SECTION,
   TEAM_DETAIL,
   WHY_NOW,
 } from '@/content/pitch';
@@ -678,34 +677,6 @@ export default function Investors() {
             </li>
           ))}
         </ul>
-      </Section>
-
-      {/* Status and risks */}
-      <Section id="status" eyebrow="Status" heading={STATUS_SECTION.heading}>
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
-          {STATUS_SECTION.columns.map((col) => (
-            <div
-              key={col.title}
-              className="rounded-2xl border border-slate-800 bg-navy p-6"
-            >
-              <div className="flex items-center gap-3">
-                <IconTile name={col.icon} />
-                <h3 className="font-semibold text-white">{col.title}</h3>
-              </div>
-              <ul className="mt-4 grid gap-2.5 text-sm leading-relaxed text-slate-300">
-                {col.items.map((item) => (
-                  <li key={item} className="flex gap-2.5">
-                    <span
-                      aria-hidden
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </Section>
 
       {/* Access / data room */}
