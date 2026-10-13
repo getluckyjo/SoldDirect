@@ -520,9 +520,9 @@ export const DEMO_SECTION = {
     'Sell a Cape Town home yourself, on the live pipeline: Quick Estimate, Property Report, listing and photos, then a pre-qualified buyer, an offer, the bond and the transfer to registration.',
   // The live demo at /try: the API's demo simulator behind the site's own
   // proxy route (see DEPLOYMENT.md, "The live demo on the investor site").
-  tryHeading: 'It runs on the production system.',
+  tryHeading: 'Try it: sell a home on the live demo.',
   tryBody:
-    'The same conversation code, database and deal tracker that will answer on the WhatsApp number. Only the WhatsApp transport is simulated.',
+    'You are the seller. Get a Quick Estimate, list the home, send photos, then watch a buyer, an offer and the bond carry it through to registration. It is the real platform, running live.',
   tryCta: 'Open the live demo',
   tryHref: '/try',
   tryNote:
@@ -537,22 +537,22 @@ export const WHY_NOW = {
     {
       icon: 'gap',
       title: 'Demand is proven',
-      body: 'Property24 sells private sellers flat-fee listings from R499 to R4,999. The sale after the enquiry is unserved.',
+      body: 'Cape Town property is booming, about R81bn of sales a year. Property24 already sells private sellers flat-fee listings from R499 to R4,999; the sale after the enquiry is unserved.',
     },
     {
       icon: 'map',
       title: 'Distribution is open',
-      body: 'The Competition Commission ordered portal interoperability at no feed fee. An agency-grade feed is ours to buy.',
+      body: 'The Competition Commission ruled that the portals must accept listings from any registered agency, with no feed fee. Our listings appear on Property24 like any agency’s.',
     },
     {
       icon: 'chat',
       title: 'WhatsApp is the channel',
-      body: 'South Africa’s default messaging app, with a business platform mature enough to carry a whole sale in one thread.',
+      body: 'About 29 million South Africans use WhatsApp, 96% of everyone online. Its business platform is mature enough to carry a whole sale in one thread.',
     },
     {
       icon: 'people',
       title: 'The industry agrees',
-      body: 'RE/MAX Southern Africa’s leadership: technology should take the admin and buyer qualification; people keep the judgement.',
+      body: 'RE/MAX Southern Africa’s leadership: technology should take the admin and buyer qualification; people keep the judgement. A franchise network cannot move that fast: change has to roll out office by office.',
     },
   ],
 } as const;
