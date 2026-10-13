@@ -12,7 +12,6 @@ import { RevenueBars } from '@/components/pitch/RevenueBars';
 import { TeamGrid } from '@/components/pitch/TeamGrid';
 import { SummaryStrip } from '@/components/pitch/SummaryStrip';
 import { QualifyingNote } from '@/components/pitch/QualifyingNote';
-import { StickyCta } from '@/components/pitch/StickyCta';
 import {
   ACCESS_SECTION,
   ASK,
@@ -456,12 +455,6 @@ export default function Investors() {
                 </li>
               ))}
             </ul>
-            <a
-              href="#access"
-              className="mt-6 inline-flex rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-brand-400"
-            >
-              Request the data room
-            </a>
           </div>
         </div>
       </Section>
@@ -782,8 +775,6 @@ export default function Investors() {
           </div>
         </div>
       </footer>
-
-      <StickyCta />
     </div>
   );
 }
