@@ -86,6 +86,16 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
 - **Gating:** property practitioner registration + FFC are **not yet in place**; no mandate can
   be taken until they are (see the Regulatory status note).
 
+## Why it is hard to copy
+
+- Practitioner status, for agency-grade portal listings.
+- Origination economics that fund the 0%.
+- A wholesale distribution agreement with the portals.
+- A WhatsApp product that runs the sale to registration.
+
+Regulatory status is in the Regulatory status note; the principal risks are in the Financial
+model, §5.
+
 ## What we are still confirming
 
 These are our projections, not audited accounts. The inputs with the most leverage, which we
