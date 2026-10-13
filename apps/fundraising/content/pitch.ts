@@ -473,7 +473,7 @@ export const CAMPAIGNS_SECTION = {
 // after transfer, which keeps the relationship warm at almost no cost.
 export const COMMUNITY_NOTE = {
   eyebrow: 'And afterwards',
-  heading: 'The number stays useful after the move.',
+  heading: 'The relationship continues after the sale.',
   body: 'Once the transfer is registered the same WhatsApp thread connects the household to its new neighbourhood. It costs little to run and keeps the relationship warm for the next bond, the next sale and the services around them.',
   items: [
     'Local security groups',
