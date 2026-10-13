@@ -382,8 +382,11 @@ export default function Investors() {
       {/* The campaigns */}
       <Section
         id="campaigns"
-        tone="tinted"
         eyebrow="The campaigns"
+        backdrop={{
+          src: '/luxury-home.jpg',
+          alt: 'A contemporary South African home at dusk',
+        }}
         heading={CAMPAIGNS_SECTION.heading}
         intro={CAMPAIGNS_SECTION.intro}
       >
