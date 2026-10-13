@@ -425,12 +425,6 @@ export const CAMPAIGNS_SECTION = {
     'Marketing is the largest use of the seed: R2.5m in Year 1 rising to R25m in Year 5, reinvesting an ~88% gross margin into brand. Every above-the-line rand is released only against conversion data from the founding cohort.',
   campaigns: [
     {
-      icon: 'check',
-      when: 'Weeks 1–4',
-      title: 'Unlock the wedge',
-      body: 'Nothing launches until the Property24 distribution agreement is signed, practitioner registration and the Fidelity Fund Certificate sit in the operating entity, the BetterBond referral letter is in hand and a panel conveyancer is subscribed. Private Property as the second portal.',
-    },
-    {
       icon: 'key',
       when: 'Weeks 4–10',
       title: 'The Founding Twenty',
