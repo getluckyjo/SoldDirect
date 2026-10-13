@@ -35,7 +35,6 @@ import {
   RIBBON,
   STATUS_SECTION,
   TEAM_DETAIL,
-  TRACTION_DETAIL,
   WHY_NOW,
 } from '@/content/pitch';
 
@@ -347,28 +346,15 @@ export default function Investors() {
       {/* Team and status */}
       <Section
         id="team"
-        tone="tinted"
         eyebrow="Team"
+        backdrop={{
+          src: '/clifton-aerial.jpg',
+          alt: 'Clifton’s beaches and the Atlantic from above, Cape Town',
+        }}
         heading="Two founders, full-time. A technology partner for the build."
         intro={TEAM_DETAIL.intro}
       >
         <TeamGrid />
-        <p className="mt-10 text-xs font-medium uppercase tracking-wide text-sky-400">
-          Status
-        </p>
-        <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          {TRACTION_DETAIL.keyPoints.map((point) => (
-            <div
-              key={point.label}
-              className="rounded-2xl border border-slate-800 bg-navy p-5"
-            >
-              <p className="text-sm font-medium text-slate-400">
-                {point.label}
-              </p>
-              <p className="mt-1 text-xl font-bold text-white">{point.value}</p>
-            </div>
-          ))}
-        </div>
       </Section>
 
       {/* The hooks */}
