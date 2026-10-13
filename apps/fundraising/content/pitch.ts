@@ -592,9 +592,9 @@ export const DISCLAIMER =
 
 export const NAV = [
   { href: '#concept', label: 'Concept' },
+  { href: '#demo', label: 'Demonstration' },
   { href: '#hooks', label: 'Hooks' },
   { href: '#campaigns', label: 'Campaigns' },
-  { href: '#demo', label: 'Demonstration' },
   { href: '#ask', label: 'The round' },
   { href: '#returns', label: 'IRR' },
   { href: '#detail', label: 'The numbers' },

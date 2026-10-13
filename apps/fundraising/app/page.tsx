@@ -198,69 +198,6 @@ export default function Investors() {
         </Section>
       </div>
 
-      {/* The hooks */}
-      <Section
-        id="hooks"
-        eyebrow="The hooks"
-        heading={HOOKS_SECTION.heading}
-        intro={HOOKS_SECTION.intro}
-      >
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {HOOKS_SECTION.hooks.map((hook, i) => (
-            <div
-              key={hook.title}
-              className="flex gap-5 rounded-2xl border border-slate-800 bg-navy p-6"
-            >
-              <IconTile name={hook.icon} size="lg" />
-              <div className="min-w-0">
-                <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
-                  Hook {i + 1}
-                </p>
-                <h3 className="mt-1 text-lg font-semibold leading-snug text-white">
-                  {hook.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                  {withZeroNote(hook.body)}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* The campaigns */}
-      <Section
-        id="campaigns"
-        tone="tinted"
-        eyebrow="The campaigns"
-        heading={CAMPAIGNS_SECTION.heading}
-        intro={CAMPAIGNS_SECTION.intro}
-      >
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {CAMPAIGNS_SECTION.campaigns.map((c) => (
-            <div
-              key={c.title}
-              className="flex flex-col rounded-2xl border border-slate-800 bg-navy p-6"
-            >
-              <div className="flex items-center gap-3">
-                <IconTile name={c.icon} size="lg" />
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
-                    {c.when}
-                  </p>
-                  <h3 className="text-lg font-semibold leading-snug text-white">
-                    {c.title}
-                  </h3>
-                </div>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300">
-                {c.body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       {/* Interactive journey */}
       <Section
         id="demo"
@@ -358,6 +295,69 @@ export default function Investors() {
           </div>
         </div>
       </section>
+
+      {/* The hooks */}
+      <Section
+        id="hooks"
+        eyebrow="The hooks"
+        heading={HOOKS_SECTION.heading}
+        intro={HOOKS_SECTION.intro}
+      >
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {HOOKS_SECTION.hooks.map((hook, i) => (
+            <div
+              key={hook.title}
+              className="flex gap-5 rounded-2xl border border-slate-800 bg-navy p-6"
+            >
+              <IconTile name={hook.icon} size="lg" />
+              <div className="min-w-0">
+                <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
+                  Hook {i + 1}
+                </p>
+                <h3 className="mt-1 text-lg font-semibold leading-snug text-white">
+                  {hook.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  {withZeroNote(hook.body)}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* The campaigns */}
+      <Section
+        id="campaigns"
+        tone="tinted"
+        eyebrow="The campaigns"
+        heading={CAMPAIGNS_SECTION.heading}
+        intro={CAMPAIGNS_SECTION.intro}
+      >
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {CAMPAIGNS_SECTION.campaigns.map((c) => (
+            <div
+              key={c.title}
+              className="flex flex-col rounded-2xl border border-slate-800 bg-navy p-6"
+            >
+              <div className="flex items-center gap-3">
+                <IconTile name={c.icon} size="lg" />
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
+                    {c.when}
+                  </p>
+                  <h3 className="text-lg font-semibold leading-snug text-white">
+                    {c.title}
+                  </h3>
+                </div>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-slate-300">
+                {c.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* The round */}
       <Section
