@@ -6,6 +6,7 @@ import { Logo } from '@/components/Logo';
 import { WhatsAppDemo } from '@/components/WhatsAppDemo';
 import { Details, SubHeading } from '@/components/pitch/Details';
 import { IconTile } from '@/components/pitch/Icon';
+import { CampaignTimeline } from '@/components/pitch/CampaignTimeline';
 import { Section } from '@/components/pitch/Section';
 import { StatGrid } from '@/components/pitch/StatGrid';
 import { RevenueBars } from '@/components/pitch/RevenueBars';
@@ -334,29 +335,7 @@ export default function Investors() {
         heading={CAMPAIGNS_SECTION.heading}
         intro={CAMPAIGNS_SECTION.intro}
       >
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {CAMPAIGNS_SECTION.campaigns.map((c) => (
-            <div
-              key={c.title}
-              className="flex flex-col rounded-2xl border border-slate-800 bg-navy p-6"
-            >
-              <div className="flex items-center gap-3">
-                <IconTile name={c.icon} size="lg" />
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
-                    {c.when}
-                  </p>
-                  <h3 className="text-lg font-semibold leading-snug text-white">
-                    {c.title}
-                  </h3>
-                </div>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300">
-                {c.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        <CampaignTimeline items={CAMPAIGNS_SECTION.campaigns} />
       </Section>
 
       {/* The round */}

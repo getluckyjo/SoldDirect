@@ -430,6 +430,12 @@ export const CAMPAIGNS_SECTION = {
     'Marketing is the largest use of the seed: R2.5m in Year 1 rising to R25m in Year 5, reinvesting an ~88% gross margin into brand. Every above-the-line rand is released only against conversion data from the founding cohort.',
   campaigns: [
     {
+      icon: 'check',
+      when: 'Weeks 1–4',
+      title: 'Unlock the wedge',
+      body: 'Nothing launches until the Property24 distribution agreement is signed, practitioner registration and the Fidelity Fund Certificate sit in the operating entity, the BetterBond referral letter is in hand and a panel conveyancer is subscribed. Private Property as the second portal.',
+    },
+    {
       icon: 'key',
       when: 'Weeks 4–10',
       title: 'The Founding Twenty',
@@ -437,21 +443,21 @@ export const CAMPAIGNS_SECTION = {
     },
     {
       icon: 'bolt',
-      when: 'Always on',
+      when: 'From week 4, always on',
       title: 'What is my home worth?',
       body: 'The Quick Estimate as the advertisement: targeted social to homeowners in the launch suburbs, QR codes on boards and flyers, suburb WhatsApp and community groups. A price range in minutes.',
+    },
+    {
+      icon: 'people',
+      when: 'From the first board, always on',
+      title: 'Neighbours next',
+      body: 'Every live listing advertises to the street. A referral reward for the seller who brings the next mandate, and the after-sale community thread that keeps the number in the household’s pocket.',
     },
     {
       icon: 'chat',
       when: 'From week 10',
       title: 'Sold direct, the story',
       body: 'PR on a useful consumer question, what a R6m private sale actually takes, then the first sold-direct stories, with consent, street by street.',
-    },
-    {
-      icon: 'people',
-      when: 'Always on',
-      title: 'Neighbours next',
-      body: 'Every live listing advertises to the street. A referral reward for the seller who brings the next mandate, and the after-sale community thread that keeps the number in the household’s pocket.',
     },
     {
       icon: 'growth',
@@ -461,7 +467,7 @@ export const CAMPAIGNS_SECTION = {
     },
     {
       icon: 'chart',
-      when: 'Weekly',
+      when: 'Every week',
       title: 'The numbers we act on',
       body: 'Twenty founding listings by week 10, five leads per listing a month, 60% sell-through within six months, acquisition cost under R3,000 per listing before any brand spend. The full plan and targets are in the data room.',
     },
