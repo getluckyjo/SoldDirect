@@ -520,9 +520,9 @@ export const DEMO_SECTION = {
     'Sell a Cape Town home yourself, on the live pipeline: Quick Estimate, Property Report, listing and photos, then a pre-qualified buyer, an offer, the bond and the transfer to registration.',
   // The live demo at /try: the API's demo simulator behind the site's own
   // proxy route (see DEPLOYMENT.md, "The live demo on the investor site").
-  tryHeading: 'It runs on the production system.',
+  tryHeading: 'Try it: sell a home on the live demo.',
   tryBody:
-    'The same conversation code, database and deal tracker that will answer on the WhatsApp number. Only the WhatsApp transport is simulated.',
+    'You are the seller. Get a Quick Estimate, list the home, send photos, then watch a buyer, an offer and the bond carry it through to registration. It is the real platform, running live.',
   tryCta: 'Open the live demo',
   tryHref: '/try',
   tryNote:
