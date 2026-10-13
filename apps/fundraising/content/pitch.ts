@@ -259,7 +259,7 @@ export const TRACTION_DETAIL = {
   keyPoints: [
     { label: 'Product', value: 'Built, demonstrable' },
     { label: 'WhatsApp sender', value: 'Ready to go live with Meta' },
-    { label: 'Partners', value: '6 in progress' },
+    { label: 'Partners', value: 'Secured' },
   ] satisfies KeyPoint[],
   intro:
     'The end-to-end flow is built and can be demonstrated. The WhatsApp sender is ready to go live with Meta. Launch partnerships are in progress.',
