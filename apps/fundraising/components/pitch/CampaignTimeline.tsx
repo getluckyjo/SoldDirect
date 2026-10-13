@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { IconTile, type IconName } from './Icon';
 
 export type CampaignItem = {
@@ -7,17 +8,19 @@ export type CampaignItem = {
   body: string;
 };
 
+type Props = {
+  items: readonly CampaignItem[];
+  /** Optional copy transform, used by the page to resolve the 0%* token. */
+  renderBody?: (body: string) => ReactNode;
+};
+
 /**
  * The campaigns as a vertical timeline. Each node is a native
  * <details>/<summary>, so the page reads as a five-second scan (when and
  * what) and opens to the detail without JavaScript. The first node starts
  * open so the section never reads empty.
  */
-export function CampaignTimeline({
-  items,
-}: {
-  items: readonly CampaignItem[];
-}) {
+export function CampaignTimeline({ items, renderBody }: Props) {
   return (
     <ol className="relative mt-10 before:absolute before:bottom-6 before:left-5 before:top-6 before:w-px before:bg-slate-800">
       {items.map((c, i) => (
@@ -42,7 +45,7 @@ export function CampaignTimeline({
               </span>
             </summary>
             <p className="max-w-2xl pb-5 pl-14 pr-10 text-sm leading-relaxed text-slate-300">
-              {c.body}
+              {renderBody ? renderBody(c.body) : c.body}
             </p>
           </details>
         </li>

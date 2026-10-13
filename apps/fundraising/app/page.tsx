@@ -389,7 +389,10 @@ export default function Investors() {
         heading={CAMPAIGNS_SECTION.heading}
         intro={CAMPAIGNS_SECTION.intro}
       >
-        <CampaignTimeline items={CAMPAIGNS_SECTION.campaigns} />
+        <CampaignTimeline
+          items={CAMPAIGNS_SECTION.campaigns}
+          renderBody={withZeroNote}
+        />
       </Section>
 
       {/* The round */}

@@ -428,7 +428,7 @@ export const CAMPAIGNS_SECTION = {
       icon: 'home',
       when: 'Weeks 1–4',
       title: 'Property24 and Ask Ash: the launch burst',
-      body: 'Every Cape Town homeowner sees the brand eight times in four weeks, across Property24 and the Ask Ash channel, so the Founding Twenty opens to a market that already knows the name.',
+      body: 'Four weeks of paid reach on Property24, where every Cape Town seller already looks, paired with Ask Ash, the property media house with over 100,000 followers and columns in the national press. One message, the whole sale run for you at 0%*, in short video, articles and WhatsApp. Every Cape Town homeowner sees the brand eight times before the Founding Twenty opens.',
     },
     {
       icon: 'key',
