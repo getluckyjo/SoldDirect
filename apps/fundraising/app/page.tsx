@@ -196,6 +196,31 @@ export default function Investors() {
         </Section>
       </div>
 
+      {/* Partner logos */}
+      <section
+        aria-label={PARTNER_LOGOS.heading}
+        className="border-y border-brand-500/30 bg-brand-500/10"
+      >
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
+            {PARTNER_LOGOS.heading}
+          </p>
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+            {PARTNER_LOGOS.logos.map((logo) => (
+              <li key={logo.name} className="flex items-center">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.width}
+                  height={logo.height}
+                  className="h-7 w-auto sm:h-8"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Why now */}
       <Section id="why-now" eyebrow="Why now" heading={WHY_NOW.heading}>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -248,31 +273,6 @@ export default function Investors() {
           </a>
         </div>
       </Section>
-
-      {/* Partner logos */}
-      <section
-        aria-label={PARTNER_LOGOS.heading}
-        className="border-y border-brand-500/30 bg-brand-500/10"
-      >
-        <div className="mx-auto max-w-6xl px-6 py-10">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
-            {PARTNER_LOGOS.heading}
-          </p>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
-            {PARTNER_LOGOS.logos.map((logo) => (
-              <li key={logo.name} className="flex items-center">
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  width={logo.width}
-                  height={logo.height}
-                  className="h-7 w-auto sm:h-8"
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
       {/* Community aside */}
       <section
