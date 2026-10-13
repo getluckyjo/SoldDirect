@@ -537,22 +537,22 @@ export const WHY_NOW = {
     {
       icon: 'gap',
       title: 'Demand is proven',
-      body: 'Property24 sells private sellers flat-fee listings from R499 to R4,999. The sale after the enquiry is unserved.',
+      body: 'Cape Town property is booming, about R81bn of sales a year. Property24 already sells private sellers flat-fee listings from R499 to R4,999; the sale after the enquiry is unserved.',
     },
     {
       icon: 'map',
       title: 'Distribution is open',
-      body: 'The Competition Commission ordered portal interoperability at no feed fee. An agency-grade feed is ours to buy.',
+      body: 'The Competition Commission ruled that the portals must accept listings from any registered agency, with no feed fee. Our listings appear on Property24 like any agency’s.',
     },
     {
       icon: 'chat',
       title: 'WhatsApp is the channel',
-      body: 'South Africa’s default messaging app, with a business platform mature enough to carry a whole sale in one thread.',
+      body: 'About 29 million South Africans use WhatsApp, 96% of everyone online. Its business platform is mature enough to carry a whole sale in one thread.',
     },
     {
       icon: 'people',
       title: 'The industry agrees',
-      body: 'RE/MAX Southern Africa’s leadership: technology should take the admin and buyer qualification; people keep the judgement.',
+      body: 'RE/MAX Southern Africa’s leadership: technology should take the admin and buyer qualification; people keep the judgement. A franchise network cannot move that fast: change has to roll out office by office.',
     },
   ],
 } as const;
