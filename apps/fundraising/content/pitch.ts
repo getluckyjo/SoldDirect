@@ -250,7 +250,7 @@ export const FIN_DETAIL = {
     },
   ] satisfies Stat[],
   caveat:
-    'Projections are illustrative and model-grade, not a forecast or guarantee. The reviewed workbook, with inputs, sources and reliability flags per line, is available in the data room under NDA.',
+    'Projections are illustrative and unaudited, not a forecast or guarantee. The reviewed workbook, with inputs, sources and reliability flags per line, is available in the data room under NDA.',
 } as const;
 
 // source: docs/PROGRESS.md; partnerships founder-confirmed
@@ -327,11 +327,27 @@ export const ASK_SECTION = {
   heading: 'R5m for 20%.',
   intro:
     'R5m at a R20m pre-money valuation. Until the business is self-funding it runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, and hires beyond the four are made only against signed mandates. The round covers the modelled cash trough in every scenario; the balance funds the Cape Town launch.',
+  // source: Use of Funds tab of the model
   useOfFunds: [
-    'Cape Town launch and brand campaign',
-    'Four-person team: founders, principal practitioner, agent',
-    'Product and technology; partner integrations (WhatsApp, BetterBond, conveyancers)',
-    'Compliance and licensing: PPRA and FFC, POPIA programme, FAIS/FSP groundwork for in-house origination',
+    { item: 'Cape Town launch and brand campaign', amount: 'R2.0m' },
+    { item: 'Four-person team to breakeven', amount: 'R1.2m' },
+    { item: 'Product, technology and integrations', amount: 'R0.5m' },
+    {
+      item: 'Compliance and licensing: PPRA, FFC, POPIA, FAIS/FSP',
+      amount: 'R0.5m',
+    },
+    {
+      item: 'Partnerships: BetterBond, conveyancers, bank sponsor, Property24',
+      amount: 'R0.4m',
+    },
+    { item: 'Working capital and contingency', amount: 'R0.4m' },
+  ],
+  // source: docs/dataroom/04-indicative-term-sheet.md
+  terms: [
+    'Preference shares, 1× non-participating',
+    'Two tranches: R2.5m at closing, R2.5m on milestones',
+    'Lead investor takes the board seat',
+    'Founder shares reverse-vest over 36 months',
   ],
 } as const;
 
@@ -351,7 +367,7 @@ export const CALCULATOR = {
   exitLabel:
     'Modelled value at the base-case exit (about R432m enterprise value in Year 5, after Series A dilution)',
   caveat:
-    'Illustrative only, from the model-grade base case (exit at 5× Year 5 revenue, after an optional Series A). Not a forecast, guarantee or offer. Early-stage investment carries risk, including loss of capital.',
+    'Illustrative only, from the base case (exit at 5× Year 5 revenue, after an optional Series A). Not a forecast, guarantee or offer. Early-stage investment carries risk, including loss of capital.',
 } as const;
 
 export const FAQ = [
@@ -530,8 +546,126 @@ export const DEMO_SECTION = {
     'The live demo runs on our production system: the same conversation code, database and deal tracker that will answer on the WhatsApp number; only the WhatsApp transport is simulated. Get a Quick Estimate and Property Report, list the home, add photos, then watch the sale run: a pre-qualified buyer, a viewing, an offer, the bond and the transfer to registration.',
   tryCta: 'Open the live demo',
   tryHref: '/try',
+  watchLabel: 'Or watch the scripted walkthrough, two minutes.',
   tryNote:
     'Opens in a new tab. Demo conversations use a reserved number range and never reach a real seller or buyer. The buyer is simulated; price data is illustrative until the LOOM feed is connected.',
+} as const;
+
+// Why now: four conditions that make the wedge open today.
+// source: docs/LAUNCH-PLAN.md, docs/dataroom/00-assumptions.md §C–D
+export const WHY_NOW = {
+  heading: 'Why now.',
+  items: [
+    {
+      icon: 'gap',
+      title: 'Demand is proven',
+      body: 'Property24 sells private sellers flat-fee listings from R499 to R4,999. The sale after the enquiry is unserved.',
+    },
+    {
+      icon: 'map',
+      title: 'Distribution is open',
+      body: 'The Competition Commission ordered portal interoperability at no feed fee. An agency-grade feed is ours to buy.',
+    },
+    {
+      icon: 'chat',
+      title: 'WhatsApp is the channel',
+      body: 'South Africa’s default messaging app, with a business platform mature enough to carry a whole sale in one thread.',
+    },
+    {
+      icon: 'people',
+      title: 'The industry agrees',
+      body: 'RE/MAX Southern Africa’s leadership: technology should take the admin and buyer qualification; people keep the judgement.',
+    },
+  ],
+} as const;
+
+// Market and unit economics in the open. source: docs/dataroom/03-market-sizing.md,
+// 01-financial-model.md §2–3 (base case).
+export const ECONOMICS_SECTION = {
+  heading: 'The market, and what each sale earns.',
+  intro:
+    'Base case. The sizing and the per-transaction build are in the data room.',
+  market: [
+    {
+      label: 'SA transfers a year',
+      value: '~250,000',
+      sub: 'Lightstone, 2024',
+    },
+    {
+      label: 'Upper-market pool',
+      value: '~35,000',
+      sub: 'Transfers above about R4m a year',
+    },
+    {
+      label: 'Entry price, tapering',
+      value: 'R6.5m → R4.0m',
+      sub: 'Average transacting price, Year 1 to Year 5',
+    },
+    {
+      label: 'Share at Year 5',
+      value: '4.1%',
+      sub: 'Of upper-market transactions',
+    },
+  ] satisfies Stat[],
+  unit: [
+    {
+      label: 'Revenue per sale',
+      value: 'R56k → R71k',
+      sub: 'Year 1 referral; Year 2 origination in-house',
+    },
+    {
+      label: 'Marketing per sale',
+      value: 'R50k → R17k',
+      sub: 'Year 1 to Year 5',
+    },
+    {
+      label: 'Gross margin',
+      value: '~88%',
+      sub: 'Built up from per-transaction costs',
+    },
+    {
+      label: 'EBITDA-positive',
+      value: 'Year 3',
+      sub: 'About 14% margin by Year 5',
+    },
+  ] satisfies Stat[],
+} as const;
+
+// Status and risks, stated in the flow. source: docs/dataroom/05-regulatory-status.md,
+// 01-financial-model.md §5, docs/LAUNCH-PLAN.md §1.
+export const STATUS_SECTION = {
+  heading: 'Where we stand, and the risks.',
+  columns: [
+    {
+      icon: 'shield',
+      title: 'Regulatory status',
+      items: [
+        'Practitioner registration and the Fidelity Fund Certificate are in progress. No mandate is taken until both are held.',
+        'Route: an appointed principal practitioner with twenty years in prime Cape Town, targeted for close of the round.',
+        'A written attorney opinion on the 0% structure is being obtained before close.',
+        'Year 1 origination runs through BetterBond under its licence; FAIS/FSP accreditation is the Year 2 step.',
+      ],
+    },
+    {
+      icon: 'question',
+      title: 'Principal risks',
+      items: [
+        'In-house origination needs FAIS/FSP accreditation and bank agreements. Year 1 through BetterBond is the bridge.',
+        'Marketing-to-transaction conversion is the central growth assumption. It is validated in the Cape Town pilot before brand spend.',
+        'The upper-market pool of about 35,000 transfers is an estimate we are firming up.',
+      ],
+    },
+    {
+      icon: 'key',
+      title: 'Why it is hard to copy',
+      items: [
+        'Practitioner status, for agency-grade portal listings.',
+        'Origination economics that fund the 0%.',
+        'A wholesale distribution agreement with the portals.',
+        'A WhatsApp product that runs the sale to registration.',
+      ],
+    },
+  ],
 } as const;
 
 export const DETAIL_SECTION = {
@@ -580,7 +714,8 @@ export const RETURN_SECTION = {
   notes: [
     'Exit at the end of Year 5 at the stated multiple of Year 5 revenue. 4–6× is the range the model applies to South African early-stage proptech, discounted from global comparables.',
     'The seed holds 20% at inception and 16.7% after the optional Series A modelled at Year 3. Without a Series A the figures above are 20% higher.',
-    'Illustrative, from the model-grade base case; not a forecast, guarantee or offer. Early-stage investment carries risk, including loss of capital.',
+    'Likely exit routes: a trade sale to a bank or bond originator, a property portal, or a national agency group.',
+    'Illustrative, from the base case, unaudited; not a forecast, guarantee or offer. Early-stage investment carries risk, including loss of capital.',
   ],
 } as const;
 
@@ -594,14 +729,15 @@ export const ACCESS_SECTION = {
 
 // Not an offer to the public; private placement only. (Verbatim — do not edit.)
 export const DISCLAIMER =
-  'This page is informational only. It is not an offer of securities to the public, nor a solicitation to invest, and any investment opportunity is available by private placement to selected investors only (Companies Act, 2008). Nothing here constitutes financial, legal or tax advice (FAIS). All projections are illustrative, model-grade and unaudited; actual results may differ materially. Detailed financials, the cap table and partner terms are shared under NDA. Personal information submitted via this page is processed in accordance with POPIA.';
+  'This page is informational only. It is not an offer of securities to the public, nor a solicitation to invest, and any investment opportunity is available by private placement to selected investors only (Companies Act, 2008). Nothing here constitutes financial, legal or tax advice (FAIS). All projections are illustrative and unaudited; actual results may differ materially. Detailed financials, the cap table and partner terms are shared under NDA. Personal information submitted via this page is processed in accordance with POPIA.';
 
 export const NAV = [
   { href: '#concept', label: 'Concept' },
   { href: '#demo', label: 'Demonstration' },
+  { href: '#team', label: 'Team' },
   { href: '#hooks', label: 'Hooks' },
   { href: '#campaigns', label: 'Campaigns' },
   { href: '#ask', label: 'The round' },
-  { href: '#returns', label: 'IRR' },
   { href: '#detail', label: 'The numbers' },
+  { href: '#returns', label: 'IRR' },
 ] as const;
