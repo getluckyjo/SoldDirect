@@ -3,7 +3,6 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { InvestorForm } from '@/components/InvestorForm';
 import { Logo } from '@/components/Logo';
-import { WhatsAppDemo } from '@/components/WhatsAppDemo';
 import { Details, SubHeading } from '@/components/pitch/Details';
 import { IconTile } from '@/components/pitch/Icon';
 import { CampaignTimeline } from '@/components/pitch/CampaignTimeline';
@@ -11,7 +10,6 @@ import { Section } from '@/components/pitch/Section';
 import { StatGrid } from '@/components/pitch/StatGrid';
 import { RevenueBars } from '@/components/pitch/RevenueBars';
 import { TeamGrid } from '@/components/pitch/TeamGrid';
-import { TicketCalculator } from '@/components/pitch/TicketCalculator';
 import { SummaryStrip } from '@/components/pitch/SummaryStrip';
 import { QualifyingNote } from '@/components/pitch/QualifyingNote';
 import { StickyCta } from '@/components/pitch/StickyCta';
@@ -32,9 +30,7 @@ import {
   HOOKS_SECTION,
   MODEL_DETAIL,
   NAV,
-  NEXT_STEPS,
   PARTNER_LOGOS,
-  PRODUCT_DETAIL,
   QUALIFYING_PATH_NOTE,
   RETURN_SECTION,
   RIBBON,
@@ -252,13 +248,6 @@ export default function Investors() {
             <span aria-hidden>↗</span>
           </a>
         </div>
-
-        <p className="mt-10 text-sm font-medium text-slate-300">
-          {DEMO_SECTION.watchLabel}
-        </p>
-        <div className="mt-3 rounded-3xl bg-white p-4 shadow-2xl sm:p-8">
-          <WhatsAppDemo />
-        </div>
       </Section>
 
       {/* Partner logos */}
@@ -304,16 +293,6 @@ export default function Investors() {
               <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-300">
                 {COMMUNITY_NOTE.body}
               </p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {COMMUNITY_NOTE.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-full border border-sky-400/40 bg-sky-500/10 px-3 py-1 text-xs text-sky-100"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
@@ -400,24 +379,16 @@ export default function Investors() {
         heading={HOOKS_SECTION.heading}
         intro={HOOKS_SECTION.intro}
       >
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {HOOKS_SECTION.hooks.map((hook, i) => (
-            <div
-              key={hook.title}
-              className="flex gap-5 rounded-2xl border border-slate-800 bg-navy p-6"
-            >
-              <IconTile name={hook.icon} size="lg" />
-              <div className="min-w-0">
-                <p className="text-xs font-medium uppercase tracking-wide text-sky-400">
-                  Hook {i + 1}
-                </p>
-                <h3 className="mt-1 text-lg font-semibold leading-snug text-white">
-                  {hook.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                  {withZeroNote(hook.body)}
-                </p>
-              </div>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {HOOKS_SECTION.hooks.map((hook) => (
+            <div key={hook.title} className="flex flex-col gap-3">
+              <IconTile name={hook.icon} />
+              <h3 className="text-base font-semibold leading-snug text-white">
+                {hook.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-300">
+                {withZeroNote(hook.line)}
+              </p>
             </div>
           ))}
         </div>
@@ -529,14 +500,6 @@ export default function Investors() {
               note="Margin, breakeven and the valuation range."
             />
             <StatGrid stats={FIN_DETAIL.stats} />
-            <SubHeading
-              icon="growth"
-              title="Illustrative return on a ticket"
-              note="Select an amount; figures derive from the base-case model."
-            />
-            <div className="mt-4">
-              <TicketCalculator />
-            </div>
             <p className="mt-6 max-w-3xl text-xs text-slate-400">
               {FIN_DETAIL.caveat}
             </p>
@@ -549,34 +512,6 @@ export default function Investors() {
             summary="Bond origination is the principal line; sponsorship, panel advertising and the 1% fee complete it."
             keyPoints={MODEL_DETAIL.keyPoints}
           >
-            <SubHeading
-              icon="bank"
-              title="Origination: referral, then in-house"
-              note="The step that lifts revenue per transaction from Year 2."
-            />
-            <div className="mt-4 grid gap-6 md:grid-cols-2">
-              {[
-                MODEL_DETAIL.originationStep.y1,
-                MODEL_DETAIL.originationStep.y2,
-              ].map((step, i) => (
-                <div
-                  key={step.label}
-                  className={`rounded-2xl border p-6 ${
-                    i === 1
-                      ? 'border-brand-500/40 bg-brand-500/5'
-                      : 'border-slate-800'
-                  }`}
-                >
-                  <p className="text-sm font-medium text-slate-400">
-                    {step.label}
-                  </p>
-                  <p className="mt-1 text-3xl font-extrabold tracking-tight text-white">
-                    {step.rate}
-                  </p>
-                  <p className="mt-2 text-base text-slate-300">{step.body}</p>
-                </div>
-              ))}
-            </div>
             <SubHeading
               icon="coins"
               title="The four revenue lines"
@@ -620,43 +555,10 @@ export default function Investors() {
           </Details>
 
           <Details
-            id="product"
-            icon="phone"
-            title={PRODUCT_DETAIL.heading}
-            summary="What the platform covers, what it costs to deliver, who is involved, and the cost base."
-            keyPoints={PRODUCT_DETAIL.keyPoints}
-          >
-            <div className="mt-4 grid gap-6 md:grid-cols-2">
-              {PRODUCT_DETAIL.cards.map((card, i) => (
-                <div
-                  key={card.title}
-                  className="rounded-2xl border border-slate-800 p-6"
-                >
-                  <div className="flex items-center gap-3">
-                    <IconTile
-                      name={
-                        (['shield', 'chat', 'people', 'coins'] as const)[i] ??
-                        'check'
-                      }
-                      size="sm"
-                    />
-                    <h4 className="font-semibold text-brand-300">
-                      {card.title}
-                    </h4>
-                  </div>
-                  <p className="mt-3 text-base text-slate-300">
-                    {withZeroNote(card.body)}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Details>
-
-          <Details
             id="faq"
             icon="question"
             title="Questions and answers"
-            summary="Sustainability of 0%, the position on agents, the conveyancer line, Purplebricks, sufficiency of the round, risks, and the terms."
+            summary="Why 0% holds, the position on agents, and the conveyancer line."
           >
             <div className="mt-4 grid gap-3">
               {FAQ.map((item) => (
@@ -679,32 +581,6 @@ export default function Investors() {
                 </details>
               ))}
             </div>
-          </Details>
-
-          <Details
-            id="next"
-            icon="steps"
-            title="What happens next"
-            summary="The process from here to an allocation."
-            keyPoints={[
-              { label: 'Step 1', value: 'Data room under NDA' },
-              { label: 'Step 2', value: 'Model and cap table' },
-              { label: 'Step 3', value: 'Meet the founders' },
-            ]}
-          >
-            <ol className="mt-4 grid max-w-2xl gap-3 text-base text-slate-300">
-              {NEXT_STEPS.map((step, i) => (
-                <li key={step} className="flex gap-3">
-                  <span
-                    aria-hidden
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-500/15 text-xs font-bold text-brand-300"
-                  >
-                    {i + 1}
-                  </span>
-                  {step}
-                </li>
-              ))}
-            </ol>
           </Details>
         </div>
       </Section>

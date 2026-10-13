@@ -22,6 +22,16 @@ export function TeamGrid() {
               height={64}
               className="h-16 w-16 flex-none rounded-full border-2 border-brand-500 object-cover"
             />
+          ) : 'logo' in p && typeof p.logo === 'string' ? (
+            <div className="flex h-16 w-16 flex-none items-center justify-center rounded-full border-2 border-brand-500 bg-navy-950 p-2.5">
+              <Image
+                src={p.logo}
+                alt={p.name}
+                width={64}
+                height={64}
+                className="h-full w-full object-contain"
+              />
+            </div>
           ) : (
             <div
               aria-hidden

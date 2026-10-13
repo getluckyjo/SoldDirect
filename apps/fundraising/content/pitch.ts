@@ -299,6 +299,7 @@ export const TEAM_DETAIL = {
       name: 'Johannes le Roux',
       role: 'Co-founder · Marketing Director',
       initials: 'JR',
+      photo: '/team/johannes.jpg',
       bio: 'Property Studies, UCT. Founded and sold three consumer brands. Responsible for brand, marketing and the seller funnel, which is the largest use of the seed capital.',
     },
     {
@@ -311,6 +312,7 @@ export const TEAM_DETAIL = {
       name: 'Paysoft',
       role: 'Technology partner · CTO function',
       initials: 'PS',
+      logo: '/partners/paysoft.png',
       bio: 'Provides the CTO function and engineering delivery of the platform at preferred development rates, with Lava Lamp Lab engaged for the WhatsApp build. Its equity vests as that development is delivered.',
     },
     {
@@ -326,7 +328,7 @@ export const TEAM_DETAIL = {
 export const ASK_SECTION = {
   heading: 'R5m for 20%.',
   intro:
-    'R5m at a R20m pre-money valuation. Until the business is self-funding it runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, and hires beyond the four are made only against signed mandates. The round covers the modelled cash trough in every scenario; the balance funds the Cape Town launch.',
+    'R5m at a R20m pre-money valuation, deployed in two tranches. The round covers the modelled cash trough in every scenario; the balance funds the Cape Town launch.',
   // source: Use of Funds tab of the model
   useOfFunds: [
     { item: 'Cape Town launch and brand campaign', amount: 'R2.0m' },
@@ -383,22 +385,6 @@ export const FAQ = [
     q: 'Is the conveyancer revenue line permitted?',
     a: 'Yes. It is structured around Legal Practice Council rules: attorneys pay no referral fees. Panel firms pay fixed annual advertising subscriptions, and sellers who use the panel receive a 30–40% conveyancing fee discount.',
   },
-  {
-    q: 'What is the relevance of Purplebricks?',
-    a: 'It is the comparable the plan is managed against. Purplebricks failed on marketing-led customer acquisition cost and over-expansion. Sold Direct enters at prime Cape Town, where demand is largely referral-driven, broadens only as the brand establishes itself, and runs a small cost base with headcount sized for delivery.',
-  },
-  {
-    q: 'Is R5m sufficient?',
-    a: 'In every modelled scenario, yes. Year 1 runs on four people: the two founders, a principal practitioner who also holds compliance, and an agent. There is no office, hires beyond the four are made only against signed mandates, and Paysoft carries the build. EBITDA-positive is modelled in Year 3. On a monthly view the cash trough is about R3m, which the round covers with about R2m to spare in the base case and about R1.5m in the conservative case. Capital is released in two tranches against milestones. The runway check is on the Scenarios tab of the model.',
-  },
-  {
-    q: 'What are the principal risks?',
-    a: 'Three. The Year 2 move to in-house origination requires FAIS/FSP accreditation and bank aggregation agreements, with Year 1 through BetterBond as the bridge. Marketing-to-transaction conversion is the central growth assumption and is validated in a Cape Town pilot. The estimate of about 35,000 upper-market transfers a year requires primary confirmation. Each is documented with sources in the data room.',
-  },
-  {
-    q: 'What is on offer?',
-    a: '20% of Sold Direct for R5m at a R20m pre-money valuation, alongside the two founders at 32.5% each, Paysoft at 10% vesting, a reserved option pool of 4% and a reserved non-executive board seat of 1%. The base-case model gives the seed about 14× at exit. Full terms, the reviewed model and the cap table are in the data room under NDA.',
-  },
 ] as const;
 
 export const NEXT_STEPS = [
@@ -418,21 +404,25 @@ export const HOOKS_SECTION = {
     {
       icon: 'bolt',
       title: 'Complimentary instant property estimate',
+      line: 'A free price range on WhatsApp in minutes: the entry point for every seller.',
       body: 'Every conversation starts with a free Quick Estimate on WhatsApp: a price range in minutes, no commitment. It is the entry point for every seller and the first step of every listing.',
     },
     {
       icon: 'chat',
       title: 'Always-on WhatsApp estate agent advisory',
+      line: 'Pricing, viewings, offers, bond and transfer, answered in the same thread, day or night.',
       body: 'Pricing, viewings, offers, bond and transfer, answered in the same WhatsApp thread by the platform and a registered property practitioner, day or night. The seller never waits for office hours.',
     },
     {
       icon: 'key',
       title: 'Cornering supply with 90-day mandates',
+      line: 'The 0%* path needs an exclusive term, so stock builds and every enquiry stays on the platform.',
       body: 'The 0%* path requires an exclusive 90-day mandate. Each listing is ours to sell for the term, so stock builds as the pipeline fills and every buyer enquiry stays on the platform.',
     },
     {
       icon: 'handshake',
       title: 'Relationships that carry into post-sale services',
+      line: 'Removals, painting, leasing, gardening and recycling through partners, at no acquisition cost.',
       body: 'A sale runs for months inside one conversation. That relationship carries into the services around a move: removals, painting, short-term leasing, gardening and recycling, offered through partners at no acquisition cost.',
     },
   ],
@@ -546,7 +536,6 @@ export const DEMO_SECTION = {
     'The live demo runs on our production system: the same conversation code, database and deal tracker that will answer on the WhatsApp number; only the WhatsApp transport is simulated. Get a Quick Estimate and Property Report, list the home, add photos, then watch the sale run: a pre-qualified buyer, a viewing, an offer, the bond and the transfer to registration.',
   tryCta: 'Open the live demo',
   tryHref: '/try',
-  watchLabel: 'Or watch the scripted walkthrough, two minutes.',
   tryNote:
     'Opens in a new tab. Demo conversations use a reserved number range and never reach a real seller or buyer. The buyer is simulated; price data is illustrative until the LOOM feed is connected.',
 } as const;
@@ -724,7 +713,7 @@ export const ACCESS_SECTION = {
   intro:
     'The reviewed model workbook, assumptions with sources, cap table, scenarios and partner terms, shared under NDA.',
   reassurance:
-    'We reply within one business day. The NDA covers detailed financials, the cap table and partner terms.',
+    'We reply within one business day. From there: NDA, the model, the founders, allocation.',
 } as const;
 
 // Not an offer to the public; private placement only. (Verbatim — do not edit.)
