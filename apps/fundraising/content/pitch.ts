@@ -532,7 +532,7 @@ export const DEMO_SECTION = {
 // Why now: four conditions that make the wedge open today.
 // source: docs/LAUNCH-PLAN.md, docs/dataroom/00-assumptions.md §C–D
 export const WHY_NOW = {
-  heading: 'Why now.',
+  heading: 'The perfect timing.',
   items: [
     {
       icon: 'gap',
