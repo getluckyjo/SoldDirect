@@ -1,7 +1,8 @@
 // Copies the investor data room (docs/dataroom, top-level files only) into
 // content/dataroom so the Next build can trace and serve it from /dataroom.
-// The property24/ sub-folder holds third-party contract documents and stays
-// out. Runs before `next dev` and `next build`; the copy is gitignored.
+// Sub-folders stay out: property24/ holds third-party contract documents and
+// src/ the HTML sources the PDFs are printed from. Runs before `next dev` and
+// `next build`; the copy is gitignored.
 import {
   cpSync,
   existsSync,

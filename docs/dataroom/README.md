@@ -5,24 +5,14 @@ projections, built from sourced inputs we have verified ourselves; each document
 sources and says how much weight we put on each.
 
 <!-- Served to investors at invest.solddirect.co.za/dataroom behind the shared password
-(DATAROOM_PASSWORD on the investor site). The site copies this folder at build time; the
-property24/ sub-folder (third-party contract documents) stays out. -->
+(DATAROOM_PASSWORD on the investor site). The site copies the top-level files of this folder
+at build time and lists them with a blurb each; the property24/ sub-folder (third-party
+contract documents) and src/ (the HTML sources the PDFs are printed from) stay out. -->
 
-## Contents
-
-| Doc | What it covers |
-|---|---|
-| [Assumption base](./00-assumptions.md) | Every input the model runs on — market size, prices, bond economics, costs, valuation comps — with its source and the weight we put on it |
-| [Financial model](./01-financial-model.md) | 5-year P&L + cashflow, three scenarios (conservative / base / aggressive), the per-deal revenue engine, volume ramp, and sensitivities |
-| [Capital and valuation](./02-capital-and-valuation.md) | Bottom-up capital requirement, the R5m seed at R20m pre-money (20%), valuation, **cap table** (2 working founders + technology partner + board + strategic funder at inception) and runway check |
-| [Market sizing](./03-market-sizing.md) | TAM/SAM/SOM, the implied upper-market share (stress test + positioning), and consumer commission saved |
-| [Indicative term sheet](./04-indicative-term-sheet.md) | **Indicative seed terms (one-pager)** — R5m for 20% with investor-friendly structure (tranched against milestones, 1× non-participating preference, lead board seat, founder reverse-vesting), cap table at closing, and the team (founders + Paysoft in the CTO role) |
-| [Regulatory status](./05-regulatory-status.md) | **Regulatory status, written for diligence** — property practitioner registration and FFC (not yet held; route, timeline and key-person mitigation), why the 0% model does not avoid the Property Practitioners Act, the Property24 subscription position and open commercial points, and the FAIS/FSP dependency for Y2 origination |
-| [Go-to-market deck](./marketing-deck.pdf) | Ten slides: the message, the audience, the funnel, five campaigns in sequence, channels, what the marketing rand buys, targets and triggers, brand, risks |
-| [Excel model](./sold-direct-model.xlsx) | **Live Excel model, reviewed by our chartered accountant** — 12 linked tabs (Home · Assumptions · P&L · COGS Build · Scenarios · Market Sizing · Capital & Valuation · Use of Funds · Cap Table · Competitive Landscape · Ancillary Revenue · Notes). Edit the amber input cells and everything recalculates. |
-| [Model snapshot](./model.csv) | Flat snapshot of the numbers (the Excel workbook is the working model) |
-| [Paysoft brief](./partner-brief-paysoft.html) | Print-ready technology-partnership brief for Paysoft |
-| [Property24 brief](./partner-brief-property24.html) | Print-ready syndication brief for Property24 — the incremental-inventory case and the rate structure we're negotiating for (our rate-card analysis is in the Assumption base, §D) |
+Read this overview first, then the [Financial model](./01-financial-model.md) and the
+[Indicative term sheet](./04-indicative-term-sheet.md). The
+[Excel model](./sold-direct-model.xlsx), reviewed by our chartered accountant, is the working
+file: edit the amber input cells and every tab recalculates.
 
 ## Strategy: the service-gap wedge · land at prime · taper down-market · own the origination · technology-lean · ecosystem revenue
 
@@ -68,19 +58,16 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
   prime-only) — a defensible ask.
 - **The database:** each customer unlocks **~R50k of ecosystem referral revenue**; modelled optional
   (~R5k/deal captured, default off).
-- **Capital:** a four-person launch team at R150k/month for Y1–Y2 (founders at R50k each
-  carrying marketing, management, dealmaking, bookkeeping and tech support; principal
-  practitioner & compliance R30k; agent/admin R20k), remote-first, with Paysoft's
-  free-development allocation carrying the build. The annual cash trough is **≈ −R1.1m base /
-  ≈ −R1.5m conservative** (roughly R2m deeper on a monthly view). The **R5m seed (at R20m
-  pre-money, 20%)** covers the trough in every scenario with ~R1.5m to spare in the conservative
-  case; the balance is launch and growth capital (runway check on the Scenarios tab). Deployed in
-  two milestone tranches.
+- **Capital:** a four-person launch team at R150k/month for Y1–Y2, remote-first, with Paysoft's
+  free-development allocation carrying the build. The **R5m seed (at R20m pre-money, 20%)**
+  covers the cash trough in every scenario, with ~R1.5m to spare in the conservative case on a
+  monthly view; the balance is launch and growth capital, deployed in two milestone tranches
+  (Capital and valuation, §1).
 - **Valuation:** Year-5 enterprise value **~R345–518m** (4–6×); base exit **~R432m** (5×).
 - **Cap table:** **Johannes le Roux 32.5% · Dean Kruger 32.5% · Paysoft (technology partner,
   vesting) 10% · option pool (reserved) 4% · board seat (reserved, non-executive) 1% · Strategic
-  Funder 20% (R5m)** at inception → post-optional-Series-A: 27.1 / 27.1 / 8.3 / 3.3 / 0.8 / 16.7 /
-  16.7; the **seed models ~14×** to the base-case exit.
+  Funder 20% (R5m)** at inception; the **seed models ~14×** to the base-case exit (Capital and
+  valuation, §3).
 - **What the pilot validates:** the in-house origination terms (bank agreements + accreditation),
   the ATL→deals conversion, and the upper-market pool count.
 - **Gating:** property practitioner registration + FFC are **not yet in place**; no mandate can
@@ -107,7 +94,8 @@ base, §F). None changes the model's shape; they sharpen individual lines.
 
 ## Coming to the data room
 
-- Team bios and the organisation plan, with the automated operating model in detail
+- The organisation plan, with the automated operating model in detail (the founders and the
+  technology partner are introduced in the Indicative term sheet)
 - Traction pack: waitlist and investor-lead numbers, and the live WhatsApp journey demo
 - Letters of intent from BetterBond (referral terms) and a panel conveyancer
 - The supplier partnerships in motion, formalised: Loom (property pricing data) and Capture

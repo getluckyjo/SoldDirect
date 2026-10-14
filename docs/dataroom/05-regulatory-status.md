@@ -71,7 +71,7 @@ special arrangement is needed to execute the portal strategy.
 | SIBP (small independent business package) | **R656** |
 
 This reconciles with the model's portal COGS: ~R1,700 per registered deal in Y1 falling to
-~R300 by Y5. All prices exclude VAT.
+~R370 by Y5 (the working is in the Assumption base, §D). All prices exclude VAT.
 
 **Open commercial points, raised with Property24 and unanswered at the date of this document:**
 

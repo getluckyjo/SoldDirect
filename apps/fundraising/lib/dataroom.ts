@@ -6,9 +6,10 @@ import { Marked } from 'marked';
  * The data room's index. Files live in docs/dataroom at the repo root and are
  * copied into content/dataroom by scripts/sync-dataroom.mjs before each build.
  * Markdown documents render at /dataroom/<slug>; everything else is served
- * (behind the same gate) from /dataroom/files/<file>.
+ * (behind the same gate) from /dataroom/files/<file>. The PDFs are printed
+ * from the HTML sources in docs/dataroom/src, which the site does not serve.
  */
-export type DocKind = 'doc' | 'xlsx' | 'csv' | 'html' | 'pdf';
+export type DocKind = 'doc' | 'xlsx' | 'pdf';
 
 export interface DataroomEntry {
   slug: string;
@@ -16,8 +17,6 @@ export interface DataroomEntry {
   title: string;
   blurb: string;
   kind: DocKind;
-  /** Served when linked from a document, but not listed on the index. */
-  hidden?: boolean;
 }
 
 export const DATAROOM_ENTRIES: DataroomEntry[] = [
@@ -78,14 +77,6 @@ export const DATAROOM_ENTRIES: DataroomEntry[] = [
     kind: 'doc',
   },
   {
-    slug: 'marketing-deck-web',
-    file: 'marketing-deck.html',
-    title: 'Go-to-market deck (web version)',
-    blurb: 'The same deck as a web page.',
-    kind: 'html',
-    hidden: true,
-  },
-  {
     slug: 'marketing-deck',
     file: 'marketing-deck.pdf',
     title: 'Go-to-market deck',
@@ -102,28 +93,12 @@ export const DATAROOM_ENTRIES: DataroomEntry[] = [
     kind: 'xlsx',
   },
   {
-    slug: 'model-csv',
-    file: 'model.csv',
-    title: 'Model snapshot (CSV)',
-    blurb:
-      'A flat snapshot of the numbers. The Excel file is the working model.',
-    kind: 'csv',
-  },
-  {
     slug: 'partner-brief-paysoft',
-    file: 'partner-brief-paysoft.html',
+    file: 'partner-brief-paysoft.pdf',
     title: 'Partner brief: Paysoft',
     blurb:
       'The technology-partnership brief: scope, the free-development allocation and the equity position.',
-    kind: 'html',
-  },
-  {
-    slug: 'partner-brief-property24-web',
-    file: 'partner-brief-property24.html',
-    title: 'Partner brief: Property24 (web version)',
-    blurb: 'The same brief as a web page.',
-    kind: 'html',
-    hidden: true,
+    kind: 'pdf',
   },
   {
     slug: 'partner-brief-property24',
@@ -138,23 +113,17 @@ export const DATAROOM_ENTRIES: DataroomEntry[] = [
 export const KIND_LABEL: Record<DocKind, string> = {
   doc: 'Document',
   xlsx: 'Excel model',
-  csv: 'CSV',
-  html: 'Brief',
   pdf: 'PDF',
 };
 
 export const KIND_ACTION: Record<DocKind, string> = {
   doc: 'Read',
   xlsx: 'Download',
-  csv: 'Download',
-  html: 'Open',
   pdf: 'Open',
 };
 
 const CONTENT_TYPE: Record<Exclude<DocKind, 'doc'>, string> = {
   xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-  csv: 'text/csv; charset=utf-8',
-  html: 'text/html; charset=utf-8',
   pdf: 'application/pdf',
 };
 
@@ -183,7 +152,7 @@ export async function availableEntries(): Promise<DataroomEntry[]> {
     return [];
   }
   const present = new Set(names);
-  return DATAROOM_ENTRIES.filter((e) => !e.hidden && present.has(e.file));
+  return DATAROOM_ENTRIES.filter((e) => present.has(e.file));
 }
 
 // Links between documents are written as ./file.md in the repo; on the site
@@ -252,6 +221,6 @@ export async function readDataroomFile(
   return {
     body,
     contentType: CONTENT_TYPE[entry.kind],
-    inline: entry.kind === 'pdf' || entry.kind === 'html',
+    inline: entry.kind === 'pdf',
   };
 }

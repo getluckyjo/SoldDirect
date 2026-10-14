@@ -123,13 +123,8 @@ hiring are the release valve if volume outruns the team.
 
 All three columns are live on the Scenarios tab of `sold-direct-model.xlsx`. The conservative
 case carries a proportionate cost base but less revenue, so its trough is deeper and later (Y3).
-On a monthly view every scenario's trough sits ~R2m lower than its annual proxy (§3) — still
-inside the seed with ≥ ~R1.5m to spare in the conservative case.
-
-**Baked in from the chartered-accountant review:** 27% SA corporate tax on positive EBITDA; delivery-realistic
-headcount (**48 by Y5**, half automated, from Y3); a **cash-runway check** (R5m seed at Y1,
-Series A at Y3) shows the seed covers the trough in all three scenarios
-(Capital and valuation, §1).
+What the seed leaves at each scenario's trough, on the annual proxy and the monthly view, is in
+Capital and valuation, §1.
 
 ## 5. What we are watching
 

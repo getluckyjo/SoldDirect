@@ -418,7 +418,7 @@ export const HOOKS_SECTION = {
 } as const;
 
 // The go-to-market: the campaigns in sequence. source: docs/LAUNCH-PLAN.md and
-// docs/dataroom/marketing-deck.html (the full deck is in the data room).
+// docs/dataroom/src/marketing-deck.html (the deck PDF is in the data room).
 export const CAMPAIGNS_SECTION = {
   heading: 'Earn the first twenty, prove the loop, then buy reach.',
   intro:

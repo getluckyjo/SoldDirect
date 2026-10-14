@@ -29,7 +29,7 @@ The 0% story is what we *are*; the portal story is why a prime seller acts **tod
 ## 3. Sequence
 
 **P0 · Unlock the wedge (weeks 1–4) — nothing launches until this is signed**
-- Property24 **wholesale distribution agreement** — complementary to their retail tiers (R2,299–R4,999 per listing, the anchor/ceiling): enter at SIBP (R656/m) or a volume per-listing wholesale rate, stepping up at lead milestones (brief: `dataroom/partner-brief-property24.html`).
+- Property24 **wholesale distribution agreement** — complementary to their retail tiers (R2,299–R4,999 per listing, the anchor/ceiling): enter at SIBP (R656/m) or a volume per-listing wholesale rate, stepping up at lead milestones (brief: `docs/dataroom/partner-brief-property24.pdf`).
 - Private Property as second portal (same OIPMI interoperability rights).
 - Confirm practitioner registration + FFC in the operating entity; BetterBond referral letter; panel-conveyancer subscription.
 
@@ -74,5 +74,5 @@ The 0% story is what we *are*; the portal story is why a prime seller acts **tod
 
 ---
 *Companion docs: portal economics & rate-card actuals in `dataroom/00-assumptions.md` §D;
-the negotiation one-pager in `dataroom/partner-brief-property24.html`; volume/finance basis
+the negotiation one-pager in `docs/dataroom/partner-brief-property24.pdf`; volume/finance basis
 in `dataroom/01-financial-model.md`. Dev roadmap: `ROADMAP.md`.*
