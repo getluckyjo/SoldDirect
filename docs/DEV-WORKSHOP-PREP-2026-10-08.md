@@ -40,13 +40,34 @@ Two things the repo does not do yet become required at the listing tier: seller 
 
 **Menu-driven, with a human exit on every screen.** Flows are scripted for the pilot. The AI concierge runs in shadow mode, drafting replies for a person to approve. **"Schedule a callback" is in scope:** a slot-capture step in WhatsApp and a callback queue in the console, neither of which exists today.
 
+**Viewings booked in the chat, buyer to seller direct.** No practitioner in the loop for a routine viewing. The seller sets viewing availability at listing time by tapping slots, and can change it any time with one word. When a buyer enquires, the system offers the open slots for that listing; the buyer taps one; both sides get a confirmation at once and a reminder the evening before; either can reschedule or cancel by tap. One buyer per slot. Each viewing is a record on the deal, with the outcome captured afterwards and no-shows flagged. The console shows the viewings list and only exceptions reach a person. Our own booking logic behind our API; calendar sync comes later. The seller sees the buyer's name, consent status and pre-qualification state before the visit, and gets the five-point viewing prep checklist.
+
 **Two commercial paths.** 0% on the qualifying path: an exclusive mandate, the bond through BetterBond, a panel conveyancer. A 1% facilitation fee on cash or third-party-financed deals. Both paths produce a Property24 listing. No mandate is taken before the FFC is in place, so a January launch with mandates needs the FFC by December.
 
 **Property24 by direct API.** Syndication goes through Property24's own API as a technology partner, covering create, update, photo order, pause, under offer, sold, withdraw and a reconciliation job. It depends on Property24 granting feed access, a spec and a sandbox. Sync or PropCtrl is the stopgap if that access is slow.
 
 **Built on the existing repo.** The TypeScript, Fastify, Prisma and Next.js code on `main` is the baseline, and the brief's guardrail holds: Postgres stays the system of record, business logic stays in the modular monolith, and every provider sits behind an adapter. Conversation logic does not move into Twilio Studio, a bot builder or the e-sign provider.
 
-**Sized for 70 live listings in year one.** About 17 concurrent listings, and roughly 700 reports a year if one in ten converts. Design so that ten times that needs no re-architecture; staff, price and review capacity for 70.
+**Sized for 70 live listings in year one, built for the year-five plan.** Year one is about 17 concurrent listings and 1,400 Property Reports converting at 5% to the 70 listings. Staff, price and review capacity for that. Design for the base case below, so nothing is re-architected between now and year five.
+
+**Volume to design for.** The first four rows are the data room base case; the rest are derived with the assumptions stated underneath.
+
+| Per year unless stated | Y1 | Y2 | Y3 | Y4 | Y5 |
+|---|---:|---:|---:|---:|---:|
+| Registered sales (model) | 50 | 220 | 650 | 1,500 | **2,900** |
+| Listings taken on (model) | ~70 | ~310 | ~930 | ~2,100 | **~4,100** |
+| Average transacting price (model) | R6.5m | R5.75m | R5.0m | R4.5m | **R4.0m** |
+| Team, half of it AI agents (model) | 8 | 14 | 22 | 50 | **96** |
+| Property Reports (derived) | ~1,400 | ~6,200 | ~18,600 | ~42,000 | **~82,000** |
+| Listings live at any time (derived) | ~17 | ~80 | ~230 | ~525 | **~1,025** |
+| Buyer enquiries a month (derived) | ~90 | ~390 | ~1,160 | ~2,600 | **~5,100** |
+| Deals in transfer at any time (derived) | ~17 | ~75 | ~215 | ~500 | **~965** |
+| WhatsApp messages a month (rough) | ~4,000 | ~17,000 | ~50,000 | ~115,000 | **~225,000** |
+| Report cost at R7.50 (derived) | ~R10.5k | ~R46.5k | ~R140k | ~R315k | **~R615k** |
+
+Assumptions: twenty Property Reports per listing taken on, a 5% conversion; about three months on the market, so listings live at once is a quarter of the year's intake; five enquiries per live listing a month, the launch-plan target; about four months from offer to registration; messages at roughly 12 per report, 15 per enquiry, 60 per listing, 100 per deal and 3 per nurture sequence. The aggressive scenario is 4,800 sales in year five, about 1.7 times every row.
+
+What that means for the build: the brief's engineering sizing baseline (one million messaging events a month, bursts of 250 concurrent webhooks, 100 concurrent internal users, 100,000 listings and 50,000 deals) covers the year-five base case with headroom and still covers the aggressive case. The shape can stay as it is, but the pieces that let it scale have to exist from the start: the durable outbound queue, per-provider rate limits, idempotent callbacks and the portal reconciliation job. By year three the console is a work queue for a few hundred live listings and a couple of hundred deals in transfer, run by a team of twenty; by year five it is a thousand of each, which is the practitioner-console package the brief describes, not a bigger read-only dashboard. Property24's published tiers climb with lead volume, from R7,153 a month in year one to the top of the rate card by year five, so the wholesale conversation with them matters from year three.
 
 ---
 
@@ -76,14 +97,15 @@ Use this as the agenda for the UX part. For each step: goal, what we ask, what g
 | 1 | Intro + menu | Orient, then one tap | Menu row | Conversation state | "What's my home worth?" and "List my property" side by side; no free-text chatter; always a human exit | Built (5 rows) | Final menu rows; the callback slot step |
 | 2 | Quick Estimate | A range in under a minute | Name, consent, suburb or address, type, beds, baths | Seller, consent timestamp, estimate | Estimate wording only; never show a fabricated range | Partial: at the price step; LOOM endpoint is a placeholder | What the flow does when LOOM returns nothing |
 | 3 | Property Report | Branded report worth converting on | Photos or video, confirm ownership, email for the PDF | Report record, media | Free to the seller; R7.50 cost to us; no payment step | Not built | Format; who renders the PDF; delivery channel |
-| 4 | Nurture to listing | Turn one in ten reports into a listing | Follow-ups at day 3, 14, 30 | Marketing consent, opt-out | Outside 24h needs an approved marketing template; opt-out already built | Partial: opt-out built; re-engagement partly | Cadence and copy |
+| 4 | Nurture to listing | Turn one in twenty reports into a listing | Follow-ups at day 3, 14, 30 | Marketing consent, opt-out | Outside 24h needs an approved marketing template; opt-out already built | Partial: opt-out built; re-engagement partly | Cadence and copy |
 | 5 | Account and verification | Know the seller is the owner | Ownership proof, ID | Private document, review status | Private storage, 24h human review, encrypted at rest | Not built | Manual review for January |
 | 6 | Tier choice and mandate | 0% exclusive vs 1% | Tap a tier; e-sign the mandate | Listing tier, mandate envelope | No mandate before the FFC | Partial: tier stored; no e-sign | E-sign provider; mandate text from attorney |
-| 7 | Listing intake | Clean listing record | Type, suburb, address, price, beds, baths, term | Listing | Address mandatory for the portal; sectional-title fields | Built | Levies and erf fields; pro photography option |
+| 7 | Listing intake | Clean listing record | Type, suburb, address, price, beds, baths, term | Listing | Address mandatory for the portal; sectional-title fields | Built | Levies and erf fields; viewing availability slots; pro photography option |
 | 8 | Photos and description | Portal-grade listing | Seller photos, optional pro shoot, AI draft description | Photos, description | First photo activates; seller approves the draft | Built | Capture Media booking step? |
 | 9 | Owner review → Sold Direct review | Publish only what is checked | Owner confirms; staff approve within 24h | Approval event | Nothing publishes unreviewed | Not built; console is read-only | Who reviews, SLA, what blocks |
 | 10 | Publish | Live on Property24 | Approved listing | Portal reference, publish timestamp | Direct API: create, update, photo order, under offer, sold, withdraw | Stub | Property24 access date; certification lead time |
 | 11 | Enquiry in | Buyer in WhatsApp against the listing | Portal lead or shareable link | Buyer, deal at enquiry | Consent before any finance talk | Partial: built for the link; not for portal leads | Lead ingestion (3.2) |
+| 11b | Viewing | A confirmed viewing with no person in the loop | Seller's availability set at listing; the buyer's slot tap | Viewing on the deal; reminders; outcome | One buyer per slot; confirmation to both; reminder the evening before; reschedule by tap; outcome captured after | Not built; the buyer mock shows it | Slot granularity; how the seller edits availability; no-show handling; calendar sync later |
 | 12 | Pre-qual and offer | Real BetterBond result; OTP | Consent, income, deposit; offer terms | Referral state, OTP versions | "Pre-qualified" only after a partner result | Stub; wrong semantics today | What BetterBond actually exposes |
 | 13 | Transfer journey | Track to registration | Stage updates from attorney and bank | Deal events, deadlines | Every change timestamped with an actor | Built, with reminders | How attorneys report status |
 
@@ -100,7 +122,7 @@ Illustrative WhatsApp screens, one per journey, mapped to the steps in section 4
 | Property Report, then nurture | 3–4 | Photos and ownership confirmation, the PDF, the day-3 follow-up with STOP opt-out |
 | List my property | 6–7 | Tier choice, tap-by-tap intake with price guidance inline, the summary card |
 | Verify, sign, review, live | 5, 8–10 | Ownership proof, mandate e-sign, photos, 24h review, live on Property24 |
-| Buyer from Property24 | 11–12 | Portal lead into WhatsApp, consent, BetterBond pre-qual invite, viewing slot |
+| Buyer from Property24 | 11–12 | Portal lead into WhatsApp, consent, BetterBond pre-qual invite, a viewing booked straight into the seller's availability |
 | Schedule a callback | any | Slot capture and confirmation; the console callback queue behind it |
 | Tracked to registration | 13 | Bond approved, FICA checklist, deadline countdown, registration message |
 
@@ -159,6 +181,7 @@ If the eight weeks are real, propose this cut and let them push back:
 - Listing intake as built, plus tier choice, ownership-proof upload with manual review, and the 24h publish queue.
 - Property24 via the direct API, with Sync or PropCtrl as the stopgap; lead ingestion into WhatsApp.
 - Schedule a callback: slot capture in WhatsApp and a callback queue in the console.
+- Viewings booked in the chat: seller availability at listing, the buyer picks a slot, confirmations and reminders to both, outcomes captured, a viewings list in the console.
 - Mandate e-sign with one provider.
 - Console: login with roles, the review queue, the callback queue, deal stage controls, document view. Not the full WP5.
 - Durable outbound queue for WhatsApp sends and portal publishes. Not the full WP1.
@@ -198,7 +221,9 @@ These sit with Sold Direct, not the devs, and each one can stall the build. Agre
 | Brief benchmark | 100–125 person-weeks, 20–24 weeks, 7 people | Brief §12 |
 | Narrow pilot option | 12–14 weeks, 5–6 people | Brief §12 |
 | Their build | ~8 weeks, Nov–Dec; ~56 person-weeks with 7 people | Their roadmap |
-| Year-one plan | ~70 live listings, 50 registered sales, ~700 reports | Data room |
+| Year-one plan | ~70 live listings, 50 registered sales, ~1,400 reports at 5% | Data room |
+| Year-five base case | ~4,100 listings, 2,900 registered sales, ~82,000 reports | Data room |
+| Year-five aggressive case | 4,800 registered sales, ~1.7× every volume row | Data room |
 | Report cost | R7.50 per report; ~R5,250 a year at 700 | Marketing cost |
 | Property24, 51–150 leads, R6m–R8m | R7,153 per month ex VAT, the 70-listing profile | 2026 rate card |
 | LOOM basic subscription | ~R724.50 per month; API tier to confirm | Roadmap note |
