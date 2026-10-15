@@ -846,7 +846,7 @@ export const SCENES: Scene[] = [
     note: {
       tag: 'Legal',
       title: 'Seller’s compliance obligations',
-      body: 'The seller must deliver valid certificates before transfer. Sold Direct coordinates the inspections, which is also an optional add-on revenue line.',
+      body: 'The seller must deliver valid certificates before transfer. Sold Direct coordinates the inspections.',
     },
   },
   {
