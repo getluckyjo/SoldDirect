@@ -346,7 +346,7 @@ export default function Investors() {
           src: '/clifton-aerial.jpg',
           alt: 'Clifton’s beaches and the Atlantic from above, Cape Town',
         }}
-        heading="Two founders, full-time. A technology partner for the build."
+        heading="Two founders, fully-focussed. A technology partner for the build."
         intro={TEAM_DETAIL.intro}
       >
         <TeamGrid />

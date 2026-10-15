@@ -287,12 +287,12 @@ export const TRACTION_DETAIL = {
 export const TEAM_DETAIL = {
   heading: 'Team',
   keyPoints: [
-    { label: 'Founders', value: '2, fully focussed' },
+    { label: 'Founders', value: '2, fully-focussed' },
     { label: 'Technology', value: 'Paysoft, 10% vesting' },
     { label: 'Board', value: '1 non-executive seat reserved' },
   ] satisfies KeyPoint[],
   intro:
-    'Two full-time founders, a technology partner providing the CTO function, and a reserved non-executive seat. The cap table and terms are in the data room.',
+    'Two founders, fully-focussed, a technology partner providing the CTO function, and a reserved non-executive seat. The cap table and terms are in the data room.',
   // photo: drop a headshot at public/team/<file>.jpg and set it here —
   // the card falls back to branded initials until then.
   people: [
@@ -380,7 +380,7 @@ export const FAQ = [
   },
   {
     q: 'What is the position on estate agents?',
-    a: 'Sold Direct is complementary to full-service agents, not opposed to them. Full-service remains the right choice for the majority of sellers; Sold Direct serves sellers who choose to sell direct, assisted by PPRA-registered practitioners. The industry describes a similar division of work: RE/MAX Southern Africa’s leadership has said technology should handle administration, after-hours enquiries and buyer qualification while people provide judgement and the relationship (Property Professional, October 2026).',
+    a: 'Sold Direct is complementary to full-service agents, not opposed to them. Full-service remains the right choice for the majority of sellers; Sold Direct serves sellers who choose to sell direct, assisted by PPRA-registered practitioners.',
   },
   {
     q: 'Is the conveyancer revenue line permitted?',
@@ -552,8 +552,8 @@ export const WHY_NOW = {
     },
     {
       icon: 'people',
-      title: 'The industry agrees',
-      body: 'RE/MAX Southern Africa’s leadership: technology should take the admin and buyer qualification; people keep the judgement. A franchise network cannot move that fast: change has to roll out office by office.',
+      title: 'No incentive to change',
+      body: 'Agencies earn 5–7% plus VAT on each sale, a model that serves most sellers well. A sale paid for by the lender rather than the seller does not fit it, and franchise networks change office by office, so the segment that wants to sell direct stays open.',
     },
   ],
 } as const;
