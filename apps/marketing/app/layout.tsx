@@ -8,6 +8,10 @@ import './globals.css';
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.solddirect.co.za';
 
+// The preview image (public/og-image.jpg) is a static 1200×900 card: logo,
+// hero heading and the 0% line over the hero photo, with the text kept in
+// the middle band so LinkedIn's 1.91:1 crop keeps all of it. Regenerate it
+// when the heading changes.
 // Link previews (WhatsApp, LinkedIn, email) mirror the hero. Previews cannot
 // show the 0%* tooltip, so the qualifying path is stated inline.
 const TITLE = `Sold Direct — ${HERO.title}`;
@@ -26,10 +30,10 @@ export const metadata: Metadata = {
     siteName: 'Sold Direct',
     images: [
       {
-        url: '/cape-town-aerial-hero.jpg',
-        width: 2400,
-        height: 1800,
-        alt: 'Aerial view of Green Point and the Atlantic coast beneath a tablecloth cloud on Table Mountain, Cape Town',
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 900,
+        alt: 'Sold Direct: Sell your home direct. Private property sales, on WhatsApp, at 0% commission to the seller.',
       },
     ],
   },
@@ -37,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
-    images: ['/cape-town-aerial-hero.jpg'],
+    images: ['/og-image.jpg'],
   },
 };
 
