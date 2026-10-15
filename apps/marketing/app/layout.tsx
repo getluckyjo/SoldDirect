@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { HERO } from '@/content/site';
 import './globals.css';
 
 // Used for absolute OpenGraph URLs. Override with NEXT_PUBLIC_SITE_URL when
@@ -7,9 +8,11 @@ import './globals.css';
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.solddirect.co.za';
 
-const TITLE = 'Sold Direct — Sell your home direct, on WhatsApp.';
+// Link previews (WhatsApp, LinkedIn, email) mirror the hero. Previews cannot
+// show the 0%* tooltip, so the qualifying path is stated inline.
+const TITLE = `Sold Direct — ${HERO.title}`;
 const DESCRIPTION =
-  'Sell your Cape Town home privately over WhatsApp, guided by our concierge and registered property practitioners. 0% commission on the qualifying path; the lender pays us a bond origination fee.';
+  'Private property sales, on WhatsApp, at 0% commission to the seller on the qualifying path. Built for Cape Town, from the first listing to registration.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

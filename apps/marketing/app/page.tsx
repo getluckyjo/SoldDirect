@@ -1,11 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { IconTile, type IconName } from '@/components/Icon';
 import { Logo } from '@/components/Logo';
+import { QualifyingNote } from '@/components/QualifyingNote';
 import { Section } from '@/components/Section';
 import { StickyCta } from '@/components/StickyCta';
 import { WaitlistForm } from '@/components/WaitlistForm';
 import { whatsappCtas } from '@/lib/whatsapp';
 import { WhatsAppDemo } from '@/components/WhatsAppDemo';
+import { HERO } from '@/content/site';
 
 const CONTACT_EMAIL = 'johannes@solddirect.co.za';
 
@@ -26,6 +29,48 @@ const STEPS = [
     title: 'Offer to transfer',
     body: 'Sign the Offer to Purchase, a panel conveyancer handles the transfer, and every stage is reported until registration at the Deeds Office.',
   },
+];
+
+// What comes with the sale, from the investor site's hooks, in seller terms.
+const FEATURES: { icon: IconName; title: string; body: string }[] = [
+  {
+    icon: 'bolt',
+    title: 'A free instant estimate',
+    body: 'A price range on WhatsApp in minutes, from confirmed sales nearby. Market guidance, not a valuation.',
+  },
+  {
+    icon: 'chat',
+    title: 'A WhatsApp concierge, always on',
+    body: 'Pricing, viewings, offers, the bond and the transfer, answered in the same thread, day or night. A person is one tap away.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Services after the sale',
+    body: 'Removals, painting, leasing, gardening and recycling, arranged through our partners.',
+  },
+];
+
+const AFTER_SALE = {
+  heading: 'The relationship continues after the sale.',
+  body: 'Once the transfer is registered, the same WhatsApp thread helps you settle into your new neighbourhood.',
+  items: [
+    'Local security groups',
+    'Moms’ groups',
+    'Pet sitters',
+    'New restaurants',
+    'Schools and sport',
+    'Ultra-local tips',
+  ],
+};
+
+// White-on-transparent PNGs shared with the investor site; rendered dark on
+// this light page with a CSS filter.
+const PARTNERS = [
+  { name: 'BetterBond', src: '/partners/betterbond.png', width: 911 },
+  { name: 'LOOM', src: '/partners/loom.png', width: 489 },
+  { name: 'Paysoft', src: '/partners/paysoft.png', width: 564 },
+  { name: 'Property24', src: '/partners/property24.png', width: 911 },
+  { name: 'Lava Lamp Lab', src: '/partners/lava-lamp-lab.png', width: 389 },
 ];
 
 const TIERS = [
@@ -151,19 +196,18 @@ export default function Home() {
         />
         <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 sm:pb-28 sm:pt-28">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm font-medium text-white ring-1 ring-inset ring-white/30 backdrop-blur">
-            Cape Town • WhatsApp • 0% commission on the qualifying path
+            {HERO.eyebrow}
           </p>
           <h1 className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm sm:text-6xl">
-            Sell your home direct.{' '}
-            <span className="text-brand-300">
-              On WhatsApp, at 0% commission.
-            </span>
+            {HERO.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-100">
-            A guided private sale over WhatsApp, with our concierge and
-            registered property practitioners involved at each step. On the
-            qualifying path you pay no commission; the lender pays us a bond
-            origination fee.
+          <p className="mt-6 max-w-2xl text-xl font-semibold leading-snug text-white drop-shadow-sm sm:text-2xl">
+            {HERO.sub}{' '}
+            <span className="text-brand-300">
+              {HERO.subAccentPre}
+              <QualifyingNote />
+              {HERO.subAccentPost}
+            </span>
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -285,6 +329,51 @@ export default function Home() {
         </ol>
       </Section>
 
+      {/* What comes with the sale, and after it */}
+      <Section
+        id="included"
+        eyebrow="What you get"
+        heading="More than a listing."
+        intro="Everything that comes with selling through Sold Direct, from the first estimate to life in your next home."
+      >
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {FEATURES.map((f) => (
+            <div
+              key={f.title}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <IconTile name={f.icon} />
+              <h3 className="mt-4 font-semibold text-slate-900">{f.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{f.body}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-brand-200 bg-brand-50/60 p-6 sm:flex-row sm:items-start sm:gap-6 sm:p-8">
+          <IconTile name="map" />
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">
+              And afterwards
+            </p>
+            <h3 className="mt-1 text-lg font-semibold text-slate-900">
+              {AFTER_SALE.heading}
+            </h3>
+            <p className="mt-2 max-w-3xl text-sm text-slate-600">
+              {AFTER_SALE.body}
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {AFTER_SALE.items.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-full bg-white px-3 py-1 text-sm text-slate-700 ring-1 ring-inset ring-slate-200"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
       {/* Interactive journey */}
       <Section
         id="journey"
@@ -321,6 +410,28 @@ export default function Home() {
           </a>
         </div>
       </Section>
+
+      {/* Partners */}
+      <section aria-label="Our partners" className="border-b border-slate-200">
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+            Our partners
+          </p>
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+            {PARTNERS.map((p) => (
+              <li key={p.name} className="flex items-center">
+                <Image
+                  src={p.src}
+                  alt={p.name}
+                  width={p.width}
+                  height={160}
+                  className="h-7 w-auto opacity-70 brightness-0 sm:h-8"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* Pricing */}
       <Section
