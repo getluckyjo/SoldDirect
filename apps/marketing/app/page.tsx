@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { IconTile, type IconName } from '@/components/Icon';
 import { Logo } from '@/components/Logo';
+import { PricingPlans } from '@/components/PricingPlans';
 import { QualifyingNote } from '@/components/QualifyingNote';
 import { Section } from '@/components/Section';
 import { StickyCta } from '@/components/StickyCta';
@@ -113,37 +114,6 @@ const PARTNERS = [
   { name: 'Paysoft', src: '/partners/paysoft.png', width: 564 },
   { name: 'Property24', src: '/partners/property24.png', width: 911 },
   { name: 'Lava Lamp Lab', src: '/partners/lava-lamp-lab.png', width: 389 },
-];
-
-const TIERS = [
-  {
-    name: 'Free',
-    tagline: '0% commission',
-    price: 'R0',
-    mechanic:
-      'Your buyer’s bond is placed through our origination partner and a panel conveyancer handles the transfer. The lender pays us; you pay nothing.',
-    points: [
-      'Full listing, portal syndication & deal tracker',
-      'WhatsApp concierge from mandate to registration',
-      'Exclusive with us for a fixed term',
-    ],
-    foot: 'Cash buyer? A 1% facilitation fee, agreed up front.',
-    highlight: true,
-  },
-  {
-    name: 'Flex',
-    tagline: 'No lock-in',
-    price: '1%',
-    mechanic:
-      'No exclusivity and no partner requirements. One fee, payable only when your home sells.',
-    points: [
-      'The same platform, tools and concierge',
-      'Any buyer, any bank, any conveyancer',
-      'Nothing to pay until your home sells',
-    ],
-    foot: 'For sellers who prefer no exclusivity.',
-    highlight: false,
-  },
 ];
 
 const FAQ = [
@@ -513,62 +483,28 @@ export default function Home() {
       </section>
 
       {/* Pricing */}
-      <Section
-        id="pricing"
-        eyebrow="Pricing"
-        heading="Two ways to sell."
-        intro="When your buyer’s bond is placed through our partner, the lender pays us and you pay 0%. With no bond, a 1% facilitation fee applies, agreed up front."
-      >
-        <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
-          {TIERS.map((tier) => (
-            <div
-              key={tier.name}
-              className={`flex flex-col rounded-2xl border p-8 ${
-                tier.highlight
-                  ? 'border-brand-300 bg-white shadow-lg ring-2 ring-brand-200'
-                  : 'border-slate-200 bg-white shadow-sm'
-              }`}
-            >
-              <div className="flex items-baseline justify-between">
-                <h3 className="text-lg font-bold text-slate-900">
-                  {tier.name}
-                </h3>
-                <span className="text-xs font-semibold uppercase tracking-wide text-brand-700">
-                  {tier.tagline}
-                </span>
-              </div>
-              <p className="mt-4 text-6xl font-extrabold tracking-tight text-slate-900">
-                {tier.price}
-              </p>
-              <p className="mt-4 text-sm text-slate-600">{tier.mechanic}</p>
-              <ul className="mt-6 grid gap-2.5 text-sm text-slate-600">
-                {tier.points.map((point) => (
-                  <li key={point} className="flex gap-2">
-                    <span aria-hidden className="font-semibold text-brand-600">
-                      ✓
-                    </span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <div aria-hidden className="min-h-6 flex-1" />
-              <p className="border-t border-slate-100 pt-4 text-sm text-slate-500">
-                {tier.foot}
-              </p>
-            </div>
-          ))}
+      <section id="pricing" className="scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-sm font-medium text-brand-700 ring-1 ring-inset ring-brand-100">
+              Pricing
+            </p>
+            <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+              Two ways to sell.
+            </h2>
+            <p className="mt-5 text-lg text-slate-600">
+              When your buyer&rsquo;s bond is placed through our partner, the
+              lender pays us and you pay 0%. With no bond, a 1% facilitation fee
+              applies, agreed up front.
+            </p>
+          </div>
+          <PricingPlans />
+          <p className="mx-auto mt-6 max-w-4xl text-center text-xs text-slate-400">
+            Pricing shown is indicative for our Cape Town launch and subject to
+            our terms.
+          </p>
         </div>
-        <p className="mx-auto mt-8 max-w-4xl text-center text-sm text-slate-600">
-          On a R6m home, that is{' '}
-          <span className="font-semibold text-brand-700">R0</span> or{' '}
-          <span className="font-semibold text-brand-700">R60,000</span>. A
-          full-service sale at 6% plus VAT would cost about R414,000.
-        </p>
-        <p className="mx-auto mt-3 max-w-4xl text-center text-xs text-slate-400">
-          Pricing shown is indicative for our Cape Town launch and subject to
-          our terms.
-        </p>
-      </Section>
+      </section>
 
       {/* FAQ */}
       <Section id="faq" eyebrow="Questions" heading="Questions sellers ask">
