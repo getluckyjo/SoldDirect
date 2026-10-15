@@ -380,7 +380,7 @@ export const FAQ = [
   },
   {
     q: 'What is the position on estate agents?',
-    a: 'Sold Direct is complementary to full-service agents, not opposed to them. Full-service remains the right choice for the majority of sellers; Sold Direct serves sellers who choose to sell direct, assisted by PPRA-registered practitioners. The industry describes a similar division of work: RE/MAX Southern Africa’s leadership has said technology should handle administration, after-hours enquiries and buyer qualification while people provide judgement and the relationship (Property Professional, October 2026).',
+    a: 'Sold Direct is complementary to full-service agents, not opposed to them. Full-service remains the right choice for the majority of sellers; Sold Direct serves sellers who choose to sell direct, assisted by PPRA-registered practitioners.',
   },
   {
     q: 'Is the conveyancer revenue line permitted?',
