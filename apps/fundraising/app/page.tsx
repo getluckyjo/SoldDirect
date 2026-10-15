@@ -136,12 +136,6 @@ export default function Investors() {
                 {HERO.ctaPrimary}
               </a>
               <a
-                href="#demo"
-                className="inline-flex rounded-lg border border-slate-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-brand-400 hover:text-brand-300"
-              >
-                {HERO.ctaSecondary} ↓
-              </a>
-              <a
                 href={DEMO_SECTION.tryHref}
                 target="_blank"
                 rel="noopener noreferrer"

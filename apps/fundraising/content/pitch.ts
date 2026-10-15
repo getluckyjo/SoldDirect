@@ -35,7 +35,6 @@ export const HERO = {
   subAccentPre: 'At ',
   subAccentPost: ' commission to the seller.',
   ctaPrimary: 'Request the data room',
-  ctaSecondary: 'Product demonstration',
   ctaTry: 'Sell a home on the live demo',
 } as const;
 
