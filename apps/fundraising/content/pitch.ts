@@ -27,7 +27,7 @@ export const ASK = {
 
 export const HERO = {
   eyebrow: 'Private placement · Cape Town · Seed round',
-  title: 'Invest in the future of real estate sales',
+  title: 'Invest in the future of property sales',
   // The detail (practitioners, revenue source) is carried by the summary
   // strip and the proposition cards directly below, so the lede stays short.
   sub: 'Private property sales, on WhatsApp.',
