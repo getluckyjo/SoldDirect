@@ -27,13 +27,14 @@ export const ASK = {
 
 export const HERO = {
   eyebrow: 'Private placement · Cape Town · Seed round',
-  title: 'Private property sales, on WhatsApp.',
+  title: 'Invest in the future of property sales',
+  // The detail (practitioners, revenue source) is carried by the summary
+  // strip and the proposition cards directly below, so the lede stays short.
+  sub: 'Private property sales, on WhatsApp.',
   // The 0%* token is rendered between these two parts as a tap-to-resolve note.
-  titleAccentPre: 'At ',
-  titleAccentPost: ' commission to the seller.',
-  sub: 'Sold Direct manages the private sale — listing, buyer enquiry, bond, offer and transfer — over WhatsApp, with registered property practitioners involved at each step. On the qualifying path the seller pays no commission. Revenue comes from bond origination, paid by the lender.',
+  subAccentPre: 'At ',
+  subAccentPost: ' commission to the seller.',
   ctaPrimary: 'Request the data room',
-  ctaSecondary: 'Product demonstration',
   ctaTry: 'Sell a home on the live demo',
 } as const;
 

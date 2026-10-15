@@ -115,14 +115,16 @@ export default function Investors() {
               {HERO.eyebrow}
             </p>
             <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm sm:text-6xl">
-              {HERO.title}{' '}
-              <span className="text-brand-400">
-                {HERO.titleAccentPre}
-                <QualifyingNote />
-                {HERO.titleAccentPost}
-              </span>
+              {HERO.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-slate-200">{HERO.sub}</p>
+            <p className="mt-6 max-w-2xl text-xl font-semibold leading-snug text-slate-100 sm:text-2xl">
+              {HERO.sub}{' '}
+              <span className="text-brand-400">
+                {HERO.subAccentPre}
+                <QualifyingNote />
+                {HERO.subAccentPost}
+              </span>
+            </p>
 
             <SummaryStrip />
 
@@ -132,12 +134,6 @@ export default function Investors() {
                 className="inline-flex rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-brand-400"
               >
                 {HERO.ctaPrimary}
-              </a>
-              <a
-                href="#demo"
-                className="inline-flex rounded-lg border border-slate-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-brand-400 hover:text-brand-300"
-              >
-                {HERO.ctaSecondary} ↓
               </a>
               <a
                 href={DEMO_SECTION.tryHref}
