@@ -115,14 +115,16 @@ export default function Investors() {
               {HERO.eyebrow}
             </p>
             <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm sm:text-6xl">
-              {HERO.title}{' '}
-              <span className="text-brand-400">
-                {HERO.titleAccentPre}
-                <QualifyingNote />
-                {HERO.titleAccentPost}
-              </span>
+              {HERO.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-slate-200">{HERO.sub}</p>
+            <p className="mt-6 max-w-2xl text-xl font-semibold leading-snug text-slate-100 sm:text-2xl">
+              {HERO.sub}{' '}
+              <span className="text-brand-400">
+                {HERO.subAccentPre}
+                <QualifyingNote />
+                {HERO.subAccentPost}
+              </span>
+            </p>
 
             <SummaryStrip />
 
