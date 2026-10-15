@@ -63,7 +63,6 @@ const REVENUE = [
   'Bond origination share from the bank (via BetterBond) — paid by the bank',
   '1% facilitation fee on non-qualifying deals (cash / sub-80% bond / non-partner)',
   'Conveyancer panel advertising (fixed subscriptions — no referral fees, per LPC rules)',
-  'Optional add-ons: photography, compliance coordination, insurance',
 ];
 
 const COMPLIANCE = [
