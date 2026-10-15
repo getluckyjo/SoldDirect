@@ -4,7 +4,8 @@
  * logo bubble's rules (rounded caps, 1.75 stroke). The tile is the
  * light-surface version: brand-700 glyph on a brand-50 disc.
  */
-export type IconName = 'bolt' | 'chat' | 'handshake' | 'map';
+export type IconName =
+  'bolt' | 'chat' | 'handshake' | 'home' | 'key' | 'map' | 'shield';
 
 const PATHS: Record<IconName, React.ReactNode> = {
   // Instant: the free estimate.
@@ -26,6 +27,29 @@ const PATHS: Record<IconName, React.ReactNode> = {
       <path d="m6 9 4.5 4.5M18 9l-4 4.5a1.5 1.5 0 0 1-2.2 0" />
       <path d="M2.5 9v6.5h3l3 3 1.5-1.5" />
       <path d="M21.5 9v6.5h-3l-2.5 2.5" />
+    </>
+  ),
+  // A house: the listing.
+  home: (
+    <>
+      <path d="M4 11.5 12 5l8 6.5" />
+      <path d="M6 10.5V19h12v-8.5" />
+      <path d="M10 19v-5h4v5" />
+    </>
+  ),
+  // A key: the seller hosts the viewings.
+  key: (
+    <>
+      <circle cx="8" cy="14" r="4.5" />
+      <path d="m11.5 10.5 8-8" />
+      <path d="M16.5 5.5 19 8M14 8l2 2" />
+    </>
+  ),
+  // A shield with a tick: compliance.
+  shield: (
+    <>
+      <path d="M12 3.5 5 6v5.5c0 4.2 3 7.3 7 9 4-1.7 7-4.8 7-9V6l-7-2.5Z" />
+      <path d="m9 12 2 2 4-4" />
     </>
   ),
   // A map pin: the new neighbourhood.

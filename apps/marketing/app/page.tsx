@@ -31,6 +31,48 @@ const STEPS = [
   },
 ];
 
+// Who it's for: what the seller does and what we do.
+const FOR_POINTS: { icon: IconName; title: string; body: string }[] = [
+  {
+    icon: 'key',
+    title: 'You host the viewings',
+    body: 'We do the paperwork.',
+  },
+  {
+    icon: 'chat',
+    title: 'A WhatsApp concierge',
+    body: 'With you from mandate to registration.',
+  },
+  {
+    icon: 'home',
+    title: 'On the major property portals',
+    body: 'A full, agency-grade listing, not a DIY ad.',
+  },
+];
+
+// What the sale would cost on a R6m home. Framed neutrally, per CLAUDE.md:
+// what a full-service sale would cost, never a struck-through price.
+const COSTS = [
+  {
+    label: 'A full-service sale at 6% + VAT',
+    value: 'R414,000',
+    amount: 414_000,
+    highlight: false,
+  },
+  {
+    label: 'Sold Direct Flex, or a cash buyer (1%)',
+    value: 'R60,000',
+    amount: 60_000,
+    highlight: false,
+  },
+  {
+    label: 'Sold Direct on the qualifying path',
+    value: 'R0',
+    amount: 0,
+    highlight: true,
+  },
+];
+
 // What comes with the sale, from the investor site's hooks, in seller terms.
 const FEATURES: { icon: IconName; title: string; body: string }[] = [
   {
@@ -183,12 +225,12 @@ export default function Home() {
       {/* Hero */}
       <section id="hero" className="relative isolate overflow-hidden">
         <Image
-          src="/cape-town-hero.jpg"
-          alt="Homes above the bay in Camps Bay, Cape Town, beneath the Twelve Apostles"
+          src="/cape-town-aerial-hero.jpg"
+          alt="Aerial view of Green Point and the Atlantic coast beneath a tablecloth cloud on Table Mountain, Cape Town"
           fill
           priority
           sizes="100vw"
-          className="-z-10 object-cover"
+          className="-z-10 object-cover object-[50%_35%]"
         />
         <div
           aria-hidden
@@ -239,66 +281,118 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Who it's for + the saving */}
-      <Section
+      {/* Who it's for + what the sale would cost */}
+      <section
         id="for"
-        tone="tinted"
-        eyebrow="Who it's for"
-        heading="For sellers who choose to sell direct."
+        className="scroll-mt-20 border-y border-slate-200/70 bg-slate-50"
       >
-        <div className="mt-8 grid items-center gap-10 sm:grid-cols-3">
-          <div className="grid gap-6 sm:col-span-2">
-            <p className="max-w-xl text-slate-600">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 sm:py-24 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
+          <div>
+            <p className="mb-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-sm font-medium text-brand-700 ring-1 ring-inset ring-brand-100">
+              Who it&rsquo;s for
+            </p>
+            <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+              For sellers who choose to sell direct.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg text-slate-600">
               Full-service agents are the right choice for many sellers. Sold
               Direct is for those who prefer to sell themselves, with our
               platform and people handling each step.
             </p>
-            <ul className="grid gap-3 text-slate-600">
-              <li className="flex gap-3">
-                <span aria-hidden className="font-semibold text-brand-600">
-                  ✓
-                </span>
-                You host the viewings — we do the paperwork
-              </li>
-              <li className="flex gap-3">
-                <span aria-hidden className="font-semibold text-brand-600">
-                  ✓
-                </span>
-                A WhatsApp concierge from mandate to registration
-              </li>
-              <li className="flex gap-3">
-                <span aria-hidden className="font-semibold text-brand-600">
-                  ✓
-                </span>
-                On the major property portals — as a full, agency-grade listing,
-                not a DIY ad
-              </li>
+            <ul className="mt-8 grid gap-5">
+              {FOR_POINTS.map((point) => (
+                <li key={point.title} className="flex gap-4">
+                  <IconTile name={point.icon} />
+                  <div>
+                    <p className="font-semibold text-slate-900">
+                      {point.title}
+                    </p>
+                    <p className="mt-0.5 text-slate-600">{point.body}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
-            <p className="text-sm text-slate-500">
-              Every mandate will be held by a PPRA-registered property
-              practitioner.{' '}
-              <Link
-                href="/compliance"
+            <div className="mt-8 flex items-center gap-4 border-t border-slate-200 pt-6">
+              <IconTile name="shield" />
+              <p className="text-sm text-slate-600">
+                Every mandate will be held by a PPRA-registered property
+                practitioner.{' '}
+                <Link
+                  href="/compliance"
+                  className="font-medium text-brand-700 underline-offset-2 hover:underline"
+                >
+                  How we keep it compliant →
+                </Link>
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl bg-white p-6 shadow-xl ring-1 ring-slate-200 sm:p-8">
+            <p className="text-sm font-semibold text-slate-500">
+              On a R6m home
+            </p>
+            <h3 className="mt-1 text-xl font-bold text-slate-900">
+              What the sale would cost you
+            </h3>
+            <dl className="mt-6 grid gap-6">
+              {COSTS.map((cost) => (
+                <div
+                  key={cost.label}
+                  className={
+                    cost.highlight ? 'border-t border-slate-200 pt-6' : ''
+                  }
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <dt
+                      className={
+                        cost.highlight
+                          ? 'font-semibold text-slate-900'
+                          : 'text-sm text-slate-600'
+                      }
+                    >
+                      {cost.label}
+                    </dt>
+                    <dd
+                      className={`shrink-0 font-extrabold tabular-nums tracking-tight ${
+                        cost.highlight
+                          ? 'text-5xl text-brand-600'
+                          : 'text-2xl text-slate-700'
+                      }`}
+                    >
+                      {cost.value}
+                    </dd>
+                  </div>
+                  {/* Meter: each cost as a share of the full-service cost */}
+                  <div
+                    aria-hidden
+                    className="mt-2 h-2 rounded-full bg-slate-100"
+                  >
+                    {cost.amount > 0 ? (
+                      <div
+                        className="h-2 rounded-full bg-slate-400"
+                        style={{
+                          width: `${(cost.amount / COSTS[0].amount) * 100}%`,
+                        }}
+                      />
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-6 text-sm text-slate-500">
+              The qualifying path: a 90-day exclusive mandate, your
+              buyer&rsquo;s bond placed through our partner, and a panel
+              conveyancer.{' '}
+              <a
+                href="#pricing"
                 className="font-medium text-brand-700 underline-offset-2 hover:underline"
               >
-                How we keep it compliant →
-              </Link>
+                Compare the options →
+              </a>
             </p>
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-            <p className="text-sm text-slate-500">
-              What a full-service sale (6% + VAT) would cost on a R6m home
-            </p>
-            <p className="mt-1 text-4xl font-extrabold text-slate-600">
-              ~R414k
-            </p>
-            <p className="mt-6 text-sm text-slate-500">
-              With Sold Direct, on the qualifying path
-            </p>
-            <p className="mt-1 text-5xl font-extrabold text-brand-600">R0</p>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* How it works */}
       <Section
@@ -537,12 +631,12 @@ export default function Home() {
       {/* City banner */}
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/green-point-aerial.jpg"
-          alt="Aerial view of Green Point and the Atlantic coast beneath a tablecloth cloud pouring over Table Mountain"
-          width={2000}
-          height={1500}
+          src="/cape-town-hero.jpg"
+          alt="Homes above the bay in Camps Bay, Cape Town, beneath the Twelve Apostles"
+          width={2400}
+          height={1350}
           sizes="100vw"
-          className="h-[22rem] w-full object-cover object-[50%_30%] saturate-[1.1] sm:h-[30rem]"
+          className="h-[22rem] w-full object-cover object-[50%_40%] saturate-[1.1] sm:h-[30rem]"
         />
         <div
           aria-hidden
