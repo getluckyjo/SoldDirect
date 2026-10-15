@@ -146,21 +146,6 @@ const TIERS = [
   },
 ];
 
-const ADDONS = [
-  {
-    title: 'Photography & floor plans',
-    body: 'Professional photography and floor plans for your listing.',
-  },
-  {
-    title: 'Featured placement & social campaigns',
-    body: 'Featured portal placement and targeted social campaigns.',
-  },
-  {
-    title: 'Compliance-certificate coordination',
-    body: 'We arrange the certificates your transfer needs: electrical, plumbing, gas and others.',
-  },
-];
-
 const FAQ = [
   {
     q: 'Is it really 0% commission?',
@@ -583,31 +568,6 @@ export default function Home() {
           Pricing shown is indicative for our Cape Town launch and subject to
           our terms.
         </p>
-      </Section>
-
-      {/* Add-ons */}
-      <Section
-        id="addons"
-        eyebrow="À la carte"
-        heading="Optional add-ons"
-        intro="Optional services, priced per service."
-        backdrop={{
-          src: '/living-room-interior.jpg',
-          alt: 'A bright, professionally styled living room, ready for viewings',
-          overlay: 'light',
-        }}
-      >
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {ADDONS.map((a) => (
-            <div
-              key={a.title}
-              className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur"
-            >
-              <h3 className="font-semibold text-brand-700">{a.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{a.body}</p>
-            </div>
-          ))}
-        </div>
       </Section>
 
       {/* FAQ */}
