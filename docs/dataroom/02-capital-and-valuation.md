@@ -37,11 +37,10 @@ capital: it funds the Cape Town launch campaign and lets Y2 marketing scale ahea
 Post-money **R25m**.
 
 **Runway check (live on the Scenarios tab):** with the R5m seed injected at Y1 and Series A at
-Y3, the minimum cash position across Y1–Y5 is **~+R3.9m in the base case and ~+R3.5m in the
-conservative case on the annual proxy (~R2m lower on a monthly view)** — the seed alone covers
-the trough in every scenario. The Series A is offence, not survival. The seed is deployed in two
-milestone tranches (see the Indicative term sheet) so the spend tracks the ramp, and every hire
-beyond the founding four is released only against signed mandates.
+Y3, the seed alone covers the trough in every scenario (the table above); the Series A is
+offence, not survival. The seed is deployed in two milestone tranches (see the Indicative term
+sheet) so the spend tracks the ramp, and every hire beyond the founding four is released only
+against signed mandates.
 
 ## 2. Valuation
 
@@ -114,14 +113,8 @@ by Y5 and budget sanity-check ratios on the P&L tab).
 
 ## 5. Inputs we are confirming
 
-These are our projections, not audited accounts. The inputs with the most leverage, which we
-are confirming against primary documents:
-1. The **Y2 in-house origination commission (~1.5%)** and **bank aggregation terms** (the largest
-   revenue line) — plus the FAIS/FSP accreditation cost/timeline.
-2. **Conveyancer panel-advertising subscriptions** (R0.36m→R2.4m) — appetite and LPC-safe
-   structuring with a panel firm; the consumer fee-discount pass-through too.
-3. The **0.5% Y1 referral share** with BetterBond.
-4. **Upper-market (>~R4m) transfer counts** to firm the ramp and the ~4% share.
-5. **Bonded share** across the taper (we assume ~40–42%; prime skews cash).
-
-See the Assumption base, §F. None changes the model's shape; they sharpen individual lines.
+These are our projections, not audited accounts. The inputs with the most leverage on this
+document are the Y2 in-house origination commission and bank aggregation terms, the conveyancer
+panel-advertising subscriptions, and the bonded share across the taper; the full list, with what
+we are confirming each against, is in the Assumption base, §F. None changes the model's shape;
+they sharpen individual lines.

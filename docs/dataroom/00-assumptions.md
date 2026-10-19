@@ -122,22 +122,17 @@ they already sit in the core model.
 ## D. Cost inputs
 
 **From the chartered-accountant review:** SA **corporate tax at 27%** applied to positive EBITDA (no loss
-carry-forward modelled — conservative); delivery-realistic **total headcount of 48 by Y5** (half the
-roles automated); a **cash-runway check** on the Scenarios tab
-confirms the R5m seed covers the trough in every scenario (annual-proxy minimum cash ~+R3.9m
-base, ~+R3.5m conservative; ~R2m less on a monthly view; see Capital and valuation, §1)
-with Series A at Y3 optional.
+carry-forward modelled — conservative) and a delivery-realistic **total headcount of 48 by Y5**
+(half the roles automated). The cash-runway check that sizes the seed against the trough in
+every scenario is in Capital and valuation, §1.
 
-**The launch team (Y1–Y2).** Four people at R150k/month (R1.80m/yr + ~R0.05m statutory):
-Managing Director R50k · Marketing Director R50k · principal practitioner & compliance R30k ·
-agent/admin R20k. The founders carry marketing, management, dealmaking, bookkeeping and tech
-support between them; Y2 adds one practitioner (R30k) and one agent/admin (R20k) against signed
-mandates (six people, R2.29m). Remote-first with no office lease (co-working passes; viewings at
-the property); Paysoft's free-development allocation and cloud/BSP startup credits carry the build
-and tooling. Y1–Y2 opex: **R5.85m / R11.60m** (detail in the Financial model, §3). Y3 turns
-EBITDA-positive, headcount steps to 11 and the founders move to market pay. Statutory on-costs
-(UIF, SDL, COIDA) are small at this payroll size; no 13th cheque or benefits are modelled for
-Y1–Y2.
+**The launch team (Y1–Y2).** Four people at R150k/month (R1.80m/yr + ~R0.05m statutory),
+remote-first with no office lease (co-working passes; viewings at the property); Y2 adds one
+practitioner and one agent/admin against signed mandates (six people, R2.29m). Paysoft's
+free-development allocation and cloud/BSP startup credits carry the build and tooling. Y1–Y2
+opex: **R5.85m / R11.60m**. Statutory on-costs (UIF, SDL, COIDA) are small at this payroll size;
+no 13th cheque or benefits are modelled for Y1–Y2. Roles, salaries and what each carries are in
+the Financial model, §3.
 
 **COGS — bottom-up (the ~12% is built up, so gross margin is *derived*).** Rather than assume a flat
 margin, COGS is built up from the direct, per-deal cost of delivering a transaction (full table on
@@ -166,21 +161,21 @@ fulfilment lift later years.
 |---|---|---|---|
 | Agency pricing model | Monthly **sale-listing subscription**, a matrix of **monthly leads** (1–10 … >3000) × **median listing price band** (<R1.3m … >R15m). All ex VAT. | P24 Detailed Rate Card 2026 (primary) | High |
 | Key cells — R6m–R8m band (our launch band) | 1–10 leads **R989** · 11–30 **R2,868** · 31–50 **R4,480** · **51–150 R7,153** · 151–250 R9,320 · 251–500 R13,251 · 1001–1500 R28,020 · 2001–3000 R47,790 /month | Rate card 2026 | High |
-| Key cells — R4m–R6m band (post-taper) | 51–150 **R6,355** · 251–500 R12,366 · 1501–2000 R31,775 · 2001–3000 R44,492 · >3000 **R73,360** /month | Rate card 2026 | High |
+| Key cells — R4m–R6m band (post-taper) | 51–150 **R6,355** · 151–250 R8,560 · 251–500 R12,366 · 1501–2000 R31,775 · **2001–3000 R44,492** · >3000 R73,360 /month | Rate card 2026 | High |
 | SIBP (CompCom-mandated small-user package) | Sale listing subscription **R656/month**; branded listings from R108 | Rate card 2026 | High |
 | Structural note | Pricing rises with the **median price band** — our prime launch sits in one of the most expensive columns, and the **price taper (R6.5m→R4.0m) moves us into cheaper bands** as volumes grow. | Rate card 2026 | High |
 | Feed / interoperability fee | Historically **R500/month per office** for third-party feeds; the Competition Commission ordered interoperability **at no fee**. | CompCom OIPMI 2023 / IOL | High |
 | Regulatory context | CompCom Online Intermediation Platforms Market Inquiry (Jul 2023) found **“exorbitant” fee increases** and volume-based price discrimination — small agencies paid **>300% more per listing** than large ones. Remedy: an **SIBP** for ≤30-lead users priced within **15% (later 10%) of the average per-listing/lead across all users**, expected to roughly **halve SME fees**. Volume-fair pricing is now the mandated norm. | CompCom final report / OnlineMarketplaces / Property Professional | High |
 | Pay-per-success precedent | Property24’s own **SBF model: R199 per sale registered at the Deeds Office**, no subscription (introductory rate, older source). | GhostDigest | Low |
 | Private-listing offering | P24 sells a flat-fee private-listing suite, all with a **6-month listing**, unlimited photos, lead notifications, a virtual phone number and **OTP assistance (free template + no-obligation help from Snymans Attorneys)**; no refunds on early sale. Tiers: **Self Service Lite R499 (properties ≤R500,000 only)** · **Self Service R2,299 (all prices; "most popular")** · **Assisted R3,999 (pros build the listing: aerial/walkthrough video, photography, description help, floorplans)** · **Featured R4,999 (Assisted + top-of-results placement, larger lead image, 7 days)**. What P24 sells is a *listing plus an OTP template*; pricing, viewings, buyer qualification, negotiation, bond, FICA and transfer stay on the seller. Sold Direct's wedge is that **service gap**: a practitioner-run journey at 0% on the qualifying path, syndicated as a normal agency-grade feed. | property24.com/private-listing/sell-my-property — page captured 24 Aug 2026 | High |
-| Negotiation frame (strategy) | **Complementary, not competing — we buy distribution wholesale.** P24's retail tiers serve DIY sellers; Sold Direct brings committed monthly volume through one practitioner account. Anchors: retail per-listing prices are the **ceiling (R2,299–R4,999)**, SIBP is the **floor (R656/m)**; the COGS syndication line (~R2,900–R3,600/deal) already sits inside that band. Wholesale/volume rates are a **negotiation target, not signed terms**. | Our negotiation frame (see the Property24 brief) | n/a — positioning |
-| Subscription terms (2026) | Clause 2(a) permits **unlimited** listings *"provided the Subscriber possesses a mandate to market each property"* — our model is contractually permitted, no special deal required. Pricing is **per Portal Lead × median price bracket**, monthly in advance, ex VAT; fees adjust each 1 April; either party may terminate on one month's notice. **Clause 10 prices a subscription per "front door" OR area agent** — written confirmation of a single subscription for one entity is outstanding and a per-area reading would multiply portal COGS. **Annexure P ("Package")** overrides pricing and termination and has been requested. | Property24 Subscription Agreement 2026 + annexures, received 26 Aug 2026 | High |
+| Negotiation anchors | Retail per-listing prices are the **ceiling (R2,299–R4,999)**, SIBP is the **floor (R656/m)**; the COGS syndication line (~R2,900–R3,600/deal) already sits inside that band. Wholesale/volume rates are a **negotiation target, not signed terms**; the case we put to Property24 is the Property24 brief. | Rate card 2026 | n/a — positioning |
+| Subscription terms (2026) | Clause 2(a) permits **unlimited** listings *"provided the Subscriber possesses a mandate to market each property"* — our model is contractually permitted, no special deal required. Pricing is **per Portal Lead × median price bracket**, monthly in advance, ex VAT; fees adjust each 1 April; either party may terminate on one month's notice. The open commercial points (one subscription per entity, Annexure P, opening bracket, API feed) and our position on them are in Regulatory status, §2. | Property24 Subscription Agreement 2026 + annexures, received 26 Aug 2026 | High |
 
 **Reconciliation with the model (against the actual 2026 card).** At ~70% sell-through the
-listing pool is ~70 (Y1) → ~4,100 (Y5); with ~90-day time-on-market and ~5 leads/listing/month,
+listing pool is ~70 (Y1) → ~2,070 (Y5); with ~90-day time-on-market and ~5 leads/listing/month,
 the lead tiers work out roughly: **Y1 ≈ 51–150 leads → R7,153/m (R6m–R8m band) ≈ R86k/yr ≈
-R1,700 per registered deal**; Y2 ≈ 251–500 leads in the R4m–R6m band → ~R675/deal; **Y5 ≈
->3000 leads → R73,360/m ≈ R880k/yr ≈ R300/deal**. The COGS envelope (*Listing media & portal
+R1,700 per registered deal**; Y2 ≈ 151–250 leads in the R4m–R6m band → R8,560/m ≈ R103k/yr ≈
+R930/deal; **Y5 ≈ 2,001–3,000 leads → R44,492/m ≈ R534k/yr ≈ R370/deal**. The COGS envelope (*Listing media & portal
 syndication*, R3,600 → R2,900/deal) holds comfortably from Y2; **Y1 runs ~R1.4k/deal hot at
 full standard rates once photography (~R2.9k/deal amortised) is added — ≈R0.07m in total,
 immaterial to the P&L and closed entirely if we enter on the SIBP (R656/m) or land a launch
