@@ -81,12 +81,6 @@ export default function Investors() {
               </a>
             ))}
           </nav>
-          <a
-            href="#access"
-            className="shrink-0 rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold text-navy hover:bg-brand-400"
-          >
-            Request access
-          </a>
         </div>
       </header>
 
@@ -134,7 +128,7 @@ export default function Investors() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="#access"
+                href="/dataroom"
                 className="inline-flex rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-brand-400"
               >
                 {HERO.ctaPrimary}
@@ -694,9 +688,23 @@ export default function Investors() {
           <p className="mt-2 text-base text-slate-300">
             {ACCESS_SECTION.intro}
           </p>
-          <div className="mt-8">
-            <InvestorForm />
-          </div>
+          <a
+            href="/dataroom"
+            className="mt-6 inline-flex rounded-lg bg-brand-500 px-5 py-3 text-sm font-semibold text-navy transition hover:bg-brand-400"
+          >
+            {ACCESS_SECTION.cta}
+          </a>
+          <p className="mt-3 text-sm text-slate-400">
+            {ACCESS_SECTION.reassurance}
+          </p>
+          <details className="mt-8 border-t border-slate-800 pt-6">
+            <summary className="cursor-pointer text-sm font-medium text-slate-300 hover:text-white">
+              {ACCESS_SECTION.formPrompt}
+            </summary>
+            <div className="mt-6">
+              <InvestorForm />
+            </div>
+          </details>
           <p className="mt-6 text-sm text-slate-400">
             Prefer email?{' '}
             <a

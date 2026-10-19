@@ -26,6 +26,11 @@ import {
   type LeadRepository,
 } from './modules/leads';
 import {
+  createPrismaNdaRepository,
+  registerDataroomRoutes,
+  type NdaRepository,
+} from './modules/dataroom';
+import {
   addressList,
   createEmailSender,
   emailConfigured,
@@ -95,6 +100,8 @@ export type ServerDeps = MessagingRouteDeps & {
   /** Test seam: a static key probe instead of a live check. */
   keyProbe?: KeyProbe;
   leadRepository: LeadRepository;
+  /** Test seam: the signed-NDA store behind the investor data room. */
+  ndaRepository: NdaRepository;
   listingRepository: ListingRepository;
   dealRepository: DealRepository;
   /** Test seam: inject a fake agent (or leave AGENT_ENABLED unset to omit). */
@@ -404,6 +411,19 @@ export function buildServer(deps?: Partial<ServerDeps>) {
     repository: leadRepository,
     internalToken,
     onCreated: leadEmails?.onLeadCreated,
+    log: (msg, err) => app.log.error({ err }, msg),
+  });
+
+  // The investor NDA behind the data room: signature stored, personal link
+  // emailed (when Resend is configured), founders alerted.
+  registerDataroomRoutes(app, {
+    repository: deps?.ndaRepository ?? createPrismaNdaRepository(prisma),
+    sender: emailSender ?? null,
+    notifyTo: addressList(process.env.WAITLIST_NOTIFY_TO),
+    replyTo: process.env.EMAIL_REPLY_TO || undefined,
+    dashboardUrl: process.env.DASHBOARD_URL || undefined,
+    investUrl: process.env.INVEST_URL || 'https://invest.solddirect.co.za',
+    internalToken,
     log: (msg, err) => app.log.error({ err }, msg),
   });
 

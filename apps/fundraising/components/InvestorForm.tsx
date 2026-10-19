@@ -51,8 +51,7 @@ export function InvestorForm() {
       <div className="rounded-2xl border border-brand-500/30 bg-brand-500/10 p-6 text-center">
         <p className="text-lg font-semibold text-brand-300">Request received</p>
         <p className="mt-1 text-sm text-brand-200/80">
-          Thank you. We&apos;ll review and follow up with data-room access under
-          NDA.
+          Thank you. One of the founders will be in touch within a business day.
         </p>
       </div>
     );
@@ -137,11 +136,10 @@ export function InvestorForm() {
         disabled={status === 'submitting'}
         className="inline-flex items-center justify-center rounded-lg bg-brand-500 px-5 py-3 font-semibold text-navy transition hover:bg-brand-400 disabled:opacity-60"
       >
-        {status === 'submitting' ? 'Sending…' : 'Request data-room access'}
+        {status === 'submitting' ? 'Sending…' : 'Send'}
       </button>
       <p className="text-sm text-slate-400">
-        We reply within one business day. NDA covers detailed financials, cap
-        table and partner terms.
+        We reply within one business day.
       </p>
     </form>
   );

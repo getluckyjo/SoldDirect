@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Logo } from '@/components/Logo';
-import { isAuthorised } from '@/lib/dataroom-auth';
+import { currentViewer, isAuthorised } from '@/lib/dataroom-auth';
 
 export const metadata: Metadata = {
   title: 'Sold Direct — Investor data room',
@@ -17,6 +17,7 @@ export default async function DataroomLayout({
   children: ReactNode;
 }) {
   const open = await isAuthorised();
+  const viewer = open ? await currentViewer() : null;
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b border-white/10 bg-navy">
@@ -34,6 +35,14 @@ export default async function DataroomLayout({
             <Link href="/" className="text-slate-300 hover:text-sky-200">
               Investor site
             </Link>
+            {viewer ? (
+              <span
+                className="hidden max-w-[12rem] truncate text-slate-400 md:inline"
+                title={viewer.name}
+              >
+                {viewer.name}
+              </span>
+            ) : null}
             {open ? (
               <form method="post" action="/api/dataroom/session">
                 <input type="hidden" name="action" value="signout" />
@@ -52,8 +61,8 @@ export default async function DataroomLayout({
       <footer className="border-t border-white/10">
         <div className="mx-auto max-w-5xl px-6 py-8 text-xs leading-relaxed text-slate-500">
           Prepared for prospective investors under NDA. Not an offer to the
-          public. Figures are model-grade, with the sourcing caveats stated in
-          each document. Do not forward.
+          public. Projections are illustrative and unaudited, with the sourcing
+          caveats stated in each document. Do not forward.
         </div>
       </footer>
     </div>

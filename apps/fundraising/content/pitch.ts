@@ -34,7 +34,7 @@ export const HERO = {
   // The 0%* token is rendered between these two parts as a tap-to-resolve note.
   subAccentPre: 'At ',
   subAccentPost: ' commission to the seller.',
-  ctaPrimary: 'Request the data room',
+  ctaPrimary: 'Enter the data room',
   ctaTry: 'Sell a home on the live demo',
 } as const;
 
@@ -665,8 +665,10 @@ export const ACCESS_SECTION = {
   heading: 'Data room.',
   intro:
     'The reviewed model workbook, assumptions with sources, cap table, scenarios and partner terms, shared under NDA.',
+  cta: 'Sign the NDA and enter',
   reassurance:
-    'We reply within one business day. From there: NDA, the model, the founders, allocation.',
+    'The NDA is signed online in a minute and your personal link arrives by email. From there: the model, the founders, allocation.',
+  formPrompt: 'Prefer an introduction first? Leave your details.',
 } as const;
 
 // Not an offer to the public; private placement only. (Verbatim — do not edit.)

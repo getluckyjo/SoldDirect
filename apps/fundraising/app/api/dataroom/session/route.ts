@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import {
   DATAROOM_COOKIE,
+  VIEWER_COOKIE,
   newSessionCookie,
   passwordMatches,
   safeNext,
@@ -35,6 +36,7 @@ export async function POST(request: NextRequest) {
   if (action === 'signout') {
     const res = redirectTo(request, '/dataroom');
     res.cookies.set({ name: DATAROOM_COOKIE, value: '', path: '/', maxAge: 0 });
+    res.cookies.set({ name: VIEWER_COOKIE, value: '', path: '/', maxAge: 0 });
     return res;
   }
 

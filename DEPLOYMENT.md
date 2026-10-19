@@ -133,9 +133,13 @@ token. Without it the page shows "demo not configured".
 
 **The investor data room.** `/dataroom` on the investor site serves
 `docs/dataroom` (markdown rendered on the page; the Excel model, CSV and
-partner briefs as gated downloads) behind one shared password,
-`DATAROOM_PASSWORD` on the Fundraising Vercel project. The password goes out
-with the NDA; changing it signs every reader out. The build copies the folder
+partner briefs as gated downloads). Investors sign the NDA online: the site
+posts the signature to the API, which stores it (`dataroom_ndas`), emails the
+investor a personal link and alerts `WAITLIST_NOTIFY_TO`. Redeeming the link
+opens a personal session signed with `DATAROOM_SESSION_SECRET` on the
+Fundraising Vercel project. `DATAROOM_PASSWORD` is the shared partner
+password; changing it signs the partners out. The dashboard's Waitlist page
+lists every signature and whether the link has been opened. The build copies the folder
 into `apps/fundraising/content/dataroom` (gitignored), leaving the
 `property24/` sub-folder out. Leave the variable unset and the room stays
 closed.
