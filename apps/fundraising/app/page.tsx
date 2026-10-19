@@ -97,7 +97,11 @@ export default function Investors() {
           alt="Aerial view of Green Point and the Atlantic coast beneath a tablecloth cloud on Table Mountain, Cape Town"
           fill
           priority
-          sizes="100vw"
+          quality={85}
+          // The photo covers a block far taller than it is wide on phones, so
+          // object-cover scales it to the height: ask for a wider variant than
+          // the viewport or it arrives pixelated.
+          sizes="(max-width: 640px) 300vw, (max-width: 1024px) 160vw, 100vw"
           className="-z-20 object-cover object-[50%_35%]"
         />
         <div

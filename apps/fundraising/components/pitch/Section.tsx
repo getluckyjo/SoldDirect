@@ -50,7 +50,10 @@ export function Section({
           src={backdrop.src}
           alt={backdrop.alt}
           fill
-          sizes="100vw"
+          quality={85}
+          // Tall sections on phones scale the photo to their height; request
+          // a wider variant than the viewport so it stays sharp.
+          sizes="(max-width: 640px) 250vw, (max-width: 1024px) 150vw, 100vw"
           className="-z-10 object-cover object-[50%_70%]"
         />
         <div
