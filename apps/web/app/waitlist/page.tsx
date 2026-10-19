@@ -1,6 +1,6 @@
 import { apiGet } from '@/lib/api';
 import { dmy } from '@/lib/format';
-import type { LeadRow } from '@/lib/types';
+import type { LeadRow, NdaRow } from '@/lib/types';
 
 const ROLE: Record<string, { label: string; cls: string }> = {
   seller: { label: 'Selling', cls: 'bg-brand-100 text-brand-800' },
@@ -12,14 +12,18 @@ const ROLE: Record<string, { label: string; cls: string }> = {
 export default async function WaitlistPage() {
   let leads: LeadRow[] = [];
   let requests: LeadRow[] = [];
+  let ndas: NdaRow[] = [];
   let error = false;
   try {
-    [leads, requests] = await Promise.all([
+    [leads, requests, ndas] = await Promise.all([
       apiGet<{ leads: LeadRow[] }>('/api/leads?kind=waitlist').then(
         (r) => r.leads,
       ),
       apiGet<{ leads: LeadRow[] }>('/api/leads?kind=investor').then(
         (r) => r.leads,
+      ),
+      apiGet<{ signatures: NdaRow[] }>('/api/dataroom/nda').then(
+        (r) => r.signatures,
       ),
     ]);
   } catch {
@@ -48,10 +52,61 @@ export default async function WaitlistPage() {
   return (
     <div className="grid gap-4">
       <div>
-        <h1 className="text-2xl font-bold">Data-room requests</h1>
+        <h1 className="text-2xl font-bold">Signed NDAs</h1>
         <p className="text-slate-600">
-          From the investor site, newest first. Each one was acknowledged by
-          email; the NDA and the data room go out by hand.
+          Investors who signed the NDA on the investor site, newest first. Each
+          one received a personal data-room link by email.
+        </p>
+      </div>
+      {error ? null : ndas.length === 0 ? (
+        <p className="text-slate-600">No signatures yet.</p>
+      ) : (
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+          <table className="w-full text-sm">
+            <thead className="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-4 py-2">Name</th>
+                <th className="px-4 py-2">Firm</th>
+                <th className="px-4 py-2">Signed</th>
+                <th className="px-4 py-2">Opened</th>
+                <th className="px-4 py-2">Version</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ndas.map((n) => (
+                <tr key={n.id} className="border-t border-slate-100">
+                  <td className="px-4 py-2">
+                    <div className="font-medium">{n.name}</div>
+                    <a
+                      href={`mailto:${n.email}`}
+                      className="text-brand-700 hover:underline"
+                    >
+                      {n.email}
+                    </a>
+                  </td>
+                  <td className="px-4 py-2 text-slate-600">{n.firm ?? '—'}</td>
+                  <td className="px-4 py-2 text-slate-600">
+                    {dmy(n.signedAt)}
+                  </td>
+                  <td className="px-4 py-2 text-slate-600">
+                    {n.revokedAt
+                      ? 'Revoked'
+                      : n.openCount === 0
+                        ? 'Not yet'
+                        : `${n.openCount}× · last ${dmy(n.lastOpenedAt!)}`}
+                  </td>
+                  <td className="px-4 py-2 text-slate-600">{n.ndaVersion}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      <div className="mt-4">
+        <h2 className="text-xl font-bold">Introduction requests</h2>
+        <p className="text-slate-600">
+          From the investor site&apos;s contact form, newest first. Each one was
+          acknowledged by email.
         </p>
       </div>
       {error ? null : requests.length === 0 ? (

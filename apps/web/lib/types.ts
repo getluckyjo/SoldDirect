@@ -67,3 +67,17 @@ export interface LeadRow {
   whatsappConsentAt: string | null;
   createdAt: string;
 }
+
+/** A signed investor NDA, as the API's `/api/dataroom/nda` lists it. */
+export interface NdaRow {
+  id: string;
+  name: string;
+  email: string;
+  firm: string | null;
+  ndaVersion: string;
+  signedAt: string;
+  firstOpenedAt: string | null;
+  lastOpenedAt: string | null;
+  openCount: number;
+  revokedAt: string | null;
+}

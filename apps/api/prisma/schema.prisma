@@ -336,3 +336,36 @@ model WhatsAppOptOut {
 
   @@map("whatsapp_opt_outs")
 }
+
+/// A signed investor NDA for the data room. One row per signature: the
+/// investor's typed name is the signature (ECT Act electronic signature),
+/// alongside the NDA version shown, the time, IP and user agent as the
+/// evidence of signing. The personal data-room link is a random token whose
+/// hash lives here; redeeming it verifies the email address and opens a
+/// personal session on the investor site. POPIA: name, email and firm exist to
+/// identify the counterparty to the NDA; IP and user agent to evidence the
+/// signature. Nothing else is kept.
+model DataroomNda {
+  id             String    @id @default(cuid())
+  name           String
+  email          String
+  firm           String?
+  ndaVersion     String
+  signedAt       DateTime  @default(now())
+  ip             String?
+  userAgent      String?
+  /// SHA-256 of the personal link token (the token itself is only ever in the email).
+  tokenHash      String    @unique
+  tokenExpiresAt DateTime
+  /// First and most recent redemption of the link, and how many times.
+  firstOpenedAt  DateTime?
+  lastOpenedAt   DateTime?
+  openCount      Int       @default(0)
+  /// Set to withdraw access: the link stops working at once.
+  revokedAt      DateTime?
+  createdAt      DateTime  @default(now())
+
+  @@index([email])
+  @@index([signedAt])
+  @@map("dataroom_ndas")
+}

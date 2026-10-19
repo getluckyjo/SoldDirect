@@ -3,6 +3,7 @@ import { Gate } from '@/components/dataroom/Gate';
 import {
   dataroomConfigured,
   isAuthorised,
+  ndaConfigured,
   safeNext,
 } from '@/lib/dataroom-auth';
 import {
@@ -17,15 +18,17 @@ export const dynamic = 'force-dynamic';
 export default async function DataroomIndex({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string; next?: string }>;
+  searchParams: Promise<{ error?: string; next?: string; sent?: string }>;
 }) {
-  const { error, next } = await searchParams;
+  const { error, next, sent } = await searchParams;
   if (!(await isAuthorised())) {
     return (
       <Gate
         next={safeNext(next)}
         error={error}
-        configured={dataroomConfigured()}
+        sent={sent === '1'}
+        ndaOpen={ndaConfigured()}
+        passwordOpen={dataroomConfigured()}
       />
     );
   }
