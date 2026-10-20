@@ -98,7 +98,7 @@ practitioner (R30k) and one agent/admin (R20k), released against signed mandates
 the start of Y2 to be conservative on cost: six people, R2.29m. From Y3 headcount steps up to 11
 once the business is self-funding, founders move to market pay, and the ramp runs to 48 by Y5.
 Capacity is the thing to watch: 110 registered deals in Y2 on six people is ~18 deals per head
-per year, which leans on the platform doing the admin. The milestone tranches and mandate-gated
+per year, which leans on the platform doing the admin. The phased deployment and mandate-gated
 hiring are the release valve if volume outruns the team.
 - The **in-house origination cost line** (bond-consultant cost per bonded deal + a bank-aggregation /
   licensing base + a one-off R1.5m Y2 setup) is modelled explicitly and nets against the uplift.

@@ -65,7 +65,7 @@ export const DATAROOM_ENTRIES: DataroomEntry[] = [
     file: '04-indicative-term-sheet.md',
     title: 'Indicative term sheet',
     blurb:
-      'Seed terms on one page: R5m for 20%, tranched against milestones, 1× non-participating preference, lead board seat and founder reverse-vesting. Cap table at closing and the team.',
+      'Seed terms on one page: R5m for 20% in ordinary shares, a priced round with a single closing, founder-led board and quarterly reporting. Cap table at closing and the team.',
     kind: 'doc',
   },
   {

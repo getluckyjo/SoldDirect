@@ -58,8 +58,8 @@ headline-sponsorship** fee; (4) an **optional ecosystem-revenue** layer (the dat
 - **Capital:** a four-person launch team at R150k/month for Y1–Y2, remote-first, with Paysoft's
   free-development allocation carrying the build. The **R5m seed (at R20m pre-money, 20%)**
   covers the cash trough in every scenario, with ~R1.5m to spare in the conservative case on a
-  monthly view; the balance is launch and growth capital, deployed in two milestone tranches
-  (Capital and valuation, §1).
+  monthly view; the balance is launch and growth capital, deployed in two phases as the launch
+  proves itself (Capital and valuation, §1).
 - **Valuation:** Year-5 enterprise value **~R345–518m** (4–6×); base exit **~R432m** (5×).
 - **Cap table:** **Johannes le Roux 32.5% · Dean Kruger 32.5% · Paysoft (technology partner,
   vesting) 10% · option pool (reserved) 4% · board seat (reserved, non-executive) 1% · Strategic

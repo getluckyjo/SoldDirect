@@ -38,7 +38,7 @@ Post-money **R25m**.
 
 **Runway check (live on the Scenarios tab):** with the R5m seed injected at Y1 and Series A at
 Y3, the seed alone covers the trough in every scenario (the table above); the Series A is
-offence, not survival. The seed is deployed in two milestone tranches (see the Indicative term
+offence, not survival. The seed is deployed in two phases (see the Indicative term
 sheet) so the spend tracks the ramp, and every hire beyond the founding four is released only
 against signed mandates.
 

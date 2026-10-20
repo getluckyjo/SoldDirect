@@ -330,7 +330,7 @@ export const TEAM_DETAIL = {
 export const ASK_SECTION = {
   heading: 'R5m for 20%.',
   intro:
-    'R5m at a R20m pre-money valuation, deployed in two tranches. The round covers the modelled cash trough in every scenario; the balance funds the Cape Town launch.',
+    'R5m at a R20m pre-money valuation: a priced round in ordinary shares, closed once subscribed. The round covers the modelled cash trough in every scenario; the balance funds the Cape Town launch.',
   // source: Use of Funds tab of the model
   useOfFunds: [
     { item: 'Cape Town launch and brand campaign', amount: 'R2.0m' },
@@ -348,10 +348,10 @@ export const ASK_SECTION = {
   ],
   // source: docs/dataroom/04-indicative-term-sheet.md
   terms: [
-    'Preference shares, 1× non-participating',
-    'Two tranches: R2.5m at closing, R2.5m on milestones',
-    'Lead investor takes the board seat',
-    'Founder shares reverse-vest over 36 months',
+    'Ordinary shares, the same class the founders hold',
+    'Priced round: R20m pre-money, single closing once R5m is subscribed',
+    'Founder-led board; quarterly shareholder reporting',
+    'Both founders full-time and exclusive; IP owned by the company',
   ],
 } as const;
 
