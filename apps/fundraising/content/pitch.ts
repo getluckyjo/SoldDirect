@@ -351,7 +351,7 @@ export const ASK_SECTION = {
     'Ordinary shares, the same class the founders hold',
     'Priced round: R20m pre-money, single closing once R5m is subscribed',
     'Founder-led board; quarterly shareholder reporting',
-    'Founders run the business at 120+ hours a month each for R50k; IP owned by the company',
+    'Founders run the business at 120+ hours a month each for R60k; IP owned by the company',
   ],
 } as const;
 

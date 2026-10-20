@@ -102,7 +102,7 @@ steering).
 | One-off setup / licensing (Y2 only) | **~R1.5m** | accreditation, systems, bank onboarding | Low |
 
 > Net effect (base): the Year-2 origination uplift outweighs the added cost + setup; with the
-> no conveyancing referral income and tax applied, **Y5 revenue is ~R86.4m** and the cumulative after-tax cash low-point is **~−R1.1m
+> no conveyancing referral income and tax applied, **Y5 revenue is ~R86.4m** and the cumulative after-tax cash low-point is **~−R1.5m
 > (Y2, annual proxy)** on the launch team (§D), with EBITDA-positive in **Y3**.
 
 **Reinvest-for-growth stance.** The base case **reinvests the high gross margin into above-the-line
@@ -126,11 +126,11 @@ carry-forward modelled — conservative) and a delivery-realistic **total headco
 (half the roles automated). The cash-runway check that sizes the seed against the trough in
 every scenario is in Capital and valuation, §1.
 
-**The launch team (Y1–Y2).** Four people at R150k/month (R1.80m/yr + ~R0.05m statutory),
+**The launch team (Y1–Y2).** Four people at R170k/month (R2.04m/yr + ~R0.05m statutory),
 remote-first with no office lease (co-working passes; viewings at the property); Y2 adds one
-practitioner and one agent/admin against signed mandates (six people, R2.29m). Paysoft's
+practitioner and one agent/admin against signed mandates (six people, R2.53m). Paysoft's
 free-development allocation and cloud/BSP startup credits carry the build and tooling. Y1–Y2
-opex: **R5.85m / R11.60m**. Statutory on-costs (UIF, SDL, COIDA) are small at this payroll size;
+opex: **R6.09m / R11.84m**. Statutory on-costs (UIF, SDL, COIDA) are small at this payroll size;
 no 13th cheque or benefits are modelled for Y1–Y2. Roles, salaries and what each carries are in
 the Financial model, §3.
 

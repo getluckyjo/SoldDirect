@@ -9,21 +9,21 @@ free-development allocation to an agreed value**, vesting as that value is deliv
 
 ## 1. Capital requirement (bottom-up)
 
-With a four-person launch team at R150k/month for Y1–Y2 (Financial model, §3), remote-first,
+With a four-person launch team at R170k/month for Y1–Y2 (Financial model, §3), remote-first,
 and Paysoft's free-development allocation carrying the build, the model turns
-**EBITDA-positive in Y3** and the annual cumulative after-tax cash low-point is **≈ −R1.1m
-(Y2)**. On a monthly view the trough is deeper — **roughly −R3m**
+**EBITDA-positive in Y3** and the annual cumulative after-tax cash low-point is **≈ −R1.5m
+(Y2)**. On a monthly view the trough is deeper — **roughly −R3.5m**
 while the team and launch marketing run ahead of registrations. What the R5m seed leaves at the
 lowest point:
 
 | | Conservative | Base | Aggressive |
 |---|---:|---:|---:|
-| Cumulative cash low-point (annual proxy) | ~R1.5m (Y3) | **~R1.1m (Y2)** | ~R0.02m |
-| **Minimum cash with the R5m seed** (annual proxy) | **~+R3.5m** | **~+R3.9m** | ~+R5.0m |
-| Minimum cash on a monthly view (≈ R2m lower) | **~+R1.5m** | **~+R2m** | ~+R3m |
+| Cumulative cash low-point (annual proxy) | ~R1.8m (Y3) | **~R1.5m (Y2)** | ~R0.3m |
+| **Minimum cash with the R5m seed** (annual proxy) | **~+R3.2m** | **~+R3.5m** | ~+R4.7m |
+| Minimum cash on a monthly view (≈ R2m lower) | **~+R1.2m** | **~+R1.5m** | ~+R2.7m |
 
 Live on the Scenarios tab of the workbook. The seed clears the trough in **all three
-scenarios**, the conservative case with about R1.5m to spare on the monthly view, so no
+scenarios**, the conservative case with about R1.2m to spare on the monthly view, so no
 top-up, bridge or earlier Series A is required for survival. The balance of the seed is growth
 capital: it funds the Cape Town launch campaign and lets Y2 marketing scale ahead of revenue.
 

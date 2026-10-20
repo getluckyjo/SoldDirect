@@ -55,25 +55,25 @@ down-market. Layered on top, the **origination rate steps up from 0.5% (Y1, Bett
 | **Total revenue** | **6.14** | **12.48** | **26.51** | **51.51** | **86.35** |
 | COGS (~12%) | (0.74) | (1.50) | (3.18) | (6.18) | (10.36) |
 | **Gross profit** | **5.41** | **10.98** | **23.33** | **45.33** | **75.99** |
-| Payroll *(launch team Y1–Y2; automated roles from Y3)* | 1.85 | 2.29 | 4.88 | 11.39 | 22.30 |
+| Payroll *(launch team Y1–Y2; automated roles from Y3)* | 2.09 | 2.53 | 4.88 | 11.39 | 22.30 |
 | Marketing (above-the-line) | 2.50 | 4.00 | 9.00 | 16.00 | 25.00 |
 | Tech & tools | 0.45 | 0.90 | 1.80 | 2.80 | 4.00 |
 | Legal / compliance / insurance | 0.70 | 1.00 | 1.50 | 2.20 | 3.00 |
 | G&A / office / other | 0.35 | 0.85 | 1.80 | 3.20 | 4.50 |
 | **Bond origination (in-house)** | **—** | **2.56** | **1.78** | **3.09** | **5.15** |
-| **Total operating expenses** | **5.85** | **11.60** | **20.76** | **38.68** | **63.95** |
-| **EBITDA** | **(0.44)** | **(0.62)** | **2.57** | **6.65** | **12.04** |
+| **Total operating expenses** | **6.09** | **11.84** | **20.76** | **38.68** | **63.95** |
+| **EBITDA** | **(0.68)** | **(0.86)** | **2.57** | **6.65** | **12.04** |
 | EBITDA margin | — | — | 10% | 13% | **14%** |
 | **Tax (27%, positive EBITDA only)** | — | — | (0.69) | (1.80) | (3.25) |
-| **EBITDA after tax** | (0.44) | (0.62) | **1.87** | **4.86** | **8.79** |
-| **Cumulative after tax (cash proxy)** | **(0.44)** | **(1.06)** | 0.81 | 5.67 | 14.46 |
+| **EBITDA after tax** | (0.68) | (0.86) | **1.87** | **4.86** | **8.79** |
+| **Cumulative after tax (cash proxy)** | **(0.68)** | **(1.54)** | 0.33 | 5.19 | 13.98 |
 
-- **EBITDA-positive in Y3**; cumulative after-tax cash low-point **≈ −R1.1m (Y2)** on the annual
-  proxy, cumulative positive from **Y2**.
+- **EBITDA-positive in Y3**; cumulative after-tax cash low-point **≈ −R1.5m (Y2)** on the annual
+  proxy, cumulative positive from **Y3**.
 - **The annual proxy understates the intra-year trough.** With the launch team in place from
   month 1, marketing front-loaded and the first registrations ~3–4 months behind the first
   mandates (a South African transfer takes ~3 months after the offer), the **monthly cash
-  low-point sits well below the annual −R1.1m — roughly −R3m** before revenue
+  low-point sits well below the annual −R1.5m — roughly −R3.5m** before revenue
   catches up. The R5m seed is sized against that monthly trough, not the annual figure
   (Capital and valuation, §1).
 
@@ -82,20 +82,20 @@ down-market. Layered on top, the **origination rate steps up from 0.5% (Y1, Bett
 Four people run the business to breakeven, so the R5m seed covers the cash trough in every
 scenario, the conservative case included, with headroom (§4 and Capital and valuation, §1).
 
-**The Y1 team (4 people, R150k/month, R1.80m/yr + ~R0.05m statutory):**
+**The Y1 team (4 people, R170k/month, R2.04m/yr + ~R0.05m statutory):**
 
 | Role | Monthly | Annual | Carries |
 |---|---:|---:|---|
-| Managing Director (founder) | R50k | R600k | Management, dealmaking, partnerships, bookkeeping, tech support |
-| Marketing Director (founder) | R50k | R600k | All marketing and the seller funnel, dealmaking, tech support |
+| Managing Director (founder) | R60k | R720k | Management, dealmaking, partnerships, bookkeeping, tech support |
+| Marketing Director (founder) | R60k | R720k | All marketing and the seller funnel, dealmaking, tech support |
 | Principal practitioner & compliance (PPRA / FFC) | R30k | R360k | Mandates, offers, transfer oversight; the firm's Fidelity Fund Certificate |
 | Agent / admin | R20k | R240k | Viewings, document chasing, concierge |
-| **Total** | **R150k** | **R1.80m** | |
+| **Total** | **R170k** | **R2.04m** | |
 
 No agency, no finance hire, no in-house developer: Paysoft carries the build under its
 free-development allocation, and the company runs remote-first with no office lease. Y2 adds one
 practitioner (R30k) and one agent/admin (R20k), released against signed mandates and modelled from
-the start of Y2 to be conservative on cost: six people, R2.29m. From Y3 headcount steps up to 11
+the start of Y2 to be conservative on cost: six people, R2.53m. From Y3 headcount steps up to 11
 once the business is self-funding, founders move to market pay, and the ramp runs to 48 by Y5.
 Capacity is the thing to watch: 110 registered deals in Y2 on six people is ~18 deals per head
 per year, which leans on the platform doing the admin. The phased deployment and mandate-gated
@@ -117,8 +117,8 @@ hiring are the release valve if volume outruns the team.
 | Y5 EBITDA | 1.3 | **12.0** | 50.0 |
 | Y5 EBITDA margin | 2% | **14%** | 34% |
 | First EBITDA-positive year | Y4 | **Y3** | Y2 |
-| Cumulative cash low-point (annual proxy) | ~−R1.5m (Y3) | **~−R1.1m (Y2)** | ~−R0.02m |
-| **Minimum cash with the R5m seed (annual proxy)** | **~+R3.5m** | **~+R3.9m** | ~+R5.0m |
+| Cumulative cash low-point (annual proxy) | ~−R1.8m (Y3) | **~−R1.5m (Y2)** | ~−R0.3m |
+| **Minimum cash with the R5m seed (annual proxy)** | **~+R3.2m** | **~+R3.5m** | ~+R4.7m |
 | Implied share of upper-market (Y5) | 2.7% | **4.1%** | 6.9% |
 
 All three columns are live on the Scenarios tab of `sold-direct-model.xlsx`. The conservative
