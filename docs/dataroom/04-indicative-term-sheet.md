@@ -19,9 +19,9 @@ and the Capital and valuation documents.
 | Board | **Founder-led:** the two founders, plus the reserved 1% non-executive seat for a strategic appointee the board agrees on. Investor engagement is through reporting and the shareholders meeting |
 | Reporting | **Quarterly shareholder letter** with management accounts and KPIs (mandates, registrations, origination); annual financial statements |
 | Shareholder protections | Those of the Companies Act, 2008 and a conventional shareholders agreement, including pro rata rights on new issues for all shareholders |
-| Founder commitment | Both founders full-time and exclusive to Sold Direct. All brand, product and platform IP is owned by the company |
-| Founder pay | R50k/month each until the business is self-funding, then market pay set by the board (Financial model, §3) |
-| Launch team | Four people at R150k/month until self-funding — the two founders, a principal practitioner & compliance lead, and an agent/admin — remote-first, with Paysoft's free-development allocation carrying the build. EBITDA-positive in Y3 (base); the seed covers the cash trough in every modelled scenario (Capital and valuation, §1) |
+| Founder commitment | The founders run the business: each commits **at least 120 hours a month** to Sold Direct for **R50k/month**, with the rest of their time their own. All brand, product and platform IP created for the business is owned by the company |
+| Founder pay | R50k/month each for the 120-hour commitment until the business is self-funding, then market pay set by the board (Financial model, §3) |
+| Launch team | Four people at R150k/month until self-funding — the two founders at 120+ hours a month each, a principal practitioner & compliance lead, and an agent/admin — remote-first, with Paysoft's free-development allocation carrying the build. EBITDA-positive in Y3 (base); the seed covers the cash trough in every modelled scenario (Capital and valuation, §1) |
 | Technology partner | Paysoft's 10% **vests** against preferred development rates plus a free-development allocation to an agreed value — vendor equity is earned, not granted |
 | Option pool | 4% reserved and unissued for the early team, including the principal practitioner who enables the Fidelity Fund Certificate; granted at the board's discretion |
 | Use of funds | Cape Town launch + brand campaign · technology-augmented team (concierge + PPRA-registered practitioners) · in-house origination accreditation (FAIS/FSP + bank agreements) · platform integrations |
@@ -33,7 +33,7 @@ This is a seed investment into a four-person team at inception. The plan in this
 the founders' plan, built bottom-up and reviewed by our chartered accountant, and the pilot
 will teach us things the model cannot. The terms keep the founders free to act on what they
 learn: one share class so every holder is aligned on the same outcome, a founder-led board
-so decisions are made quickly by the people doing the work, and reporting that keeps
+so decisions are made quickly by the people running the business, and reporting that keeps
 investors fully informed without turning the plan into a covenant. The valuation sits
 deliberately below the comps range (Capital and valuation, §2c): the price is the investor's
 reward for coming in at inception.
@@ -63,7 +63,7 @@ founder who has done it with his own companies.
 the concierge and WhatsApp platform at preferred rates plus a free-development allocation, with
 equity vesting only as that value is delivered.
 
-Both founders work the business full-time. The technology does the admin; PPRA-registered practitioners
+Both founders run the business, at a minimum of 120 hours a month each. The technology does the admin; PPRA-registered practitioners
 (employed) stay in the loop on every deal.
 
 ## Process
