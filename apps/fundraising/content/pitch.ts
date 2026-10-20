@@ -307,6 +307,7 @@ export const TEAM_DETAIL = {
       name: 'Dean Kruger',
       role: 'Co-founder · Managing Director',
       initials: 'DK',
+      photo: '/team/dean.jpg',
       bio: 'Architecture, UCT. Commercial architect; lead on the Babylonstoren development. Responsible for delivery, partnerships and the transfer operation.',
     },
     {
