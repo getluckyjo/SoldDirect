@@ -37,6 +37,9 @@ employ registered practitioners ourselves. Every piece of copy must follow these
 6. **Never "AI" in investor or consumer copy** — the line is "the latest technology, trained on
    50 years of South African property transactions". The concierge is "the concierge". Founder
    rule, Oct 2026 (code and internal docs may still say AI).
+8. **Emails from Johannes sign off with "Best"** — never "Warm regards" or "Best regards".
+   Applies to every email drafted or sent on his behalf, including partner and investor
+   outreach. Founder rule, Oct 2026.
 
 ## MVP scope (build in this order)
 
