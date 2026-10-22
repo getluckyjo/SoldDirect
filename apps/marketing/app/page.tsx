@@ -109,7 +109,6 @@ const AFTER_SALE = {
 // White-on-transparent PNGs shared with the investor site; rendered dark on
 // this light page with a CSS filter.
 const PARTNERS = [
-  { name: 'BetterBond', src: '/partners/betterbond.png', width: 911 },
   { name: 'LOOM', src: '/partners/loom.png', width: 489 },
   { name: 'Paysoft', src: '/partners/paysoft.png', width: 564 },
   { name: 'Property24', src: '/partners/property24.png', width: 911 },
