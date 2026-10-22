@@ -408,7 +408,7 @@ export const SCENES: Scene[] = [
     track: 0,
     from: 'bot',
     kind: 'text',
-    text: 'Two ways to sell, Maria:\n\n🟢 0% — an exclusive mandate for the term you choose; the buyer’s bond goes through BetterBond and a panel conveyancer handles the transfer. The bank pays us, not you.\n🔵 Flex — 1% of the sale price, no exclusivity.',
+    text: 'Two ways to sell, Maria:\n\n🟢 0% — an exclusive mandate for the term you choose; the buyer’s bond goes through our origination partner and a panel conveyancer handles the transfer. The bank pays us, not you.\n🔵 Flex — 1% of the sale price, no exclusivity.',
     options: {
       items: ['🟢 0% — exclusive', '🔵 Flex — 1%'],
       picked: '🟢 0% — exclusive',
@@ -565,7 +565,7 @@ export const SCENES: Scene[] = [
     track: 1,
     from: 'bot',
     kind: 'text',
-    text: 'Want to know exactly what you can afford — and make a stronger offer? BetterBond can pre-qualify you for a home loan in about two minutes. Free, no obligation.',
+    text: 'Want to know exactly what you can afford — and make a stronger offer? Our origination partner can pre-qualify you for a home loan in about two minutes. Free, no obligation.',
     options: {
       items: ['Yes, pre-qualify me', 'Just book a viewing', 'Talk to our team'],
       picked: 'Yes, pre-qualify me',
@@ -582,10 +582,10 @@ export const SCENES: Scene[] = [
     track: 1,
     from: 'bot',
     kind: 'text',
-    text: 'Great — this is handled securely by BetterBond, our bond origination partner. A few questions on income, expenses and deposit, plus consent for a credit check.',
+    text: 'Great — this is handled securely by our bond origination partner. A few questions on income, expenses and deposit, plus consent for a credit check.',
     note: {
       tag: 'Revenue',
-      title: 'Bond origination referral (BetterBond)',
+      title: 'Bond origination referral',
       body: 'A consented hand-off to the origination partner. The lender pays an origination share on a successful bond, at no cost to the buyer or seller. This is the principal revenue line.',
     },
   },
@@ -717,11 +717,11 @@ export const SCENES: Scene[] = [
     track: 3,
     from: 'bot',
     kind: 'text',
-    text: 'Now I’ll submit John’s bond application to several banks at once via BetterBond, to secure the best rate.',
+    text: 'Now I’ll submit John’s bond application to several banks at once via our origination partner, to secure the best rate.',
     note: {
       tag: 'Finance',
       title: 'Multi-bank bond application',
-      body: 'BetterBond submits to several banks at once and negotiates the rate, which has historically produced better terms than a single-bank application.',
+      body: 'Our origination partner submits to several banks at once and negotiates the rate, which has historically produced better terms than a single-bank application.',
     },
   },
   {

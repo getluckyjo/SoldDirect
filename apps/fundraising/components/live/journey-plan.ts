@@ -39,7 +39,7 @@ export const JOURNEY: readonly JourneyStep[] = [
     id: 'prequal',
     title: 'The buyer pre-qualifies',
     detail:
-      'They consent to a free bond pre-qualification with BetterBond, our multi-bank originator.',
+      'They consent to a free bond pre-qualification with our multi-bank origination partner.',
     day: 2,
   },
   {
@@ -61,7 +61,7 @@ export const JOURNEY: readonly JourneyStep[] = [
     id: 'bond',
     title: 'OTP signed · bond granted',
     detail:
-      'Both parties e-sign. BetterBond places the bond and the bank approves it.',
+      'Both parties e-sign. Our origination partner places the bond and the bank approves it.',
     day: 18,
   },
   {

@@ -98,7 +98,7 @@ export const CONCEPT_SECTION = {
       lead: 'The lender pays. The seller pays 0%* on the qualifying path.',
       points: [
         'A bonded purchase carries an origination fee paid by the lender; Sold Direct earns it.',
-        'Through BetterBond in Year 1; as an originator in its own right from Year 2, at about three times the rate.',
+        'Through a referral originator in Year 1; as an originator in its own right from Year 2, at about three times the rate.',
         'Cash or non-partner transactions pay a disclosed 1% facilitation fee.',
       ],
     },
@@ -143,9 +143,9 @@ export const MODEL_DETAIL = {
   ] satisfies KeyPoint[],
   originationStep: {
     y1: {
-      label: 'Year 1 — BetterBond referral',
+      label: 'Year 1 — originator referral',
       rate: '0.5% of the bond',
-      body: 'Qualifying bonds of 80% or more are placed through BetterBond, a registered multi-bank originator. The buyer retains full choice of lender; the lender pays the fee.',
+      body: 'Qualifying bonds of 80% or more are placed through a registered multi-bank originator. The buyer retains full choice of lender; the lender pays the fee.',
     },
     y2: {
       label: 'Year 2 onward — origination in-house',
@@ -174,7 +174,7 @@ export const MODEL_DETAIL = {
   perDeal: {
     heading: 'Blended revenue per registered transaction',
     rows: [
-      { year: 'Y1', value: 'R55.7k', note: 'BetterBond referral' },
+      { year: 'Y1', value: 'R55.7k', note: 'Originator referral' },
       { year: 'Y2', value: 'R70.6k', note: 'Origination in-house' },
       { year: 'Y5', value: 'R52.4k', note: 'Price taper' },
     ],
@@ -271,7 +271,6 @@ export const TRACTION_DETAIL = {
     'Typed end to end, automated tests, continuous integration; privacy by design under the Protection of Personal Information Act (POPIA)',
   ],
   partners: [
-    { name: 'BetterBond', role: 'Bond origination (Year 1 referral)' },
     { name: 'LOOM', role: 'Property data for estimates and reports' },
     { name: 'Capture Media', role: 'Listing photography and video' },
     { name: 'Paysoft', role: 'Technology partner (vesting equity)' },
@@ -341,7 +340,7 @@ export const ASK_SECTION = {
       amount: 'R0.5m',
     },
     {
-      item: 'Partnerships: BetterBond, conveyancers, bank sponsor, Property24',
+      item: 'Partnerships: bond originator, conveyancers, bank sponsor, Property24',
       amount: 'R0.4m',
     },
     { item: 'Working capital and contingency', amount: 'R0.4m' },
@@ -377,7 +376,7 @@ export const CALCULATOR = {
 export const FAQ = [
   {
     q: 'Why is 0% commission sustainable?',
-    a: 'Because the revenue comes from the lender rather than the seller. Origination earns 0.5% of the bond through BetterBond in Year 1 and about 1.5% in-house from Year 2, and the platform keeps the cost of handling each transaction low. Non-qualifying transactions pay a disclosed 1% fee.',
+    a: 'Because the revenue comes from the lender rather than the seller. Origination earns 0.5% of the bond through a referral originator in Year 1 and about 1.5% in-house from Year 2, and the platform keeps the cost of handling each transaction low. Non-qualifying transactions pay a disclosed 1% fee.',
   },
   {
     q: 'What is the position on estate agents?',
@@ -493,12 +492,6 @@ export const COMMUNITY_NOTE = {
 export const PARTNER_LOGOS = {
   heading: 'Our Partners',
   logos: [
-    {
-      name: 'BetterBond',
-      src: '/partners/betterbond.png',
-      width: 911,
-      height: 160,
-    },
     { name: 'LOOM', src: '/partners/loom.png', width: 489, height: 160 },
     { name: 'Paysoft', src: '/partners/paysoft.png', width: 564, height: 160 },
     {

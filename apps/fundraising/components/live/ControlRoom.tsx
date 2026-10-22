@@ -608,7 +608,7 @@ export function ControlRoom({
             <span>
               The buyer is scripted, and the price data is illustrative until
               the LOOM feed is connected. Property24 syndication and the
-              BetterBond referral are stubs that log instead of sending.
+              originator referral are stubs that log instead of sending.
             </span>
           </li>
         </ul>
